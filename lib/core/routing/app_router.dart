@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import '../../features/home/ui/home_screen.dart';
+import '../../features/login/ui/widgets/login_screen.dart';
+import '../../features/sign_up/ui/sign_up_screen.dart';
+import 'routes.dart';
+
+class AppRouter {
+  Route generateRoute(RouteSettings settings) {
+    //this arguments to be passed in any screen like this ( arguments as ClassName )
+    // ignore: unused_local_variable
+    final arguments = settings.arguments;
+
+    switch (settings.name) {
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
+        );
+      case Routes.signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignupScreen(),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
+        );
+      default:
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('No route defined for ${settings.name}'),
+            ),
+          ),
+        );
+    }
+  }
+}
