@@ -16,6 +16,7 @@ class SignupForm extends StatefulWidget {
 
 class _SignupFormState extends State<SignupForm> {
   bool isObscureText = true;
+  bool confirmtIsObscureText = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController userNameController = TextEditingController();
@@ -41,6 +42,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(15),
           AppTextFormField(
             hintText: 'Email',
+            keyboardType: TextInputType.emailAddress,
             controller: emailController,
             validator: (value) {
               if (value == null ||
@@ -53,6 +55,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(15),
           AppTextFormField(
             hintText: 'Phone number',
+            keyboardType: TextInputType.number,
             controller: phoneController,
             validator: (value) {
               if (value == null ||
@@ -66,6 +69,17 @@ class _SignupFormState extends State<SignupForm> {
           AppTextFormField(
             hintText: 'Password',
             controller: passwordController,
+            isObscureText: isObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isObscureText = !isObscureText;
+                });
+              },
+              child: Icon(
+                isObscureText ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
@@ -77,6 +91,17 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(15),
           AppTextFormField(
             hintText: 'Confirm password',
+            isObscureText: confirmtIsObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  confirmtIsObscureText = !confirmtIsObscureText;
+                });
+              },
+              child: Icon(
+                confirmtIsObscureText ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||

@@ -37,7 +37,7 @@ class AppTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      keyboardType: keyboardType,
+      keyboardType: keyboardType ?? TextInputType.name,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contentPadding ??
