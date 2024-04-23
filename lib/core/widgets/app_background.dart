@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../helpers/spacing.dart';
 import '../theming/colors.dart';
-import 'custom_app_bar.dart';
+import '../theming/styles.dart';
 
 class AppBackground extends StatelessWidget {
   const AppBackground({
     super.key,
-    required this.body,
+    required this.body, this.appBarTitle, this.appBarIcon, this.appBarOnPressed,
   });
   final Widget body;
+  final String? appBarTitle;
+  final Icon? appBarIcon;
+  final VoidCallback? appBarOnPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,8 +25,20 @@ class AppBackground extends StatelessWidget {
             child: Column(
               children: [
                 verticalSpace(50),
-                const CustomAppBar(
-                  title: 'Login',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                      onPressed: appBarOnPressed,
+                      icon: appBarIcon ?? const SizedBox(),
+                    ),
+                    Text(
+                      appBarTitle ?? '',
+                      style: TextStyles.font30White400Weight,
+                    ),
+                    horizontalSpace(1),
+                    const SizedBox(),
+                  ],
                 ),
                 verticalSpace(45),
                 Expanded(
