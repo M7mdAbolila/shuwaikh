@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';
-import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
-import 'package:shuwaikh/core/widgets/app_auth_button.dart';
 import 'package:shuwaikh/features/login/ui/widgets/social_login_button.dart';
 import '../../../../core/helpers/spacing.dart';
 import 'dont_have_account.dart';
@@ -37,13 +34,6 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             ),
             verticalSpace(50),
             const EmailAndPassword(),
-            verticalSpace(85),
-            AppAuthButton(
-              text: 'Sign In',
-              onTap: () {
-                context.pushNamed(Routes.otp);
-              },
-            ),
             verticalSpace(31),
             const DontHaveAccont(),
             verticalSpace(40),
