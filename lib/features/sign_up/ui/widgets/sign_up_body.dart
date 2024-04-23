@@ -40,6 +40,7 @@ class SignupScreenBody extends StatelessWidget {
             const SignupForm(),
             verticalSpace(40),
             const HaveAnAccountText(),
+            verticalSpace(40),
           ],
         ),
       ),
