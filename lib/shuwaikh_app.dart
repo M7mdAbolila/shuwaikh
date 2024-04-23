@@ -16,7 +16,7 @@ class ShuwaikhApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Shuwaikh',
         theme: ThemeData(
-          primaryColor: ColorsManger.blue,
+          primaryColor: ColorsManager.blue,
           fontFamily: kFontFamily,
         ),
         debugShowCheckedModeBanner: false,

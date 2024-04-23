@@ -59,32 +59,37 @@ class TextStyles {
   static TextStyle font16Gray400Weight = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
-    color: ColorsManger.gray,
+    color: ColorsManager.gray,
   );
   static TextStyle font10Gray500Weight = TextStyle(
     fontSize: 10.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManger.gray,
+    color: ColorsManager.gray,
   );
   // Blue Fonts
   static TextStyle font26Blue700Weight = TextStyle(
     fontSize: 26.sp,
     fontWeight: FontWeight.w700,
-    color: ColorsManger.blue,
+    color: ColorsManager.blue,
   );
   static TextStyle font18Blue500Weight = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManger.blue,
+    color: ColorsManager.blue,
   );
   static TextStyle font16Blue400Weight = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
-    color: ColorsManger.blue,
+    color: ColorsManager.blue,
+  );
+  static TextStyle font14Blue400Weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: ColorsManager.blue,
   );
   static TextStyle font11Blue500Weight = TextStyle(
     fontSize: 11.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManger.blue,
+    color: ColorsManager.blue,
   );
 }

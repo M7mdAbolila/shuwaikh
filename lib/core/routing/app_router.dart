@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
 import '../../features/home/ui/home_screen.dart';
-import '../../features/login/ui/widgets/login_screen.dart';
+import '../../features/login/ui/login_screen.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
 import 'routes.dart';
 
@@ -22,6 +23,10 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+        case Routes.otp:
+        return MaterialPageRoute(
+          builder: (_) => const OtpScreen(),
         );
       default:
         return MaterialPageRoute(
