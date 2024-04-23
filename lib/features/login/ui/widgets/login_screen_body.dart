@@ -18,7 +18,7 @@ class LoginScreenBody extends StatefulWidget {
 class _LoginScreenBodyState extends State<LoginScreenBody> {
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
       appBarTitle: 'Login',
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w),

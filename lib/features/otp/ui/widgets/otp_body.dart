@@ -16,7 +16,7 @@ class OtpScreenBody extends StatelessWidget {
   late String otpCode;
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
       appBarTitle: 'OTP Confirm',
       appBarIcon: const Icon(
         Icons.arrow_back,

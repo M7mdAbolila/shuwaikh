@@ -12,7 +12,7 @@ class SignupScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
       appBarTitle: 'Register',
       appBarIcon: const Icon(
         Icons.arrow_back,
