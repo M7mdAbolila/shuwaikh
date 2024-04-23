@@ -59,12 +59,12 @@ class TextStyles {
   static TextStyle font16Gray400Weight = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
-    color: ColorsManager.gray,
+    color: ColorsManager.grey,
   );
   static TextStyle font10Gray500Weight = TextStyle(
     fontSize: 10.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.gray,
+    color: ColorsManager.grey,
   );
   // Blue Fonts
   static TextStyle font26Blue700Weight = TextStyle(

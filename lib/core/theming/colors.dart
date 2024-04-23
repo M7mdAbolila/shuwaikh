@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class ColorsManager {
   // Gray
-  static const Color gray = Color(0xff9D9D9D);
-  static const Color darkGray = Color(0xff444444);
+  static const Color grey = Color(0xff9D9D9D);
+  static const Color darkGrey = Color(0xff444444);
   // blue
   static const Color mainBlue = Color(0xff3973Bf);
   static const Color blue = Color(0xff306ff6);
