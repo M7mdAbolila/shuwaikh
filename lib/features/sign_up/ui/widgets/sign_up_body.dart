@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/features/sign_up/ui/widgets/have_account_text.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_background.dart';
@@ -12,6 +14,11 @@ class SignupScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBackground(
       appBarTitle: 'Register',
+      appBarIcon: const Icon(
+        Icons.arrow_back,
+        color: Colors.white,
+      ),
+      appBarOnPressed: () => context.pop(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w),
         child: Column(
@@ -31,6 +38,8 @@ class SignupScreenBody extends StatelessWidget {
             ),
             verticalSpace(30),
             const SignupForm(),
+            verticalSpace(40),
+            const HaveAnAccountText(),
           ],
         ),
       ),
