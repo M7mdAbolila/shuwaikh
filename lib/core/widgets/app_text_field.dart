@@ -27,7 +27,8 @@ class AppTextFormField extends StatelessWidget {
     this.isObscureText,
     this.suffixIcon,
     this.controller,
-    required this.validator, this.prefixIcon,
+    required this.validator,
+    this.prefixIcon,
   });
 
   @override
@@ -44,7 +45,7 @@ class AppTextFormField extends StatelessWidget {
                 color: ColorsManager.mainBlue,
                 width: 1.3,
               ),
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(50),
             ),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
@@ -52,21 +53,21 @@ class AppTextFormField extends StatelessWidget {
                 color: ColorsManager.gray,
                 width: 1.3,
               ),
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(50),
             ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red,
             width: 1.3,
           ),
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(50),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red,
             width: 1.3,
           ),
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(50),
         ),
         hintStyle: hintStyle ?? TextStyles.font16Gray400Weight,
         hintText: hintText,
