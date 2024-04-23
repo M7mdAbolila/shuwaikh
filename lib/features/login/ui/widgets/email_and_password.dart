@@ -30,6 +30,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           AppTextFormField(
             hintText: 'Email',
             controller: emailController,
+            keyboardType: TextInputType.emailAddress,
             prefixIcon: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: SvgPicture.asset(
