@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 
 class TextStyles {
-  // White Fonts
+  // ========= White Fonts ============
   static TextStyle font36White700Weight = TextStyle(
     fontSize: 36.sp,
     fontWeight: FontWeight.w700,
@@ -29,7 +29,7 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: Colors.white,
   );
-  // Black Fonts
+  // ========== Black Fonts  ==============
   static TextStyle font30Black400Weight = TextStyle(
     fontSize: 30.sp,
     fontWeight: FontWeight.w400,
@@ -66,11 +66,16 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: ColorsManager.grey,
   );
-  // Blue Fonts
+  //  ======= Blue Fonts =========
   static TextStyle font26Blue700Weight = TextStyle(
     fontSize: 26.sp,
     fontWeight: FontWeight.w700,
     color: ColorsManager.blue,
+  );
+  static TextStyle font24MainBlue500Weight = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorsManager.mainBlue,
   );
   static TextStyle font18Blue500Weight = TextStyle(
     fontSize: 18.sp,
