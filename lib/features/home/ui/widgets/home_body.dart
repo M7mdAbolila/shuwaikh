@@ -5,6 +5,7 @@ import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
 import 'package:shuwaikh/features/home/ui/widgets/broduct_item.dart';
+import 'package:shuwaikh/features/home/ui/widgets/combo_widget.dart';
 import 'package:shuwaikh/features/home/ui/widgets/deal_item.dart';
 import '../../../../core/helpers/spacing.dart';
 import 'banner_list_view.dart';
@@ -29,13 +30,22 @@ class HomeScreenBody extends StatelessWidget {
             const CategorySection(
               catogoryName: 'New',
               item: BroductItem(),
+              itemCount: 8,
             ),
             verticalSpace(15),
             const CategorySection(
               catogoryName: 'Hot deals',
               item: DealItem(),
+              itemCount: 6,
             ),
             verticalSpace(30),
+            const CategorySection(
+              catogoryName: 'Combo',
+              height: 120,
+              item: ComboWidget(),
+              itemCount: 5,
+            ),
+            verticalSpace(40),
             Container(
               color: Colors.red,
               child: ListView.builder(

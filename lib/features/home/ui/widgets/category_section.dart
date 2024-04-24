@@ -5,11 +5,18 @@ import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 
 class CategorySection extends StatelessWidget {
-  const CategorySection(
-      {super.key, required this.catogoryName, this.seeAllOnTap, required this.item});
+  const CategorySection({
+    super.key,
+    required this.catogoryName,
+    this.seeAllOnTap,
+    required this.item,
+    this.height, required this.itemCount,
+  });
   final String catogoryName;
   final Widget item;
   final VoidCallback? seeAllOnTap;
+  final double? height;
+  final int itemCount;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -45,16 +52,16 @@ class CategorySection extends StatelessWidget {
         ),
         verticalSpace(15),
         SizedBox(
-      height: 220.h,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: 10,
-        itemBuilder: (BuildContext context, int index) {
-          return item;
-        },
-      ),
-    ),
+          height: height?.h ?? 220.h,
+          child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemCount: itemCount,
+            itemBuilder: (BuildContext context, int index) {
+              return item;
+            },
+          ),
+        ),
       ],
     );
   }
