@@ -6,4 +6,5 @@ class Assets {
   static const String menuIcon = 'assets/icons/menu_icon.svg';
   static const String banner = 'assets/images/Banner.png';
   static const String broduct = 'assets/images/broduct.png';
+  static const String voucher = 'assets/images/voucher_background.png';
 }

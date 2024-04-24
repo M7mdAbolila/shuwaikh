@@ -40,6 +40,11 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
+  static TextStyle font16Black500Weight = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
   static TextStyle font14Black400Weight = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
@@ -67,6 +72,11 @@ class TextStyles {
     color: ColorsManager.grey,
   );
   //  ======= Blue Fonts =========
+  static TextStyle font30MainBlue500Weight = TextStyle(
+    fontSize: 30.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorsManager.mainBlue,
+  );
   static TextStyle font26Blue700Weight = TextStyle(
     fontSize: 26.sp,
     fontWeight: FontWeight.w700,
@@ -82,7 +92,7 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: ColorsManager.blue,
   );
-   static TextStyle font18MainBlue500Weight = TextStyle(
+  static TextStyle font18MainBlue500Weight = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
     color: ColorsManager.mainBlue,
@@ -97,9 +107,19 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     color: ColorsManager.blue,
   );
+  static TextStyle font14LightBlue500weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorsManager.lightBlue,
+  );
   static TextStyle font11Blue500Weight = TextStyle(
     fontSize: 11.sp,
     fontWeight: FontWeight.w500,
     color: ColorsManager.blue,
+  );
+  static TextStyle font10DrakBlue400Weight = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w400,
+    color: ColorsManager.darkBlue,
   );
 }

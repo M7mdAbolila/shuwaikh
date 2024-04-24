@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
-import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
 import 'package:shuwaikh/features/home/ui/widgets/broduct_item.dart';
 import 'package:shuwaikh/features/home/ui/widgets/combo_widget.dart';
@@ -10,6 +9,7 @@ import 'package:shuwaikh/features/home/ui/widgets/deal_item.dart';
 import '../../../../core/helpers/spacing.dart';
 import 'banner_list_view.dart';
 import 'category_section.dart';
+import 'voucher_section.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -46,21 +46,8 @@ class HomeScreenBody extends StatelessWidget {
               itemCount: 5,
             ),
             verticalSpace(40),
-            Container(
-              color: Colors.red,
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 20,
-                itemBuilder: (BuildContext context, int index) {
-                  return Text(
-                    '$index',
-                    style: TextStyles.font30Black400Weight,
-                    textAlign: TextAlign.center,
-                  );
-                },
-              ),
-            ),
+            const VoucherSection(),
+            verticalSpace(20),
           ],
         ),
       ),
