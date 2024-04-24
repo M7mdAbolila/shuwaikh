@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../helpers/spacing.dart';
 import '../theming/colors.dart';
 import 'custom_app_bar.dart';
 
-class AppBackground extends StatelessWidget {
-  const AppBackground({
+class AppScaffold extends StatelessWidget {
+  const AppScaffold({
     super.key,
     required this.body,
   });
@@ -14,8 +13,10 @@ class AppBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: double.infinity,
       color: ColorsManager.mainBlue,
       child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
@@ -23,19 +24,15 @@ class AppBackground extends StatelessWidget {
               children: [
                 verticalSpace(50),
                 const CustomAppBar(
-                  title: 'Login',
+                  appBartitle: 'Login',
                 ),
                 verticalSpace(45),
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
-                    ),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30)),
                     child: body,
                   ),
                 ),

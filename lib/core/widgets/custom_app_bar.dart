@@ -3,18 +3,18 @@ import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, this.title, this.icon, this.onPressed});
-  final String? title;
-  final Icon? icon;
-  final VoidCallback? onPressed;
+  const CustomAppBar({super.key, this.appBartitle, this.appBaricon, this.appBaronPressed});
+  final String? appBartitle;
+  final Icon? appBaricon;
+  final VoidCallback? appBaronPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        IconButton(onPressed: onPressed, icon: icon ?? const SizedBox()),
+        IconButton(onPressed: appBaronPressed, icon: appBaricon ?? const SizedBox()),
         Text(
-          title ?? '',
+          appBartitle ?? '',
           style: TextStyles.font30White400Weight,
         ),
         horizontalSpace(1),
