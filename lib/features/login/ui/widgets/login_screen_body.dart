@@ -19,6 +19,8 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
+      appBarIcon: const Icon(Icons.arrow_back, color: Colors.white),
+      appBarTitle: 'Login',
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w),
         child: Column(
@@ -46,7 +48,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
               text: 'Google',
               path: Assets.google,
             ),
-            verticalSpace(200),
+            verticalSpace(150),
           ],
         ),
       ),
