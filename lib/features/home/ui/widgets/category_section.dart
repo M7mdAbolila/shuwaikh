@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
-import 'package:shuwaikh/features/home/ui/widgets/broducts_list_view.dart';
 
 class CategorySection extends StatelessWidget {
   const CategorySection(
-      {super.key, required this.catogoryName, this.seeAllOnTap});
+      {super.key, required this.catogoryName, this.seeAllOnTap, required this.item});
   final String catogoryName;
+  final Widget item;
   final VoidCallback? seeAllOnTap;
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,18 @@ class CategorySection extends StatelessWidget {
             ),
           ],
         ),
-        verticalSpace(25),
-        const BroductsListView(),
+        verticalSpace(15),
+        SizedBox(
+      height: 220.h,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) {
+          return item;
+        },
+      ),
+    ),
       ],
     );
   }

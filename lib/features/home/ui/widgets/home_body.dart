@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
+import 'package:shuwaikh/features/home/ui/widgets/broduct_item.dart';
+import 'package:shuwaikh/features/home/ui/widgets/deal_item.dart';
 import '../../../../core/helpers/spacing.dart';
 import 'banner_list_view.dart';
 import 'category_section.dart';
@@ -23,10 +25,16 @@ class HomeScreenBody extends StatelessWidget {
           children: [
             verticalSpace(20),
             const BannerListView(),
-            verticalSpace(30),
-            const CategorySection(catogoryName: 'New'),
+            verticalSpace(20),
+            const CategorySection(
+              catogoryName: 'New',
+              item: BroductItem(),
+            ),
             verticalSpace(15),
-            const CategorySection(catogoryName: 'New'),
+            const CategorySection(
+              catogoryName: 'Hot deals',
+              item: DealItem(),
+            ),
             verticalSpace(30),
             Container(
               color: Colors.red,
