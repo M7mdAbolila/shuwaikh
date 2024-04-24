@@ -21,7 +21,7 @@ class ShuwaikhApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.loginScreen,
       ),
     );
   }
