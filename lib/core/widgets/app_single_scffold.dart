@@ -24,7 +24,7 @@ class AppScaffold extends StatelessWidget {
               children: [
                 verticalSpace(50),
                 const CustomAppBar(
-                  appBartitle: 'Login',
+                  appBarTitle: 'Login',
                 ),
                 verticalSpace(45),
                 Expanded(
