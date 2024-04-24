@@ -4,7 +4,7 @@ import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/features/sign_up/ui/widgets/have_account_text.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/app_background.dart';
+import '../../../../core/widgets/app_scroll_scaffold.dart';
 import 'sign_up_form.dart';
 
 class SignupScreenBody extends StatelessWidget {
@@ -12,7 +12,7 @@ class SignupScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
+    return AppScrollScaffold(
       appBarTitle: 'Register',
       appBarIcon: const Icon(
         Icons.arrow_back,

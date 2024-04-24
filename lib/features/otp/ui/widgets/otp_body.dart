@@ -5,7 +5,7 @@ import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
-import 'package:shuwaikh/core/widgets/app_background.dart';
+import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'dont_recive_code.dart';
@@ -16,7 +16,7 @@ class OtpScreenBody extends StatelessWidget {
   late String otpCode;
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
+    return AppScrollScaffold(
       appBarTitle: 'OTP Confirm',
       appBarIcon: const Icon(
         Icons.arrow_back,

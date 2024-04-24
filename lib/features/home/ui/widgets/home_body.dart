@@ -4,18 +4,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
-import 'package:shuwaikh/core/widgets/app_background.dart';
-
+import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
 import '../../../../core/helpers/spacing.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-      isHome: true,
+    return AppScrollScaffold(
       appBarIcon: SvgPicture.asset(Assets.menuIcon),
       isSubWidget: true,
+      mainText1: 'Welcome to',
+      mainText2: 'SHUWAIKH',
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
@@ -105,7 +105,7 @@ class HomeScreenBody extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  //! product item  
+                                  //! product item
                                 ),
                               ],
                             ),
