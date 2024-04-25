@@ -20,6 +20,9 @@ class HomeScreenBody extends StatelessWidget {
       isSubWidget: true,
       mainText1: 'Welcome to',
       mainText2: 'SHUWAIKH',
+      appBarOnPressed: () {
+        Scaffold.of(context).openDrawer();
+      },
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
