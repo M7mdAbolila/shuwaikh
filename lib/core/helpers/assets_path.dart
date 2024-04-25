@@ -7,4 +7,8 @@ class Assets {
   static const String banner = 'assets/images/Banner.png';
   static const String broduct = 'assets/images/broduct.png';
   static const String voucher = 'assets/images/voucher_background.png';
+  static const String homeIocn = 'assets/icons/home_icon.svg';
+  static const String basketIcon = 'assets/icons/basket_icon.svg';
+  static const String coffeeIcon = 'assets/icons/coffee_icon.svg';
+  static const String ticketIcon = 'assets/icons/ticket_icon.svg';
 }
