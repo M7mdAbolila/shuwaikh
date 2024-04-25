@@ -38,17 +38,16 @@ class DealItem extends StatelessWidget {
                   height: 130,
                   fit: BoxFit.fill,
                 ),
-                const Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: CircleAvatar(
-                      radius: 15,
-                      backgroundColor: ColorsManager.mainBlue,
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
+                Positioned(
+                  top: 5.h,
+                  left: 100.w,
+                  child: const CircleAvatar(
+                    radius: 12,
+                    backgroundColor: ColorsManager.mainBlue,
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 18,
                     ),
                   ),
                 ),
