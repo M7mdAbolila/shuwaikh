@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shuwaikh/features/nav%20bar/nav_bar_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
@@ -23,6 +24,10 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+        case Routes.mainScreen:
+        return MaterialPageRoute(
+          builder: (_) => const NavBarSrceen(),
         );
         case Routes.otp:
         return MaterialPageRoute(
