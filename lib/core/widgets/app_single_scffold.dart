@@ -22,36 +22,38 @@ class AppScaffold extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       color: ColorsManager.mainBlue,
-      child: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Column(
-              children: [
-                verticalSpace(50),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: CustomAppBar(
-                    appBarIcon: appBarIcon,
-                    appBarOnPressed: appBarOnPressed,
-                    appBarTitle: appBarTitle,
+      child: SafeArea(
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                children: [
+                  verticalSpace(15),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30.w),
+                    child: CustomAppBar(
+                      appBarIcon: appBarIcon,
+                      appBarOnPressed: appBarOnPressed,
+                      appBarTitle: appBarTitle,
+                    ),
                   ),
-                ),
-                verticalSpace(45),
-                Expanded(
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30)),
-                    child: body,
+                  verticalSpace(45),
+                  Expanded(
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: body,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
