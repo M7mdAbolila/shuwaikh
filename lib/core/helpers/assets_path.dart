@@ -11,4 +11,5 @@ class Assets {
   static const String basketIcon = 'assets/icons/basket_icon.svg';
   static const String coffeeIcon = 'assets/icons/coffee_icon.svg';
   static const String ticketIcon = 'assets/icons/ticket_icon.svg';
+  static const String logo = 'assets/images/logo.png';
 }

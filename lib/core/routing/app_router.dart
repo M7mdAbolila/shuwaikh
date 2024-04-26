@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shuwaikh/features/nav%20bar/nav_bar_screen.dart';
+import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
@@ -32,6 +33,10 @@ class AppRouter {
         case Routes.otp:
         return MaterialPageRoute(
           builder: (_) => const OtpScreen(),
+        );
+        case Routes.onBoarding:
+        return MaterialPageRoute(
+          builder: (_) => const OnBoradingScreen(),
         );
       default:
         return MaterialPageRoute(

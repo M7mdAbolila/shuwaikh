@@ -76,9 +76,9 @@ class OtpScreenBody extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
               ),
-              child: const Text(
+              child: Text(
                 'Verify',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyles.font26White500Weight,
               ),
             ),
             verticalSpace(300),
