@@ -35,6 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "يرجى إدخال البريد الإلكتروني الصحيح"),
         "enter_valid_pass":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال كلمة مرور صالحة"),
+        "enter_valid_phone":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
+        "enter_valid_username": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال اسم مستخدم صالح"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "دعنا نقوم بإعداد حسابك في خطوتين فقط"),
         "lets_sign_in":
@@ -42,12 +46,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_with":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
+        "not_match": MessageLookupByLibrary.simpleMessage(
+            "تأكيد كلمة المرور غير متطابق"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "register": MessageLookupByLibrary.simpleMessage("سجل"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "username_must_over_3": MessageLookupByLibrary.simpleMessage(
+            "اسم المستخدم يجب أن يكون أكثر من 3 أحرف"),
         "welcome_back":
             MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك.")
       };

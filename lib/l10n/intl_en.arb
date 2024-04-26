@@ -16,6 +16,11 @@
     "sign_up" : "Sign up",
     "do_you_have_account" : "Do you have an account ? ",
     "enter_valid_email" : "Please enter a valid email",
-    "enter_valid_pass" : "Please enter a valid password"
+    "enter_valid_pass" : "Please enter a valid password",
+    "enter_valid_phone" : "Please enter a valid phone number",
+    "enter_valid_username" : "Please enter a valid user name",
+    "not_match": "Password confirmation does not match",
+    "username_must_over_3":"User name must over 3 characters"
+
 
 }

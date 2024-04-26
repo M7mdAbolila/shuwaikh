@@ -16,5 +16,9 @@
     "sign_up" : "اشتراك",
     "do_you_have_account" : " هل لديك حساب ؟",
     "enter_valid_email" : "يرجى إدخال البريد الإلكتروني الصحيح",
-    "enter_valid_pass" : "يرجى إدخال كلمة مرور صالحة"
+    "enter_valid_pass" : "يرجى إدخال كلمة مرور صالحة",
+    "enter_valid_phone" : "يرجى إدخال رقم هاتف صالح",
+    "enter_valid_username" : "الرجاء إدخال اسم مستخدم صالح",
+    "not_match": "تأكيد كلمة المرور غير متطابق",
+    "username_must_over_3":"اسم المستخدم يجب أن يكون أكثر من 3 أحرف"
 }

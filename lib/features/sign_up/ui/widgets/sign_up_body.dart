@@ -5,15 +5,21 @@ import 'package:shuwaikh/core/widgets/app_single_scffold.dart';
 import 'package:shuwaikh/features/sign_up/ui/widgets/have_account_text.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import 'sign_up_form.dart';
 
-class SignupScreenBody extends StatelessWidget {
+class SignupScreenBody extends StatefulWidget {
   const SignupScreenBody({super.key});
 
   @override
+  State<SignupScreenBody> createState() => _SignupScreenBodyState();
+}
+
+class _SignupScreenBodyState extends State<SignupScreenBody> {
+  @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBarTitle: 'Register',
+      appBarTitle: S.of(context).register,
       appBarIcon: const Icon(
         Icons.arrow_back,
         color: Colors.white,
@@ -25,13 +31,13 @@ class SignupScreenBody extends StatelessWidget {
           children: [
             verticalSpace(35),
             Text(
-              'Great to see you here!',
+              S.of(context).Great_to_see_you,
               style: TextStyles.font26Blue700Weight,
             ),
             SizedBox(
               width: 220.w,
               child: Text(
-                'Let’s set up your account in just a couple of steps.',
+                S.of(context).lets_setup_account,
                 style: TextStyles.font16Black400Weight,
                 textAlign: TextAlign.center,
               ),

@@ -35,18 +35,26 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "enter_valid_pass": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid password"),
+        "enter_valid_phone": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid phone number"),
+        "enter_valid_username": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid user name"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "Let\'s set up your account in just a couple of steps"),
         "lets_sign_in":
             MessageLookupByLibrary.simpleMessage("Let’s sign you in"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_with": MessageLookupByLibrary.simpleMessage("Login With"),
+        "not_match": MessageLookupByLibrary.simpleMessage(
+            "Password confirmation does not match"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
         "username": MessageLookupByLibrary.simpleMessage("User Name"),
+        "username_must_over_3": MessageLookupByLibrary.simpleMessage(
+            "User name must over 3 characters"),
         "welcome_back": MessageLookupByLibrary.simpleMessage(
             "welcome back, you have been mised.")
       };

@@ -229,6 +229,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Please enter a valid phone number`
+  String get enter_valid_phone {
+    return Intl.message(
+      'Please enter a valid phone number',
+      name: 'enter_valid_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid user name`
+  String get enter_valid_username {
+    return Intl.message(
+      'Please enter a valid user name',
+      name: 'enter_valid_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password confirmation does not match`
+  String get not_match {
+    return Intl.message(
+      'Password confirmation does not match',
+      name: 'not_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User name must over 3 characters`
+  String get username_must_over_3 {
+    return Intl.message(
+      'User name must over 3 characters',
+      name: 'username_must_over_3',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

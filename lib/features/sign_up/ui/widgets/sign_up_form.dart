@@ -6,6 +6,7 @@ import 'package:shuwaikh/core/widgets/app_text_field.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_auth_button.dart';
+import '../../../../generated/l10n.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -29,45 +30,45 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         children: [
           AppTextFormField(
-            hintText: 'User Name',
+            hintText: S.of(context).username,
             controller: userNameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid user name';
+                return S.of(context).enter_valid_username;
               } else if (value.length < 3) {
-                return 'User name must over 3 characters';
+                return S.of(context).username_must_over_3;
               }
             },
           ),
           verticalSpace(15),
           AppTextFormField(
-            hintText: 'Email',
+            hintText: S.of(context).email,
             keyboardType: TextInputType.emailAddress,
             controller: emailController,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+                return S.of(context).enter_valid_email;
               }
             },
           ),
           verticalSpace(15),
           AppTextFormField(
-            hintText: 'Phone number',
+            hintText: S.of(context).phome_number,
             keyboardType: TextInputType.number,
             controller: phoneController,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isPhoneNumberValid(value)) {
-                return 'Please enter a valid phone number';
+                return S.of(context).enter_valid_phone;
               }
             },
           ),
           verticalSpace(15),
           AppTextFormField(
-            hintText: 'Password',
+            hintText: S.of(context).password,
             controller: passwordController,
             isObscureText: isObscureText,
             suffixIcon: GestureDetector(
@@ -84,13 +85,13 @@ class _SignupFormState extends State<SignupForm> {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isPasswordValid(value)) {
-                return 'Please enter a valid password';
+                return S.of(context).enter_valid_pass;
               }
             },
           ),
           verticalSpace(15),
           AppTextFormField(
-            hintText: 'Confirm password',
+            hintText: S.of(context).confirm_pass,
             isObscureText: confirmtIsObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -106,13 +107,13 @@ class _SignupFormState extends State<SignupForm> {
               if (value == null ||
                   value.isEmpty ||
                   passwordController.text != value) {
-                return 'Password confirmation does not match';
+                return S.of(context).not_match;
               }
             },
           ),
           verticalSpace(30),
           AppAuthButton(
-            text: 'Sign up',
+            text: S.of(context).sign_up,
             onTap: () {
               if (formKey.currentState!.validate()) {
                 context.pushNamed(Routes.otp);
