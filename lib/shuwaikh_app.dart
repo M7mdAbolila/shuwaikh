@@ -14,6 +14,7 @@ class ShuwaikhApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
+        locale: const Locale('ar'),
         title: 'Shuwaikh',
         theme: ThemeData(
           primaryColor: ColorsManager.blue,
@@ -21,7 +22,7 @@ class ShuwaikhApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.loginScreen,
       ),
     );
   }
