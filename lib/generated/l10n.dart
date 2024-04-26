@@ -269,6 +269,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Confirm OTP`
+  String get confirm_otp {
+    return Intl.message(
+      'Confirm OTP',
+      name: 'confirm_otp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter 4 digits code form the SMS sent to your phone`
+  String get enter_otp {
+    return Intl.message(
+      'Please enter 4 digits code form the SMS sent to your phone',
+      name: 'enter_otp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't receive SMS ? `
+  String get dont_recive {
+    return Intl.message(
+      'Don\'t receive SMS ? ',
+      name: 'dont_recive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend`
+  String get resend {
+    return Intl.message(
+      'Resend',
+      name: 'resend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message(
+      'Verify',
+      name: 'verify',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

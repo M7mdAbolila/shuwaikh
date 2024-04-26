@@ -24,13 +24,18 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("Great to see you here!"),
+        "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account ? "),
+        "dont_recive":
+            MessageLookupByLibrary.simpleMessage("Don\'t receive SMS ? "),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enter_otp": MessageLookupByLibrary.simpleMessage(
+            "Please enter 4 digits code form the SMS sent to your phone"),
         "enter_valid_email":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "enter_valid_pass": MessageLookupByLibrary.simpleMessage(
@@ -50,11 +55,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "resend": MessageLookupByLibrary.simpleMessage("Resend"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
         "username": MessageLookupByLibrary.simpleMessage("User Name"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "User name must over 3 characters"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "welcome_back": MessageLookupByLibrary.simpleMessage(
             "welcome back, you have been mised.")
       };

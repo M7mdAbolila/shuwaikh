@@ -20,7 +20,12 @@
     "enter_valid_phone" : "Please enter a valid phone number",
     "enter_valid_username" : "Please enter a valid user name",
     "not_match": "Password confirmation does not match",
-    "username_must_over_3":"User name must over 3 characters"
+    "username_must_over_3":"User name must over 3 characters",
+    "confirm_otp":"Confirm OTP",
+    "enter_otp": "Please enter 4 digits code form the SMS sent to your phone",
+    "dont_recive": "Don't receive SMS ? ",
+    "resend":"Resend",
+    "verify":"Verify"
 
 
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/features/login/ui/widgets/social_login_button.dart';
 import 'package:shuwaikh/generated/l10n.dart';
@@ -21,6 +22,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
   Widget build(BuildContext context) {
     return AppScaffold(
       appBarIcon: const Icon(Icons.arrow_back, color: Colors.white),
+      appBarOnPressed: () => context.pop(),
       appBarTitle: S.of(context).login,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w),

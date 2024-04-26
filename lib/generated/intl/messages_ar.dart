@@ -24,13 +24,18 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("مرحبا بك هنا"),
+        "confirm_otp": MessageLookupByLibrary.simpleMessage("تأكيد OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("أعد إدخال كلمة المرور"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage(" هل لديك حساب ؟"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage(" ليس لديك حساب؟"),
+        "dont_recive":
+            MessageLookupByLibrary.simpleMessage(" لم تستلم الرسالة القصيرة؟"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "enter_otp": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال رمز 4 خانات من الرسالة القصيرة التي تم إرسالها إلى هاتفك"),
         "enter_valid_email": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال البريد الإلكتروني الصحيح"),
         "enter_valid_pass":
@@ -51,11 +56,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "register": MessageLookupByLibrary.simpleMessage("سجل"),
+        "resend": MessageLookupByLibrary.simpleMessage("أعد الإرسال"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم يجب أن يكون أكثر من 3 أحرف"),
+        "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "welcome_back":
             MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك.")
       };

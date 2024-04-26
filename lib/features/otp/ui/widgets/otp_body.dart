@@ -7,6 +7,7 @@ import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shuwaikh/core/widgets/app_single_scffold.dart';
+import 'package:shuwaikh/generated/l10n.dart';
 
 import 'dont_recive_code.dart';
 
@@ -17,7 +18,7 @@ class OtpScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBarTitle: 'OTP Confirm',
+      appBarTitle: S.of(context).confirm_otp,
       appBarIcon: const Icon(
         Icons.arrow_back,
         color: Colors.white,
@@ -29,7 +30,7 @@ class OtpScreenBody extends StatelessWidget {
           children: [
             verticalSpace(35),
             Text(
-              'Please enter 4 digits code form the SMS sent to your phone',
+              S.of(context).enter_otp,
               style: TextStyles.font26Blue700Weight,
               textAlign: TextAlign.center,
             ),
@@ -77,7 +78,7 @@ class OtpScreenBody extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'Verify',
+                S.of(context).verify,
                 style: TextStyles.font26White500Weight,
               ),
             ),

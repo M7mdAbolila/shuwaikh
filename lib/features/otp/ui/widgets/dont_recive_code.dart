@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class DontReciveCode extends StatelessWidget {
   const DontReciveCode({super.key});
@@ -8,18 +9,16 @@ class DontReciveCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        
-      },
+      onTap: () {},
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Dont receive SMS ? ',
+            '${S.of(context).dont_recive} ',
             style: TextStyles.font14Black400Weight,
           ),
           Text(
-            ' Resend',
+            S.of(context).resend,
             style: TextStyles.font14Blue400Weight,
           )
         ],
