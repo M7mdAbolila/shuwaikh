@@ -3,6 +3,7 @@ import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 
 import '../../../../core/routing/routes.dart';
+import '../../../../generated/l10n.dart';
 
 class DontHaveAccont extends StatelessWidget {
   const DontHaveAccont({super.key});
@@ -17,11 +18,11 @@ class DontHaveAccont extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Don’t have an account ? ',
+            S.of(context).dont_have_account,
             style: TextStyles.font14Black400Weight,
           ),
           Text(
-            ' Register',
+            '  ${S.of(context).register}',
             style: TextStyles.font14Blue400Weight,
           )
         ],

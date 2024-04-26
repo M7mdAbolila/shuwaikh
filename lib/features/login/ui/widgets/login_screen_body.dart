@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/features/login/ui/widgets/social_login_button.dart';
+import 'package:shuwaikh/generated/l10n.dart';
 import '../../../../core/helpers/spacing.dart';
 import 'dont_have_account.dart';
 import 'email_and_password.dart';
@@ -20,18 +21,18 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
   Widget build(BuildContext context) {
     return AppScaffold(
       appBarIcon: const Icon(Icons.arrow_back, color: Colors.white),
-      appBarTitle: 'Login',
+      appBarTitle: S.of(context).login,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w),
         child: Column(
           children: [
             verticalSpace(35),
             Text(
-              'Let’s sign you in',
+              S.of(context).lets_sign_in,
               style: TextStyles.font26Blue700Weight,
             ),
             Text(
-              'welcome back, you have been mised.',
+              S.of(context).welcome_back,
               style: TextStyles.font16Black400Weight,
             ),
             verticalSpace(50),

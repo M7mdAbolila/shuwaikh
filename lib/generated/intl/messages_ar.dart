@@ -21,5 +21,34 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Great_to_see_you":
+            MessageLookupByLibrary.simpleMessage("مرحبا بك هنا"),
+        "confirm_pass":
+            MessageLookupByLibrary.simpleMessage("أعد إدخال كلمة المرور"),
+        "do_you_have_account":
+            MessageLookupByLibrary.simpleMessage(" هل لديك حساب ؟"),
+        "dont_have_account":
+            MessageLookupByLibrary.simpleMessage(" ليس لديك حساب؟"),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "enter_valid_email": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال البريد الإلكتروني الصحيح"),
+        "enter_valid_pass":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال كلمة مرور صالحة"),
+        "lets_setup_account": MessageLookupByLibrary.simpleMessage(
+            "دعنا نقوم بإعداد حسابك في خطوتين فقط"),
+        "lets_sign_in":
+            MessageLookupByLibrary.simpleMessage("لنقم بتسجيل دخولك"),
+        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "login_with":
+            MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "register": MessageLookupByLibrary.simpleMessage("سجل"),
+        "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "welcome_back":
+            MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك.")
+      };
 }

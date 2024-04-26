@@ -21,5 +21,33 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Great_to_see_you":
+            MessageLookupByLibrary.simpleMessage("Great to see you here!"),
+        "confirm_pass":
+            MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "do_you_have_account":
+            MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
+        "dont_have_account":
+            MessageLookupByLibrary.simpleMessage("Don’t have an account ? "),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enter_valid_email":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "enter_valid_pass": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid password"),
+        "lets_setup_account": MessageLookupByLibrary.simpleMessage(
+            "Let\'s set up your account in just a couple of steps"),
+        "lets_sign_in":
+            MessageLookupByLibrary.simpleMessage("Let’s sign you in"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "login_with": MessageLookupByLibrary.simpleMessage("Login With"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "username": MessageLookupByLibrary.simpleMessage("User Name"),
+        "welcome_back": MessageLookupByLibrary.simpleMessage(
+            "welcome back, you have been mised.")
+      };
 }

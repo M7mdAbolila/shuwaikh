@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 
+import '../../../../generated/l10n.dart';
+
 class SocialLoginButton extends StatelessWidget {
   const SocialLoginButton(
       {super.key, this.onTap, required this.text, this.path});
@@ -33,7 +35,7 @@ class SocialLoginButton extends StatelessWidget {
           children: [
             SvgPicture.asset(path ?? ''),
             Text(
-              'Login with $text',
+              '${S.of(context).login_with} $text',
               style: TextStyles.font16Black400Weight,
             ),
             const Icon(Icons.arrow_forward)

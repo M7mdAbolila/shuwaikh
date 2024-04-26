@@ -33,6 +33,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             verticalSpace(20),
             ElevatedButton(
               onPressed: () {
+                context.read<LocaleCubit>().changeLanguage('en');
                 context.pushNamed(Routes.loginScreen);
               },
               style: ElevatedButton.styleFrom(
