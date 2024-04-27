@@ -25,6 +25,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("مرحبا بك هنا"),
         "account": MessageLookupByLibrary.simpleMessage("حسابي"),
+        "add_more_items": MessageLookupByLibrary.simpleMessage("إضافة المزيد"),
+        "add_ons": MessageLookupByLibrary.simpleMessage("الإضافات"),
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
+        "check_out": MessageLookupByLibrary.simpleMessage("الدفع"),
         "coffee": MessageLookupByLibrary.simpleMessage("القهوة"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("تأكيد OTP"),
         "confirm_pass":
@@ -48,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال اسم مستخدم صالح"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "items": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "its_great_day_for":
             MessageLookupByLibrary.simpleMessage("إنه يوم رائع لتناول"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
@@ -59,16 +64,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_with":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "my_cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "تأكيد كلمة المرور غير متطابق"),
+        "order": MessageLookupByLibrary.simpleMessage("طلب"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "price": MessageLookupByLibrary.simpleMessage("السعر:"),
+        "quantity": MessageLookupByLibrary.simpleMessage("كمية"),
         "register": MessageLookupByLibrary.simpleMessage("سجل"),
         "resend": MessageLookupByLibrary.simpleMessage("أعد الإرسال"),
         "setting": MessageLookupByLibrary.simpleMessage("إعدادات"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "topping": MessageLookupByLibrary.simpleMessage("Topping"),
+        "total": MessageLookupByLibrary.simpleMessage("المجموع"),
         "trans_history": MessageLookupByLibrary.simpleMessage("سجل المعاملات"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(

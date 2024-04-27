@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/features/Products/ui/products_screen.dart';
 import 'package:shuwaikh/features/home/ui/home_screen.dart';
@@ -28,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
       const HomeScreen(),
       const VoucherScreen(),
       const ProductsScreen(),
-      const Center(child: Text('Cart Screen')),
+      const CartScreen(),
     ];
     super.initState();
   }

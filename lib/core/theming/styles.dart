@@ -40,6 +40,11 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
+  static TextStyle font24Black700Weight = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w700,
+    color: Colors.black,
+  );
   static TextStyle font20Black500Weight = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w500,
@@ -71,6 +76,11 @@ class TextStyles {
     color: Colors.black,
   );
   // Gray Fonts
+  static TextStyle font22Grey700Weight = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.w700,
+    color: ColorsManager.grey,
+  );
   static TextStyle font16Gray400Weight = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
@@ -95,6 +105,11 @@ class TextStyles {
   static TextStyle font24MainBlue500Weight = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w500,
+    color: ColorsManager.mainBlue,
+  );
+  static TextStyle font20MainBlue700Weight = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w700,
     color: ColorsManager.mainBlue,
   );
   static TextStyle font18Blue500Weight = TextStyle(

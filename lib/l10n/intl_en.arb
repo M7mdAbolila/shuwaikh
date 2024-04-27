@@ -38,8 +38,18 @@
     "price" : "price: ",
     "your_voucher" : "Your Vouchers",
     "its_great_day_for" : "It’s great day for",
-    "coffee" : "COFFEE"
-
+    "coffee" : "COFFEE",
+    "my_cart" : "My Cart",
+    "items" : "items",
+    "add_more_items" : "ADD MORE ITEMS",
+    "total" : "Total",
+    "check_out" : "Checkout",
+    "order" : "ORDER",
+    "add_ons" : "Add-ons",
+    "topping" : "Topping",
+    "quantity" : "Quantity",
+    "add_to_cart" : "ADD CART"
+    
 
 
 }

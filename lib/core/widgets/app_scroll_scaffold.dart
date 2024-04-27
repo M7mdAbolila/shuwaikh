@@ -15,10 +15,13 @@ class AppScrollScaffold extends StatelessWidget {
     this.isSubWidget = false,
     this.mainText1,
     this.mainText2,
+    this.appBarOnPressed,
+    this.appBarIcon,
   });
   final Widget body;
   final String? appBarTitle;
-
+  final VoidCallback? appBarOnPressed;
+  final Widget? appBarIcon;
   final String? mainText1;
   final String? mainText2;
   final bool isSubWidget;
@@ -44,31 +47,33 @@ class AppScrollScaffold extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          onTap: () {
-                            Scaffold.of(context).openDrawer();
-                          },
+                          onTap: appBarOnPressed ??
+                              () {
+                                Scaffold.of(context).openDrawer();
+                              },
                           child: Transform.flip(
                             flipX: isArabic() ? true : false,
-                            child: SvgPicture.asset(
-                              Assets.menuIcon,
-                            ),
+                            child: appBarIcon ??
+                                SvgPicture.asset(
+                                  Assets.menuIcon,
+                                ),
                           ),
                         ),
                         Text(
                           appBarTitle ?? '',
                           style: TextStyles.font30White400Weight,
                         ),
-                        horizontalSpace(1),
-                        InkWell(
-                          onTap: () {},
-                          child: const CircleAvatar(
-                            backgroundColor: ColorsManager.darkBlue,
-                            child: Icon(
-                              Icons.notifications_none,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
+                        const SizedBox.shrink(),
+                        // InkWell(
+                        //   onTap: () {},
+                        //   child: const CircleAvatar(
+                        //     backgroundColor: ColorsManager.darkBlue,
+                        //     child: Icon(
+                        //       Icons.notifications_none,
+                        //       color: Colors.white,
+                        //     ),
+                        //   ),
+                        // )
                       ],
                     ),
 

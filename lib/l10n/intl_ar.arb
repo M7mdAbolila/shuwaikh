@@ -38,5 +38,15 @@
     "price" : "السعر:",
     "your_voucher" : "القسائم الخاصة بك",
     "its_great_day_for" : "إنه يوم رائع لتناول",
-    "coffee" : "القهوة"
+    "coffee" : "القهوة",
+    "my_cart" : "سلة التسوق",
+    "items" : "المنتجات",
+    "add_more_items" : "إضافة المزيد",
+    "total" : "المجموع",
+    "check_out" : "الدفع",
+    "order" : "طلب",
+    "add_ons" : "الإضافات",
+    "topping" : "Topping",
+    "quantity" : "كمية",
+    "add_to_cart" : "أضف إلى السلة"
 }

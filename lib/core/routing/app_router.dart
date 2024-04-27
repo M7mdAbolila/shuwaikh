@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/nav%20bar/nav_bar_main_screen.dart';
 import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
@@ -36,11 +37,15 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const OtpScreen(),
         );
+      case Routes.cartScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CartScreen(),
+        );
       case Routes.onBoarding:
         return MaterialPageRoute(
           builder: (_) => const OnBoradingScreen(),
         );
-        case Routes.voucherScreen:
+      case Routes.voucherScreen:
         return MaterialPageRoute(
           builder: (_) => const VoucherScreen(),
         );

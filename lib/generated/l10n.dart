@@ -449,6 +449,106 @@ class S {
       args: [],
     );
   }
+
+  /// `My Cart`
+  String get my_cart {
+    return Intl.message(
+      'My Cart',
+      name: 'my_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `items`
+  String get items {
+    return Intl.message(
+      'items',
+      name: 'items',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ADD MORE ITEMS`
+  String get add_more_items {
+    return Intl.message(
+      'ADD MORE ITEMS',
+      name: 'add_more_items',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Checkout`
+  String get check_out {
+    return Intl.message(
+      'Checkout',
+      name: 'check_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ORDER`
+  String get order {
+    return Intl.message(
+      'ORDER',
+      name: 'order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add-ons`
+  String get add_ons {
+    return Intl.message(
+      'Add-ons',
+      name: 'add_ons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Topping`
+  String get topping {
+    return Intl.message(
+      'Topping',
+      name: 'topping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quantity`
+  String get quantity {
+    return Intl.message(
+      'Quantity',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ADD CART`
+  String get add_to_cart {
+    return Intl.message(
+      'ADD CART',
+      name: 'add_to_cart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

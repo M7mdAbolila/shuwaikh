@@ -25,6 +25,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("Great to see you here!"),
         "account": MessageLookupByLibrary.simpleMessage("My Account"),
+        "add_more_items":
+            MessageLookupByLibrary.simpleMessage("ADD MORE ITEMS"),
+        "add_ons": MessageLookupByLibrary.simpleMessage("Add-ons"),
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("ADD CART"),
+        "check_out": MessageLookupByLibrary.simpleMessage("Checkout"),
         "coffee": MessageLookupByLibrary.simpleMessage("COFFEE"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "confirm_pass":
@@ -48,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid user name"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "items": MessageLookupByLibrary.simpleMessage("items"),
         "its_great_day_for":
             MessageLookupByLibrary.simpleMessage("It’s great day for"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
@@ -58,16 +64,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_with": MessageLookupByLibrary.simpleMessage("Login With"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "Password confirmation does not match"),
+        "order": MessageLookupByLibrary.simpleMessage("ORDER"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "price": MessageLookupByLibrary.simpleMessage("price: "),
+        "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "topping": MessageLookupByLibrary.simpleMessage("Topping"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
         "trans_history":
             MessageLookupByLibrary.simpleMessage("Transaction history"),
         "username": MessageLookupByLibrary.simpleMessage("User Name"),

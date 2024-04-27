@@ -28,13 +28,14 @@ class _ProductsScreenBodyState extends State<ProductsScreenBody> {
           children: [
             verticalSpace(35),
             ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 8,
               itemBuilder: (context, index) {
                 return const HorizontalBroductItem();
               },
             ),
-            verticalSpace(300),
+            verticalSpace(100),
           ],
         ),
       ),
