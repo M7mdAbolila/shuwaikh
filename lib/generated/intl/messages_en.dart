@@ -24,9 +24,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("Great to see you here!"),
+        "account": MessageLookupByLibrary.simpleMessage("My Account"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "contact_us": MessageLookupByLibrary.simpleMessage("Contact us"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
         "dont_have_account":
@@ -44,25 +46,34 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter a valid phone number"),
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid user name"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "Let\'s set up your account in just a couple of steps"),
         "lets_sign_in":
             MessageLookupByLibrary.simpleMessage("Let’s sign you in"),
+        "log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_with": MessageLookupByLibrary.simpleMessage("Login With"),
+        "more": MessageLookupByLibrary.simpleMessage("More"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "Password confirmation does not match"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "price": MessageLookupByLibrary.simpleMessage("price: "),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+        "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "trans_history":
+            MessageLookupByLibrary.simpleMessage("Transaction history"),
         "username": MessageLookupByLibrary.simpleMessage("User Name"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "User name must over 3 characters"),
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "welcome_back": MessageLookupByLibrary.simpleMessage(
-            "welcome back, you have been mised.")
+            "welcome back, you have been mised."),
+        "welcome_to": MessageLookupByLibrary.simpleMessage("Welcome to"),
+        "your_favorite": MessageLookupByLibrary.simpleMessage("Your favourite")
       };
 }

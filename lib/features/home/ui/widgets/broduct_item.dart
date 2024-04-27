@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
+import 'package:shuwaikh/generated/l10n.dart';
+import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -13,7 +15,9 @@ class BroductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 2, right: 8, top: 4, bottom: 4),
+      padding: isArabic()
+          ? const EdgeInsets.only(left: 8, right: 2, top: 4, bottom: 4)
+          : const EdgeInsets.only(left: 2, right: 8, top: 4, bottom: 4),
       child: Container(
         height: 210.h,
         width: 130.w,
@@ -67,11 +71,11 @@ class BroductItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: 'price: ',
+                          text: '${S.of(context).price}  ',
                           style: TextStyles.font10Gray500Weight,
                         ),
                         TextSpan(
-                          text: '\$100',
+                          text: 'KD 100',
                           style: TextStyles.font14Blue400Weight,
                         ),
                       ],

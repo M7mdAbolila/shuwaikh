@@ -25,7 +25,17 @@
     "enter_otp": "Please enter 4 digits code form the SMS sent to your phone",
     "dont_recive": "Don't receive SMS ? ",
     "resend":"Resend",
-    "verify":"Verify"
+    "verify":"Verify",
+    "home":"Home",
+    "trans_history" :"Transaction history",
+    "account":"My Account",
+    "your_favorite" :"Your favourite",
+    "setting" :"Setting",
+    "contact_us" : "Contact us",
+    "log_out" : "Log Out",
+    "more" : "More",
+    "welcome_to" : "Welcome to",
+    "price" : "price: "
 
 
 }

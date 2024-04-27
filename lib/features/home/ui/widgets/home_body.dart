@@ -6,19 +6,32 @@ import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
 import 'package:shuwaikh/features/home/ui/widgets/broduct_item.dart';
 import 'package:shuwaikh/features/home/ui/widgets/combo_widget.dart';
 import 'package:shuwaikh/features/home/ui/widgets/deal_item.dart';
+import 'package:shuwaikh/generated/l10n.dart';
+import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
 import 'banner_list_view.dart';
 import 'category_section.dart';
 import 'voucher_section.dart';
 
-class HomeScreenBody extends StatelessWidget {
+class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({super.key});
+
+  @override
+  State<HomeScreenBody> createState() => _HomeScreenBodyState();
+}
+
+class _HomeScreenBodyState extends State<HomeScreenBody> {
   @override
   Widget build(BuildContext context) {
     return AppScrollScaffold(
-      appBarIcon: SvgPicture.asset(Assets.menuIcon),
+      appBarIcon: Transform.flip(
+        flipX: isArabic() ? true : false,
+        child: SvgPicture.asset(
+          Assets.menuIcon,
+        ),
+      ),
       isSubWidget: true,
-      mainText1: 'Welcome to',
+      mainText1: S.of(context).welcome_to,
       mainText2: 'SHUWAIKH',
       appBarOnPressed: () {
         Scaffold.of(context).openDrawer();

@@ -11,7 +11,6 @@ import '../../core/theming/styles.dart';
 
 class OnBoradingScreen extends StatefulWidget {
   const OnBoradingScreen({super.key});
-
   @override
   State<OnBoradingScreen> createState() => _OnBoradingScreenState();
 }
@@ -34,7 +33,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             ElevatedButton(
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('en');
-                context.pushNamed(Routes.loginScreen);
+                context.pushNamed(Routes.homeScreen);
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(331.w, 50.h),
@@ -52,7 +51,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             ElevatedButton(
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('ar');
-                context.pushNamed(Routes.loginScreen);
+                context.pushNamed(Routes.homeScreen);
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(331.w, 50.h),

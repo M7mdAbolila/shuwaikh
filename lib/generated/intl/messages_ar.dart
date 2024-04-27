@@ -24,9 +24,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("مرحبا بك هنا"),
+        "account": MessageLookupByLibrary.simpleMessage("حسابي"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("تأكيد OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("أعد إدخال كلمة المرور"),
+        "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage(" هل لديك حساب ؟"),
         "dont_have_account":
@@ -44,26 +46,34 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال اسم مستخدم صالح"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "دعنا نقوم بإعداد حسابك في خطوتين فقط"),
         "lets_sign_in":
             MessageLookupByLibrary.simpleMessage("لنقم بتسجيل دخولك"),
+        "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_with":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
+        "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "تأكيد كلمة المرور غير متطابق"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "price": MessageLookupByLibrary.simpleMessage("السعر:"),
         "register": MessageLookupByLibrary.simpleMessage("سجل"),
         "resend": MessageLookupByLibrary.simpleMessage("أعد الإرسال"),
+        "setting": MessageLookupByLibrary.simpleMessage("إعدادات"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "trans_history": MessageLookupByLibrary.simpleMessage("سجل المعاملات"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم يجب أن يكون أكثر من 3 أحرف"),
-        "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
+        "verify": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "welcome_back":
-            MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك.")
+            MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك."),
+        "welcome_to": MessageLookupByLibrary.simpleMessage("مرحبا في"),
+        "your_favorite": MessageLookupByLibrary.simpleMessage("المفضلة لديك")
       };
 }

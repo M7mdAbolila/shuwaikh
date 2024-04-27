@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/helpers/is_arabic.dart';
 
 import '../../../../core/helpers/assets_path.dart';
 import '../../../../core/theming/colors.dart';
@@ -53,6 +53,7 @@ class VoucherItem extends StatelessWidget {
                 style: TextStyles.font16Black500Weight,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
+                textAlign: isArabic() ? TextAlign.right : TextAlign.left,
               ),
             ),
           ),

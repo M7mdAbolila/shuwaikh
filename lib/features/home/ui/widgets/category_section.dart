@@ -4,13 +4,16 @@ import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 
+import '../../../../generated/l10n.dart';
+
 class CategorySection extends StatelessWidget {
   const CategorySection({
     super.key,
     required this.catogoryName,
     this.seeAllOnTap,
     required this.item,
-    this.height, required this.itemCount,
+    this.height,
+    required this.itemCount,
   });
   final String catogoryName;
   final Widget item;
@@ -42,7 +45,7 @@ class CategorySection extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'See all',
+                    S.of(context).more,
                     style: TextStyles.font13White500Weight,
                   ),
                 ),

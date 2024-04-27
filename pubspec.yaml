@@ -20,6 +20,7 @@ dependencies:
   # localization
   flutter_localizations:
       sdk: flutter
+  intl: ^0.18.1   
   # Networking
   dio: ^5.3.3
   retrofit: ^4.0.3

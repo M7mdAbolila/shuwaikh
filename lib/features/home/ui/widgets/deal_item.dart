@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
+import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class DealItem extends StatelessWidget {
   const DealItem({
@@ -13,7 +16,9 @@ class DealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 2, right: 8, top: 4, bottom: 4),
+      padding: isArabic()
+          ? const EdgeInsets.only(left: 8, right: 2, top: 4, bottom: 4)
+          : const EdgeInsets.only(left: 2, right: 8, top: 4, bottom: 4),
       child: Container(
         height: 210.h,
         width: 130.w,
@@ -51,17 +56,21 @@ class DealItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  height: 20,
-                  width: 43,
-                  decoration: BoxDecoration(
-                    color: ColorsManager.dealColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Text(
-                      '-20%',
-                      style: TextStyles.font13White500Weight,
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  child: Container(
+                    height: 20,
+                    width: 43,
+                    decoration: BoxDecoration(
+                      color: ColorsManager.dealColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        '-20%',
+                        style: TextStyles.font13White500Weight,
+                      ),
                     ),
                   ),
                 ),
@@ -81,7 +90,7 @@ class DealItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: 'price: ',
+                          text: '${S.of(context).price}  ',
                           style: TextStyles.font10Gray500Weight,
                         ),
                         TextSpan(
