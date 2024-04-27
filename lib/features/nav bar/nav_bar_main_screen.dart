@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
-import 'package:shuwaikh/features/drawer/drawer_screen.dart';
 import 'package:shuwaikh/features/home/ui/home_screen.dart';
 import 'package:shuwaikh/features/vouncher/ui/voucher_screen.dart';
 import '../../core/theming/colors.dart';
@@ -42,7 +41,6 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           iconTheme: const IconThemeData(color: Colors.white),
