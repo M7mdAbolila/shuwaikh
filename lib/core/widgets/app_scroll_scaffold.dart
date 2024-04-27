@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/features/home/ui/widgets/main_text_home.dart';
+import '../helpers/assets_path.dart';
+import '../helpers/is_arabic.dart';
 import '../helpers/spacing.dart';
 import '../theming/colors.dart';
 import '../theming/styles.dart';
@@ -9,19 +12,16 @@ class AppScrollScaffold extends StatelessWidget {
     super.key,
     required this.body,
     this.appBarTitle,
-    this.appBarIcon,
-    this.appBarOnPressed,
     this.isSubWidget = false,
     this.mainText1,
     this.mainText2,
   });
   final Widget body;
   final String? appBarTitle;
-  final Widget? appBarIcon;
+
   final String? mainText1;
   final String? mainText2;
   final bool isSubWidget;
-  final VoidCallback? appBarOnPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,8 +44,15 @@ class AppScrollScaffold extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          onTap: appBarOnPressed,
-                          child: appBarIcon ?? const SizedBox.shrink(),
+                          onTap: () {
+                            Scaffold.of(context).openDrawer();
+                          },
+                          child: Transform.flip(
+                            flipX: isArabic() ? true : false,
+                            child: SvgPicture.asset(
+                              Assets.menuIcon,
+                            ),
+                          ),
                         ),
                         Text(
                           appBarTitle ?? '',

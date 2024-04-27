@@ -4,6 +4,7 @@ import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
+import '../../features/vouncher/ui/voucher_screen.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -33,6 +34,10 @@ class AppRouter {
       case Routes.onBoarding:
         return MaterialPageRoute(
           builder: (_) => const OnBoradingScreen(),
+        );
+        case Routes.voucherScreen:
+        return MaterialPageRoute(
+          builder: (_) => const VoucherScreen(),
         );
       default:
         return MaterialPageRoute(

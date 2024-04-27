@@ -68,7 +68,7 @@ class OtpScreenBody extends StatelessWidget {
             verticalSpace(50),
             ElevatedButton(
               onPressed: () {
-                context.pushNamed(Routes.mainScreen);
+                context.pushNamed(Routes.homeScreen);
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(331.w, 50.h),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
@@ -9,8 +8,9 @@ import '../../../../core/theming/styles.dart';
 class VoucherSection extends StatelessWidget {
   const VoucherSection({
     super.key,
+    this.seeAll = true,
   });
-
+  final bool seeAll;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,23 +25,25 @@ class VoucherSection extends StatelessWidget {
                 decorationColor: ColorsManager.mainBlue,
               ),
             ),
-            InkWell(
-              onTap: () {},
-              child: Container(
-                height: 28.h,
-                width: 60.w,
-                decoration: BoxDecoration(
-                  color: ColorsManager.mainBlue,
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: Center(
-                  child: Text(
-                    'See all',
-                    style: TextStyles.font13White500Weight,
-                  ),
-                ),
-              ),
-            ),
+            seeAll
+                ? InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 28.h,
+                      width: 60.w,
+                      decoration: BoxDecoration(
+                        color: ColorsManager.mainBlue,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'See all',
+                          style: TextStyles.font13White500Weight,
+                        ),
+                      ),
+                    ),
+                  )
+                : const SizedBox.shrink(),
           ],
         ),
         verticalSpace(18),

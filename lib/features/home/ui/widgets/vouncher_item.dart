@@ -15,7 +15,11 @@ class VoucherItem extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 15.0),
       child: Stack(
         children: [
-          Image.asset(Assets.voucher),
+          Image.asset(
+            Assets.voucher,
+            width: 335.w,
+            height: 104.h,
+          ),
           Positioned(
             top: 10.h,
             left: 8.w,
