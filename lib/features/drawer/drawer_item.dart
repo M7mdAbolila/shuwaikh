@@ -23,6 +23,7 @@ class DrawerItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               iconPath,
+              // ignore: deprecated_member_use
               color: Colors.black,
             ),
             horizontalSpace(15),
