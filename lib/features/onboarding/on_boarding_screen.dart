@@ -33,7 +33,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             ElevatedButton(
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('en');
-                context.pushNamed(Routes.mainScreen);
+                context.pushNamed(Routes.loginScreen);
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(331.w, 50.h),
@@ -51,7 +51,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
             ElevatedButton(
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('ar');
-                context.pushNamed(Routes.mainScreen);
+                context.pushNamed(Routes.loginScreen);
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(331.w, 50.h),

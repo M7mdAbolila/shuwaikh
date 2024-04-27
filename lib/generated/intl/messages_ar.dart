@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("مرحبا بك هنا"),
         "account": MessageLookupByLibrary.simpleMessage("حسابي"),
+        "coffee": MessageLookupByLibrary.simpleMessage("القهوة"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("تأكيد OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("أعد إدخال كلمة المرور"),
@@ -47,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال اسم مستخدم صالح"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "its_great_day_for":
+            MessageLookupByLibrary.simpleMessage("إنه يوم رائع لتناول"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "دعنا نقوم بإعداد حسابك في خطوتين فقط"),
         "lets_sign_in":

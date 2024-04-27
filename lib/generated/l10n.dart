@@ -429,6 +429,26 @@ class S {
       args: [],
     );
   }
+
+  /// `It’s great day for`
+  String get its_great_day_for {
+    return Intl.message(
+      'It’s great day for',
+      name: 'its_great_day_for',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `COFFEE`
+  String get coffee {
+    return Intl.message(
+      'COFFEE',
+      name: 'coffee',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
