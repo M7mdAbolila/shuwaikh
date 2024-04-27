@@ -5,7 +5,6 @@ import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/features/login/ui/widgets/social_login_button.dart';
 import 'package:shuwaikh/generated/l10n.dart';
-import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
 import 'dont_have_account.dart';
 import 'email_and_password.dart';
@@ -22,7 +21,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBarIcon: Icon( isArabic() ? Icons.arrow_forward : Icons.arrow_back, color: Colors.white),
+      appBarIcon: const Icon(Icons.arrow_back, color: Colors.white),
       appBarOnPressed: () => context.pop(),
       appBarTitle: S.of(context).login,
       body: Padding(
@@ -44,13 +43,18 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             const DontHaveAccont(),
             verticalSpace(40),
             const SocialLoginButton(
-              text: 'FaceBook',
-              path: Assets.fackbook,
+              text: 'Apple',
+              imagePath: Assets.apple,
             ),
             verticalSpace(22),
             const SocialLoginButton(
               text: 'Google',
-              path: Assets.google,
+              imagePath: Assets.google,
+            ),
+            verticalSpace(22),
+            const SocialLoginButton(
+              text: 'FaceBook',
+              imagePath: Assets.fackbook,
             ),
             verticalSpace(150),
           ],

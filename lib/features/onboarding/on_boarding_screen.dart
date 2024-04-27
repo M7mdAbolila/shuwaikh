@@ -30,43 +30,50 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
               style: TextStyles.font20Black500Weight,
             ),
             verticalSpace(20),
-            ElevatedButton(
+            OnboradingButton(
+              text: 'English',
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('en');
-                context.pushNamed(Routes.mainScreen);
+                context.pushNamed(Routes.loginScreen);
               },
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(331.w, 50.h),
-                backgroundColor: ColorsManager.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              child: Text(
-                'English',
-                style: TextStyles.font26White500Weight,
-              ),
             ),
             verticalSpace(30),
-            ElevatedButton(
+            OnboradingButton(
+              text: 'عربي',
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('ar');
-                context.pushNamed(Routes.mainScreen);
+                context.pushNamed(Routes.loginScreen);
               },
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(331.w, 50.h),
-                backgroundColor: ColorsManager.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              child: Text(
-                'عربي',
-                style: TextStyles.font26White500Weight,
-              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class OnboradingButton extends StatelessWidget {
+  const OnboradingButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  });
+  final String text;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size(331.w, 50.h),
+        backgroundColor: ColorsManager.blue,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+      ),
+      child: Text(
+        text,
+        style: TextStyles.font26White500Weight,
       ),
     );
   }

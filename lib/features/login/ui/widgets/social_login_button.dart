@@ -7,9 +7,9 @@ import '../../../../generated/l10n.dart';
 
 class SocialLoginButton extends StatelessWidget {
   const SocialLoginButton(
-      {super.key, this.onTap, required this.text, this.path});
+      {super.key, this.onTap, required this.text, required this.imagePath});
   final VoidCallback? onTap;
-  final String? path;
+  final String imagePath;
   final String text;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,11 @@ class SocialLoginButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SvgPicture.asset(path ?? ''),
+            SvgPicture.asset(
+              imagePath,
+              height: 25.h,
+              width: 25.w,
+            ),
             Text(
               '${S.of(context).login_with} $text',
               style: TextStyles.font16Black400Weight,

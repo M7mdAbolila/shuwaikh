@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/widgets/app_single_scffold.dart';
 import 'package:shuwaikh/features/sign_up/ui/widgets/have_account_text.dart';
-import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
@@ -21,8 +20,7 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
   Widget build(BuildContext context) {
     return AppScaffold(
       appBarTitle: S.of(context).register,
-      appBarIcon: Icon(isArabic() ? Icons.arrow_forward : Icons.arrow_back,
-          color: Colors.white),
+      appBarIcon: const Icon(Icons.arrow_back, color: Colors.white),
       appBarOnPressed: () => context.pop(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w),
