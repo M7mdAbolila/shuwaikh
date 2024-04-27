@@ -35,7 +35,9 @@
     "log_out" : "Log Out",
     "more" : "More",
     "welcome_to" : "Welcome to",
-    "price" : "price: "
+    "price" : "price: ",
+    "your_voucher" : "Your Vouchers"
+
 
 
 }

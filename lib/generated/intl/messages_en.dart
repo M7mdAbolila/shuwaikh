@@ -74,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcome_back": MessageLookupByLibrary.simpleMessage(
             "welcome back, you have been mised."),
         "welcome_to": MessageLookupByLibrary.simpleMessage("Welcome to"),
-        "your_favorite": MessageLookupByLibrary.simpleMessage("Your favourite")
+        "your_favorite": MessageLookupByLibrary.simpleMessage("Your favourite"),
+        "your_voucher": MessageLookupByLibrary.simpleMessage("Your Vouchers")
       };
 }

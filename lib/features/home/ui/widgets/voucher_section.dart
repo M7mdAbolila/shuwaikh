@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/features/home/ui/widgets/vouncher_item.dart';
+import 'package:shuwaikh/generated/l10n.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 
@@ -19,7 +20,7 @@ class VoucherSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Your Voucher',
+              S.of(context).your_voucher,
               style: TextStyles.font24MainBlue500Weight.copyWith(
                 decoration: TextDecoration.underline,
                 decorationColor: ColorsManager.mainBlue,

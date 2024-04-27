@@ -419,6 +419,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Your Vouchers`
+  String get your_voucher {
+    return Intl.message(
+      'Your Vouchers',
+      name: 'your_voucher',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
