@@ -510,11 +510,11 @@ class S {
     );
   }
 
-  /// `Add-ons`
-  String get add_ons {
+  /// `Select Add On's (Optional)`
+  String get select_add_ons {
     return Intl.message(
-      'Add-ons',
-      name: 'add_ons',
+      'Select Add On\'s (Optional)',
+      name: 'select_add_ons',
       desc: '',
       args: [],
     );
@@ -540,11 +540,71 @@ class S {
     );
   }
 
-  /// `ADD CART`
+  /// `ADD TO CART`
   String get add_to_cart {
     return Intl.message(
-      'ADD CART',
+      'ADD TO CART',
       name: 'add_to_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ice`
+  String get ice {
+    return Intl.message(
+      'Ice',
+      name: 'ice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sugar`
+  String get sugar {
+    return Intl.message(
+      'Sugar',
+      name: 'sugar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Size **`
+  String get select_size {
+    return Intl.message(
+      'Select Size **',
+      name: 'select_size',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Small`
+  String get small {
+    return Intl.message(
+      'Small',
+      name: 'small',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Regular`
+  String get regular {
+    return Intl.message(
+      'Regular',
+      name: 'regular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Large`
+  String get large {
+    return Intl.message(
+      'Large',
+      name: 'large',
       desc: '',
       args: [],
     );

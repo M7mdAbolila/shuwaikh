@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/core/routing/routes.dart';
+import 'package:shuwaikh/generated/l10n.dart';
 import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../generated/l10n.dart';
 
-class DealItem extends StatelessWidget {
-  const DealItem({
+class ProductItem extends StatelessWidget {
+  const ProductItem({
     super.key,
   });
 
@@ -59,24 +59,6 @@ class DealItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    child: Container(
-                      height: 20,
-                      width: 43,
-                      decoration: BoxDecoration(
-                        color: ColorsManager.dealColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '-20%',
-                          style: TextStyles.font13White500Weight,
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
               Padding(
@@ -97,14 +79,7 @@ class DealItem extends StatelessWidget {
                             style: TextStyles.font10Gray500Weight,
                           ),
                           TextSpan(
-                            text: '\$100',
-                            style: TextStyles.font10Gray500Weight.copyWith(
-                              decoration: TextDecoration.lineThrough,
-                              decorationColor: ColorsManager.grey,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '  \$80',
+                            text: 'KD 100',
                             style: TextStyles.font14Blue400Weight,
                           ),
                         ],

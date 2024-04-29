@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
-import 'package:shuwaikh/core/routing/routes.dart';
 
 import '../../../../core/helpers/assets_path.dart';
 import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 
-class CartBroductItem extends StatelessWidget {
-  const CartBroductItem({
+class HorizontalProductItem extends StatelessWidget {
+  const HorizontalProductItem({
     super.key,
   });
 
@@ -75,44 +75,39 @@ class CartBroductItem extends StatelessWidget {
                         ],
                       ),
                     ),
-                    verticalSpace(12),
+                    verticalSpace(20),
                     Row(
                       children: [
-                        const CircleAvatar(
-                          radius: 12,
-                          backgroundColor: ColorsManager.mainBlue,
-                          child: Icon(
-                            Icons.remove,
-                            color: Colors.white,
-                            size: 20,
-                          ),
+                        const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 18,
                         ),
-                        horizontalSpace(15),
+                        horizontalSpace(2),
+                        const Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                          size: 18,
+                        ),
                         Text(
-                          '2',
-                          style: TextStyles.font20Black500Weight,
-                        ),
-                        horizontalSpace(15),
-                        const CircleAvatar(
-                          radius: 12,
-                          backgroundColor: ColorsManager.mainBlue,
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
+                          '4.5',
+                          style: TextStyles.font11Black500Weight,
+                        )
                       ],
                     ),
                   ],
                 ),
               ),
               horizontalSpace(60),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.delete_outline,
-                  )),
+              const CircleAvatar(
+                radius: 20,
+                backgroundColor: ColorsManager.mainBlue,
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                  size: 30,
+                ),
+              ),
             ],
           ),
         ),

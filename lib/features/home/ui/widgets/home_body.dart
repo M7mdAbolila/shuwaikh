@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
-import 'package:shuwaikh/features/home/ui/widgets/broduct_item.dart';
+import 'package:shuwaikh/features/home/ui/widgets/product_item.dart';
 import 'package:shuwaikh/features/home/ui/widgets/combo_widget.dart';
 import 'package:shuwaikh/features/home/ui/widgets/deal_item.dart';
 import 'package:shuwaikh/generated/l10n.dart';
@@ -33,7 +33,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             verticalSpace(20),
             const CategorySection(
               catogoryName: 'New',
-              item: BroductItem(),
+              item: ProductItem(),
               itemCount: 8,
             ),
             verticalSpace(15),

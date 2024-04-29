@@ -45,10 +45,16 @@
     "total" : "Total",
     "check_out" : "Checkout",
     "order" : "ORDER",
-    "add_ons" : "Add-ons",
+    "select_add_ons" : "Select Add On's (Optional)",
     "topping" : "Topping",
     "quantity" : "Quantity",
-    "add_to_cart" : "ADD CART"
+    "add_to_cart" : "ADD TO CART",
+    "ice" : "Ice",
+    "sugar": "Sugar",
+    "select_size" : "Select Size **",
+    "small": "Small",
+    "regular": "Regular",
+    "large":"Large"
     
 
 

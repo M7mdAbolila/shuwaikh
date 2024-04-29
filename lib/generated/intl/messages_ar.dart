@@ -26,7 +26,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مرحبا بك هنا"),
         "account": MessageLookupByLibrary.simpleMessage("حسابي"),
         "add_more_items": MessageLookupByLibrary.simpleMessage("إضافة المزيد"),
-        "add_ons": MessageLookupByLibrary.simpleMessage("الإضافات"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
         "check_out": MessageLookupByLibrary.simpleMessage("الدفع"),
         "coffee": MessageLookupByLibrary.simpleMessage("القهوة"),
@@ -52,9 +51,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال اسم مستخدم صالح"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "ice": MessageLookupByLibrary.simpleMessage("ثلج"),
         "items": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "its_great_day_for":
             MessageLookupByLibrary.simpleMessage("إنه يوم رائع لتناول"),
+        "large": MessageLookupByLibrary.simpleMessage("كبير"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "دعنا نقوم بإعداد حسابك في خطوتين فقط"),
         "lets_sign_in":
@@ -73,10 +74,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("السعر:"),
         "quantity": MessageLookupByLibrary.simpleMessage("كمية"),
         "register": MessageLookupByLibrary.simpleMessage("سجل"),
+        "regular": MessageLookupByLibrary.simpleMessage("وسط"),
         "resend": MessageLookupByLibrary.simpleMessage("أعد الإرسال"),
+        "select_add_ons":
+            MessageLookupByLibrary.simpleMessage("حدد الإضافات (اختياري)"),
+        "select_size": MessageLookupByLibrary.simpleMessage("أختر الحجم **"),
         "setting": MessageLookupByLibrary.simpleMessage("إعدادات"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "small": MessageLookupByLibrary.simpleMessage("صغير"),
+        "sugar": MessageLookupByLibrary.simpleMessage("سكر"),
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
         "total": MessageLookupByLibrary.simpleMessage("المجموع"),
         "trans_history": MessageLookupByLibrary.simpleMessage("سجل المعاملات"),

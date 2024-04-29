@@ -41,12 +41,16 @@ class AppScaffold extends StatelessWidget {
                   ),
                   verticalSpace(45),
                   Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
+                    child: SingleChildScrollView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)),
-                      child: body,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: body,
+                      ),
                     ),
                   ),
                 ],

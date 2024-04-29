@@ -27,8 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "account": MessageLookupByLibrary.simpleMessage("My Account"),
         "add_more_items":
             MessageLookupByLibrary.simpleMessage("ADD MORE ITEMS"),
-        "add_ons": MessageLookupByLibrary.simpleMessage("Add-ons"),
-        "add_to_cart": MessageLookupByLibrary.simpleMessage("ADD CART"),
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("ADD TO CART"),
         "check_out": MessageLookupByLibrary.simpleMessage("Checkout"),
         "coffee": MessageLookupByLibrary.simpleMessage("COFFEE"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
@@ -53,9 +52,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid user name"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "ice": MessageLookupByLibrary.simpleMessage("Ice"),
         "items": MessageLookupByLibrary.simpleMessage("items"),
         "its_great_day_for":
             MessageLookupByLibrary.simpleMessage("It’s great day for"),
+        "large": MessageLookupByLibrary.simpleMessage("Large"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "Let\'s set up your account in just a couple of steps"),
         "lets_sign_in":
@@ -73,10 +74,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("price: "),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "regular": MessageLookupByLibrary.simpleMessage("Regular"),
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+        "select_add_ons":
+            MessageLookupByLibrary.simpleMessage("Select Add On\'s (Optional)"),
+        "select_size": MessageLookupByLibrary.simpleMessage("Select Size **"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "small": MessageLookupByLibrary.simpleMessage("Small"),
+        "sugar": MessageLookupByLibrary.simpleMessage("Sugar"),
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "trans_history":

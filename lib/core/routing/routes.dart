@@ -7,5 +7,5 @@ class Routes {
   static const String onBoarding = '/onBoarding';
   static const String voucherScreen = '/voncherScreen';
   static const String cartScreen = '/cartScreen';
-
+  static const String productDetailsScreen = '/broductDetailsScreen';
 }

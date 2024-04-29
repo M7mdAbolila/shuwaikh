@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
-import 'package:shuwaikh/features/Products/ui/products_screen.dart';
+import 'package:shuwaikh/features/Products_page/ui/products_screen.dart';
 import 'package:shuwaikh/features/home/ui/home_screen.dart';
 import 'package:shuwaikh/features/vouncher/ui/voucher_screen.dart';
 import '../../core/theming/colors.dart';

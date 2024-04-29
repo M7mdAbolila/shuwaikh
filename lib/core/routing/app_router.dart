@@ -3,6 +3,7 @@ import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/nav%20bar/nav_bar_main_screen.dart';
 import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
+import 'package:shuwaikh/features/product_details/ui/product_details_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
@@ -48,6 +49,10 @@ class AppRouter {
       case Routes.voucherScreen:
         return MaterialPageRoute(
           builder: (_) => const VoucherScreen(),
+        );
+      case Routes.productDetailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ProductDetailsScreen(),
         );
       default:
         return MaterialPageRoute(

@@ -45,8 +45,14 @@
     "total" : "المجموع",
     "check_out" : "الدفع",
     "order" : "طلب",
-    "add_ons" : "الإضافات",
+    "select_add_ons" : "حدد الإضافات (اختياري)",
     "topping" : "Topping",
     "quantity" : "كمية",
-    "add_to_cart" : "أضف إلى السلة"
+    "add_to_cart" : "أضف إلى السلة",
+    "ice" : "ثلج",
+    "sugar": "سكر",
+    "select_size" : "أختر الحجم **",
+    "small": "صغير",
+    "regular": "وسط",
+    "large":"كبير"
 }
