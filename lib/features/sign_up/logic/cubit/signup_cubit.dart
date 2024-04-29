@@ -10,8 +10,6 @@ class SignupCubit extends Cubit<SignupState> {
   SignupCubit(this._signupRepo) : super(const SignupState.initial());
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController numberController = TextEditingController();
-
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmationController =
@@ -26,7 +24,7 @@ class SignupCubit extends Cubit<SignupState> {
           email: emailController.text,
           password: passwordController.text,
           passwordConfirmation: passwordConfirmationController.text,
-          number: numberController.text),
+          number: phoneController.text),
     );
     response.when(success: (signupRespose) {
       emit(

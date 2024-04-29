@@ -9,6 +9,8 @@ import 'package:shuwaikh/features/nav%20bar/nav_bar_main_screen.dart';
 import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
 import 'package:shuwaikh/features/product_details/ui/product_details_screen.dart';
+import 'package:shuwaikh/features/sign_up/data/repos/sign_up_repo.dart';
+import 'package:shuwaikh/features/sign_up/logic/cubit/signup_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
@@ -35,7 +37,10 @@ class AppRouter {
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
-          builder: (_) => const SignupScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => SignupCubit(SignupRepo(ApiService(Dio()))),
+            child: const SignupScreen(),
+          ),
         );
       case Routes.homeScreen:
         return MaterialPageRoute(

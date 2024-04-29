@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/helpers/app_regex.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/widgets/app_text_field.dart';
+import 'package:shuwaikh/features/sign_up/logic/cubit/signup_cubit.dart';
 
-import '../../../../core/routing/routes.dart';
-import '../../../../core/widgets/app_auth_button.dart';
 import '../../../../generated/l10n.dart';
 
 class SignupForm extends StatefulWidget {
@@ -18,20 +17,16 @@ class SignupForm extends StatefulWidget {
 class _SignupFormState extends State<SignupForm> {
   bool isObscureText = true;
   bool confirmtIsObscureText = true;
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController userNameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<SignupCubit>().formKey,
       child: Column(
         children: [
           AppTextFormField(
             hintText: S.of(context).username,
-            controller: userNameController,
+            controller: context.read<SignupCubit>().usernameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return S.of(context).enter_valid_username;
@@ -44,7 +39,7 @@ class _SignupFormState extends State<SignupForm> {
           AppTextFormField(
             hintText: S.of(context).email,
             keyboardType: TextInputType.emailAddress,
-            controller: emailController,
+            controller: context.read<SignupCubit>().emailController,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
@@ -57,7 +52,7 @@ class _SignupFormState extends State<SignupForm> {
           AppTextFormField(
             hintText: S.of(context).phome_number,
             keyboardType: TextInputType.number,
-            controller: phoneController,
+            controller: context.read<SignupCubit>().phoneController,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
@@ -69,7 +64,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(15),
           AppTextFormField(
             hintText: S.of(context).password,
-            controller: passwordController,
+            controller: context.read<SignupCubit>().passwordController,
             isObscureText: isObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -92,6 +87,8 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(15),
           AppTextFormField(
             hintText: S.of(context).confirm_pass,
+            controller:
+                context.read<SignupCubit>().passwordConfirmationController,
             isObscureText: confirmtIsObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -106,17 +103,9 @@ class _SignupFormState extends State<SignupForm> {
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
-                  passwordController.text != value) {
+                  context.read<SignupCubit>().passwordController.text !=
+                      value) {
                 return S.of(context).not_match;
-              }
-            },
-          ),
-          verticalSpace(30),
-          AppAuthButton(
-            text: S.of(context).sign_up,
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                context.pushNamed(Routes.otp);
               }
             },
           ),

@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/widgets/app_single_scffold.dart';
 import 'package:shuwaikh/features/sign_up/ui/widgets/have_account_text.dart';
+import 'package:shuwaikh/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../core/widgets/app_auth_button.dart';
 import '../../../../generated/l10n.dart';
+import '../../logic/cubit/signup_cubit.dart';
 import 'sign_up_form.dart';
 
-class SignupScreenBody extends StatefulWidget {
+class SignupScreenBody extends StatelessWidget {
   const SignupScreenBody({super.key});
 
-  @override
-  State<SignupScreenBody> createState() => _SignupScreenBodyState();
-}
-
-class _SignupScreenBodyState extends State<SignupScreenBody> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -41,8 +40,22 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
             ),
             verticalSpace(30),
             const SignupForm(),
+            verticalSpace(30),
+            AppAuthButton(
+              text: S.of(context).sign_up,
+              onTap: () {
+                if (context
+                    .read<SignupCubit>()
+                    .formKey
+                    .currentState!
+                    .validate()) {
+                  context.read<SignupCubit>().emitSignupStates();
+                }
+              },
+            ),
             verticalSpace(40),
             const HaveAnAccountText(),
+            const SignupBlocListener(),
             verticalSpace(200),
           ],
         ),
