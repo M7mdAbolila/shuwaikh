@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';import 'package:shuwaikh/features/drawer/change_lang.dart';
 import 'package:shuwaikh/features/drawer/drawer_item.dart';
 
 import '../../core/helpers/is_arabic.dart';
@@ -25,10 +25,10 @@ class DrawerMenu extends StatelessWidget {
             title: S.of(context).home,
             onTap: () => context.pushNamed(Routes.mainScreen),
           ),
-          DrawerItem(
-            iconPath: 'assets/icons/transaction_history.svg',
-            title: S.of(context).trans_history,
-          ),
+          // DrawerItem(
+          //   iconPath: 'assets/icons/transaction_history.svg',
+          //   title: S.of(context).trans_history,
+          // ),
           DrawerItem(
             iconPath: 'assets/icons/account.svg',
             title: S.of(context).account,
@@ -38,14 +38,16 @@ class DrawerMenu extends StatelessWidget {
             title: S.of(context).your_favorite,
           ),
           const Divider(),
-          DrawerItem(
-            iconPath: 'assets/icons/setting.svg',
-            title: S.of(context).setting,
-          ),
+          const ChangeLang(),
+          // DrawerItem(
+          //   iconPath: 'assets/icons/setting.svg',
+          //   title: S.of(context).setting,
+          // ),
           DrawerItem(
             iconPath: 'assets/icons/logout.svg',
             title: S.of(context).log_out,
           ),
+          const Divider(),
         ],
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../core/helpers/spacing.dart';
 import 'drawer_menu.dart';
 import 'photo_and_name.dart';
