@@ -1,5 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
+import 'package:shuwaikh/features/login/data/repos/login_repo.dart';
+import 'package:shuwaikh/features/login/logic/cubit/login_cubit.dart';
 import 'package:shuwaikh/features/nav%20bar/nav_bar_main_screen.dart';
 import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
@@ -23,7 +28,10 @@ class AppRouter {
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => LoginCubit(LoginRepo(ApiService(Dio()))),
+            child: const LoginScreen(),
+          ),
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(

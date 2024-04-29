@@ -88,7 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "trans_history":
             MessageLookupByLibrary.simpleMessage("Transaction history"),
-        "username": MessageLookupByLibrary.simpleMessage("User Name"),
+        "username": MessageLookupByLibrary.simpleMessage("Username"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "User name must over 3 characters"),
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),

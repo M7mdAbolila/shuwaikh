@@ -1,23 +1,24 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
+import 'package:shuwaikh/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:shuwaikh/features/login/ui/widgets/social_login_button.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/widgets/app_auth_button.dart';
+import '../../logic/cubit/login_cubit.dart';
 import 'dont_have_account.dart';
-import 'email_and_password.dart';
+import 'username_and_password.dart';
 import '../../../../core/widgets/app_single_scffold.dart';
 
-class LoginScreenBody extends StatefulWidget {
+class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({super.key});
 
-  @override
-  State<LoginScreenBody> createState() => _LoginScreenBodyState();
-}
-
-class _LoginScreenBodyState extends State<LoginScreenBody> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -38,7 +39,21 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
               style: TextStyles.font16Black400Weight,
             ),
             verticalSpace(50),
-            const EmailAndPassword(),
+            const UsernameAndPassword(),
+            verticalSpace(85),
+            AppAuthButton(
+              text: S.of(context).sign_in,
+              onTap: () {
+                if (context
+                    .read<LoginCubit>()
+                    .formKey
+                    .currentState!
+                    .validate()) {
+                  log('=========== login =====');
+                  context.read<LoginCubit>().emitLoginStates();
+                }
+              },
+            ),
             verticalSpace(31),
             const DontHaveAccont(),
             verticalSpace(40),
@@ -56,6 +71,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
               text: 'FaceBook',
               imagePath: Assets.fackbook,
             ),
+            const LoginBlocListener(),
             verticalSpace(150),
           ],
         ),

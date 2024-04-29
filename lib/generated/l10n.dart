@@ -140,10 +140,10 @@ class S {
     );
   }
 
-  /// `User Name`
+  /// `Username`
   String get username {
     return Intl.message(
-      'User Name',
+      'Username',
       name: 'username',
       desc: '',
       args: [],
