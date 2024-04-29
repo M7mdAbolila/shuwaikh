@@ -39,7 +39,7 @@ class ServerFailure extends Failure {
   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
     if (statusCode == 401) {
       return ServerFailure(response['error']);
-    } else if (statusCode == 429) {
+    } else if (statusCode == 400) {
       return ServerFailure(response.toString());
     } else if (statusCode == 429) {
       return ServerFailure('To Many Request');
