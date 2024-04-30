@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
+import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
+import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
 import 'package:shuwaikh/features/login/data/models/login_request_body.dart';
 import 'package:shuwaikh/features/login/data/models/login_response.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
@@ -15,6 +16,12 @@ abstract class ApiService {
   @POST(ApiConstants.login)
   Future<LoginResponse> login(@Body() LoginRequestBody loginRequestBody);
 
-   @POST(ApiConstants.register)
+  @POST(ApiConstants.register)
   Future<SignupResponse> signup(@Body() SignupRequestBody signupRequestBody);
+
+  @PATCH('${ApiConstants.getCategories}{token}')
+  Future<GetCatogoriesResponse> getCategories(
+    @Body() GetCategoriesRequsetBody getCategoriesRequsetBody,
+    @Path() String token,
+  );
 }
