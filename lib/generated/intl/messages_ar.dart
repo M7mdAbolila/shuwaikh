@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "account": MessageLookupByLibrary.simpleMessage("حسابي"),
         "add_more_items": MessageLookupByLibrary.simpleMessage("إضافة المزيد"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
+        "all_categories": MessageLookupByLibrary.simpleMessage("جميع الفئات"),
         "check_out": MessageLookupByLibrary.simpleMessage("الدفع"),
         "coffee": MessageLookupByLibrary.simpleMessage("القهوة"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("تأكيد OTP"),

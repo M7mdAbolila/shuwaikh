@@ -1,4 +1,5 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Headers;
+import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
@@ -19,9 +20,11 @@ abstract class ApiService {
   @POST(ApiConstants.register)
   Future<SignupResponse> signup(@Body() SignupRequestBody signupRequestBody);
 
-  @PATCH('${ApiConstants.getCategories}{token}')
+  @POST(ApiConstants.getCategories)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
   Future<GetCatogoriesResponse> getCategories(
     @Body() GetCategoriesRequsetBody getCategoriesRequsetBody,
-    @Path() String token,
   );
 }

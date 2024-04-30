@@ -54,5 +54,6 @@
     "select_size" : "أختر الحجم **",
     "small": "صغير",
     "regular": "وسط",
-    "large":"كبير"
+    "large":"كبير",
+    "all_categories" : "جميع الفئات"
 }

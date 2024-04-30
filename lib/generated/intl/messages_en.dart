@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_more_items":
             MessageLookupByLibrary.simpleMessage("ADD MORE ITEMS"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("ADD TO CART"),
+        "all_categories":
+            MessageLookupByLibrary.simpleMessage("All Categories"),
         "check_out": MessageLookupByLibrary.simpleMessage("Checkout"),
         "coffee": MessageLookupByLibrary.simpleMessage("COFFEE"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),

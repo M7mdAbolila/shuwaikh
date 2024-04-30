@@ -54,7 +54,8 @@
     "select_size" : "Select Size **",
     "small": "Small",
     "regular": "Regular",
-    "large":"Large"
+    "large":"Large",
+    "all_categories" : "All Categories"
     
 
 

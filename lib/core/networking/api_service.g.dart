@@ -78,23 +78,22 @@ class _ApiService implements ApiService {
 
   @override
   Future<GetCatogoriesResponse> getCategories(
-    GetCategoriesRequsetBody getCategoriesRequsetBody,
-    String token,
-  ) async {
+      GetCategoriesRequsetBody getCategoriesRequsetBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Accept': 'application/json'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(getCategoriesRequsetBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<GetCatogoriesResponse>(Options(
-      method: 'PATCH',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'getCategories${token}',
+              'getCategories?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDUxOTAyOCwiZXhwIjoxNzE0NTIyNjI4LCJuYmYiOjE3MTQ1MTkwMjgsImp0aSI6InRqeEx1R050THlGckZvUWsiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0ksVGM2dPF2QooDpyP-buaggNFNTgs1ENjuAJ-PwBNk',
               queryParameters: queryParameters,
               data: _data,
             )
