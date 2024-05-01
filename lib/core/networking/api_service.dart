@@ -4,6 +4,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
+import 'package:shuwaikh/features/home/data/models/get_coupons/get_coupons_response.dart';
 import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_requset_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_response.dart';
 import 'package:shuwaikh/features/login/data/models/login_request_body.dart';
@@ -38,5 +39,13 @@ abstract class ApiService {
   Future<GetOffersResponse> getOffers(
     @Query("token") String token,
     @Body() GetOffersRequsetBody getOffersRequsetBody,
+  );
+
+  @GET(ApiConstants.getCoupons)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<GetCouponsResponse> getCoupons(
+    @Query("token") String token,
   );
 }

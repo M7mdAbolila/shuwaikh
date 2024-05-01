@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter a valid phone number"),
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid user name"),
+        "expired": MessageLookupByLibrary.simpleMessage("expirt date"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "ice": MessageLookupByLibrary.simpleMessage("Ice"),
         "items": MessageLookupByLibrary.simpleMessage("items"),
@@ -66,8 +67,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_with": MessageLookupByLibrary.simpleMessage("Login With"),
+        "minimum_discount": MessageLookupByLibrary.simpleMessage(
+            "minimum discount for orders over"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
+        "no_offers_found":
+            MessageLookupByLibrary.simpleMessage("No Offers Found"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "Password confirmation does not match"),
         "order": MessageLookupByLibrary.simpleMessage("ORDER"),
@@ -98,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "welcome back, you have been mised."),
         "welcome_to": MessageLookupByLibrary.simpleMessage("Welcome to"),
         "your_favorite": MessageLookupByLibrary.simpleMessage("Your favourite"),
+        "your_offers": MessageLookupByLibrary.simpleMessage("Your Offers"),
         "your_voucher": MessageLookupByLibrary.simpleMessage("Your Vouchers")
       };
 }

@@ -112,6 +112,11 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     color: ColorsManager.mainBlue,
   );
+  static TextStyle font20MainBlue500Weight = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorsManager.mainBlue,
+  );
   static TextStyle font18Blue500Weight = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
@@ -146,5 +151,12 @@ class TextStyles {
     fontSize: 10.sp,
     fontWeight: FontWeight.w400,
     color: ColorsManager.darkBlue,
+  );
+
+  // =========== red fonts =======================
+  static TextStyle font30Red700Weight = TextStyle(
+    fontSize: 30.sp,
+    fontWeight: FontWeight.w700,
+    color: Colors.red,
   );
 }

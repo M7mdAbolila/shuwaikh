@@ -1,8 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -31,8 +30,6 @@ class CategoriesSection extends StatelessWidget {
     );
   }
 }
-
-
 
 class CategoriesListView extends StatefulWidget {
   const CategoriesListView({
@@ -76,7 +73,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
             ),
           );
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const CustomLoadingWidget();
         }
       },
     );

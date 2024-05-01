@@ -619,6 +619,46 @@ class S {
       args: [],
     );
   }
+
+  /// `minimum discount for orders over`
+  String get minimum_discount {
+    return Intl.message(
+      'minimum discount for orders over',
+      name: 'minimum_discount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `expirt date`
+  String get expired {
+    return Intl.message(
+      'expirt date',
+      name: 'expired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Offers Found`
+  String get no_offers_found {
+    return Intl.message(
+      'No Offers Found',
+      name: 'no_offers_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Offers`
+  String get your_offers {
+    return Intl.message(
+      'Your Offers',
+      name: 'your_offers',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

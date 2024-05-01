@@ -51,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال اسم مستخدم صالح"),
+        "expired": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "ice": MessageLookupByLibrary.simpleMessage("ثلج"),
         "items": MessageLookupByLibrary.simpleMessage("المنتجات"),
@@ -65,8 +66,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_with":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
+        "minimum_discount": MessageLookupByLibrary.simpleMessage(
+            "الحد الأدنى للخصم للطلبات التي تزيد عن"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "my_cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
+        "no_offers_found":
+            MessageLookupByLibrary.simpleMessage("لم يتم العثور على أي عروض"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "تأكيد كلمة المرور غير متطابق"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
@@ -96,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك."),
         "welcome_to": MessageLookupByLibrary.simpleMessage("مرحبا في"),
         "your_favorite": MessageLookupByLibrary.simpleMessage("المفضلة لديك"),
+        "your_offers": MessageLookupByLibrary.simpleMessage("العروض الخاصة بك"),
         "your_voucher":
             MessageLookupByLibrary.simpleMessage("القسائم الخاصة بك")
       };

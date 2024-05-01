@@ -65,9 +65,7 @@ class VoucherScreenBody extends StatelessWidget {
               ),
             ),
             verticalSpace(35),
-            const VoucherSection(
-              seeAll: false,
-            ),
+            const VoucherSection(),
           ],
         ),
       ),

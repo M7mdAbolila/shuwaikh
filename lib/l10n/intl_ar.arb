@@ -55,5 +55,9 @@
     "small": "صغير",
     "regular": "وسط",
     "large":"كبير",
-    "all_categories" : "جميع الفئات"
+    "all_categories" : "جميع الفئات",
+    "minimum_discount" : "الحد الأدنى للخصم للطلبات التي تزيد عن",
+    "expired" : "تاريخ الانتهاء",
+    "no_offers_found" : "لم يتم العثور على أي عروض",
+    "your_offers" : "العروض الخاصة بك"
 }

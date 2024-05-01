@@ -55,7 +55,11 @@
     "small": "Small",
     "regular": "Regular",
     "large":"Large",
-    "all_categories" : "All Categories"
+    "all_categories" : "All Categories",
+    "minimum_discount" : "minimum discount for orders over",
+    "expired" : "expirt date",
+    "no_offers_found" : "No Offers Found",
+    "your_offers" : "Your Offers"
     
 
 

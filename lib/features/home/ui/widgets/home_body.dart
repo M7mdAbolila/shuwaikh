@@ -29,7 +29,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             const OffersSection(),
             verticalSpace(20),
             const CategoriesSection(),
-            verticalSpace(40),
+            verticalSpace(20),
             const VoucherSection(),
             verticalSpace(20),
           ],

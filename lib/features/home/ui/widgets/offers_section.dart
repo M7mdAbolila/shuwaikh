@@ -2,10 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
+import 'package:shuwaikh/generated/l10n.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../core/widgets/custom_loading_widget.dart';
 
 class OffersSection extends StatelessWidget {
   const OffersSection({super.key});
@@ -33,52 +36,77 @@ class _CategoriesListViewState extends State<OffersListView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetOffersCubit, GetOffersState>(
-      builder: (context, state) {
-        if (state is GetOffersSuccess) {
-          return Column(
-            children: [
-              CarouselSlider.builder(
-                carouselController: CarouselController(),
-                options: CarouselOptions(
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      activeIndex = index;
-                    });
-                  },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          S.of(context).your_offers,
+          style: TextStyles.font24MainBlue500Weight.copyWith(
+            decoration: TextDecoration.underline,
+            decorationColor: ColorsManager.mainBlue,
+          ),
+        ),
+        verticalSpace(15),
+        BlocBuilder<GetOffersCubit, GetOffersState>(
+          builder: (context, state) {
+            if (state is GetOffersSuccess) {
+              return Column(
+                children: [
+                  state.offers!.isEmpty
+                      ? Center(
+                          child: Text(
+                            S.of(context).no_offers_found,
+                            style: TextStyles.font30Red700Weight,
+                          ),
+                        )
+                      : Column(
+                          children: [
+                            CarouselSlider.builder(
+                              carouselController: CarouselController(),
+                              options: CarouselOptions(
+                                autoPlay: true,
+                                enlargeCenterPage: true,
+                                onPageChanged: (index, reason) {
+                                  setState(() {
+                                    activeIndex = index;
+                                  });
+                                },
+                              ),
+                              itemCount: state.offers!.length,
+                              itemBuilder: (BuildContext context, int index,
+                                  int realIndex) {
+                                return CachedNetworkImage(
+                                  imageUrl:
+                                      'https://shuwaikhcoffee.com/assets/front/img/offer/featured/${state.offers![index].image}',
+                                );
+                              },
+                            ),
+                            AnimatedSmoothIndicator(
+                              activeIndex: activeIndex,
+                              count: state.offers!.length,
+                              effect: const SwapEffect(
+                                dotColor: ColorsManager.lightBlue,
+                                activeDotColor: ColorsManager.darkBlue,
+                              ),
+                            ),
+                          ],
+                        ),
+                ],
+              );
+            } else if (state is GetOffersFailure) {
+              return Center(
+                child: Text(
+                  state.errMessage,
+                  style: TextStyles.font13Black500Weight,
+                  textAlign: TextAlign.center,
                 ),
-                itemCount: state.offers!.length,
-                itemBuilder: (BuildContext context, int index, int realIndex) {
-                  return CachedNetworkImage(
-                    imageUrl:
-                        'https://shuwaikhcoffee.com/assets/front/img/offer/featured/${state.offers![index].image}',
-                  );
-                },
-              ),
-              AnimatedSmoothIndicator(
-                activeIndex: activeIndex,
-                count: state.offers!.length,
-                effect: const SwapEffect(
-                  dotColor: ColorsManager.lightBlue,
-                  activeDotColor: ColorsManager.darkBlue,
-                ),
-              ),
-            ],
-          );
-        } else if (state is GetOffersFailure) {
-          return Center(
-            child: Text(
-              state.errMessage,
-              style: TextStyles.font13Black500Weight,
-              textAlign: TextAlign.center,
-            ),
-          );
-        } else {
-          return const Center(child: CircularProgressIndicator());
-        }
-      },
+              );
+            } else {
+              return const CustomLoadingWidget();
+            }
+          },
+        ),
+      ],
     );
   }
 }

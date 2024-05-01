@@ -127,7 +127,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'getOffers?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDU2NDQ3NiwiZXhwIjoxNzE0NTY4MDc2LCJuYmYiOjE3MTQ1NjQ0NzYsImp0aSI6ImdlVnJPTjF0bXhXZ3BsVkEiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.chtDhaRxbQfcrF9_fq4JMpWCSZrplGZ-pgUL2H8rkps',
+              'getOffers',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -137,6 +137,34 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = GetOffersResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<GetCouponsResponse> getCoupons(String token) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'token': token};
+    final _headers = <String, dynamic>{r'Accept': 'application/json'};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<GetCouponsResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'getCoupons',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = GetCouponsResponse.fromJson(_result.data!);
     return value;
   }
 
