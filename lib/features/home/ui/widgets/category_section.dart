@@ -1,71 +1,84 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shuwaikh/core/helpers/spacing.dart';
-import 'package:shuwaikh/core/theming/colors.dart';
-import 'package:shuwaikh/core/theming/styles.dart';
-
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
+import '../../logic/get_categories_cubit/get_categories_cubit.dart';
+import 'category_item.dart';
 
-class CategorySection extends StatelessWidget {
-  const CategorySection({
-    super.key,
-    required this.catogoryName,
-    this.seeAllOnTap,
-    required this.item,
-    this.height,
-    required this.itemCount,
-  });
-  final String catogoryName;
-  final Widget item;
-  final VoidCallback? seeAllOnTap;
-  final double? height;
-  final int itemCount;
+class CategoriesSection extends StatelessWidget {
+  const CategoriesSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              catogoryName,
-              style: TextStyles.font24MainBlue500Weight.copyWith(
-                decoration: TextDecoration.underline,
-                decorationColor: ColorsManager.mainBlue,
-              ),
-            ),
-            InkWell(
-              onTap: seeAllOnTap,
-              child: Container(
-                height: 28.h,
-                width: 60.w,
-                decoration: BoxDecoration(
-                  color: ColorsManager.mainBlue,
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: Center(
-                  child: Text(
-                    S.of(context).more,
-                    style: TextStyles.font13White500Weight,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        verticalSpace(15),
-        SizedBox(
-          height: height?.h ?? 220.h,
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemCount: itemCount,
-            itemBuilder: (BuildContext context, int index) {
-              return item;
-            },
+        Text(
+          S.of(context).all_categories,
+          style: TextStyles.font24MainBlue500Weight.copyWith(
+            decoration: TextDecoration.underline,
+            decorationColor: ColorsManager.mainBlue,
           ),
         ),
+        verticalSpace(10),
+        const CategoriesListView(),
       ],
+    );
+  }
+}
+
+
+
+class CategoriesListView extends StatefulWidget {
+  const CategoriesListView({
+    super.key,
+  });
+
+  @override
+  State<CategoriesListView> createState() => _CategoriesListViewState();
+}
+
+class _CategoriesListViewState extends State<CategoriesListView> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<GetCategoriesCubit>().getCategories();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<GetCategoriesCubit, GetCategoriesState>(
+      builder: (context, state) {
+        if (state is GetCategoriesSuccess) {
+          return SizedBox(
+            height: 85.h,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: state.categories!.length,
+              itemBuilder: (context, index) {
+                return CategoryItem(
+                  category: state.categories![index],
+                );
+              },
+            ),
+          );
+        } else if (state is GetCategoriesFailure) {
+          return Center(
+            child: Text(
+              state.errMessage,
+              style: TextStyles.font13Black500Weight,
+              textAlign: TextAlign.center,
+            ),
+          );
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
 }

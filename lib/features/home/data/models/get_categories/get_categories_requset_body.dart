@@ -1,4 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'package:json_annotation/json_annotation.dart';
 
 part 'get_categories_requset_body.g.dart';
 

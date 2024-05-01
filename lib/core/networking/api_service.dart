@@ -4,6 +4,8 @@ import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
+import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_requset_body.dart';
+import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_response.dart';
 import 'package:shuwaikh/features/login/data/models/login_request_body.dart';
 import 'package:shuwaikh/features/login/data/models/login_response.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
@@ -23,8 +25,17 @@ abstract class ApiService {
   @POST(ApiConstants.getCategories)
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
+    // 'Authorization' : 'Bearer ${ApiConstants.token}'
   })
   Future<GetCatogoriesResponse> getCategories(
     @Body() GetCategoriesRequsetBody getCategoriesRequsetBody,
+  );
+
+  @POST(ApiConstants.getOffers)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<GetOffersResponse> getOffers(
+    @Body() GetOffersRequsetBody getOffersRequsetBody,
   );
 }

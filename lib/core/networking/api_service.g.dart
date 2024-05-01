@@ -93,7 +93,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'getCategories?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDUxOTAyOCwiZXhwIjoxNzE0NTIyNjI4LCJuYmYiOjE3MTQ1MTkwMjgsImp0aSI6InRqeEx1R050THlGckZvUWsiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0ksVGM2dPF2QooDpyP-buaggNFNTgs1ENjuAJ-PwBNk',
+              'getCategories?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDU2MDczOCwiZXhwIjoxNzE0NTY0MzM4LCJuYmYiOjE3MTQ1NjA3MzgsImp0aSI6InZhM0pkRFFEa01TSDhPUUwiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.PYM4cigajifWbreHdZSOVfsCjzoebMapkYD0u36_5Q0',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -103,6 +103,36 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = GetCatogoriesResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<GetOffersResponse> getOffers(
+      GetOffersRequsetBody getOffersRequsetBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Accept': 'application/json'};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(getOffersRequsetBody.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<GetOffersResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'getOffers?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDU2MDczOCwiZXhwIjoxNzE0NTY0MzM4LCJuYmYiOjE3MTQ1NjA3MzgsImp0aSI6InZhM0pkRFFEa01TSDhPUUwiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.PYM4cigajifWbreHdZSOVfsCjzoebMapkYD0u36_5Q0',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = GetOffersResponse.fromJson(_result.data!);
     return value;
   }
 
