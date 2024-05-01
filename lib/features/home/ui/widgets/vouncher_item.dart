@@ -28,6 +28,7 @@ class VoucherItem extends StatelessWidget {
             child: Container(
               height: 21.h,
               width: 81.w,
+              padding: EdgeInsets.symmetric(horizontal: 2.w),
               decoration: BoxDecoration(
                 color: ColorsManager.mainBlue,
                 borderRadius: BorderRadius.circular(3),

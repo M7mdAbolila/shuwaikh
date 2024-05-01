@@ -159,4 +159,9 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     color: Colors.red,
   );
+  static TextStyle font20Red600Weight = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+    color: Colors.red,
+  );
 }

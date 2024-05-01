@@ -8,6 +8,7 @@ import 'package:shuwaikh/generated/l10n.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../core/widgets/custom_loading_widget.dart';
 
 class OffersSection extends StatelessWidget {
@@ -94,12 +95,8 @@ class _CategoriesListViewState extends State<OffersListView> {
                 ],
               );
             } else if (state is GetOffersFailure) {
-              return Center(
-                child: Text(
-                  state.errMessage,
-                  style: TextStyles.font13Black500Weight,
-                  textAlign: TextAlign.center,
-                ),
+              return CustomErrorWidget(
+                errMessage: state.errMessage,
               );
             } else {
               return const CustomLoadingWidget();

@@ -5,6 +5,7 @@ import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../generated/l10n.dart';
 import '../../logic/get_categories_cubit/get_categories_cubit.dart';
 import 'category_item.dart';
@@ -65,12 +66,8 @@ class _CategoriesListViewState extends State<CategoriesListView> {
             ),
           );
         } else if (state is GetCategoriesFailure) {
-          return Center(
-            child: Text(
-              state.errMessage,
-              style: TextStyles.font13Black500Weight,
-              textAlign: TextAlign.center,
-            ),
+          return CustomErrorWidget(
+            errMessage: state.errMessage,
           );
         } else {
           return const CustomLoadingWidget();

@@ -1,9 +1,14 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
+import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
+import 'package:shuwaikh/features/home/data/repos/get_coupons_repo.dart';
+import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/ui/widgets/voucher_section.dart';
 
 class VoucherScreenBody extends StatelessWidget {
@@ -65,7 +70,11 @@ class VoucherScreenBody extends StatelessWidget {
               ),
             ),
             verticalSpace(35),
-            const VoucherSection(),
+            BlocProvider(
+              create: (context) =>
+                  GetCouponsCubit(GetCouponsRepo(ApiService(Dio()))),
+              child: const VoucherSection(),
+            ),
           ],
         ),
       ),
