@@ -25,9 +25,9 @@ abstract class ApiService {
   @POST(ApiConstants.getCategories)
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
-    // 'Authorization' : 'Bearer ${ApiConstants.token}'
   })
   Future<GetCatogoriesResponse> getCategories(
+    @Query("token") String token,
     @Body() GetCategoriesRequsetBody getCategoriesRequsetBody,
   );
 
@@ -36,6 +36,7 @@ abstract class ApiService {
     'Accept': 'application/json',
   })
   Future<GetOffersResponse> getOffers(
+    @Query("token") String token,
     @Body() GetOffersRequsetBody getOffersRequsetBody,
   );
 }

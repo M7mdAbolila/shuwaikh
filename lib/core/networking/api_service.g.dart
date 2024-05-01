@@ -78,9 +78,11 @@ class _ApiService implements ApiService {
 
   @override
   Future<GetCatogoriesResponse> getCategories(
-      GetCategoriesRequsetBody getCategoriesRequsetBody) async {
+    String token,
+    GetCategoriesRequsetBody getCategoriesRequsetBody,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'token': token};
     final _headers = <String, dynamic>{r'Accept': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
@@ -93,7 +95,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'getCategories?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDU2MDczOCwiZXhwIjoxNzE0NTY0MzM4LCJuYmYiOjE3MTQ1NjA3MzgsImp0aSI6InZhM0pkRFFEa01TSDhPUUwiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.PYM4cigajifWbreHdZSOVfsCjzoebMapkYD0u36_5Q0',
+              'getCategories',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -108,9 +110,11 @@ class _ApiService implements ApiService {
 
   @override
   Future<GetOffersResponse> getOffers(
-      GetOffersRequsetBody getOffersRequsetBody) async {
+    String token,
+    GetOffersRequsetBody getOffersRequsetBody,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'token': token};
     final _headers = <String, dynamic>{r'Accept': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
@@ -123,7 +127,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'getOffers?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDU2MDczOCwiZXhwIjoxNzE0NTY0MzM4LCJuYmYiOjE3MTQ1NjA3MzgsImp0aSI6InZhM0pkRFFEa01TSDhPUUwiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.PYM4cigajifWbreHdZSOVfsCjzoebMapkYD0u36_5Q0',
+              'getOffers?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NodXdhaWtoY29mZmVlLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcxNDU2NDQ3NiwiZXhwIjoxNzE0NTY4MDc2LCJuYmYiOjE3MTQ1NjQ0NzYsImp0aSI6ImdlVnJPTjF0bXhXZ3BsVkEiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.chtDhaRxbQfcrF9_fq4JMpWCSZrplGZ-pgUL2H8rkps',
               queryParameters: queryParameters,
               data: _data,
             )

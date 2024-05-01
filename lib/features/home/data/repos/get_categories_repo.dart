@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/networking/failure.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
@@ -12,7 +13,7 @@ class GetCategoriesRepo {
   Future<Either<Failure, List<Category>?>> getCategories(
       GetCategoriesRequsetBody getCategoriesRequsetBody) async {
     try {
-      var response = await _apiService.getCategories(getCategoriesRequsetBody);
+      var response = await _apiService.getCategories(ApiConstants.token,getCategoriesRequsetBody,);
 
       return right(response.categories);
     } catch (e) {

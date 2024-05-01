@@ -9,14 +9,13 @@ class ProductsScreen extends StatefulWidget {
   State<ProductsScreen> createState() => _ProductsScreenState();
 }
 
-class _ProductsScreenState extends State<ProductsScreen> with AutomaticKeepAliveClientMixin {
-   @override
+class _ProductsScreenState extends State<ProductsScreen>
+    with AutomaticKeepAliveClientMixin {
+  @override
   bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return const Scaffold(
-      body: ProductsScreenBody(),
-    );
+    return const ProductsScreenBody();
   }
 }
