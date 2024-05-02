@@ -2,6 +2,8 @@ import 'package:dio/dio.dart' hide Headers;
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
+import 'package:shuwaikh/features/Products_page/data/models/products_page_request_body.dart';
+import 'package:shuwaikh/features/Products_page/data/models/products_page_response.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
 import 'package:shuwaikh/features/home/data/models/get_coupons/get_coupons_response.dart';
@@ -39,6 +41,15 @@ abstract class ApiService {
   Future<GetOffersResponse> getOffers(
     @Query("token") String token,
     @Body() GetOffersRequsetBody getOffersRequsetBody,
+  );
+
+  @POST(ApiConstants.productsPage)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<ProductsPageResponse> productsPage(
+    @Query("token") String token,
+    @Body() ProductsPageRequestBody productsPageRequestBody,
   );
 
   @GET(ApiConstants.getCoupons)

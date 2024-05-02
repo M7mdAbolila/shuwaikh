@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/features/Products_page/data/models/products_page_response.dart';
 
-import '../../../../core/helpers/assets_path.dart';
 import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
@@ -13,8 +14,9 @@ import '../../../../generated/l10n.dart';
 class HorizontalProductItem extends StatelessWidget {
   const HorizontalProductItem({
     super.key,
+    required this.product,
   });
-
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -42,9 +44,10 @@ class HorizontalProductItem extends StatelessWidget {
                 width: 100.w,
                 height: 100.h,
                 decoration: BoxDecoration(
-                  image: const DecorationImage(
+                  image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(Assets.broduct),
+                    image: CachedNetworkImageProvider(
+                        'https://shuwaikhcoffee.com/assets/front/img/product/featured/${product.featureImage}'),
                   ),
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
@@ -54,51 +57,58 @@ class HorizontalProductItem extends StatelessWidget {
                 padding: isArabic()
                     ? EdgeInsets.only(right: 15.w)
                     : EdgeInsets.only(left: 15.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Latte',
-                      style: TextStyles.font24Black500Weight,
-                    ),
-                    Text.rich(
-                      TextSpan(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 160.w,
+                        child: Text(
+                          product.title ?? '',
+                          style: TextStyles.font20Black500Weight,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '${S.of(context).price} ',
+                              style: TextStyles.font16Black400Weight,
+                            ),
+                            TextSpan(
+                              text: 'KD${product.currentPrice ?? ''}',
+                              style: TextStyles.font18Blue500Weight,
+                            ),
+                          ],
+                        ),
+                      ),
+                      // verticalSpace(20),
+                      Row(
                         children: [
-                          TextSpan(
-                            text: '${S.of(context).price} ',
-                            style: TextStyles.font16Black400Weight,
+                          const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                            size: 18,
                           ),
-                          TextSpan(
-                            text: 'KD 100',
-                            style: TextStyles.font18Blue500Weight,
+                          horizontalSpace(2),
+                          const Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                            size: 18,
                           ),
+                          Text(
+                            '4.5',
+                            style: TextStyles.font11Black500Weight,
+                          )
                         ],
                       ),
-                    ),
-                    verticalSpace(20),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                          size: 18,
-                        ),
-                        horizontalSpace(2),
-                        const Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                          size: 18,
-                        ),
-                        Text(
-                          '4.5',
-                          style: TextStyles.font11Black500Weight,
-                        )
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-              horizontalSpace(60),
               const CircleAvatar(
                 radius: 20,
                 backgroundColor: ColorsManager.mainBlue,
