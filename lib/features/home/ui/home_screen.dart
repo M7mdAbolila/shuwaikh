@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
-import 'package:shuwaikh/features/Products_page/logic/cubit/change_category_cubit.dart';
 import 'package:shuwaikh/features/home/data/repos/get_categories_repo.dart';
 import 'package:shuwaikh/features/home/data/repos/get_coupons_repo.dart';
 import 'package:shuwaikh/features/home/data/repos/get_offers_repo.dart';
@@ -39,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen>
           create: (context) =>
               GetCouponsCubit(GetCouponsRepo(ApiService(Dio()))),
         ),
-        BlocProvider(create: (context) => ChangeCategoryCubit()),
+        
       ],
       child: const HomeScreenBody(),
     );

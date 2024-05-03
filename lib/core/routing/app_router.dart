@@ -5,12 +5,16 @@ import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/login/data/repos/login_repo.dart';
 import 'package:shuwaikh/features/login/logic/cubit/login_cubit.dart';
-import 'package:shuwaikh/features/nav%20bar/nav_bar_main_screen.dart';
+import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
+import 'package:shuwaikh/features/nav_bar/nav_bar_main_screen.dart';
 import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
 import 'package:shuwaikh/features/product_details/ui/product_details_screen.dart';
 import 'package:shuwaikh/features/sign_up/data/repos/sign_up_repo.dart';
 import 'package:shuwaikh/features/sign_up/logic/cubit/signup_cubit.dart';
+import '../../features/Products_page/data/repos/products_page_repo.dart';
+import '../../features/Products_page/logic/cubit/change_category_cubit.dart';
+import '../../features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
@@ -26,7 +30,22 @@ class AppRouter {
     switch (settings.name) {
       case Routes.mainScreen:
         return MaterialPageRoute(
-          builder: (_) => const MainScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    ProductsPageCubit(ProductsPageRepo(ApiService(Dio())))
+                      ..emitProductsPageStates(),
+              ),
+              BlocProvider(
+                create: (context) => ChangeCategoryCubit()..getCategory(),
+              ),
+              BlocProvider(
+                create: (context) => ChangePageCubit(),
+              ),
+            ],
+            child: const MainScreen(),
+          ),
         );
       case Routes.loginScreen:
         return MaterialPageRoute(

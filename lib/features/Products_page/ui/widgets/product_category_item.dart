@@ -6,25 +6,23 @@ import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/features/Products_page/logic/cubit/change_category_cubit.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
-import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
 import '../../../../core/helpers/is_arabic.dart';
 import '../../../../core/theming/styles.dart';
 
-class CategoryItem extends StatefulWidget {
-  const CategoryItem({super.key, required this.category});
+class ProductCategoryItem extends StatefulWidget {
+  const ProductCategoryItem({super.key, required this.category});
   final Category category;
 
   @override
-  State<CategoryItem> createState() => _CategoryItemState();
+  State<ProductCategoryItem> createState() => _ProductCategoryItemState();
 }
 
-class _CategoryItemState extends State<CategoryItem> {
+class _ProductCategoryItemState extends State<ProductCategoryItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         setState(() {
-          context.read<ChangePageCubit>().changePage(2);
           context
               .read<ChangeCategoryCubit>()
               .changeCategory(widget.category.id!, widget.category.name!);

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
-import 'package:shuwaikh/features/Products_page/logic/cubit/change_category_cubit.dart';
 import 'package:shuwaikh/features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
@@ -10,10 +9,17 @@ import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../generated/l10n.dart';
 import '../../../home/ui/widgets/category_item.dart';
+import '../../logic/cubit/change_category_cubit.dart';
 
-class ProductsCategoriesSection extends StatelessWidget {
+class ProductsCategoriesSection extends StatefulWidget {
   const ProductsCategoriesSection({super.key});
 
+  @override
+  State<ProductsCategoriesSection> createState() =>
+      _ProductsCategoriesSectionState();
+}
+
+class _ProductsCategoriesSectionState extends State<ProductsCategoriesSection> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -71,12 +77,10 @@ class _ProductsCategoriesListViewState
       }
     }, listener: (context, state) {
       if (state is ProductsPageSuccess) {
-        setState(() {
-          context.read<ChangeCategoryCubit>().changeCategory(
-                state.productsPageResponse.categories![0].id!,
-                state.productsPageResponse.categories![0].name!,
-              );
-        });
+        context.read<ChangeCategoryCubit>().changeCategory(
+              state.productsPageResponse.categories![0].id!,
+              state.productsPageResponse.categories![0].name!,
+            );
       }
     });
   }

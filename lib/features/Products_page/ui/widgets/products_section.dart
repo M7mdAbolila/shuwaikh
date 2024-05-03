@@ -22,7 +22,7 @@ class _ProuductsSectionState extends State<ProuductsSection> {
   @override
   void initState() {
     super.initState();
-    context.read<ChangeCategoryCubit>().getCategory();
+    // context.read<ChangeCategoryCubit>().getCategory();
   }
 
   @override
