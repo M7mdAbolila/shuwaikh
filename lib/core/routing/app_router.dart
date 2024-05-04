@@ -9,6 +9,7 @@ import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
 import 'package:shuwaikh/features/nav_bar/nav_bar_main_screen.dart';
 import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
+import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
 import 'package:shuwaikh/features/product_details/ui/product_details_screen.dart';
 import 'package:shuwaikh/features/sign_up/data/repos/sign_up_repo.dart';
 import 'package:shuwaikh/features/sign_up/logic/cubit/signup_cubit.dart';
@@ -17,6 +18,7 @@ import '../../features/Products_page/logic/cubit/change_category_cubit.dart';
 import '../../features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
+import '../../features/product_details/logic/cubit/product_details_cubit.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
 import '../../features/vouncher/ui/voucher_screen.dart';
 import 'routes.dart';
@@ -83,8 +85,15 @@ class AppRouter {
           builder: (_) => const VoucherScreen(),
         );
       case Routes.productDetailsScreen:
+      final id = settings.arguments as int?;
         return MaterialPageRoute(
-          builder: (_) => const ProductDetailsScreen(),
+          
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                ProductDetailsCubit(ProductDetailsRepo(ApiService(Dio()))),
+            child:  ProductDetailsScreen(id: id),
+            
+          ),
         );
       default:
         return MaterialPageRoute(

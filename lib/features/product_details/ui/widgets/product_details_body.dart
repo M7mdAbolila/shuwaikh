@@ -1,19 +1,24 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:shuwaikh/core/helpers/assets_path.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/helpers/app_regex.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
+import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
+import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
+import 'package:shuwaikh/features/product_details/logic/cubit/product_details_cubit.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../generated/l10n.dart';
 import 'product_nav_bar.dart';
 
 class ProductDetailsScreenBody extends StatefulWidget {
-  const ProductDetailsScreenBody({super.key});
-
+  const ProductDetailsScreenBody({super.key, this.id});
+  final int? id;
   @override
   State<ProductDetailsScreenBody> createState() =>
       _ProductDetailsScreenBodyState();
@@ -21,148 +26,186 @@ class ProductDetailsScreenBody extends StatefulWidget {
 
 class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
   int activeIndex = 0;
-  final images = [
-    Image.asset(Assets.banner),
-    Image.asset(Assets.banner),
-    Image.asset(Assets.banner),
-    Image.asset(Assets.banner),
-    Image.asset(Assets.banner)
-  ];
   bool? isChecked = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    context.read<ProductDetailsCubit>().getProductDetails(widget.id.toString());
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          color: ColorsManager.mainBlue,
-          child: SafeArea(
-            child: CustomScrollView(
-              physics: const BouncingScrollPhysics(),
-              slivers: [
-                SliverToBoxAdapter(
-                    child: Column(
-                  children: [
-                    verticalSpace(15),
-                    InkWell(
-                      onTap: () {
-                        context.pop();
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        alignment: isArabic()
-                            ? Alignment.centerRight
-                            : Alignment.centerLeft,
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    CarouselSlider.builder(
-                      carouselController: CarouselController(),
-                      options: CarouselOptions(
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            activeIndex = index;
-                          });
-                        },
-                      ),
-                      itemCount: 5,
-                      itemBuilder:
-                          (BuildContext context, int index, int realIndex) {
-                        return images[index];
-                      },
-                    ),
-                    AnimatedSmoothIndicator(
-                      activeIndex: activeIndex,
-                      count: images.length,
-                      effect: const SwapEffect(
-                        dotColor: ColorsManager.lightBlue,
-                        activeDotColor: ColorsManager.darkBlue,
-                      ),
-                    ),
-                    verticalSpace(25),
-                  ],
-                )),
-                SliverFillRemaining(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.white,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: SingleChildScrollView(
-                        physics: const NeverScrollableScrollPhysics(),
+    return BlocBuilder<ProductDetailsCubit, ProductDetailsState>(
+      builder: (context, state) {
+        if (state is ProductDetailsSuccess) {
+          return Stack(
+            children: [
+              Container(
+                color: ColorsManager.mainBlue,
+                child: SafeArea(
+                  child: CustomScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    slivers: [
+                      SliverToBoxAdapter(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            verticalSpace(35),
-                            productInfo(context),
                             verticalSpace(15),
-                            selectAddOns(context),
-                            selectSize(context),
-                            qunatity(context),
+                            InkWell(
+                              onTap: () {
+                                context.pop();
+                              },
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                alignment: isArabic()
+                                    ? Alignment.centerRight
+                                    : Alignment.centerLeft,
+                                child: const Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            CarouselSlider.builder(
+                              carouselController: CarouselController(),
+                              options: CarouselOptions(
+                                autoPlay: true,
+                                enlargeCenterPage: true,
+                                onPageChanged: (index, reason) {
+                                  setState(() {
+                                    activeIndex = index;
+                                  });
+                                },
+                              ),
+                              itemCount:
+                                  state.productDetails!.productImages!.length,
+                              itemBuilder: (BuildContext context, int index,
+                                  int realIndex) {
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: CachedNetworkImage(
+                                    placeholder: (context, url) =>
+                                        const CustomLoadingWidget(),
+                                    imageUrl:
+                                        'https://shuwaikhcoffee.com/assets/front/img/product/sliders/${state.productDetails!.productImages![index].image}',
+                                  ),
+                                );
+                              },
+                            ),
+                            verticalSpace(10),
+                            AnimatedSmoothIndicator(
+                              activeIndex: activeIndex,
+                              count:
+                                  state.productDetails!.productImages!.length,
+                              effect: const SwapEffect(
+                                dotColor: ColorsManager.lightBlue,
+                                activeDotColor: ColorsManager.darkBlue,
+                              ),
+                            ),
+                            verticalSpace(25),
                           ],
                         ),
                       ),
-                    ),
+                      SliverFillRemaining(
+                        child: SingleChildScrollView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: SingleChildScrollView(
+                                physics: const NeverScrollableScrollPhysics(),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    verticalSpace(35),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          state.productDetails?.title ?? '',
+                                          style:
+                                              TextStyles.font24Black700Weight,
+                                        ),
+                                        verticalSpace(5),
+                                        Row(
+                                          children: [
+                                            Text.rich(
+                                              TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text:
+                                                        '${S.of(context).price} ',
+                                                    style: TextStyles
+                                                        .font16Black400Weight,
+                                                  ),
+                                                  TextSpan(
+                                                    text:
+                                                        'KD ${state.productDetails?.currentPrice}',
+                                                    style: TextStyles
+                                                        .font18Blue500Weight,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            horizontalSpace(10),
+                                            const Icon(
+                                              Icons.star,
+                                              color: Colors.yellow,
+                                              size: 18,
+                                            ),
+                                            Text(
+                                              '4.5',
+                                              style: TextStyles
+                                                  .font11Black500Weight,
+                                            ),
+                                          ],
+                                        ),
+                                        verticalSpace(10),
+                                        Text(
+                                          AppRegex.removeHtmlTags(state
+                                                  .productDetails
+                                                  ?.description ??
+                                              ''),
+                                          style:
+                                              TextStyles.font13Black500Weight,
+                                          maxLines: 13,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ],
+                                    ),
+                                    verticalSpace(15),
+                                    selectAddOns(context),
+                                    selectSize(context),
+                                    qunatity(context),
+                                    verticalSpace(100),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
-        const Align(alignment: Alignment.bottomCenter, child: ProductNavBar()),
-      ],
-    );
-  }
-
-  Column productInfo(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Latte',
-          style: TextStyles.font24Black700Weight,
-        ),
-        verticalSpace(5),
-        Row(
-          children: [
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: '${S.of(context).price} ',
-                    style: TextStyles.font16Black400Weight,
-                  ),
-                  TextSpan(
-                    text: 'KD 100',
-                    style: TextStyles.font18Blue500Weight,
-                  ),
-                ],
               ),
-            ),
-            horizontalSpace(10),
-            const Icon(
-              Icons.star,
-              color: Colors.yellow,
-              size: 18,
-            ),
-            Text(
-              '4.5',
-              style: TextStyles.font11Black500Weight,
-            ),
-          ],
-        ),
-        verticalSpace(10),
-        Text(
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ',
-          style: TextStyles.font13Black500Weight,
-        ),
-      ],
+              const Align(
+                  alignment: Alignment.bottomCenter, child: ProductNavBar()),
+            ],
+          );
+        } else if (state is ProductDetailsFailure) {
+          return CustomErrorWidget(errMessage: state.errMessage);
+        } else {
+          return const CustomLoadingWidget();
+        }
+      },
     );
   }
 

@@ -20,7 +20,8 @@ class HorizontalProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.pushNamed(Routes.productDetailsScreen),
+      onTap: () =>
+          context.pushNamed(Routes.productDetailsScreen, arguments: product.id),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 15),
         child: Container(

@@ -13,4 +13,10 @@ class AppRegex {
   static bool isPhoneNumberValid(String phoneNumber) {
     return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(phoneNumber);
   }
+
+  static String removeHtmlTags(String text) {
+    final pattern = RegExp(
+        r'(<p>|</p>|<br>|</br>|</i>|<i>|<b>|</b>|<span>|</span>|</a>|<div>|</div>|<p style=\"color:rgb\(32,33,34\);font-family:sans-serif;\">|<a href=\"https://en.wikipedia.org/wiki/Coffee\" title=\"Coffee\">|)');
+    return text.replaceAll(pattern, '');
+  }
 }

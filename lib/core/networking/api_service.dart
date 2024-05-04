@@ -11,6 +11,7 @@ import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_requset
 import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_response.dart';
 import 'package:shuwaikh/features/login/data/models/login_request_body.dart';
 import 'package:shuwaikh/features/login/data/models/login_response.dart';
+import 'package:shuwaikh/features/product_details/data/models/product_details_response.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_response.dart';
 part 'api_service.g.dart';
@@ -57,6 +58,16 @@ abstract class ApiService {
     'Accept': 'application/json',
   })
   Future<GetCouponsResponse> getCoupons(
+    @Query("token") String token,
+  );
+
+  
+  @GET('${ApiConstants.productDetails}/{id}')
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<ProductDetailsResponse> getProductDetails(
+    @Path('id') String id,
     @Query("token") String token,
   );
 }
