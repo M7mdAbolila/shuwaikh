@@ -10,8 +10,9 @@ import 'package:shuwaikh/features/localization/cubit/locale_cubit.dart';
 import 'generated/l10n.dart';
 
 class ShuwaikhApp extends StatelessWidget {
-  const ShuwaikhApp({super.key, required this.appRouter});
+  const ShuwaikhApp({super.key, required this.appRouter, this.isLogin = false});
   final AppRouter appRouter;
+  final bool isLogin ;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -38,7 +39,9 @@ class ShuwaikhApp extends StatelessWidget {
               ),
               debugShowCheckedModeBanner: false,
               onGenerateRoute: appRouter.generateRoute,
-              initialRoute: Routes.onBoarding,
+              initialRoute: isLogin
+                  ? Routes.mainScreen
+                  : Routes.onBoarding,
             ),
           );
         },

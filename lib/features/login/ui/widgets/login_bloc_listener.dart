@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../logic/cubit/login_cubit.dart';
-import '../../logic/cubit/login_state.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
@@ -14,28 +15,28 @@ class LoginBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
-      listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
-      listener: (context, state) {
-        state.whenOrNull(
-          loading: () {
-            showDialog(
-              context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.blue,
-                ),
+      listener: (context, state) async {
+        if (state is LoginLoading) {
+          showDialog(
+            context: context,
+            builder: (context) => const Center(
+              child: CircularProgressIndicator(
+                color: ColorsManager.blue,
               ),
-            );
-          },
-          success: (loginResponse) {
-            context.pop();
-            context.pushNamed(Routes.mainScreen);
-          },
-          error: (error) {
-            setupErrorState(context, error);
-          },
-        );
+            ),
+          );
+        } else if (state is LoginSuccess) {
+          context.pop();
+          context.pushNamed(Routes.otp);
+          final sharedPreferences = await SharedPreferences.getInstance();
+          sharedPreferences.setBool('isLogin', true);
+          UserInfoCachceHelper.cacheUserInfo(
+            token: state.loginResponse.token,
+            username: state.loginResponse.userData!.username,
+          );
+        } else if (state is LoginFailure) {
+          setupErrorState(context, state.errMessage);
+        }
       },
       child: const SizedBox.shrink(),
     );

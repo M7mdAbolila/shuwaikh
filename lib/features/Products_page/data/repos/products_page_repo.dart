@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/networking/failure.dart';
 import 'package:shuwaikh/features/Products_page/data/models/products_page_request_body.dart';
@@ -10,11 +9,11 @@ class ProductsPageRepo {
   final ApiService _apiService;
 
   ProductsPageRepo(this._apiService);
-  Future<Either<Failure, ProductsPageResponse>> productsPage(
+  Future<Either<Failure, ProductsPageResponse>> productsPage(String? token,
       ProductsPageRequestBody productsPageRequestBody) async {
     try {
       var response = await _apiService.productsPage(
-        ApiConstants.token,
+       token,
         productsPageRequestBody,
       );
       return right(response);

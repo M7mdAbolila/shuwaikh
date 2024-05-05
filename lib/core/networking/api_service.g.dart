@@ -78,11 +78,12 @@ class _ApiService implements ApiService {
 
   @override
   Future<GetCatogoriesResponse> getCategories(
-    String token,
+    String? token,
     GetCategoriesRequsetBody getCategoriesRequsetBody,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Accept': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
@@ -110,11 +111,12 @@ class _ApiService implements ApiService {
 
   @override
   Future<GetOffersResponse> getOffers(
-    String token,
+    String? token,
     GetOffersRequsetBody getOffersRequsetBody,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Accept': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
@@ -142,11 +144,12 @@ class _ApiService implements ApiService {
 
   @override
   Future<ProductsPageResponse> productsPage(
-    String token,
+    String? token,
     ProductsPageRequestBody productsPageRequestBody,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Accept': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
@@ -173,9 +176,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<GetCouponsResponse> getCoupons(String token) async {
+  Future<GetCouponsResponse> getCoupons(String? token) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Accept': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
@@ -203,10 +207,11 @@ class _ApiService implements ApiService {
   @override
   Future<ProductDetailsResponse> getProductDetails(
     String id,
-    String token,
+    String? token,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Accept': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;

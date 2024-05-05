@@ -5,17 +5,16 @@ import 'package:shuwaikh/core/networking/failure.dart';
 import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_requset_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_response.dart';
 
-import '../../../../core/networking/api_constants.dart';
 
 class GetOffersRepo {
   final ApiService _apiService;
 
   GetOffersRepo(this._apiService);
-  Future<Either<Failure, List<Offer>?>> getOffers(
+  Future<Either<Failure, List<Offer>?>> getOffers(String? token,
       GetOffersRequsetBody getOffersRequsetBody) async {
     try {
       var response =
-          await _apiService.getOffers(ApiConstants.token, getOffersRequsetBody);
+          await _apiService.getOffers(token, getOffersRequsetBody);
 
       return right(response.offers);
     } catch (e) {

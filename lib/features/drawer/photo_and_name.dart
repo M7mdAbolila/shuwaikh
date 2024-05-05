@@ -1,16 +1,27 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
 
 import '../../core/helpers/is_arabic.dart';
-import '../../core/helpers/spacing.dart';
 import '../../core/theming/colors.dart';
 import '../../core/theming/styles.dart';
 
-class PhotoAndName extends StatelessWidget {
+class PhotoAndName extends StatefulWidget {
   const PhotoAndName({
     super.key,
   });
+
+  @override
+  State<PhotoAndName> createState() => _PhotoAndNameState();
+}
+
+class _PhotoAndNameState extends State<PhotoAndName> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<UsernameCubit>().getUsername();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +34,19 @@ class PhotoAndName extends StatelessWidget {
             ? const BorderRadius.only(bottomLeft: Radius.circular(80))
             : const BorderRadius.only(bottomRight: Radius.circular(80)),
       ),
-      child: Padding(
-        padding: isArabic()
-            ? EdgeInsets.only(right: 20.w)
-            : EdgeInsets.only(left: 20.w),
-        child: Row(
-          children: [
-            Image.asset('assets/images/photo.png'),
-            horizontalSpace(14),
-            Text(
-              'Felix Dinh',
-              style: TextStyles.font26White500Weight,
-            ),
-          ],
+      child: Center(
+        child: Padding(
+          padding: isArabic()
+              ? EdgeInsets.only(right: 20.w)
+              : EdgeInsets.only(left: 20.w),
+          child: BlocBuilder<UsernameCubit, UsernameState>(
+            builder: (context, state) {
+              return Text(
+                state.username,
+                style: TextStyles.font26White500Weight,
+              );
+            },
+          ),
         ),
       ),
     );

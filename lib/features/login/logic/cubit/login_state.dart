@@ -1,11 +1,17 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-part 'login_state.freezed.dart';
+part of 'login_cubit.dart';
 
-@freezed
-class LoginState<T> with _$LoginState<T> {
-  const factory LoginState.initial() = _Initial;
+class LoginState {}
 
-  const factory LoginState.loading() = Loading;
-  const factory LoginState.success(T data) = Success<T>;
-  const factory LoginState.error({required String error}) = Error;
+class LoginLoading extends LoginState {}
+
+class LoginSuccess extends LoginState {
+  final LoginResponse loginResponse;
+
+  LoginSuccess(this.loginResponse);
+}
+
+class LoginFailure extends LoginState {
+  final String errMessage;
+
+  LoginFailure(this.errMessage);
 }

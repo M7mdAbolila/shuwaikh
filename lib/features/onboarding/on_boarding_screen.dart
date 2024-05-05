@@ -34,7 +34,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
               text: 'English',
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('en');
-                context.pushNamed(Routes.mainScreen);
+                context.pushNamed(Routes.loginScreen);
               },
             ),
             verticalSpace(30),
@@ -42,7 +42,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
               text: 'عربي',
               onPressed: () {
                 context.read<LocaleCubit>().changeLanguage('ar');
-                context.pushNamed(Routes.mainScreen);
+                context.pushNamed(Routes.loginScreen);
               },
             ),
           ],

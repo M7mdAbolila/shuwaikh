@@ -31,7 +31,7 @@ abstract class ApiService {
     'Accept': 'application/json',
   })
   Future<GetCatogoriesResponse> getCategories(
-    @Query("token") String token,
+    @Query("token") String? token,
     @Body() GetCategoriesRequsetBody getCategoriesRequsetBody,
   );
 
@@ -40,7 +40,7 @@ abstract class ApiService {
     'Accept': 'application/json',
   })
   Future<GetOffersResponse> getOffers(
-    @Query("token") String token,
+    @Query("token") String? token,
     @Body() GetOffersRequsetBody getOffersRequsetBody,
   );
 
@@ -49,7 +49,7 @@ abstract class ApiService {
     'Accept': 'application/json',
   })
   Future<ProductsPageResponse> productsPage(
-    @Query("token") String token,
+    @Query("token") String? token,
     @Body() ProductsPageRequestBody productsPageRequestBody,
   );
 
@@ -58,7 +58,7 @@ abstract class ApiService {
     'Accept': 'application/json',
   })
   Future<GetCouponsResponse> getCoupons(
-    @Query("token") String token,
+    @Query("token") String? token,
   );
 
   
@@ -68,6 +68,6 @@ abstract class ApiService {
   })
   Future<ProductDetailsResponse> getProductDetails(
     @Path('id') String id,
-    @Query("token") String token,
+    @Query("token") String? token,
   );
 }

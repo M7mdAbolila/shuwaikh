@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/product_details/data/models/product_details_response.dart';
 
@@ -11,10 +10,9 @@ class ProductDetailsRepo {
 
   ProductDetailsRepo(this._apiService);
   Future<Either<Failure, ProductDetailsResponse>> getProductDetails(
-      String id) async {
+      String? token, String id) async {
     try {
-      var response =
-          await _apiService.getProductDetails(id, ApiConstants.token);
+      var response = await _apiService.getProductDetails(id, token);
       return right(response);
     } catch (e) {
       if (e is DioException) {

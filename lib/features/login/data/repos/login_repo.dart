@@ -1,5 +1,5 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:shuwaikh/core/networking/api_result.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/networking/failure.dart';
 import 'package:shuwaikh/features/login/data/models/login_request_body.dart';
@@ -9,21 +9,37 @@ class LoginRepo {
   final ApiService _apiService;
 
   LoginRepo(this._apiService);
-
-  Future<ApiResult<LoginResponse>> login(
+  Future<Either<Failure, LoginResponse>> login(
       LoginRequestBody loginRequestBody) async {
     try {
       final response = await _apiService.login(loginRequestBody);
-      return ApiResult.success(response);
+      return right(response);
     } catch (e) {
       if (e is DioException) {
-        return ApiResult.failure(
+        return left(
           ServerFailure.fromDioError(e),
         );
       }
-      return ApiResult.failure(
+      return left(
         ServerFailure(e.toString()),
       );
     }
   }
+
+  // Future<ApiResult<LoginResponse>> login(
+  //     LoginRequestBody loginRequestBody) async {
+  //   try {
+  //     final response = await _apiService.login(loginRequestBody);
+  //     return ApiResult.success(response);
+  //   } catch (e) {
+  //     if (e is DioException) {
+  //       return ApiResult.failure(
+  //         ServerFailure.fromDioError(e),
+  //       );
+  //     }
+  //     return ApiResult.failure(
+  //       ServerFailure(e.toString()),
+  //     );
+  //   }
+  // }
 }

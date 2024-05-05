@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'widgets/login_screen_body.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -6,8 +7,13 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: LoginScreenBody(),
+    return Scaffold(
+      body: PopScope(
+        onPopInvoked: (didPop) {
+          SystemNavigator.pop();
+        },
+        child: const LoginScreenBody(),
+      ),
     );
   }
 }
