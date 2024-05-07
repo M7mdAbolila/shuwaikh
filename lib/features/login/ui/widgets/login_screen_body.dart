@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -54,10 +55,12 @@ class LoginScreenBody extends StatelessWidget {
             verticalSpace(31),
             const DontHaveAccont(),
             verticalSpace(40),
-            const SocialLoginButton(
-              text: 'Apple',
-              imagePath: Assets.apple,
-            ),
+            defaultTargetPlatform == TargetPlatform.iOS
+                ? const SocialLoginButton(
+                    text: 'Apple',
+                    imagePath: Assets.apple,
+                  )
+                : const SizedBox.shrink(),
             verticalSpace(22),
             const SocialLoginButton(
               text: 'Google',
