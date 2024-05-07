@@ -13,7 +13,7 @@ import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/favourites/data/repos/is_favourite_repo.dart';
-import 'package:shuwaikh/features/favourites/logic/cubit/is_favourite_cubit.dart';
+import 'package:shuwaikh/features/favourites/logic/is_favourite_cubit/is_favourite_cubit.dart';
 import 'package:shuwaikh/features/product_details/logic/cubit/product_details_cubit.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -35,8 +35,8 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
   bool isFavorite = false;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
     context.read<ProductDetailsCubit>().getProductDetails(widget.id.toString());
   }
 

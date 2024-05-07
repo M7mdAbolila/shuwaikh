@@ -1,6 +1,15 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';
-import 'package:shuwaikh/core/widgets/app_single_scffold.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/networking/api_service.dart';
+import 'package:shuwaikh/core/theming/colors.dart';
+import 'package:shuwaikh/core/theming/styles.dart';
+import 'package:shuwaikh/features/favourites/data/repos/get_favourite_repo.dart';
+import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
+import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
+import 'package:shuwaikh/features/product_details/logic/cubit/product_details_cubit.dart';
+
+import 'widgets/favourites_screen_body.dart';
 
 class FavouritesScreen extends StatelessWidget {
   const FavouritesScreen({super.key});
@@ -8,17 +17,27 @@ class FavouritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppScaffold(
-        appBarIcon: const Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: ColorsManager.mainBlue,
+        centerTitle: true,
+        title: Text(
+          'Your Favourites',
+          style: TextStyles.font30White400Weight,
         ),
-        appBarTitle: 'Your Favourites',
-        appBarOnPressed: () => context.pop(),
-        body: const Icon(
-          Icons.error,
-          size: 40,
-        ),
+      ),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) =>
+                GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio())))..getFavourites(),
+          ),
+          BlocProvider(
+            create: (context) =>
+                ProductDetailsCubit(ProductDetailsRepo(ApiService(Dio()))),
+          ),
+        ],
+        child: const FavouritesScreenBody(),
       ),
     );
   }

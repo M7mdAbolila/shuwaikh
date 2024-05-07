@@ -13,13 +13,15 @@ class CustomErrorWidget extends StatelessWidget {
   final String errMessage;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 110.h,
-      child: Center(
-        child: Text(
-          errMessage,
-          style: TextStyles.font20Red600Weight,
-          textAlign: TextAlign.center,
+    return Center(
+      child: SizedBox(
+        height: 110.h,
+        child: Center(
+          child: Text(
+            errMessage,
+            style: TextStyles.font20Red600Weight,
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

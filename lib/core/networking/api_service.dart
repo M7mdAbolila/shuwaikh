@@ -4,6 +4,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/features/Products_page/data/models/products_page_request_body.dart';
 import 'package:shuwaikh/features/Products_page/data/models/products_page_response.dart';
+import 'package:shuwaikh/features/favourites/data/models/get_favourites/get_favourites_response.dart';
 import 'package:shuwaikh/features/favourites/data/models/is_favourite/is_favourite_request_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
@@ -64,7 +65,6 @@ abstract class ApiService {
     @Query("token") String? token,
   );
 
-  
   @GET('${ApiConstants.productDetails}/{id}')
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
@@ -74,7 +74,6 @@ abstract class ApiService {
     @Query("token") String? token,
   );
 
-  
   @POST(ApiConstants.favourites)
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
@@ -82,5 +81,13 @@ abstract class ApiService {
   Future<IsFavouritResponse> isFavourites(
     @Query("token") String? token,
     @Body() IsFavouriteRequestBody isFavouriteRequestBody,
+  );
+
+  @GET(ApiConstants.getFavourites)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<GetFavouritesResponse> getFavourites(
+    @Query("token") String? token,
   );
 }
