@@ -5,38 +5,43 @@ import 'package:shuwaikh/core/helpers/extensions.dart';
 import '../../core/helpers/spacing.dart';
 import '../localization/cubit/locale_cubit.dart';
 
-class ChangeLang extends StatelessWidget {
+class ChangeLang extends StatefulWidget {
   const ChangeLang({super.key});
 
   @override
+  State<ChangeLang> createState() => _ChangeLangState();
+}
+
+class _ChangeLangState extends State<ChangeLang> {
+  @override
   Widget build(BuildContext context) {
-    return  Row(
-            children: [
-              const Icon(Icons.translate),
-              horizontalSpace(20),
-              BlocConsumer<LocaleCubit, ChangeLocaleState>(
-                builder: (context, state) {
-                  return DropdownButton<String>(
-                    value: state.locale.languageCode,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items: ['ar', 'en'].map((String items) {
-                      return DropdownMenuItem<String>(
-                        value: items,
-                        child: Text(items),
-                      );
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      if (newValue != null) {
-                        context.read<LocaleCubit>().changeLanguage(newValue);
-                      }
-                    },
-                  );
-                },
-                listener: (context, state) {
-                  context.pop();
-                },
-              ),
-            ],
-          );
+    return Row(
+      children: [
+        const Icon(Icons.translate),
+        horizontalSpace(20),
+        BlocConsumer<LocaleCubit, ChangeLocaleState>(
+          builder: (context, state) {
+            return DropdownButton<String>(
+              value: state.locale.languageCode,
+              icon: const Icon(Icons.keyboard_arrow_down),
+              items: ['ar', 'en'].map((String items) {
+                return DropdownMenuItem<String>(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                if (newValue != null) {
+                  context.read<LocaleCubit>().changeLanguage(newValue);
+                }
+              },
+            );
+          },
+          listener: (context, state) {
+            context.pop();
+          },
+        ),
+      ],
+    );
   }
 }

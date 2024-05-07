@@ -35,18 +35,13 @@ class _PhotoAndNameState extends State<PhotoAndName> {
             : const BorderRadius.only(bottomRight: Radius.circular(80)),
       ),
       child: Center(
-        child: Padding(
-          padding: isArabic()
-              ? EdgeInsets.only(right: 20.w)
-              : EdgeInsets.only(left: 20.w),
-          child: BlocBuilder<UsernameCubit, UsernameState>(
-            builder: (context, state) {
-              return Text(
-                state.username,
-                style: TextStyles.font26White500Weight,
-              );
-            },
-          ),
+        child: BlocBuilder<UsernameCubit, UsernameState>(
+          builder: (context, state) {
+            return Text(
+              state.username,
+              style: TextStyles.font26White500Weight,
+            );
+          },
         ),
       ),
     );

@@ -1,6 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
+import 'package:shuwaikh/features/logout/data/repos/logout_repo.dart';
+import 'package:shuwaikh/features/logout/logic/cubit/logout_cubit.dart';
 import '../../core/helpers/spacing.dart';
 import 'drawer_menu.dart';
 import 'photo_and_name.dart';
@@ -24,7 +28,10 @@ class CustomDrawer extends StatelessWidget {
             verticalSpace(15),
             const Divider(),
             verticalSpace(20),
-            const DrawerMenu(),
+            BlocProvider(
+              create: (context) => LogoutCubit(LogoutRepo(ApiService(Dio()))),
+              child: const DrawerMenu(),
+            ),
           ],
         ),
       ),
