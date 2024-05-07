@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/features/Products_page/logic/cubit/change_category_cubit.dart';
@@ -50,8 +51,8 @@ class _CategoryItemState extends State<CategoryItem> {
           child: Row(
             children: [
               CachedNetworkImage(
-                imageUrl:
-                    'https://shuwaikhcoffee.com/assets/front/img/category/${widget.category.image == '6633bfef42c63.avif' ? '6633c0e14fc67.png' : widget.category.image}',
+                imageUrl: isArabic() ? '$catigoryPath${widget.category.image == '6633c017c2822.avif'  ?  '6633c0e14fc67.png' : widget.category.image }':
+                    '$catigoryPath${widget.category.image == '6633bfef42c63.avif' ?  '6633c0e14fc67.png' : widget.category.image }',
                 height: 60.h,
                 width: 60.w,
                 fit: BoxFit.fill,

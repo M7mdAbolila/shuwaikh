@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
@@ -18,34 +19,39 @@ class OnBoradingScreen extends StatefulWidget {
 class _OnBoradingScreenState extends State<OnBoradingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(Assets.logo),
-            verticalSpace(40),
-            Text(
-              'Select Your Language',
-              style: TextStyles.font20Black500Weight,
-            ),
-            verticalSpace(20),
-            OnboradingButton(
-              text: 'English',
-              onPressed: () {
-                context.read<LocaleCubit>().changeLanguage('en');
-                context.pushNamed(Routes.loginScreen);
-              },
-            ),
-            verticalSpace(30),
-            OnboradingButton(
-              text: 'عربي',
-              onPressed: () {
-                context.read<LocaleCubit>().changeLanguage('ar');
-                context.pushNamed(Routes.loginScreen);
-              },
-            ),
-          ],
+    return PopScope(
+      onPopInvoked: (didPop) {
+        SystemNavigator.pop();
+      },
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(Assets.logo),
+              verticalSpace(40),
+              Text(
+                'Select Your Language',
+                style: TextStyles.font20Black500Weight,
+              ),
+              verticalSpace(20),
+              OnboradingButton(
+                text: 'English',
+                onPressed: () {
+                  context.read<LocaleCubit>().changeLanguage('en');
+                  context.pushNamed(Routes.loginScreen);
+                },
+              ),
+              verticalSpace(30),
+              OnboradingButton(
+                text: 'عربي',
+                onPressed: () {
+                  context.read<LocaleCubit>().changeLanguage('ar');
+                  context.pushNamed(Routes.loginScreen);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

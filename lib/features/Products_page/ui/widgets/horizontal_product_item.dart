@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/features/Products_page/data/models/products_page_response.dart';
 
@@ -48,7 +49,7 @@ class HorizontalProductItem extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: CachedNetworkImageProvider(
-                        'https://shuwaikhcoffee.com/assets/front/img/product/featured/${product.featureImage}'),
+                        '$productPath${product.featureImage}'),
                   ),
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,

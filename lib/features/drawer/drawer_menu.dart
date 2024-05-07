@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';import 'package:shuwaikh/features/drawer/change_lang.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/features/drawer/change_lang.dart';
 import 'package:shuwaikh/features/drawer/drawer_item.dart';
 
 import '../../core/helpers/is_arabic.dart';
@@ -32,10 +33,12 @@ class DrawerMenu extends StatelessWidget {
           DrawerItem(
             iconPath: 'assets/icons/account.svg',
             title: S.of(context).account,
+            onTap: () => context.pushNamed(Routes.account),
           ),
           DrawerItem(
             iconPath: 'assets/icons/your_favourite.svg',
             title: S.of(context).your_favorite,
+            onTap: () => context.pushNamed(Routes.favourites),
           ),
           const Divider(),
           const ChangeLang(),

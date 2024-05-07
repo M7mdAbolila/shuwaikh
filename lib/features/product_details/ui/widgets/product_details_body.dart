@@ -1,18 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/helpers/app_regex.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
+import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
+import 'package:shuwaikh/features/favourites/data/repos/is_favourite_repo.dart';
+import 'package:shuwaikh/features/favourites/logic/cubit/is_favourite_cubit.dart';
 import 'package:shuwaikh/features/product_details/logic/cubit/product_details_cubit.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../../core/helpers/constants.dart';
 import '../../../../generated/l10n.dart';
 import 'product_nav_bar.dart';
 
@@ -27,6 +32,7 @@ class ProductDetailsScreenBody extends StatefulWidget {
 class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
   int activeIndex = 0;
   bool? isChecked = false;
+  bool isFavorite = false;
 
   @override
   void didChangeDependencies() {
@@ -88,7 +94,7 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
                                     placeholder: (context, url) =>
                                         const CustomLoadingWidget(),
                                     imageUrl:
-                                        'https://shuwaikhcoffee.com/assets/front/img/product/sliders/${state.productDetails!.productImages![index].image}',
+                                        '$productSliderPath${state.productDetails!.productImages![index].image}',
                                   ),
                                 );
                               },
@@ -128,44 +134,43 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          state.productDetails?.title ?? '',
-                                          style:
-                                              TextStyles.font24Black700Weight,
-                                        ),
-                                        verticalSpace(5),
                                         Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text.rich(
-                                              TextSpan(
-                                                children: [
-                                                  TextSpan(
-                                                    text:
-                                                        '${S.of(context).price} ',
-                                                    style: TextStyles
-                                                        .font16Black400Weight,
-                                                  ),
-                                                  TextSpan(
-                                                    text:
-                                                        'KD ${state.productDetails?.currentPrice}',
-                                                    style: TextStyles
-                                                        .font18Blue500Weight,
-                                                  ),
-                                                ],
+                                            Text(
+                                              state.productDetails?.title ?? '',
+                                              style: TextStyles
+                                                  .font24Black700Weight,
+                                            ),
+                                            BlocProvider(
+                                              create: (context) =>
+                                                  IsFavouriteCubit(
+                                                      IsFavouriteRepo(
+                                                          ApiService(Dio()))),
+                                              child: FavouriteWidget(
+                                                id: state.productDetails!.id,
                                               ),
                                             ),
-                                            horizontalSpace(10),
-                                            const Icon(
-                                              Icons.star,
-                                              color: Colors.yellow,
-                                              size: 18,
-                                            ),
-                                            Text(
-                                              '4.5',
-                                              style: TextStyles
-                                                  .font11Black500Weight,
-                                            ),
                                           ],
+                                        ),
+                                        verticalSpace(5),
+                                        Text.rich(
+                                          TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: '${S.of(context).price} ',
+                                                style: TextStyles
+                                                    .font16Black400Weight,
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    'KD ${state.productDetails?.currentPrice}',
+                                                style: TextStyles
+                                                    .font18Blue500Weight,
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                         verticalSpace(10),
                                         Text(
@@ -360,6 +365,29 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
           ],
         ),
       ],
+    );
+  }
+}
+
+class FavouriteWidget extends StatelessWidget {
+  const FavouriteWidget({
+    super.key,
+    required this.id,
+  });
+  final int? id;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => context.read<IsFavouriteCubit>().isFavouriteStates(id!),
+      child: BlocBuilder<IsFavouriteCubit, IsFavouriteSuccess>(
+        builder: (context, state) {
+          return Icon(
+            state.isfavourite! ? Icons.favorite : Icons.favorite_border,
+            color: ColorsManager.blue,
+            size: 35,
+          );
+        },
+      ),
     );
   }
 }

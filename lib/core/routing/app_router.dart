@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
+import 'package:shuwaikh/features/account/ui/account_screen.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
+import 'package:shuwaikh/features/favourites/ui/favourites_screen.dart';
 import 'package:shuwaikh/features/login/data/repos/login_repo.dart';
 import 'package:shuwaikh/features/login/logic/cubit/login_cubit.dart';
 import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
@@ -67,6 +69,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
         );
+      case Routes.favourites:
+        return MaterialPageRoute(
+          builder: (_) => const FavouritesScreen(),
+        );
+      case Routes.account:
+        return MaterialPageRoute(
+          builder: (_) => const AccountScreen(),
+        );
 
       case Routes.otp:
         return MaterialPageRoute(
@@ -85,14 +95,12 @@ class AppRouter {
           builder: (_) => const VoucherScreen(),
         );
       case Routes.productDetailsScreen:
-      final id = settings.arguments as int?;
+        final id = settings.arguments as int?;
         return MaterialPageRoute(
-          
           builder: (_) => BlocProvider(
             create: (context) =>
                 ProductDetailsCubit(ProductDetailsRepo(ApiService(Dio()))),
-            child:  ProductDetailsScreen(id: id),
-            
+            child: ProductDetailsScreen(id: id),
           ),
         );
       default:

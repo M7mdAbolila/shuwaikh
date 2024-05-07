@@ -13,6 +13,7 @@ class ShuwaikhApp extends StatelessWidget {
   const ShuwaikhApp({super.key, required this.appRouter, this.isLogin = false});
   final AppRouter appRouter;
   final bool isLogin ;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
