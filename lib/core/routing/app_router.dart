@@ -9,6 +9,9 @@ import 'package:shuwaikh/features/login/data/repos/login_repo.dart';
 import 'package:shuwaikh/features/login/logic/cubit/login_cubit.dart';
 import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
 import 'package:shuwaikh/features/nav_bar/nav_bar_main_screen.dart';
+import 'package:shuwaikh/features/offer/data/repos/offer_details_repo.dart';
+import 'package:shuwaikh/features/offer/logic/cubit/offer_details_cubit.dart';
+import 'package:shuwaikh/features/offer/ui/offer_screen.dart';
 import 'package:shuwaikh/features/onboarding/on_boarding_screen.dart';
 import 'package:shuwaikh/features/otp/ui/otp_screen.dart';
 import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
@@ -93,6 +96,17 @@ class AppRouter {
       case Routes.voucherScreen:
         return MaterialPageRoute(
           builder: (_) => const VoucherScreen(),
+        );
+      case Routes.offerScreen:
+        final id = settings.arguments as int?;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                OfferDetailsCubit(OfferDetailsRepo(ApiService(Dio()))),
+            child: OfferScreen(
+              id: id,
+            ),
+          ),
         );
       case Routes.productDetailsScreen:
         final id = settings.arguments as int?;

@@ -16,7 +16,7 @@ class AppRegex {
 
   static String removeHtmlTags(String text) {
     final pattern = RegExp(
-        r'(<p>|</p>|<br>|</br>|</i>|<i>|<b>|</b>|<span>|</span>|</a>|<div>|</div>|<p style=\"color:rgb\(32,33,34\);font-family:sans-serif;\">|<a href=\"https://en.wikipedia.org/wiki/Coffee\" title=\"Coffee\">|)');
+        r'(<p>|</p>|<br>|</br>|</i>|<i>|<b>|</b>|<span>|</span>|</a>|<div>|</div>|<p style=\"color:rgb\(32,33,34\);font-family:sans-serif;\">|<a href=\"https://en.wikipedia.org/wiki/Coffee\" title=\"Coffee\">|<span style="font-size:10px;">|)');
     return text.replaceAll(pattern, '');
   }
 }

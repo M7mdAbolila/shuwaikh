@@ -3,7 +3,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
+import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -77,9 +79,15 @@ class _CategoriesListViewState extends State<OffersListView> {
                               itemCount: state.offers!.length,
                               itemBuilder: (BuildContext context, int index,
                                   int realIndex) {
-                                return CachedNetworkImage(
-                                  imageUrl:
-                                      '$offerPath${state.offers![index].image}',
+                                return InkWell(
+                                  onTap: () => context.pushNamed(
+                                    Routes.offerScreen,
+                                    arguments: state.offers![index].id,
+                                  ),
+                                  child: CachedNetworkImage(
+                                    imageUrl:
+                                        '$offerPath${state.offers![index].image}',
+                                  ),
                                 );
                               },
                             ),
