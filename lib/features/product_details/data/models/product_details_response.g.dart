@@ -41,6 +41,8 @@ ProductDetails _$ProductDetailsFromJson(Map<String, dynamic> json) =>
       currentPrice: json['current_price'] as String?,
       summary: json['summary'] as String?,
       description: json['description'] as String?,
+      addons: json['addons'] as String?,
+      variations: json['variations'] as String?,
       featureImage: json['feature_image'] as String?,
       category: json['category'] as String?,
       productImages: (json['product_images'] as List<dynamic>?)
@@ -57,6 +59,8 @@ Map<String, dynamic> _$ProductDetailsToJson(ProductDetails instance) =>
       'current_price': instance.currentPrice,
       'summary': instance.summary,
       'description': instance.description,
+      'addons': instance.addons,
+      'variations': instance.variations,
       'feature_image': instance.featureImage,
       'category': instance.category,
       'product_images': instance.productImages,

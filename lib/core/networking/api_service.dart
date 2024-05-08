@@ -4,6 +4,8 @@ import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
 import 'package:shuwaikh/features/Products_page/data/models/products_page_request_body.dart';
 import 'package:shuwaikh/features/Products_page/data/models/products_page_response.dart';
+import 'package:shuwaikh/features/cart/data/models/add_to_cart/add_to_cart_request_body.dart';
+import 'package:shuwaikh/features/cart/data/models/add_to_cart/add_to_cart_response.dart';
 import 'package:shuwaikh/features/favourites/data/models/get_favourites/get_favourites_response.dart';
 import 'package:shuwaikh/features/favourites/data/models/is_favourite/is_favourite_request_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
@@ -108,5 +110,14 @@ abstract class ApiService {
   Future<OfferDetailsResponse> getOfferDetails(
     @Path('id') String id,
     @Query("token") String? token,
+  );
+
+  @POST(ApiConstants.addToCart)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<AddToCartResponse> addToCart(
+    @Query("token") String? token,
+    @Body() AddToCartRequestBody addToCartRequestBody,
   );
 }

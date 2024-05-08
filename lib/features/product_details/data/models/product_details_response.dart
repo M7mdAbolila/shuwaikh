@@ -36,6 +36,8 @@ class ProductDetails {
   String? currentPrice;
   String? summary;
   String? description;
+  String? addons;
+  String? variations;
   @JsonKey(name: 'feature_image')
   String? featureImage;
   String? category;
@@ -50,6 +52,8 @@ class ProductDetails {
     this.currentPrice,
     this.summary,
     this.description,
+    this.addons,
+    this.variations,
     this.featureImage,
     this.category,
     this.productImages,
@@ -57,7 +61,6 @@ class ProductDetails {
   factory ProductDetails.fromJson(Map<String, dynamic> json) =>
       _$ProductDetailsFromJson(json);
 }
-
 
 @JsonSerializable()
 class ProductImage {

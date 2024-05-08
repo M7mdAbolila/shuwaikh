@@ -6,7 +6,7 @@ class ApiConstants {
   static const String getCategories = "getCategories";
   static const String getOffers = "getOffers";
   static const String offerDetails = "offerDetails";
-
+  static const String addToCart = "addToCart";
   static const String getCoupons = "getCoupons";
   static const String home = "home-mobile";
   static const String productsPage = "items-mobile";
