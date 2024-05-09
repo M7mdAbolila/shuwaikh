@@ -89,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "size": MessageLookupByLibrary.simpleMessage("size"),
         "small": MessageLookupByLibrary.simpleMessage("Small"),
         "sugar": MessageLookupByLibrary.simpleMessage("Sugar"),
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
