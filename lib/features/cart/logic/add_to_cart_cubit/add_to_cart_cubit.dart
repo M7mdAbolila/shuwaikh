@@ -8,10 +8,44 @@ part 'add_to_cart_state.dart';
 class AddToCartCubit extends Cubit<AddToCartState> {
   AddToCartCubit(this._addToCartRepo) : super(AddToCartState());
   final AddToCartRepo _addToCartRepo;
-  Future<void> addToCart(AddToCartRequestBody addToCartRequestBody) async {
+  int? productId;
+  String? title;
+  int? qty;
+  double? productPrice;
+  double? variationsPrice;
+  double addonsPrice = 0;
+  double? total;
+  String? variations;
+  String? addons;
+
+  List<String> adds = [];
+  void addAddons(String add) {
+    adds.add(add);
+    addons = adds.toString();
+  }
+
+  void calcAddons(double addon) {
+    addonsPrice += addon;
+  }
+
+  Future<void> addToCart() async {
     emit(AddToCartLoading());
     final String? token = await UserInfoCachceHelper.getCachedToken();
-    var result = await _addToCartRepo.addToCart(token, addToCartRequestBody);
+    var result = await _addToCartRepo.addToCart(
+      token,
+      AddToCartRequestBody(
+        productId: productId,
+        title: title,
+        qty: qty ?? 1,
+        productPrice: variationsPrice ?? productPrice,
+        variationsPrice: variationsPrice ?? productPrice,
+        addonsPrice: addonsPrice,
+        total: total =
+            ((variationsPrice ?? productPrice! + addonsPrice) * qty!),
+        variations: variations,
+        addons: addons,
+      ),
+    );
     result.fold(
       (failure) => emit(
         AddToCartFailure(failure.errMessage),

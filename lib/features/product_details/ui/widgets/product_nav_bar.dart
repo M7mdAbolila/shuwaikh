@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -35,17 +38,22 @@ class ProductNavBar extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: 100,
-              height: 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: ColorsManager.lightBlue,
-              ),
-              child: Center(
-                child: Text(
-                  S.of(context).add_to_cart,
-                  style: TextStyles.font14Blue400Weight,
+            GestureDetector(
+              onTap: () {
+                context.read<AddToCartCubit>().addToCart();
+              },
+              child: Container(
+                width: 100,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: ColorsManager.lightBlue,
+                ),
+                child: Center(
+                  child: Text(
+                    S.of(context).add_to_cart,
+                    style: TextStyles.font14Blue400Weight,
+                  ),
                 ),
               ),
             ),

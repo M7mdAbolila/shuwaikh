@@ -6,18 +6,18 @@ part 'add_to_cart_request_body.g.dart';
 @JsonSerializable()
 class AddToCartRequestBody {
   @JsonKey(name: 'product_id')
-  final int productId;
-  final String title;
-  final int qty;
+  final int? productId;
+  final String? title;
+  final int? qty;
   @JsonKey(name: 'product_price')
-  final double productPrice;
+  final double? productPrice;
   final String? variations;
   @JsonKey(name: 'variations_price')
-  final double variationsPrice;
+  final double? variationsPrice;
   final String? addons;
   @JsonKey(name: 'addons_price')
-  final double addonsPrice;
-  final double total;
+  final double? addonsPrice;
+  final double? total;
   AddToCartRequestBody({
     required this.productId,
     required this.title,

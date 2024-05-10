@@ -45,6 +45,7 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
                       InfoPart(
                         productDetails: state.productDetails,
                       ),
+                    
                     ],
                   ),
                 ),

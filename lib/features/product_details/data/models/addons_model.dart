@@ -1,15 +1,19 @@
 class Addon {
   final String name;
-  final num price;
+  final double price;
 
   Addon({required this.name, required this.price});
 
   factory Addon.fromJson(Map<String, dynamic> json) {
     return Addon(
       name: json['name'] as String,
-      price: json['price'] as num,
+      price: double.parse(json['price'].toString()),
     );
   }
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'price': price,
+      };
 }
 
 class Addons {
@@ -22,4 +26,7 @@ class Addons {
     final addons = addonList.map((addon) => Addon.fromJson(addon)).toList();
     return Addons(addons: addons);
   }
+  Map<String, dynamic> toJson() => {
+        'addons': addons,
+      };
 }

@@ -1,15 +1,19 @@
 class Size {
   final String name;
-  final num price;
+  final double price;
 
   Size({required this.name, required this.price});
 
   factory Size.fromJson(Map<String, dynamic> json) {
     return Size(
       name: json['name'] as String,
-      price: json['price'] as num,
+      price: double.parse(json['price'].toString()),
     );
   }
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'price': price,
+      };
 }
 
 class Variation {

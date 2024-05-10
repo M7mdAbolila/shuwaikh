@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
+import '../../../cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 
 class QuantityWidget extends StatefulWidget {
   const QuantityWidget({
@@ -18,6 +18,14 @@ class QuantityWidget extends StatefulWidget {
 
 class _QuantityWidgetState extends State<QuantityWidget> {
   int quantity = 1;
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      context.read<AddToCartCubit>().qty = quantity;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -34,6 +42,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
                 if (quantity > 1) {
                   setState(() {
                     quantity -= 1;
+                    context.read<AddToCartCubit>().qty = quantity;
                   });
                 }
               },
@@ -56,6 +65,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
             GestureDetector(
               onTap: () => setState(() {
                 quantity += 1;
+                context.read<AddToCartCubit>().qty = quantity;
               }),
               child: const CircleAvatar(
                 radius: 12,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shuwaikh/features/product_details/data/models/addons_model.dart';
+import 'package:shuwaikh/features/product_details/ui/widgets/addons_check_box_widget.dart';
 
-import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 
@@ -28,27 +28,8 @@ class _SelectAddonsState extends State<SelectAddons> {
           shrinkWrap: true,
           itemCount: widget.addons!.addons.length,
           itemBuilder: (context, index) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Checkbox(
-                        value: isChecked,
-                        activeColor: ColorsManager.blue,
-                        onChanged: (check) {
-                          setState(() {
-                            isChecked = check;
-                          });
-                        }),
-                    Text(
-                      widget.addons!.addons[index].name,
-                      style: TextStyles.font16Gray400Weight,
-                    ),
-                  ],
-                ),
-                Text('+ KD${widget.addons!.addons[index].price}'),
-              ],
+            return AddonsCheckBoxWidget(
+              addon: widget.addons!.addons[index],
             );
           },
         ),

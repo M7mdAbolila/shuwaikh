@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/models/addons_model.dart';
 import 'package:shuwaikh/features/product_details/ui/widgets/addons.dart';
 import 'package:shuwaikh/features/product_details/ui/widgets/quantity_widget.dart';
@@ -9,9 +11,10 @@ import 'package:shuwaikh/features/product_details/ui/widgets/select_size_widget.
 import '../../../../core/helpers/spacing.dart';
 import '../../data/models/product_details_response.dart';
 import '../../data/models/variation_model.dart';
+import 'add_to_cart_bloc_listener.dart';
 import 'product_info_and_is_favourite.dart';
 
-class InfoPart extends StatelessWidget {
+class InfoPart extends StatefulWidget {
   const InfoPart({
     super.key,
     required this.productDetails,
@@ -19,13 +22,29 @@ class InfoPart extends StatelessWidget {
   final ProductDetails? productDetails;
 
   @override
+  State<InfoPart> createState() => _InfoPartState();
+}
+
+class _InfoPartState extends State<InfoPart> {
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      context.read<AddToCartCubit>().title = widget.productDetails!.title;
+      context.read<AddToCartCubit>().productId = widget.productDetails!.id;
+      context.read<AddToCartCubit>().productPrice =
+          double.tryParse(widget.productDetails!.currentPrice!);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     Variation? variation;
-    if (productDetails!.variations != null) {
+    if (widget.productDetails!.variations != null) {
       variation = jsonToVariation();
     }
     Addons? addons;
-    if (productDetails!.addons != null) {
+    if (widget.productDetails!.addons != null) {
       addons = jsonToAddons();
     }
 
@@ -46,21 +65,24 @@ class InfoPart extends StatelessWidget {
                 children: [
                   verticalSpace(35),
                   ProductInfoAndIsFavourite(
-                    productDetails: productDetails,
+                    productDetails: widget.productDetails,
                   ),
                   verticalSpace(15),
-                  productDetails!.variations == null || variation!.sizes.isEmpty
+                  widget.productDetails!.variations == null ||
+                          variation!.sizes.isEmpty
                       ? const SizedBox.shrink()
                       : SelectSizeWidget(
                           variation: variation,
                         ),
-                  productDetails!.addons == null || addons!.addons.isEmpty
+                  widget.productDetails!.addons == null ||
+                          addons!.addons.isEmpty
                       ? const SizedBox.shrink()
                       : SelectAddons(
                           addons: addons,
                         ),
                   verticalSpace(10),
                   const QuantityWidget(),
+                  const AddToCartBlocListener(),
                   verticalSpace(120),
                 ],
               ),
@@ -72,14 +94,14 @@ class InfoPart extends StatelessWidget {
   }
 
   Variation jsonToVariation() {
-    String jsonString = productDetails!.variations ?? '';
+    String jsonString = widget.productDetails!.variations ?? '';
     final jsonData = jsonDecode(jsonString);
     final variation = Variation.fromJson(jsonData);
     return variation;
   }
 
   Addons jsonToAddons() {
-    String? jsonString = productDetails!.addons;
+    String? jsonString = widget.productDetails!.addons;
     final jsonData = jsonDecode(jsonString!);
     final addons = Addons.fromJson(jsonData);
     return addons;

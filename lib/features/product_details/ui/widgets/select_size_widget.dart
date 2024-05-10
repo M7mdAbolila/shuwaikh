@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shuwaikh/features/product_details/data/models/variation_model.dart';
-import 'package:shuwaikh/features/product_details/ui/widgets/check_box_widget.dart';
+import 'package:shuwaikh/features/product_details/ui/widgets/variation_check_box_widget.dart';
 
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
@@ -27,9 +27,8 @@ class _SelectSizeWidgetState extends State<SelectSizeWidget> {
           shrinkWrap: true,
           itemCount: widget.variation.sizes.length,
           itemBuilder: (context, index) {
-            return CheckBoxWidget(
-              name: widget.variation.sizes[index].name,
-              price: widget.variation.sizes[index].price,
+            return VariationCheckBoxWidget(
+              size: widget.variation.sizes[index],
             );
           },
         ),
