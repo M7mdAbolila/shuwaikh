@@ -13,6 +13,7 @@ import '../../../../core/widgets/app_scroll_scaffold.dart';
 import '../../../../generated/l10n.dart';
 import 'cart_product_item.dart';
 import 'custom_button.dart';
+import 'remove_bloc_lisneter.dart';
 
 class CartScreenBody extends StatefulWidget {
   const CartScreenBody({super.key});
@@ -83,6 +84,7 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                   verticalSpace(30),
                   CustomButton(text: S.of(context).check_out),
                   verticalSpace(30),
+                  const RemoveProductBlocListener(),
                 ],
               );
             } else if (state is GetCartFailure) {

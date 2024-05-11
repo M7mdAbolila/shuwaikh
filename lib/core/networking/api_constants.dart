@@ -8,6 +8,7 @@ class ApiConstants {
   static const String offerDetails = "offerDetails";
   static const String addToCart = "addToCart";
   static const String getCart = "getCart";
+  static const String removeFromCart = "removeFromCart";
   static const String getCoupons = "getCoupons";
   static const String home = "home-mobile";
   static const String productsPage = "items-mobile";

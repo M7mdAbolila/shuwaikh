@@ -111,6 +111,7 @@ class _CartProductInfoState extends State<CartProductInfo> {
                         style: TextStyles.font16Black500Weight,
                       ),
                       ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: addons!.addons.length,
                         itemBuilder: (context, index) {

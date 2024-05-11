@@ -6,6 +6,7 @@ import 'package:shuwaikh/features/Products_page/data/models/products_page_reques
 import 'package:shuwaikh/features/Products_page/data/models/products_page_response.dart';
 import 'package:shuwaikh/features/cart/data/models/add_to_cart/add_to_cart_request_body.dart';
 import 'package:shuwaikh/features/cart/data/models/add_to_cart/add_to_cart_response.dart';
+import 'package:shuwaikh/features/cart/data/models/remove_from_cart/remove_from_cart_request_body.dart';
 import 'package:shuwaikh/features/favourites/data/models/get_favourites/get_favourites_response.dart';
 import 'package:shuwaikh/features/favourites/data/models/is_favourite/is_favourite_request_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
@@ -22,6 +23,7 @@ import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart'
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_response.dart';
 
 import '../../features/cart/data/models/get_cart/get_cart_response.dart';
+import '../../features/cart/data/models/remove_from_cart/remove_from_cart_response.dart';
 import '../../features/favourites/data/models/is_favourite/is_favourite_response.dart';
 part 'api_service.g.dart';
 
@@ -128,5 +130,14 @@ abstract class ApiService {
   })
   Future<GetCartResponse> getCart(
     @Query("token") String? token,
+  );
+
+@POST(ApiConstants.removeFromCart)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<RemoveFromCartResponse> removeFromCart(
+    @Query("token") String? token,
+    @Body() RemoveFromCartRequestBody removeFromCartRequestBody ,
   );
 }

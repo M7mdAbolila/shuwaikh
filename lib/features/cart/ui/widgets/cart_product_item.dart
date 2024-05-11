@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/features/cart/data/models/get_cart/get_cart_response.dart';
+import 'package:shuwaikh/features/cart/logic/remove_from_cart/remove_from_cart_cubit.dart';
 
 import '../../../../core/helpers/assets_path.dart';
 import '../../../../core/theming/colors.dart';
@@ -52,11 +56,17 @@ class CartBroductItem extends StatelessWidget {
             ),
             IconButton(
               padding: EdgeInsets.zero,
-              onPressed: () {},
+              onPressed: () {
+                context
+                    .read<RemoveFromCartCubit>()
+                    .removeFromCart(cartItem!.productId);
+                log('  = == = =${cartItem!.productId} = = = =');
+              },
               icon: const Icon(
                 Icons.delete_outline,
               ),
             ),
+            
           ],
         ),
       ),
