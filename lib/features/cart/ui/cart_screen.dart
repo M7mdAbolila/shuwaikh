@@ -1,5 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/features/cart/logic/get_cart_cubit/get_cart_cubit.dart';
 
+import '../../../core/networking/api_service.dart';
+import '../data/repos/get_cart_repo.dart';
 import 'widgets/cart_screen_body.dart';
 
 class CartScreen extends StatefulWidget {
@@ -9,12 +14,14 @@ class CartScreen extends StatefulWidget {
   State<CartScreen> createState() => _CartScreenState();
 }
 
-class _CartScreenState extends State<CartScreen> with AutomaticKeepAliveClientMixin {
-   @override
-  bool get wantKeepAlive => true;
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-    return const CartScreenBody();
+    return BlocProvider(
+      create: (context) => GetCartCubit(
+        GetCartRepo(ApiService(Dio())),
+      ),
+      child: const CartScreenBody(),
+    );
   }
 }

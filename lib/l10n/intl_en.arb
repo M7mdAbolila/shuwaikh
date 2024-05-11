@@ -60,7 +60,9 @@
     "expired" : "expirt date",
     "no_offers_found" : "No Offers Found",
     "your_offers" : "Your Offers",
-    "size" : "size"
+    "size" : "size",
+    "addons" : "Add On's",
+    "variation":"Variation"
     
 
 

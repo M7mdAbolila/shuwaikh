@@ -669,6 +669,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Add On's`
+  String get addons {
+    return Intl.message(
+      'Add On\'s',
+      name: 'addons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Variation`
+  String get variation {
+    return Intl.message(
+      'Variation',
+      name: 'variation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

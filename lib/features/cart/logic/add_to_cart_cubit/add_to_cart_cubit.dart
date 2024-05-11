@@ -16,6 +16,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
   double addonsPrice = 0;
   double? total;
   String? variations;
+  String? defaultVariations;
   String? addons;
 
   List<String> adds = [];
@@ -42,7 +43,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
         addonsPrice: addonsPrice,
         total: total =
             ((variationsPrice ?? productPrice! + addonsPrice) * qty!),
-        variations: variations,
+        variations: variations ?? defaultVariations,
         addons: addons,
       ),
     );

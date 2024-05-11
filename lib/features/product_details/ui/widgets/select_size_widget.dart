@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/models/variation_model.dart';
 import 'package:shuwaikh/features/product_details/ui/widgets/variation_check_box_widget.dart';
 
@@ -13,6 +17,17 @@ class SelectSizeWidget extends StatefulWidget {
 }
 
 class _SelectSizeWidgetState extends State<SelectSizeWidget> {
+  String sizeToJson() {
+    String jsonString = jsonEncode(widget.variation.sizes[0].toJson());
+    return jsonString;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<AddToCartCubit>().defaultVariations = sizeToJson();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(

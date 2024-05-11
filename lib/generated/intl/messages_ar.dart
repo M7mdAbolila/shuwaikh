@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "account": MessageLookupByLibrary.simpleMessage("حسابي"),
         "add_more_items": MessageLookupByLibrary.simpleMessage("إضافة المزيد"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
+        "addons": MessageLookupByLibrary.simpleMessage("الإضافات"),
         "all_categories": MessageLookupByLibrary.simpleMessage("جميع الفئات"),
         "check_out": MessageLookupByLibrary.simpleMessage("الدفع"),
         "coffee": MessageLookupByLibrary.simpleMessage("القهوة"),
@@ -97,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم يجب أن يكون أكثر من 3 أحرف"),
+        "variation": MessageLookupByLibrary.simpleMessage("الاختلاف"),
         "verify": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "welcome_back":
             MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك."),

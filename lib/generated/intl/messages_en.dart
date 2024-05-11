@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_more_items":
             MessageLookupByLibrary.simpleMessage("ADD MORE ITEMS"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("ADD TO CART"),
+        "addons": MessageLookupByLibrary.simpleMessage("Add On\'s"),
         "all_categories":
             MessageLookupByLibrary.simpleMessage("All Categories"),
         "check_out": MessageLookupByLibrary.simpleMessage("Checkout"),
@@ -99,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "User name must over 3 characters"),
+        "variation": MessageLookupByLibrary.simpleMessage("Variation"),
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "welcome_back": MessageLookupByLibrary.simpleMessage(
             "welcome back, you have been mised."),

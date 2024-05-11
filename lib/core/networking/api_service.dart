@@ -21,6 +21,7 @@ import 'package:shuwaikh/features/product_details/data/models/product_details_re
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_response.dart';
 
+import '../../features/cart/data/models/get_cart/get_cart_response.dart';
 import '../../features/favourites/data/models/is_favourite/is_favourite_response.dart';
 part 'api_service.g.dart';
 
@@ -119,5 +120,13 @@ abstract class ApiService {
   Future<AddToCartResponse> addToCart(
     @Query("token") String? token,
     @Body() AddToCartRequestBody addToCartRequestBody,
+  );
+
+  @GET(ApiConstants.getCart)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<GetCartResponse> getCart(
+    @Query("token") String? token,
   );
 }
