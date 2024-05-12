@@ -29,6 +29,8 @@ import '../../features/account/data/models/profile_response.dart';
 import '../../features/cart/data/models/get_cart/get_cart_response.dart';
 import '../../features/cart/data/models/remove_from_cart/remove_from_cart_response.dart';
 import '../../features/favourites/data/models/is_favourite/is_favourite_response.dart';
+import '../../features/update info/data/models/update_shipping_details/update_shipping_request_body.dart';
+import '../../features/update info/data/models/update_shipping_details/update_shipping_response.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
@@ -169,5 +171,14 @@ abstract class ApiService {
   Future<UpdateProfileResponse> updateBilling(
     @Query("token") String? token,
     @Body() UpdateBillingRequsetBody updateBillingRequsetBody,
+  );
+
+  @POST(ApiConstants.updateShipping)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<UpdateShippingResponse> updateShipping(
+    @Query("token") String? token,
+    @Body() UpdateShippingRequsetBody updateShippingRequsetBody,
   );
 }

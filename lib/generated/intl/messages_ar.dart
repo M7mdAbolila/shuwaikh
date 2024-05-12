@@ -45,6 +45,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" ليس لديك حساب؟"),
         "dont_recive":
             MessageLookupByLibrary.simpleMessage(" لم تستلم الرسالة القصيرة؟"),
+        "edit_billing":
+            MessageLookupByLibrary.simpleMessage("تحرير تفاصيل الفواتير"),
+        "edit_profile":
+            MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
+        "edit_shipping":
+            MessageLookupByLibrary.simpleMessage("تحرير تفاصيل الشحن"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "enter_otp": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال رمز 4 خانات من الرسالة القصيرة التي تم إرسالها إلى هاتفك"),
@@ -77,10 +83,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "الحد الأدنى للخصم للطلبات التي تزيد عن"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "my_cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
+        "new_pass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "no_offers_found":
             MessageLookupByLibrary.simpleMessage("لم يتم العثور على أي عروض"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "تأكيد كلمة المرور غير متطابق"),
+        "old_pass": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
@@ -101,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
         "total": MessageLookupByLibrary.simpleMessage("المجموع"),
         "trans_history": MessageLookupByLibrary.simpleMessage("سجل المعاملات"),
+        "update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم يجب أن يكون أكثر من 3 أحرف"),

@@ -7,6 +7,7 @@ import 'package:shuwaikh/features/update%20info/logic/update_profile_cubit/updat
 import 'package:shuwaikh/features/update%20info/ui/widgets/u_profile_bloc_listener.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 
+import '../../../core/theming/styles.dart';
 import '../../cart/ui/widgets/custom_button.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
@@ -15,6 +16,15 @@ class UpdateProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        centerTitle: true,
+        title: Text(
+          S.of(context).edit_profile,
+          style: TextStyles.font20White700Weight,
+        ),
+        backgroundColor: ColorsManager.blue,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -55,7 +65,7 @@ class UpdateProfileScreen extends StatelessWidget {
                 ),
                 verticalSpace(50),
                 CustomButton(
-                  text: 'UPDATE ',
+                  text: S.of(context).update,
                   color: ColorsManager.blue,
                   onTap: () =>
                       context.read<UpdateProfileCubit>().updateProfile(),

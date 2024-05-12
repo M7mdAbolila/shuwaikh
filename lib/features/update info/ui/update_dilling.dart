@@ -6,6 +6,7 @@ import 'package:shuwaikh/features/update%20info/ui/widgets/u_billing_bloc_listen
 
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/colors.dart';
+import '../../../core/theming/styles.dart';
 import '../../../core/widgets/app_text_field.dart';
 import '../../../generated/l10n.dart';
 import '../../cart/ui/widgets/custom_button.dart';
@@ -16,7 +17,15 @@ class UpdateBillingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        centerTitle: true,
+        title: Text(
+          S.of(context).edit_billing,
+          style: TextStyles.font20White700Weight,
+        ),
+        backgroundColor: ColorsManager.blue,
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -56,7 +65,7 @@ class UpdateBillingScreen extends StatelessWidget {
                     validator: (v) {}),
                 verticalSpace(50),
                 CustomButton(
-                  text: 'UPDATE ',
+                  text: S.of(context).update,
                   color: ColorsManager.blue,
                   onTap: () =>
                       context.read<UpdateBillingCubit>().updateBilling(),

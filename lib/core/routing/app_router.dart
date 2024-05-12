@@ -8,6 +8,7 @@ import 'package:shuwaikh/features/account/ui/account_screen.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_profile_repo.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_billing_cubit/update_billing_cubit.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_profile_cubit/update_profile_cubit.dart';
+import 'package:shuwaikh/features/update%20info/logic/update_shipping_cubit/update_shipping_cubit.dart';
 import 'package:shuwaikh/features/update%20info/ui/update_profile_screen.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/favourites/ui/favourites_screen.dart';
@@ -36,6 +37,7 @@ import '../../features/login/ui/login_screen.dart';
 import '../../features/product_details/logic/cubit/product_details_cubit.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
 import '../../features/update info/data/repos/update_billing_repo.dart';
+import '../../features/update info/data/repos/update_shipping_repo.dart';
 import '../../features/vouncher/ui/voucher_screen.dart';
 import 'routes.dart';
 
@@ -122,7 +124,11 @@ class AppRouter {
         );
       case Routes.updateShippingDetails:
         return MaterialPageRoute(
-          builder: (_) => const UpdateChippingScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                UpdateShippingCubit(UpdateShippingRepo(ApiService(Dio()))),
+            child: const UpdateShippingScreen(),
+          ),
         );
       case Routes.updateProfile:
         return MaterialPageRoute(

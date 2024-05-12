@@ -67,7 +67,13 @@
     "last_name" : "Last Name",
     "address" : "Adderss",
     "city" : "Town / City",
-    "contact_email" : "Contact Email"
+    "contact_email" : "Contact Email",
+    "edit_profile" : "UPDATE PROFILE",
+    "edit_billing":"EDIT BILLING DETAILS",
+    "edit_shipping": "EDIT SHIPPING DETAILS",
+    "update" : "UPDATE",
+    "new_pass" : "New Password",
+    "old_pass" : "Old Password"
     
 
 

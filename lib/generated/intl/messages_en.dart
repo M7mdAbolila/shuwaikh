@@ -46,6 +46,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don’t have an account ? "),
         "dont_recive":
             MessageLookupByLibrary.simpleMessage("Don\'t receive SMS ? "),
+        "edit_billing":
+            MessageLookupByLibrary.simpleMessage("EDIT BILLING DETAILS"),
+        "edit_profile": MessageLookupByLibrary.simpleMessage("UPDATE PROFILE"),
+        "edit_shipping":
+            MessageLookupByLibrary.simpleMessage("EDIT SHIPPING DETAILS"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enter_otp": MessageLookupByLibrary.simpleMessage(
             "Please enter 4 digits code form the SMS sent to your phone"),
@@ -77,10 +82,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "minimum discount for orders over"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
+        "new_pass": MessageLookupByLibrary.simpleMessage("New Password"),
         "no_offers_found":
             MessageLookupByLibrary.simpleMessage("No Offers Found"),
         "not_match": MessageLookupByLibrary.simpleMessage(
             "Password confirmation does not match"),
+        "old_pass": MessageLookupByLibrary.simpleMessage("Old Password"),
         "order": MessageLookupByLibrary.simpleMessage("ORDER"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
@@ -102,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "trans_history":
             MessageLookupByLibrary.simpleMessage("Transaction history"),
+        "update": MessageLookupByLibrary.simpleMessage("UPDATE"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "User name must over 3 characters"),

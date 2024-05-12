@@ -14,6 +14,7 @@ class ApiConstants {
   static const String profile = "profile";
   static const String updateProfile = "edite-profile";
   static const String updateBilling = "update-billing";
+  static const String updateShipping = "update-shipping";
   static const String productsPage = "items-mobile";
   static const String productDetails = "ProductDetails/";
   static const String favourites = "products/favourites";
