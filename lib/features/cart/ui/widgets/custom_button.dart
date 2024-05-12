@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,26 +10,30 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.color,
     this.textStyle,
+    this.onTap,
   });
   final String text;
   final Color? color;
   final TextStyle? textStyle;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 335.w,
-      height: 50.h,
-      decoration: BoxDecoration(
-        color: color ?? ColorsManager.mainBlue,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Center(
-        child: Text(
-          text,
-          style: textStyle ?? TextStyles.font20White700Weight,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: 335.w,
+        height: 50.h,
+        decoration: BoxDecoration(
+          color: color ?? ColorsManager.mainBlue,
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: textStyle ?? TextStyles.font20White700Weight,
+          ),
         ),
       ),
     );
   }
 }
-

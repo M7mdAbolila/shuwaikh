@@ -4,6 +4,7 @@ class Routes {
   static const String homeScreen = '/homeScreen';
   static const String otp = '/otp';
   static const String account = '/account';
+  static const String updateProfile = '/updateProfile';
   static const String favourites = '/favourites';
   static const String mainScreen = '/mainScreen';
   static const String onBoarding = '/onBoarding';

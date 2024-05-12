@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
+import 'package:shuwaikh/features/account/ui/update_profile_screen.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/favourites/ui/favourites_screen.dart';
 import 'package:shuwaikh/features/login/data/repos/login_repo.dart';
@@ -98,6 +99,10 @@ class AppRouter {
       case Routes.voucherScreen:
         return MaterialPageRoute(
           builder: (_) => const VoucherScreen(),
+        );
+      case Routes.updateProfile:
+        return MaterialPageRoute(
+          builder: (_) => const UpdateProfileScreen(),
         );
       case Routes.offerScreen:
         final id = settings.arguments as int?;
