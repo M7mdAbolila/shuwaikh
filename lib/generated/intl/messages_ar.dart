@@ -28,12 +28,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_more_items": MessageLookupByLibrary.simpleMessage("إضافة المزيد"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
         "addons": MessageLookupByLibrary.simpleMessage("الإضافات"),
+        "address": MessageLookupByLibrary.simpleMessage("عنوان"),
         "all_categories": MessageLookupByLibrary.simpleMessage("جميع الفئات"),
         "check_out": MessageLookupByLibrary.simpleMessage("الدفع"),
+        "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "coffee": MessageLookupByLibrary.simpleMessage("القهوة"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("تأكيد OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("أعد إدخال كلمة المرور"),
+        "contact_email":
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني للاتصال"),
         "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage(" هل لديك حساب ؟"),
@@ -53,12 +57,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال اسم مستخدم صالح"),
         "expired": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
+        "first_name": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "ice": MessageLookupByLibrary.simpleMessage("ثلج"),
         "items": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "its_great_day_for":
             MessageLookupByLibrary.simpleMessage("إنه يوم رائع لتناول"),
         "large": MessageLookupByLibrary.simpleMessage("كبير"),
+        "last_name": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "دعنا نقوم بإعداد حسابك في خطوتين فقط"),
         "lets_sign_in":

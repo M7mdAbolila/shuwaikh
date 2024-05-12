@@ -22,6 +22,7 @@ import 'package:shuwaikh/features/product_details/data/models/product_details_re
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_response.dart';
 
+import '../../features/account/data/models/profile_response.dart';
 import '../../features/cart/data/models/get_cart/get_cart_response.dart';
 import '../../features/cart/data/models/remove_from_cart/remove_from_cart_response.dart';
 import '../../features/favourites/data/models/is_favourite/is_favourite_response.dart';
@@ -132,12 +133,19 @@ abstract class ApiService {
     @Query("token") String? token,
   );
 
-@POST(ApiConstants.removeFromCart)
+  @POST(ApiConstants.removeFromCart)
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
   })
   Future<RemoveFromCartResponse> removeFromCart(
     @Query("token") String? token,
-    @Body() RemoveFromCartRequestBody removeFromCartRequestBody ,
+    @Body() RemoveFromCartRequestBody removeFromCartRequestBody,
+  );
+  @GET(ApiConstants.profile)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<ProfileResponse> getProfileData(
+    @Query("token") String? token,
   );
 }

@@ -2,8 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
+import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
+import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
-import 'package:shuwaikh/features/account/ui/update_profile_screen.dart';
+import 'package:shuwaikh/features/update%20info/ui/update_profile_screen.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/favourites/ui/favourites_screen.dart';
 import 'package:shuwaikh/features/login/data/repos/login_repo.dart';
@@ -19,6 +21,8 @@ import 'package:shuwaikh/features/product_details/data/repos/product_details_rep
 import 'package:shuwaikh/features/product_details/ui/product_details_screen.dart';
 import 'package:shuwaikh/features/sign_up/data/repos/sign_up_repo.dart';
 import 'package:shuwaikh/features/sign_up/logic/cubit/signup_cubit.dart';
+import 'package:shuwaikh/features/update%20info/ui/update_dilling.dart';
+import 'package:shuwaikh/features/update%20info/ui/update_shipping_screen.dart';
 import '../../features/Products_page/data/repos/products_page_repo.dart';
 import '../../features/Products_page/logic/cubit/change_category_cubit.dart';
 import '../../features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
@@ -81,7 +85,11 @@ class AppRouter {
         );
       case Routes.account:
         return MaterialPageRoute(
-          builder: (_) => const AccountScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                ProfileCubit(ProfileRepo(ApiService(Dio())))..getProfileData(),
+            child: const AccountScreen(),
+          ),
         );
 
       case Routes.otp:
@@ -99,6 +107,14 @@ class AppRouter {
       case Routes.voucherScreen:
         return MaterialPageRoute(
           builder: (_) => const VoucherScreen(),
+        );
+      case Routes.updateBillingDetails:
+        return MaterialPageRoute(
+          builder: (_) => const UpdateBillingScreen(),
+        );
+      case Routes.updateShippingDetails:
+        return MaterialPageRoute(
+          builder: (_) => const UpdateChippingScreen(),
         );
       case Routes.updateProfile:
         return MaterialPageRoute(

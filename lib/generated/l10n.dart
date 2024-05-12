@@ -689,6 +689,56 @@ class S {
       args: [],
     );
   }
+
+  /// `First Name`
+  String get first_name {
+    return Intl.message(
+      'First Name',
+      name: 'first_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Name`
+  String get last_name {
+    return Intl.message(
+      'Last Name',
+      name: 'last_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adderss`
+  String get address {
+    return Intl.message(
+      'Adderss',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Town / City`
+  String get city {
+    return Intl.message(
+      'Town / City',
+      name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Email`
+  String get contact_email {
+    return Intl.message(
+      'Contact Email',
+      name: 'contact_email',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

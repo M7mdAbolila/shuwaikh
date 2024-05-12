@@ -29,13 +29,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ADD MORE ITEMS"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("ADD TO CART"),
         "addons": MessageLookupByLibrary.simpleMessage("Add On\'s"),
+        "address": MessageLookupByLibrary.simpleMessage("Adderss"),
         "all_categories":
             MessageLookupByLibrary.simpleMessage("All Categories"),
         "check_out": MessageLookupByLibrary.simpleMessage("Checkout"),
+        "city": MessageLookupByLibrary.simpleMessage("Town / City"),
         "coffee": MessageLookupByLibrary.simpleMessage("COFFEE"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "contact_email": MessageLookupByLibrary.simpleMessage("Contact Email"),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact us"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
@@ -55,12 +58,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_username": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid user name"),
         "expired": MessageLookupByLibrary.simpleMessage("expirt date"),
+        "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "ice": MessageLookupByLibrary.simpleMessage("Ice"),
         "items": MessageLookupByLibrary.simpleMessage("items"),
         "its_great_day_for":
             MessageLookupByLibrary.simpleMessage("It’s great day for"),
         "large": MessageLookupByLibrary.simpleMessage("Large"),
+        "last_name": MessageLookupByLibrary.simpleMessage("Last Name"),
         "lets_setup_account": MessageLookupByLibrary.simpleMessage(
             "Let\'s set up your account in just a couple of steps"),
         "lets_sign_in":

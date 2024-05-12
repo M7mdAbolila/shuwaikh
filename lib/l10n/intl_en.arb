@@ -62,7 +62,12 @@
     "your_offers" : "Your Offers",
     "size" : "size",
     "addons" : "Add On's",
-    "variation":"Variation"
+    "variation":"Variation",
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "address" : "Adderss",
+    "city" : "Town / City",
+    "contact_email" : "Contact Email"
     
 
 
