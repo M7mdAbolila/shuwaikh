@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/widgets/app_text_field.dart';
-import 'package:shuwaikh/features/update%20info/logic/cubit/update_profile_cubit.dart';
+import 'package:shuwaikh/features/update%20info/logic/update_profile_cubit/update_profile_cubit.dart';
 import 'package:shuwaikh/features/update%20info/ui/widgets/u_profile_bloc_listener.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 

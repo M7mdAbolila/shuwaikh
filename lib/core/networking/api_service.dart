@@ -21,6 +21,7 @@ import 'package:shuwaikh/features/offer/data/models/offer_details_respone.dart';
 import 'package:shuwaikh/features/product_details/data/models/product_details_response.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_response.dart';
+import 'package:shuwaikh/features/update%20info/data/models/update_billing_details/update_billing_request_body.dart';
 import 'package:shuwaikh/features/update%20info/data/models/update_profile/update_profile_request_body.dart';
 import 'package:shuwaikh/features/update%20info/data/models/update_profile/update_profile_response.dart';
 
@@ -152,12 +153,21 @@ abstract class ApiService {
     @Query("token") String? token,
   );
 
-   @POST(ApiConstants.updateProfile)
+  @POST(ApiConstants.updateProfile)
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
   })
   Future<UpdateProfileResponse> updateProfile(
     @Query("token") String? token,
-    @Body() UpdateProfileRequsetBody updateProfileRequsetBody ,
+    @Body() UpdateProfileRequsetBody updateProfileRequsetBody,
+  );
+
+  @POST(ApiConstants.updateBilling)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<UpdateProfileResponse> updateBilling(
+    @Query("token") String? token,
+    @Body() UpdateBillingRequsetBody updateBillingRequsetBody,
   );
 }

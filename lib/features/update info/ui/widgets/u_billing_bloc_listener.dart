@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
-import 'package:shuwaikh/features/update%20info/logic/update_profile_cubit/update_profile_cubit.dart';
-
 import '../../../../core/theming/colors.dart';
+import '../../logic/update_billing_cubit/update_billing_cubit.dart';
 
-class UpdateProfileBlocListener extends StatelessWidget {
-  const UpdateProfileBlocListener({super.key});
+class UpdateBillingBlocListener extends StatelessWidget {
+  const UpdateBillingBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<UpdateProfileCubit, UpdateProfileState>(
+    return BlocListener<UpdateBillingCubit, UpdateBillingState>(
       listener: (context, state) {
-        if (state is UpdateProfileSuccess) {
+        if (state is UpdateBillingSuccess) {
           context.pop();
           customSnackBar(context, state.message, false);
-        } else if (state is UpdateProfileFailure) {
+        } else if (state is UpdateBillingFailure) {
           context.pop();
           customSnackBar(context, state.errMessage, true);
-        } else if (state is UpdateProfileLoading) {
+        } else if (state is UpdateBillingLoading) {
           showDialog(
             context: context,
             builder: (context) => const Center(
