@@ -5,6 +5,8 @@ import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
+import 'package:shuwaikh/features/update%20info/data/repos/update_profile_repo.dart';
+import 'package:shuwaikh/features/update%20info/logic/cubit/update_profile_cubit.dart';
 import 'package:shuwaikh/features/update%20info/ui/update_profile_screen.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/favourites/ui/favourites_screen.dart';
@@ -118,7 +120,11 @@ class AppRouter {
         );
       case Routes.updateProfile:
         return MaterialPageRoute(
-          builder: (_) => const UpdateProfileScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                UpdateProfileCubit(UpdateProfileRepo(ApiService(Dio()))),
+            child: const UpdateProfileScreen(),
+          ),
         );
       case Routes.offerScreen:
         final id = settings.arguments as int?;
