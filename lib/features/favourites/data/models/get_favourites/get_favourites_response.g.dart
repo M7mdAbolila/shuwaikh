@@ -27,11 +27,17 @@ FavouriteProduct _$FavouriteProductFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int?,
       productId: json['product_id'] as int?,
       userId: json['user_id'] as int?,
-    );
+    )
+      ..image = json['feature_image'] as String?
+      ..title = json['title'] as String?
+      ..price = json['current_price'] as String?;
 
 Map<String, dynamic> _$FavouriteProductToJson(FavouriteProduct instance) =>
     <String, dynamic>{
       'id': instance.id,
       'product_id': instance.productId,
       'user_id': instance.userId,
+      'feature_image': instance.image,
+      'title': instance.title,
+      'current_price': instance.price,
     };

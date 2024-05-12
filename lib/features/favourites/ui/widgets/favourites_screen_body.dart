@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
@@ -13,18 +14,13 @@ class FavouritesScreenBody extends StatefulWidget {
 }
 
 class _FavouritesScreenBodyState extends State<FavouritesScreenBody> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   context.read<GetFavouriteCubit>().getFavourites();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetFavouriteCubit, GetFavouriteState>(
       builder: (context, state) {
         if (state is GetFavouriteSuccess) {
           return Container(
+            padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
             child: state.favourites!.isEmpty
                 ? const CustomErrorWidget(
                     errMessage: 'No Product Found In Your Wishlist',

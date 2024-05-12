@@ -14,7 +14,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
   double? productPrice;
   double? variationsPrice;
   double addonsPrice = 0;
-  double? total;
+  double? total = 0;
   String? variations;
   String? defaultVariations;
   String? addons;
@@ -31,6 +31,8 @@ class AddToCartCubit extends Cubit<AddToCartState> {
 
   Future<void> addToCart() async {
     emit(AddToCartLoading());
+    total = (((variationsPrice)! * qty!) + (addonsPrice * qty!));
+    addonsPrice = (addonsPrice * qty!);
     final String? token = await UserInfoCachceHelper.getCachedToken();
     var result = await _addToCartRepo.addToCart(
       token,
@@ -41,8 +43,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
         productPrice: variationsPrice ?? productPrice,
         variationsPrice: variationsPrice ?? productPrice,
         addonsPrice: addonsPrice,
-        total: total =
-            ((variationsPrice ?? productPrice! + addonsPrice) * qty!),
+        total: total,
         variations: variations ?? defaultVariations,
         addons: addons,
       ),

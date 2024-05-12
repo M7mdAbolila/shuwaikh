@@ -29,7 +29,8 @@ class CartItem {
   String? productPrice;
   String? total;
   int? qty;
-  dynamic image;
+  @JsonKey(name: 'product_image')
+  String? image;
   CartItem({
     this.id,
     this.userId,

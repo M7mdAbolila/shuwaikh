@@ -1,12 +1,13 @@
 import 'dart:developer';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/features/cart/data/models/get_cart/get_cart_response.dart';
 import 'package:shuwaikh/features/cart/logic/remove_from_cart/remove_from_cart_cubit.dart';
 
-import '../../../../core/helpers/assets_path.dart';
+import '../../../../core/helpers/constants.dart';
 import '../../../../core/theming/colors.dart';
 import 'cart_product_info.dart';
 
@@ -43,9 +44,11 @@ class CartBroductItem extends StatelessWidget {
               width: 100.w,
               height: 100.h,
               decoration: BoxDecoration(
-                image: const DecorationImage(
+                image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage(Assets.broduct),
+                  image: CachedNetworkImageProvider(
+                    '$productPath${cartItem!.image}',
+                  ),
                 ),
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -66,7 +69,6 @@ class CartBroductItem extends StatelessWidget {
                 Icons.delete_outline,
               ),
             ),
-            
           ],
         ),
       ),

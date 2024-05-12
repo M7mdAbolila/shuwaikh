@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/features/login/logic/cubit/login_cubit.dart';
 
-import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_text_field.dart';
 import '../../../../generated/l10n.dart';
@@ -64,9 +63,7 @@ class _UsernameAndPasswordState extends State<UsernameAndPassword> {
               ),
             ),
             validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPasswordValid(value)) {
+              if (value == null || value.isEmpty) {
                 return S.of(context).enter_valid_pass;
               }
             },

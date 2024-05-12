@@ -121,6 +121,7 @@ class _CartProductInfoState extends State<CartProductInfo> {
                               Text(
                                 '${addons?.addons[index].name ?? ''} ',
                                 style: TextStyles.font14Black400Weight,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               Text(
                                 'KD${addons?.addons[index].price}',
