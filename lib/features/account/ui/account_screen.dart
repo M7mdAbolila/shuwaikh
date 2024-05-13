@@ -60,18 +60,6 @@ class AccountScreen extends StatelessWidget {
                       ),
                       verticalSpace(70),
                       ProfileButton(
-                        title: 'Edit Billing Details',
-                        onPressed: () {
-                          context.pushNamed(Routes.updateBillingDetails);
-                        },
-                      ),
-                      ProfileButton(
-                        title: 'Edit Shipping Details',
-                        onPressed: () {
-                          context.pushNamed(Routes.updateShippingDetails);
-                        },
-                      ),
-                      ProfileButton(
                         title: 'UPDATE PROFILE',
                         onPressed: () =>
                             context.pushNamed(Routes.updateProfile),

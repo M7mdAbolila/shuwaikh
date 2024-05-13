@@ -5,6 +5,7 @@ import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
+import 'package:shuwaikh/features/setting/setting_screen.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_profile_repo.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_billing_cubit/update_billing_cubit.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_profile_cubit/update_profile_cubit.dart';
@@ -113,6 +114,10 @@ class AppRouter {
       case Routes.voucherScreen:
         return MaterialPageRoute(
           builder: (_) => const VoucherScreen(),
+        );
+      case Routes.setting:
+        return MaterialPageRoute(
+          builder: (_) => const SettingScreen(),
         );
       case Routes.updateBillingDetails:
         return MaterialPageRoute(

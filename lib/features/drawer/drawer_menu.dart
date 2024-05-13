@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/features/drawer/bloc_listener_logout.dart';
-import 'package:shuwaikh/features/drawer/change_lang.dart';
 import 'package:shuwaikh/features/drawer/drawer_item.dart';
 import 'package:shuwaikh/features/logout/logic/cubit/logout_cubit.dart';
 
@@ -44,11 +43,11 @@ class DrawerMenu extends StatelessWidget {
             onTap: () => context.pushNamed(Routes.favourites),
           ),
           const Divider(),
-          const ChangeLang(),
-          // DrawerItem(
-          //   iconPath: 'assets/icons/setting.svg',
-          //   title: S.of(context).setting,
-          // ),
+          DrawerItem(
+            iconPath: 'assets/icons/setting.svg',
+            title: S.of(context).setting,
+            onTap: () => context.pushNamed(Routes.setting),
+          ),
           DrawerItem(
             iconPath: 'assets/icons/logout.svg',
             title: S.of(context).log_out,

@@ -38,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen>
           create: (context) =>
               GetCouponsCubit(GetCouponsRepo(ApiService(Dio()))),
         ),
-        
       ],
       child: const HomeScreenBody(),
     );

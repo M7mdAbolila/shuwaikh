@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addons": MessageLookupByLibrary.simpleMessage("الإضافات"),
         "address": MessageLookupByLibrary.simpleMessage("عنوان"),
         "all_categories": MessageLookupByLibrary.simpleMessage("جميع الفئات"),
+        "change_lang": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "check_out": MessageLookupByLibrary.simpleMessage("الدفع"),
         "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "coffee": MessageLookupByLibrary.simpleMessage("القهوة"),

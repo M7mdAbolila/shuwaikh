@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Adderss"),
         "all_categories":
             MessageLookupByLibrary.simpleMessage("All Categories"),
+        "change_lang": MessageLookupByLibrary.simpleMessage("Change Language"),
         "check_out": MessageLookupByLibrary.simpleMessage("Checkout"),
         "city": MessageLookupByLibrary.simpleMessage("Town / City"),
         "coffee": MessageLookupByLibrary.simpleMessage("COFFEE"),

@@ -4,6 +4,7 @@ class Routes {
   static const String homeScreen = '/homeScreen';
   static const String otp = '/otp';
   static const String account = '/account';
+  static const String setting = '/settingScreen';
   static const String updateProfile = '/updateProfile';
   static const String updateBillingDetails = '/updateBillingDetails';
   static const String updateShippingDetails = '/updateShippingDetails';
