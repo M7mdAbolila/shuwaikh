@@ -49,6 +49,8 @@ class SettingScreen extends StatelessWidget {
             const Divider(),
             verticalSpace(10),
             const ChangeLang(),
+            verticalSpace(15),
+            const Divider(),
           ],
         ),
       ),
