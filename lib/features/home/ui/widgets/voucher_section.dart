@@ -35,17 +35,24 @@ class _VoucherSectionState extends State<VoucherSection> {
         BlocBuilder<GetCouponsCubit, GetCouponsState>(
           builder: (context, state) {
             if (state is GetCouponsSuccess) {
-              return ListView.builder(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: state.coupons!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return VoucherItem(
-                    coupon: state.coupons![index],
-                  );
-                },
-              );
+              return state.coupons!.isEmpty
+                  ? Center(
+                      child: Text(
+                        S.of(context).no_coupons,
+                        style: TextStyles.font30Red700Weight,
+                      ),
+                    )
+                  : ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: state.coupons!.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return VoucherItem(
+                          coupon: state.coupons![index],
+                        );
+                      },
+                    );
             } else if (state is GetCouponsFailure) {
               return CustomErrorWidget(
                 errMessage: state.errMessage,

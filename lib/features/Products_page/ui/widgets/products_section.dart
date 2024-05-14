@@ -19,12 +19,7 @@ class ProuductsSection extends StatefulWidget {
 }
 
 class _ProuductsSectionState extends State<ProuductsSection> {
-  @override
-  void initState() {
-    super.initState();
-    // context.read<ChangeCategoryCubit>().getCategory();
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChangeCategoryCubit, ChangeCategoryState>(

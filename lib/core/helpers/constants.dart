@@ -1,4 +1,3 @@
-const kFontFamily = 'Quicksand';
 const catigoryPath = 'https://shuwaikhcoffee.com/assets/front/img/category/';
 const offerPath = 'https://shuwaikhcoffee.com/assets/front/img/offer/featured/';
 const productPath =

@@ -809,6 +809,16 @@ class S {
       args: [],
     );
   }
+
+  /// `No Coupons Found`
+  String get no_coupons {
+    return Intl.message(
+      'No Coupons Found',
+      name: 'no_coupons',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

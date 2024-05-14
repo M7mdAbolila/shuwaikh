@@ -5,8 +5,6 @@ class Assets {
   static const String userAvatar = 'assets/icons/user-avatar.svg';
   static const String password = 'assets/icons/password.svg';
   static const String menuIcon = 'assets/icons/menu_icon.svg';
-  static const String banner = 'assets/images/Banner.png';
-  static const String broduct = 'assets/images/broduct.png';
   static const String voucher = 'assets/images/voucher_background.png';
   static const String homeIocn = 'assets/icons/home_icon.svg';
   static const String basketIcon = 'assets/icons/basket_icon.svg';

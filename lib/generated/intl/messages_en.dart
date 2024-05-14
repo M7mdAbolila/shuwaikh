@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "new_pass": MessageLookupByLibrary.simpleMessage("New Password"),
+        "no_coupons": MessageLookupByLibrary.simpleMessage("No Coupons Found"),
         "no_offers_found":
             MessageLookupByLibrary.simpleMessage("No Offers Found"),
         "not_match": MessageLookupByLibrary.simpleMessage(

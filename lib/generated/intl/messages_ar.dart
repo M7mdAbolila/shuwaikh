@@ -85,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "my_cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
         "new_pass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
+        "no_coupons":
+            MessageLookupByLibrary.simpleMessage("لم يتم العثور على كوبونات"),
         "no_offers_found":
             MessageLookupByLibrary.simpleMessage("لم يتم العثور على أي عروض"),
         "not_match": MessageLookupByLibrary.simpleMessage(

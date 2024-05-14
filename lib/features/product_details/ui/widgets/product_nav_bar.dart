@@ -24,20 +24,21 @@ class ProductNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: '${S.of(context).total}: ',
-                    style: TextStyles.font13White500Weight,
-                  ),
-                  TextSpan(
-                    text: 'KD100',
-                    style: TextStyles.font20White700Weight,
-                  ),
-                ],
-              ),
-            ),
+            // Text.rich(
+            //   TextSpan(
+            //     children: [
+            //       TextSpan(
+            //         text: '${S.of(context).total}: ',
+            //         style: TextStyles.font13White500Weight,
+            //       ),
+            //       TextSpan(
+            //         text: 'KD100',
+            //         style: TextStyles.font20White700Weight,
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            const SizedBox.shrink(),
             GestureDetector(
               onTap: () {
                 context.read<AddToCartCubit>().addToCart();

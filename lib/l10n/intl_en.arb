@@ -74,7 +74,8 @@
     "update" : "UPDATE",
     "new_pass" : "New Password",
     "old_pass" : "Old Password",
-    "change_lang" : "Change Language"
+    "change_lang" : "Change Language",
+    "no_coupons" : "No Coupons Found"
     
 
 
