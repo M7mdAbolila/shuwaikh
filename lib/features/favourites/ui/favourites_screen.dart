@@ -9,6 +9,8 @@ import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favou
 import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
 import 'package:shuwaikh/features/product_details/logic/cubit/product_details_cubit.dart';
 
+import '../data/repos/is_favourite_repo.dart';
+import '../logic/is_favourite_cubit/is_favourite_cubit.dart';
 import 'widgets/favourites_screen_body.dart';
 
 class FavouritesScreen extends StatelessWidget {
@@ -30,11 +32,16 @@ class FavouritesScreen extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) =>
-                GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio())))..getFavourites(),
+                GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio())))
+                  ..getFavourites(),
           ),
           BlocProvider(
             create: (context) =>
                 ProductDetailsCubit(ProductDetailsRepo(ApiService(Dio()))),
+          ),
+          BlocProvider(
+            create: (context) =>
+                IsFavouriteCubit(IsFavouriteRepo(ApiService(Dio()))),
           ),
         ],
         child: const FavouritesScreenBody(),

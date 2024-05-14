@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
@@ -11,6 +12,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
+import '../../logic/is_favourite_cubit/is_favourite_cubit.dart';
 
 class FavouriteItem extends StatefulWidget {
   const FavouriteItem({
@@ -100,11 +102,16 @@ class _FavouriteItemState extends State<FavouriteItem> {
                   ),
                 ),
                 horizontalSpace(5),
-                const Icon(
-                  Icons.favorite,
-                  color: ColorsManager.blue,
-                  size: 35,
-                )
+                InkWell(
+                  onTap: () => context
+                      .read<IsFavouriteCubit>()
+                      .isFavouriteStates(widget.favouriteProduct.productId!),
+                  child: const Icon(
+                    Icons.favorite,
+                    color: ColorsManager.blue,
+                    size: 35,
+                  ),
+                ),
               ],
             ),
           ),

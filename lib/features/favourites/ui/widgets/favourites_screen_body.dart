@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
+import 'package:shuwaikh/features/favourites/ui/widgets/favourite_bloc_listener.dart';
 import 'package:shuwaikh/features/favourites/ui/widgets/favourite_item.dart';
 
 class FavouritesScreenBody extends StatefulWidget {
@@ -19,20 +20,26 @@ class _FavouritesScreenBodyState extends State<FavouritesScreenBody> {
     return BlocBuilder<GetFavouriteCubit, GetFavouriteState>(
       builder: (context, state) {
         if (state is GetFavouriteSuccess) {
-          return Container(
+          return Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
-            child: state.favourites!.isEmpty
-                ? const CustomErrorWidget(
-                    errMessage: 'No Product Found In Your Wishlist',
-                  )
-                : ListView.builder(
-                    itemCount: state.favourites!.length,
-                    itemBuilder: (context, index) {
-                      return FavouriteItem(
-                        favouriteProduct: state.favourites![index],
-                      );
-                    },
-                  ),
+            child: Column(
+              children: [
+                state.favourites!.isEmpty
+                    ? const CustomErrorWidget(
+                        errMessage: 'No Product Found In Your Wishlist',
+                      )
+                    : ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: state.favourites!.length,
+                        itemBuilder: (context, index) {
+                          return FavouriteItem(
+                            favouriteProduct: state.favourites![index],
+                          );
+                        },
+                      ),
+                const UpdateFavouriteBlocListener(),
+              ],
+            ),
           );
         } else if (state is GetFavouriteFailure) {
           return CustomErrorWidget(
