@@ -33,12 +33,6 @@ class OffersListView extends StatefulWidget {
 class _CategoriesListViewState extends State<OffersListView> {
   int activeIndex = 0;
   @override
-  void initState() {
-    super.initState();
-    context.read<GetOffersCubit>().getOffers();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

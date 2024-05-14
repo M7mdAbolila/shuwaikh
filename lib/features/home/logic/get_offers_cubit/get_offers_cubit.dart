@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:shuwaikh/features/home/data/models/get_offers/get_offers_response.dart';
 
 import '../../../../core/helpers/user_info_cachce.dart';
@@ -12,12 +11,12 @@ class GetOffersCubit extends Cubit<GetOffersState> {
   GetOffersCubit(this._getOffersRepo) : super(GetOffersInitial());
 
   final GetOffersRepo _getOffersRepo;
-  Future<void> getOffers() async {
+  Future<void> getOffers(String lang) async {
     emit(GetOffersLoading());
     final String? token = await UserInfoCachceHelper.getCachedToken();
     var result = await _getOffersRepo.getOffers(
       token,
-      GetOffersRequsetBody(lang: Intl.getCurrentLocale()),
+      GetOffersRequsetBody(lang: lang),
     );
 
     result.fold(

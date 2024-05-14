@@ -43,12 +43,6 @@ class CategoriesListView extends StatefulWidget {
 
 class _CategoriesListViewState extends State<CategoriesListView> {
   @override
-  void initState() {
-    super.initState();
-    context.read<GetCategoriesCubit>().getCategories();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetCategoriesCubit, GetCategoriesState>(
       builder: (context, state) {

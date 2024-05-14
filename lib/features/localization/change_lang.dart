@@ -27,26 +27,6 @@ class _ChangeLangState extends State<ChangeLang> {
                 style: TextStyles.font16Black700Weight,
               ),
               const Icon(Icons.translate),
-              // horizontalSpace(20),
-              // BlocBuilder<LocaleCubit, ChangeLocaleState>(
-              //   builder: (context, state) {
-              //     return DropdownButton<String>(
-              //       value: state.locale.languageCode,
-              //       icon: const Icon(Icons.keyboard_arrow_down),
-              //       items: ['ar', 'en'].map((String items) {
-              //         return DropdownMenuItem<String>(
-              //           value: items,
-              //           child: Text(items),
-              //         );
-              //       }).toList(),
-              //       onChanged: (String? newValue) {
-              //         if (newValue != null) {
-              //           context.read<LocaleCubit>().changeLanguage(newValue);
-              //         }
-              //       },
-              //     );
-              //   },
-              // ),
             ],
           ),
           verticalSpace(10),

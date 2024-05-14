@@ -30,6 +30,20 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           children: [
+            BlocListener<LocaleCubit, ChangeLocaleState>(
+              listener: (context, state) {
+                setState(() {
+                  context
+                      .read<GetOffersCubit>()
+                      .getOffers(state.locale.languageCode);
+                  context
+                      .read<GetCategoriesCubit>()
+                      .getCategories(state.locale.languageCode);
+                  context.read<GetCouponsCubit>().getCoupons();
+                });
+              },
+              child: const SizedBox.shrink(),
+            ),
             verticalSpace(20),
             const OffersSection(),
             verticalSpace(20),
@@ -37,16 +51,6 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             verticalSpace(20),
             const VoucherSection(),
             verticalSpace(20),
-            BlocListener<LocaleCubit, ChangeLocaleState>(
-              listener: (context, state) {
-                setState(() {
-                  context.read<GetOffersCubit>().getOffers();
-                  context.read<GetCategoriesCubit>().getCategories();
-                  context.read<GetCouponsCubit>().getCoupons();
-                });
-              },
-              child: const SizedBox.shrink(),
-            ),
           ],
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
 import 'package:shuwaikh/features/home/data/repos/get_categories_repo.dart';
 
@@ -13,12 +12,12 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
 
   final GetCategoriesRepo _categoriesRepo;
 
-  Future<void> getCategories() async {
+  Future<void> getCategories(String lang) async {
     emit(GetCategorieLoading());
     final String? token = await UserInfoCachceHelper.getCachedToken();
     var result = await _categoriesRepo.getCategories(
       token,
-      GetCategoriesRequsetBody(lang: Intl.getCurrentLocale()),
+      GetCategoriesRequsetBody(lang: lang),
     );
 
     result.fold(

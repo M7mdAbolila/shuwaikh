@@ -35,7 +35,9 @@ class _ProductsScreenBodyState extends State<ProductsScreenBody> {
             BlocListener<LocaleCubit, ChangeLocaleState>(
               listener: (context, state) {
                 setState(() {
-                  context.read<ProductsPageCubit>().emitProductsPageStates();
+                  context
+                      .read<ProductsPageCubit>()
+                      .emitProductsPageStates(state.locale.languageCode);
                 });
               },
               child: const SizedBox.shrink(),

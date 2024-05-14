@@ -72,7 +72,8 @@ class VoucherScreenBody extends StatelessWidget {
             verticalSpace(35),
             BlocProvider(
               create: (context) =>
-                  GetCouponsCubit(GetCouponsRepo(ApiService(Dio()))),
+                  GetCouponsCubit(GetCouponsRepo(ApiService(Dio())))
+                    ..getCoupons(),
               child: const VoucherSection(),
             ),
           ],

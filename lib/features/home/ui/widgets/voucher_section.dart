@@ -20,12 +20,6 @@ class VoucherSection extends StatefulWidget {
 
 class _VoucherSectionState extends State<VoucherSection> {
   @override
-  void initState() {
-    super.initState();
-    context.read<GetCouponsCubit>().getCoupons();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

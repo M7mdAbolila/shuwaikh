@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/home/data/repos/get_categories_repo.dart';
 import 'package:shuwaikh/features/home/data/repos/get_coupons_repo.dart';
@@ -29,14 +30,16 @@ class _HomeScreenState extends State<HomeScreen>
       providers: [
         BlocProvider(
           create: (context) =>
-              GetCategoriesCubit(GetCategoriesRepo(ApiService(Dio()))),
+              GetCategoriesCubit(GetCategoriesRepo(ApiService(Dio())))
+                ..getCategories(Intl.getCurrentLocale()),
         ),
         BlocProvider(
-          create: (context) => GetOffersCubit(GetOffersRepo(ApiService(Dio()))),
+          create: (context) => GetOffersCubit(GetOffersRepo(ApiService(Dio())))
+            ..getOffers(Intl.getCurrentLocale()),
         ),
         BlocProvider(
           create: (context) =>
-              GetCouponsCubit(GetCouponsRepo(ApiService(Dio()))),
+              GetCouponsCubit(GetCouponsRepo(ApiService(Dio())))..getCoupons(),
         ),
       ],
       child: const HomeScreenBody(),

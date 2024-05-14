@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
@@ -60,7 +61,7 @@ class AppRouter {
               BlocProvider(
                 create: (context) =>
                     ProductsPageCubit(ProductsPageRepo(ApiService(Dio())))
-                      ..emitProductsPageStates(),
+                      ..emitProductsPageStates(Intl.getCurrentLocale()),
               ),
               BlocProvider(
                 create: (context) => ChangeCategoryCubit()..getCategory(),
