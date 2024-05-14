@@ -1,23 +1,31 @@
-import 'package:dio/dio.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/networking/api_service.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
-import '../../../favourites/data/repos/is_favourite_repo.dart';
-import '../../../favourites/logic/is_favourite_cubit/is_favourite_cubit.dart';
 import '../../data/models/product_details_response.dart';
 import 'favourite_widget.dart';
 
-class ProductInfoAndIsFavourite extends StatelessWidget {
+class ProductInfoAndIsFavourite extends StatefulWidget {
   const ProductInfoAndIsFavourite({
     super.key,
     required this.productDetails,
   });
   final ProductDetails? productDetails;
+
+  @override
+  State<ProductInfoAndIsFavourite> createState() =>
+      _ProductInfoAndIsFavouriteState();
+}
+
+class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,15 +35,11 @@ class ProductInfoAndIsFavourite extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              productDetails?.title ?? '',
+              widget.productDetails?.title ?? '',
               style: TextStyles.font24Black700Weight,
             ),
-            BlocProvider(
-              create: (context) =>
-                  IsFavouriteCubit(IsFavouriteRepo(ApiService(Dio()))),
-              child: FavouriteWidget(
-                id: productDetails!.id,
-              ),
+            FavouriteWidget(
+              id: widget.productDetails!.id,
             ),
           ],
         ),
@@ -48,7 +52,7 @@ class ProductInfoAndIsFavourite extends StatelessWidget {
                 style: TextStyles.font16Black400Weight,
               ),
               TextSpan(
-                text: 'KD ${productDetails?.currentPrice}',
+                text: 'KD ${widget.productDetails?.currentPrice}',
                 style: TextStyles.font18Blue500Weight,
               ),
             ],
@@ -56,9 +60,9 @@ class ProductInfoAndIsFavourite extends StatelessWidget {
         ),
         verticalSpace(10),
         Text(
-          AppRegex.removeHtmlTags(productDetails?.description ?? ''),
+          AppRegex.removeHtmlTags(widget.productDetails?.description ?? ''),
           style: TextStyles.font13Black500Weight,
-          maxLines: 8,
+          maxLines: 3,
           overflow: TextOverflow.ellipsis,
         ),
       ],

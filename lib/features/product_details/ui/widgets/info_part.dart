@@ -83,7 +83,7 @@ class _InfoPartState extends State<InfoPart> {
                   verticalSpace(10),
                   const QuantityWidget(),
                   const AddToCartBlocListener(),
-                  verticalSpace(200),
+                  verticalSpace(300),
                 ],
               ),
             ),

@@ -22,13 +22,14 @@ class _FavouritesScreenBodyState extends State<FavouritesScreenBody> {
         if (state is GetFavouriteSuccess) {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
-            child: Column(
+            child: ListView(
               children: [
                 state.favourites!.isEmpty
                     ? const CustomErrorWidget(
                         errMessage: 'No Product Found In Your Wishlist',
                       )
                     : ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.favourites!.length,
                         itemBuilder: (context, index) {

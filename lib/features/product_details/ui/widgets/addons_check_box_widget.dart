@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/models/addons_model.dart';
 
@@ -31,18 +32,21 @@ class _AddonsCheckBoxWidgetState extends State<AddonsCheckBoxWidget> {
       children: [
         Row(
           children: [
-            Checkbox(
-                value: isChecked,
-                activeColor: ColorsManager.blue,
-                onChanged: (check) {
-                  setState(() {
-                    isChecked = check;
-                    context.read<AddToCartCubit>().addAddons(addonToJson());
-                    context
-                        .read<AddToCartCubit>()
-                        .calcAddons(widget.addon!.price);
-                  });
-                }),
+            Padding(
+              padding: EdgeInsets.only(left: 12.w),
+              child: Checkbox(
+                  value: isChecked,
+                  activeColor: ColorsManager.blue,
+                  onChanged: (check) {
+                    setState(() {
+                      isChecked = check;
+                      context.read<AddToCartCubit>().addAddons(addonToJson());
+                      context
+                          .read<AddToCartCubit>()
+                          .calcAddons(widget.addon!.price);
+                    });
+                  }),
+            ),
             Text(
               widget.addon!.name,
               style: TextStyles.font16Gray400Weight,

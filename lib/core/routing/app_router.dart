@@ -33,6 +33,10 @@ import '../../features/Products_page/logic/cubit/change_category_cubit.dart';
 import '../../features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
 import '../../features/cart/data/repos/add_to_cart_repo.dart';
 import '../../features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
+import '../../features/favourites/data/repos/get_favourite_repo.dart';
+import '../../features/favourites/data/repos/is_favourite_repo.dart';
+import '../../features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
+import '../../features/favourites/logic/is_favourite_cubit/is_favourite_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
 import '../../features/product_details/logic/cubit/product_details_cubit.dart';
@@ -166,6 +170,15 @@ class AppRouter {
               BlocProvider(
                 create: (context) =>
                     AddToCartCubit(AddToCartRepo(ApiService(Dio()))),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    IsFavouriteCubit(IsFavouriteRepo(ApiService(Dio()))),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio())))
+                      ..getFavourites(),
               ),
             ],
             child: ProductDetailsScreen(id: id),
