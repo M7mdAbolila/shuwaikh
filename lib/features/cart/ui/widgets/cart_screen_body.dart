@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
-import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
@@ -11,6 +9,7 @@ import 'package:shuwaikh/features/cart/logic/get_cart_cubit/get_cart_cubit.dart'
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_scroll_scaffold.dart';
 import '../../../../generated/l10n.dart';
+import '../../../nav_bar/cubit/change_page_cubit.dart';
 import 'cart_product_item.dart';
 import 'custom_button.dart';
 import 'remove_bloc_lisneter.dart';
@@ -35,7 +34,7 @@ class _CartScreenBodyState extends State<CartScreenBody> {
       appBarTitle: S.of(context).my_cart,
       appBarIcon: Icon(isArabic() ? Icons.arrow_forward : Icons.arrow_back,
           color: Colors.white),
-      appBarOnPressed: () => context.pushReplacementNamed(Routes.mainScreen),
+      appBarOnPressed: () => context.read<ChangePageCubit>().changePage(2),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: BlocBuilder<GetCartCubit, GetCartState>(
@@ -66,6 +65,7 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                     text: S.of(context).add_more_items,
                     color: ColorsManager.lightBlue,
                     textStyle: TextStyles.font20MainBlue700Weight,
+                    onTap: () => context.read<ChangePageCubit>().changePage(2),
                   ),
                   verticalSpace(30),
                   Row(
