@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -21,11 +21,6 @@ class ProductInfoAndIsFavourite extends StatefulWidget {
 }
 
 class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -59,11 +54,15 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
           ),
         ),
         verticalSpace(10),
-        Text(
+        ReadMoreText(
           AppRegex.removeHtmlTags(widget.productDetails?.description ?? ''),
+          trimLines: 3,
+          trimMode: TrimMode.Line,
+          trimCollapsedText: S.of(context).read_more,
+          trimExpandedText: S.of(context).read_more,
           style: TextStyles.font13Black500Weight,
-          maxLines: 3,
-          overflow: TextOverflow.ellipsis,
+          lessStyle: TextStyles.font11Blue500Weight,
+          moreStyle: TextStyles.font11Blue500Weight,
         ),
       ],
     );

@@ -819,6 +819,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Read More`
+  String get read_more {
+    return Intl.message(
+      'Read More',
+      name: 'read_more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Read Less`
+  String get read_less {
+    return Intl.message(
+      'Read Less',
+      name: 'read_less',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

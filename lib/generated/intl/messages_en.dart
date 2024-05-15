@@ -95,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "price": MessageLookupByLibrary.simpleMessage("price: "),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "read_less": MessageLookupByLibrary.simpleMessage("Read Less"),
+        "read_more": MessageLookupByLibrary.simpleMessage("Read More"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "regular": MessageLookupByLibrary.simpleMessage("Regular"),
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),

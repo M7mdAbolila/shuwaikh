@@ -75,7 +75,9 @@
     "new_pass" : "New Password",
     "old_pass" : "Old Password",
     "change_lang" : "Change Language",
-    "no_coupons" : "No Coupons Found"
+    "no_coupons" : "No Coupons Found",
+    "read_more" : "Read More",
+    "read_less" : "Read Less"
     
 
 
