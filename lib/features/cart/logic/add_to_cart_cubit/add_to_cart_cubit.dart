@@ -25,8 +25,16 @@ class AddToCartCubit extends Cubit<AddToCartState> {
     addons = adds.toString();
   }
 
-  void calcAddons(double addon) {
+  void removeAddon(String add) {
+    adds.remove(add);
+    addons = adds.toString();
+  }
+
+  void addAddonsPrice(double addon) {
     addonsPrice += addon;
+  }
+   void removeAddonsPrice(double addon) {
+    addonsPrice -= addon;
   }
 
   Future<void> addToCart() async {

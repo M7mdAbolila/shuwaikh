@@ -31,7 +31,6 @@ dependencies:
   freezed: ^2.4.5
   freezed_annotation: ^2.4.1
   get_it: ^7.6.4
-  google_fonts: ^6.2.0
   google_sign_in: ^6.2.1
   intl: ^0.18.1
   json_annotation: ^4.8.1
@@ -56,12 +55,13 @@ flutter:
     #   - assets/images/product/
     - assets/images/
 
-  # fonts:
-  #   - family: Quicksand
-  #     fonts:
-  #       - asset: assets/fonts/Quicksand/Quicksand-Bold.ttf
-  #       - asset: assets/fonts/Quicksand/Quicksand-SemiBold.ttf
-  #       - asset: assets/fonts/Quicksand/Quicksand-Medium.ttf
-  #       - asset: assets/fonts/Quicksand/Quicksand-Light.ttf
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-Bold.ttf
+        - asset: assets/fonts/Quicksand-SemiBold.ttf
+        - asset: assets/fonts/Quicksand-Medium.ttf
+        - asset: assets/fonts/Quicksand-Regular.ttf
+        - asset: assets/fonts/Quicksand-Light.ttf
 flutter_intl:
   enabled: true

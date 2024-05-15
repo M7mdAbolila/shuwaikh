@@ -40,7 +40,7 @@ import '../../features/favourites/logic/get_favourite_cubit/get_favourite_cubit.
 import '../../features/favourites/logic/is_favourite_cubit/is_favourite_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
-import '../../features/product_details/logic/cubit/product_details_cubit.dart';
+import '../../features/product_details/logic/product_details_cubit/product_details_cubit.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
 import '../../features/update info/data/repos/update_billing_repo.dart';
 import '../../features/update info/data/repos/update_shipping_repo.dart';

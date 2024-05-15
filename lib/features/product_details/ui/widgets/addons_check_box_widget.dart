@@ -8,6 +8,7 @@ import 'package:shuwaikh/features/product_details/data/models/addons_model.dart'
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../logic/cubit/calc_total_cubit.dart';
 
 class AddonsCheckBoxWidget extends StatefulWidget {
   const AddonsCheckBoxWidget({
@@ -40,10 +41,28 @@ class _AddonsCheckBoxWidgetState extends State<AddonsCheckBoxWidget> {
                   onChanged: (check) {
                     setState(() {
                       isChecked = check;
-                      context.read<AddToCartCubit>().addAddons(addonToJson());
-                      context
-                          .read<AddToCartCubit>()
-                          .calcAddons(widget.addon!.price);
+                      if (check == true) {
+                        context.read<AddToCartCubit>().addAddons(addonToJson());
+                        context
+                            .read<AddToCartCubit>()
+                            .addAddonsPrice(widget.addon!.price);
+
+                        context
+                            .read<CalcTotalCubit>()
+                            .addAddonPrice(widget.addon!.price);
+                        context.read<CalcTotalCubit>().calcTotal();
+                      } else {
+                        context
+                            .read<AddToCartCubit>()
+                            .removeAddon(addonToJson());
+                        context
+                            .read<AddToCartCubit>()
+                            .removeAddonsPrice(widget.addon!.price);
+                        context
+                            .read<CalcTotalCubit>()
+                            .removeAddonPrice(widget.addon!.price);
+                        context.read<CalcTotalCubit>().calcTotal();
+                      }
                     });
                   }),
             ),

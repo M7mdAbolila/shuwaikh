@@ -8,6 +8,7 @@ import 'package:shuwaikh/features/product_details/data/models/variation_model.da
 
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
+import '../../logic/cubit/calc_total_cubit.dart';
 
 // ignore: must_be_immutable
 class SelectSizeWidget extends StatefulWidget {
@@ -37,6 +38,8 @@ class _SelectSizeWidgetState extends State<SelectSizeWidget> {
     context.read<AddToCartCubit>().variations = defaultSizeFromJson();
     context.read<AddToCartCubit>().variationsPrice =
         widget.variation.sizes[0].price as double?;
+    context.read<CalcTotalCubit>().varPrice = widget.variation.sizes[0].price;
+    context.read<CalcTotalCubit>().calcTotal();
   }
 
   @override
@@ -72,6 +75,10 @@ class _SelectSizeWidgetState extends State<SelectSizeWidget> {
                                 widget.variation.sizes[index].toJson());
                         context.read<AddToCartCubit>().variationsPrice =
                             widget.variation.sizes[index].price as double?;
+
+                        context.read<CalcTotalCubit>().varPrice =
+                            widget.variation.sizes[index].price;
+                        context.read<CalcTotalCubit>().calcTotal();
                       });
                     },
                   ),

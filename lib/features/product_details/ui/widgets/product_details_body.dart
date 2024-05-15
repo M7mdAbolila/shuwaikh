@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
-import 'package:shuwaikh/features/product_details/logic/cubit/product_details_cubit.dart';
+import 'package:shuwaikh/features/product_details/logic/product_details_cubit/product_details_cubit.dart';
 
 import 'app_bar_and_slider_part.dart';
 import 'info_part.dart';

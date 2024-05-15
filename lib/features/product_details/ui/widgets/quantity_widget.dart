@@ -6,6 +6,7 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 import '../../../cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
+import '../../logic/cubit/calc_total_cubit.dart';
 
 class QuantityWidget extends StatefulWidget {
   const QuantityWidget({
@@ -23,6 +24,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
     super.initState();
     setState(() {
       context.read<AddToCartCubit>().qty = quantity;
+      context.read<CalcTotalCubit>().qty = quantity;
     });
   }
 
@@ -43,6 +45,8 @@ class _QuantityWidgetState extends State<QuantityWidget> {
                   setState(() {
                     quantity -= 1;
                     context.read<AddToCartCubit>().qty = quantity;
+                    context.read<CalcTotalCubit>().qty = quantity;
+                    context.read<CalcTotalCubit>().calcTotal();
                   });
                 }
               },
@@ -66,6 +70,8 @@ class _QuantityWidgetState extends State<QuantityWidget> {
               onTap: () => setState(() {
                 quantity += 1;
                 context.read<AddToCartCubit>().qty = quantity;
+                context.read<CalcTotalCubit>().qty = quantity;
+                context.read<CalcTotalCubit>().calcTotal();
               }),
               child: const CircleAvatar(
                 radius: 12,

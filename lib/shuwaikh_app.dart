@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shuwaikh/core/routing/app_router.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
@@ -35,7 +34,7 @@ class ShuwaikhApp extends StatelessWidget {
               title: 'Shuwaikh',
               theme: ThemeData(
                 primaryColor: ColorsManager.blue,
-                fontFamily: GoogleFonts.quicksand().fontFamily,
+                fontFamily: 'Quicksand',
                 scaffoldBackgroundColor: Colors.white,
               ),
               debugShowCheckedModeBanner: false,

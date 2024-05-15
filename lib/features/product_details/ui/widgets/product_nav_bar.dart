@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
+import 'package:shuwaikh/features/product_details/logic/cubit/calc_total_cubit.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -24,28 +25,32 @@ class ProductNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            // Text.rich(
-            //   TextSpan(
-            //     children: [
-            //       TextSpan(
-            //         text: '${S.of(context).total}: ',
-            //         style: TextStyles.font13White500Weight,
-            //       ),
-            //       TextSpan(
-            //         text: 'KD100',
-            //         style: TextStyles.font20White700Weight,
-            //       ),
-            //     ],
-            //   ),
-            // ),
+            BlocBuilder<CalcTotalCubit, CalcTotalState>(
+              builder: (context, state) {
+                return Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: '${S.of(context).total}: ',
+                        style: TextStyles.font13White500Weight,
+                      ),
+                      TextSpan(
+                        text: 'KD${state.total!.toStringAsFixed(2)}',
+                        style: TextStyles.font20White700Weight,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
             const SizedBox.shrink(),
             GestureDetector(
               onTap: () {
                 context.read<AddToCartCubit>().addToCart();
               },
               child: Container(
-                width: 100,
-                height: 40,
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                height: 40.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: ColorsManager.lightBlue,

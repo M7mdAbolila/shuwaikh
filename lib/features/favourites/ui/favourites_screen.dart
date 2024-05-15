@@ -7,7 +7,7 @@ import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/features/favourites/data/repos/get_favourite_repo.dart';
 import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
-import 'package:shuwaikh/features/product_details/logic/cubit/product_details_cubit.dart';
+import 'package:shuwaikh/features/product_details/logic/product_details_cubit/product_details_cubit.dart';
 
 import '../data/repos/is_favourite_repo.dart';
 import '../logic/is_favourite_cubit/is_favourite_cubit.dart';
