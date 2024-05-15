@@ -27,7 +27,7 @@ class HorizontalProductItem extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 15),
         child: Container(
           width: 335.w,
-          height: 100.h,
+          height: 110.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,
@@ -43,8 +43,8 @@ class HorizontalProductItem extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                width: 100.w,
-                height: 100.h,
+                width: 110.w,
+                height: 110.h,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
@@ -65,7 +65,7 @@ class HorizontalProductItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 160.w,
+                        width: 155.w,
                         child: Text(
                           product.title ?? '',
                           style: TextStyles.font20Black500Weight,
