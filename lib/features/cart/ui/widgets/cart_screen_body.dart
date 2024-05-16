@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
+import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
@@ -82,8 +84,14 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                     ],
                   ),
                   verticalSpace(30),
-                  CustomButton(text: S.of(context).check_out),
-                  verticalSpace(30),
+                  CustomButton(
+                    text: S.of(context).check_out,
+                    onTap: () => context.pushNamed(
+                      Routes.checkoutScreen,
+                      arguments: total,
+                    ),
+                  ),
+                  verticalSpace(100),
                   const RemoveProductBlocListener(),
                 ],
               );

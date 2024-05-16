@@ -39,7 +39,9 @@ class ShuwaikhApp extends StatelessWidget {
               ),
               debugShowCheckedModeBanner: false,
               onGenerateRoute: appRouter.generateRoute,
-              initialRoute: isLogin ? Routes.mainScreen : Routes.onBoarding,
+              initialRoute: 
+              // Routes.checkoutScreen,
+              isLogin ? Routes.mainScreen : Routes.onBoarding,
             ),
           );
         },

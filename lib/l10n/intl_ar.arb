@@ -77,6 +77,19 @@
     "change_lang": "تغيير اللغة",
     "no_coupons" : "لم يتم العثور على كوبونات",
     "read_more" : "قراءة المزيد",
-    "read_less" : "قراءة أقل"
+    "read_less" : "قراءة أقل",
+    "shipping_charges" : "رسوم الشحن *",
+    "shipping_address" : "عنوان الشحن",
+    "billing_address" : "عنوان وصول الفواتير",
+    "order_total" : "الطلب الكلي",
+    "cart_total" : "إجمالي سلة التسوق",
+    "discount" : "الخصم",
+    "tax" : "ضريبة",
+    "cart_subtotal" : "المجموع الفرعي لعربة التسوق",
+    "apply" : "تطبيق",
+    "pay_via" : "الدفع عن طريق",
+    "cash_on_delivery" : "الدفع عند الاستلام",
+    "enter_valid_info" : "يرجى إدخال معلومات صالحة",
+    "same_address" :"سيكون عنوان إرسال الفواتير هو نفس عنوان الشحن"
 
 }

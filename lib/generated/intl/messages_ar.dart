@@ -30,6 +30,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "addons": MessageLookupByLibrary.simpleMessage("الإضافات"),
         "address": MessageLookupByLibrary.simpleMessage("عنوان"),
         "all_categories": MessageLookupByLibrary.simpleMessage("جميع الفئات"),
+        "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
+        "billing_address":
+            MessageLookupByLibrary.simpleMessage("عنوان وصول الفواتير"),
+        "cart_subtotal":
+            MessageLookupByLibrary.simpleMessage("المجموع الفرعي لعربة التسوق"),
+        "cart_total": MessageLookupByLibrary.simpleMessage("إجمالي سلة التسوق"),
+        "cash_on_delivery":
+            MessageLookupByLibrary.simpleMessage("الدفع عند الاستلام"),
         "change_lang": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "check_out": MessageLookupByLibrary.simpleMessage("الدفع"),
         "city": MessageLookupByLibrary.simpleMessage("المدينة"),
@@ -40,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_email":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني للاتصال"),
         "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage(" هل لديك حساب ؟"),
         "dont_have_account":
@@ -57,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "الرجاء إدخال رمز 4 خانات من الرسالة القصيرة التي تم إرسالها إلى هاتفك"),
         "enter_valid_email": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال البريد الإلكتروني الصحيح"),
+        "enter_valid_info":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال معلومات صالحة"),
         "enter_valid_pass":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال كلمة مرور صالحة"),
         "enter_valid_phone":
@@ -93,7 +104,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "تأكيد كلمة المرور غير متطابق"),
         "old_pass": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
+        "order_total": MessageLookupByLibrary.simpleMessage("الطلب الكلي"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "pay_via": MessageLookupByLibrary.simpleMessage("الدفع عن طريق"),
         "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "price": MessageLookupByLibrary.simpleMessage("السعر:"),
         "quantity": MessageLookupByLibrary.simpleMessage("كمية"),
@@ -102,15 +115,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("سجل"),
         "regular": MessageLookupByLibrary.simpleMessage("وسط"),
         "resend": MessageLookupByLibrary.simpleMessage("أعد الإرسال"),
+        "same_address": MessageLookupByLibrary.simpleMessage(
+            "سيكون عنوان إرسال الفواتير هو نفس عنوان الشحن"),
         "select_add_ons":
             MessageLookupByLibrary.simpleMessage("حدد الإضافات (اختياري)"),
         "select_size": MessageLookupByLibrary.simpleMessage("أختر الحجم **"),
         "setting": MessageLookupByLibrary.simpleMessage("إعدادات"),
+        "shipping_address": MessageLookupByLibrary.simpleMessage("عنوان الشحن"),
+        "shipping_charges":
+            MessageLookupByLibrary.simpleMessage("رسوم الشحن *"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "size": MessageLookupByLibrary.simpleMessage("الحجم"),
         "small": MessageLookupByLibrary.simpleMessage("صغير"),
         "sugar": MessageLookupByLibrary.simpleMessage("سكر"),
+        "tax": MessageLookupByLibrary.simpleMessage("ضريبة"),
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
         "total": MessageLookupByLibrary.simpleMessage("المجموع"),
         "trans_history": MessageLookupByLibrary.simpleMessage("سجل المعاملات"),

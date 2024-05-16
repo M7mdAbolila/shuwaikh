@@ -7,6 +7,10 @@ import 'package:shuwaikh/features/Products_page/data/models/products_page_respon
 import 'package:shuwaikh/features/cart/data/models/add_to_cart/add_to_cart_request_body.dart';
 import 'package:shuwaikh/features/cart/data/models/add_to_cart/add_to_cart_response.dart';
 import 'package:shuwaikh/features/cart/data/models/remove_from_cart/remove_from_cart_request_body.dart';
+import 'package:shuwaikh/features/checkout/data/models/order_request_body.dart';
+import 'package:shuwaikh/features/checkout/data/models/order_response.dart';
+import 'package:shuwaikh/features/checkout/data/models/shipping_charge_request_body.dart';
+import 'package:shuwaikh/features/checkout/data/models/shipping_charge_response.dart';
 import 'package:shuwaikh/features/favourites/data/models/get_favourites/get_favourites_response.dart';
 import 'package:shuwaikh/features/favourites/data/models/is_favourite/is_favourite_request_body.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_requset_body.dart';
@@ -31,6 +35,8 @@ import '../../features/cart/data/models/remove_from_cart/remove_from_cart_respon
 import '../../features/favourites/data/models/is_favourite/is_favourite_response.dart';
 import '../../features/update info/data/models/update_shipping_details/update_shipping_request_body.dart';
 import '../../features/update info/data/models/update_shipping_details/update_shipping_response.dart';
+import '../../features/vouncher/data/models/check_coupon_request_body.dart';
+import '../../features/vouncher/data/models/check_coupon_response.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
@@ -180,5 +186,32 @@ abstract class ApiService {
   Future<UpdateShippingResponse> updateShipping(
     @Query("token") String? token,
     @Body() UpdateShippingRequsetBody updateShippingRequsetBody,
+  );
+
+  @POST(ApiConstants.placeOrder)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<OrderResponse> placeOrder(
+    @Query("token") String? token,
+    @Body() OrderRequestBody orderRequestBody,
+  );
+
+  @POST(ApiConstants.shippingCharge)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<ShippingChargeResponse> shippingCharge(
+    @Query("token") String? token,
+    @Body() ShippingChargeRequsetBody shippingChargeRequsetBody,
+  );
+
+  @POST(ApiConstants.checkCoupon)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<CheckCouponResponse> checkCoupon(
+    @Query("token") String? token,
+    @Body() CheckCouponRequsetBody checkCouponRequestBody,
   );
 }

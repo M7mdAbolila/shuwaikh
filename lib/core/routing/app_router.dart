@@ -6,6 +6,10 @@ import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
+import 'package:shuwaikh/features/checkout/data/repos/order_repo.dart';
+import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
+import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
+import 'package:shuwaikh/features/checkout/ui/checkout_screen.dart';
 import 'package:shuwaikh/features/setting/setting_screen.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_profile_repo.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_billing_cubit/update_billing_cubit.dart';
@@ -27,13 +31,16 @@ import 'package:shuwaikh/features/product_details/data/repos/product_details_rep
 import 'package:shuwaikh/features/product_details/ui/product_details_screen.dart';
 import 'package:shuwaikh/features/sign_up/data/repos/sign_up_repo.dart';
 import 'package:shuwaikh/features/sign_up/logic/cubit/signup_cubit.dart';
-import 'package:shuwaikh/features/update%20info/ui/update_dilling.dart';
+import 'package:shuwaikh/features/update%20info/ui/update_billing.dart';
 import 'package:shuwaikh/features/update%20info/ui/update_shipping_screen.dart';
+import 'package:shuwaikh/features/vouncher/data/repos/check_coupon_repo.dart';
+import 'package:shuwaikh/features/vouncher/logic/cubit/check_coupon_cubit.dart';
 import '../../features/Products_page/data/repos/products_page_repo.dart';
 import '../../features/Products_page/logic/cubit/change_category_cubit.dart';
 import '../../features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
 import '../../features/cart/data/repos/add_to_cart_repo.dart';
 import '../../features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
+import '../../features/checkout/data/repos/shipping_charge_repo.dart';
 import '../../features/favourites/data/repos/get_favourite_repo.dart';
 import '../../features/favourites/data/repos/is_favourite_repo.dart';
 import '../../features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
@@ -119,6 +126,30 @@ class AppRouter {
       case Routes.voucherScreen:
         return MaterialPageRoute(
           builder: (_) => const VoucherScreen(),
+        );
+      case Routes.checkoutScreen:
+        final cartTotal = settings.arguments as double?;
+
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    PlaceOrderCubit(OrderRepo(ApiService(Dio()))),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    ShippingChargeCubit(ShippingChargeRepo(ApiService(Dio()))),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    CheckCouponCubit(CheckCouponRepo(ApiService(Dio()))),
+              ),
+            ],
+            child: CheckoutScreen(
+              cartTotal: cartTotal,
+            ),
+          ),
         );
       case Routes.setting:
         return MaterialPageRoute(

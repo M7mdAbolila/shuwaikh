@@ -839,6 +839,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Shipping Charges *`
+  String get shipping_charges {
+    return Intl.message(
+      'Shipping Charges *',
+      name: 'shipping_charges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipping Address`
+  String get shipping_address {
+    return Intl.message(
+      'Shipping Address',
+      name: 'shipping_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Billing Address`
+  String get billing_address {
+    return Intl.message(
+      'Billing Address',
+      name: 'billing_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Total`
+  String get order_total {
+    return Intl.message(
+      'Order Total',
+      name: 'order_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart Total`
+  String get cart_total {
+    return Intl.message(
+      'Cart Total',
+      name: 'cart_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discount`
+  String get discount {
+    return Intl.message(
+      'Discount',
+      name: 'discount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tax`
+  String get tax {
+    return Intl.message(
+      'Tax',
+      name: 'tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart Subtotal`
+  String get cart_subtotal {
+    return Intl.message(
+      'Cart Subtotal',
+      name: 'cart_subtotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message(
+      'Apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay Via`
+  String get pay_via {
+    return Intl.message(
+      'Pay Via',
+      name: 'pay_via',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash On Delivery`
+  String get cash_on_delivery {
+    return Intl.message(
+      'Cash On Delivery',
+      name: 'cash_on_delivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Valid Info`
+  String get enter_valid_info {
+    return Intl.message(
+      'Enter Valid Info',
+      name: 'enter_valid_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Billing Address will be Same as Shipping Address`
+  String get same_address {
+    return Intl.message(
+      'Billing Address will be Same as Shipping Address',
+      name: 'same_address',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

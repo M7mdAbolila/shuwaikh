@@ -32,6 +32,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Adderss"),
         "all_categories":
             MessageLookupByLibrary.simpleMessage("All Categories"),
+        "apply": MessageLookupByLibrary.simpleMessage("Apply"),
+        "billing_address":
+            MessageLookupByLibrary.simpleMessage("Billing Address"),
+        "cart_subtotal": MessageLookupByLibrary.simpleMessage("Cart Subtotal"),
+        "cart_total": MessageLookupByLibrary.simpleMessage("Cart Total"),
+        "cash_on_delivery":
+            MessageLookupByLibrary.simpleMessage("Cash On Delivery"),
         "change_lang": MessageLookupByLibrary.simpleMessage("Change Language"),
         "check_out": MessageLookupByLibrary.simpleMessage("Checkout"),
         "city": MessageLookupByLibrary.simpleMessage("Town / City"),
@@ -41,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "contact_email": MessageLookupByLibrary.simpleMessage("Contact Email"),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact us"),
+        "discount": MessageLookupByLibrary.simpleMessage("Discount"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
         "dont_have_account":
@@ -57,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter 4 digits code form the SMS sent to your phone"),
         "enter_valid_email":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "enter_valid_info":
+            MessageLookupByLibrary.simpleMessage("Enter Valid Info"),
         "enter_valid_pass": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid password"),
         "enter_valid_phone": MessageLookupByLibrary.simpleMessage(
@@ -91,7 +101,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password confirmation does not match"),
         "old_pass": MessageLookupByLibrary.simpleMessage("Old Password"),
         "order": MessageLookupByLibrary.simpleMessage("ORDER"),
+        "order_total": MessageLookupByLibrary.simpleMessage("Order Total"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "pay_via": MessageLookupByLibrary.simpleMessage("Pay Via"),
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "price": MessageLookupByLibrary.simpleMessage("price: "),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
@@ -100,15 +112,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "regular": MessageLookupByLibrary.simpleMessage("Regular"),
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+        "same_address": MessageLookupByLibrary.simpleMessage(
+            "Billing Address will be Same as Shipping Address"),
         "select_add_ons":
             MessageLookupByLibrary.simpleMessage("Select Add On\'s (Optional)"),
         "select_size": MessageLookupByLibrary.simpleMessage("Select Size **"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
+        "shipping_address":
+            MessageLookupByLibrary.simpleMessage("Shipping Address"),
+        "shipping_charges":
+            MessageLookupByLibrary.simpleMessage("Shipping Charges *"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
         "size": MessageLookupByLibrary.simpleMessage("size"),
         "small": MessageLookupByLibrary.simpleMessage("Small"),
         "sugar": MessageLookupByLibrary.simpleMessage("Sugar"),
+        "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "trans_history":

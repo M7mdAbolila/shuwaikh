@@ -17,6 +17,7 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String?) validator;
   final TextInputType? keyboardType;
+  final Function(String?)? onChanged;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -30,7 +31,7 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     required this.validator,
     this.prefixIcon,
-    this.keyboardType,
+    this.keyboardType, this.onChanged,
   });
 
   @override
@@ -81,6 +82,7 @@ class AppTextFormField extends StatelessWidget {
       validator: (value) {
         return validator(value);
       },
+      onChanged: onChanged,
     );
   }
 }

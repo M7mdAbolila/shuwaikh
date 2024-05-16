@@ -77,7 +77,21 @@
     "change_lang" : "Change Language",
     "no_coupons" : "No Coupons Found",
     "read_more" : "Read More",
-    "read_less" : "Read Less"
+    "read_less" : "Read Less",
+    "shipping_charges" : "Shipping Charges *",
+    "shipping_address" : "Shipping Address",
+    "billing_address" : "Billing Address",
+    "order_total" : "Order Total",
+    "cart_total" : "Cart Total",
+    "discount" : "Discount",
+    "tax" : "Tax",
+    "cart_subtotal" : "Cart Subtotal",
+    "apply" : "Apply",
+    "pay_via" : "Pay Via",
+    "cash_on_delivery" : "Cash On Delivery",
+    "enter_valid_info" : "Enter Valid Info",
+    "same_address" : "Billing Address will be Same as Shipping Address"
+
     
 
 
