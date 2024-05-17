@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/models/variation_model.dart';
 
@@ -67,6 +68,7 @@ class _SelectSizeWidgetState extends State<SelectSizeWidget> {
                     title: Text(sizeName),
                     value: sizeName,
                     groupValue: widget.selectedSize,
+                    activeColor: ColorsManager.blue,
                     onChanged: (value) {
                       setState(() {
                         widget.selectedSize = value as String;

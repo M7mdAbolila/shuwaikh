@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/theming/colors.dart';
 
 class CustomLoadingWidget extends StatelessWidget {
   const CustomLoadingWidget({
@@ -11,7 +12,9 @@ class CustomLoadingWidget extends StatelessWidget {
     return SizedBox(
       height: 115.h,
       child: const Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(
+          color: ColorsManager.blue,
+        ),
       ),
     );
   }

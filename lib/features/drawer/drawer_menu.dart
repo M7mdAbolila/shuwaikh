@@ -9,6 +9,7 @@ import 'package:shuwaikh/features/logout/logic/cubit/logout_cubit.dart';
 import '../../core/helpers/is_arabic.dart';
 import '../../core/routing/routes.dart';
 import '../../generated/l10n.dart';
+import '../nav_bar/cubit/change_page_cubit.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({
@@ -26,7 +27,10 @@ class DrawerMenu extends StatelessWidget {
           DrawerItem(
             iconPath: 'assets/icons/home_2.svg',
             title: S.of(context).home,
-            onTap: () => context.pushNamed(Routes.mainScreen),
+            onTap: () {
+              context.read<ChangePageCubit>().changePage(0);
+              context.pushNamed(Routes.mainScreen);
+            },
           ),
           DrawerItem(
             iconPath: 'assets/icons/basket_icon.svg',
