@@ -1039,6 +1039,16 @@ class S {
       args: [],
     );
   }
+
+  /// `size price`
+  String get size_price {
+    return Intl.message(
+      'size price',
+      name: 'size_price',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
