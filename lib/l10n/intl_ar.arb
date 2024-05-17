@@ -90,6 +90,12 @@
     "pay_via" : "الدفع عن طريق",
     "cash_on_delivery" : "الدفع عند الاستلام",
     "enter_valid_info" : "يرجى إدخال معلومات صالحة",
-    "same_address" :"سيكون عنوان إرسال الفواتير هو نفس عنوان الشحن"
-
+    "same_address" :"سيكون عنوان إرسال الفواتير هو نفس عنوان الشحن",
+    "my_orders" : "طلباتي",
+    "order_number" : "رقم الطلب",
+    "date":"تاريخ",
+    "select_shipping_charge" : "حدد رسوم الشحن",
+    "shipping_method" : "طريقة الشحن",
+    "payment_status" : "حالة الدفع",
+    "order_status": "حالة الطلب"
 }

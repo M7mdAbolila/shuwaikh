@@ -32,7 +32,6 @@ class OrderRequestBody {
   String? billingAddress;
   @JsonKey(name: 'shipping_charge')
   int shippingCharge;
-  @JsonKey(name: 'Discount')
   double? discount;
   OrderRequestBody({
     required this.shippingFname,

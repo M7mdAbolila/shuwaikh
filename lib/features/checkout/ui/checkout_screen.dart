@@ -25,7 +25,6 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
-  bool sameAddress = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +39,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Form(
             key: context.read<PlaceOrderCubit>().formKey,
             child: Column(
@@ -48,36 +47,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 verticalSpace(25),
                 const ShippingAddressSection(),
                 verticalSpace(10),
-                Row(
-                  children: [
-                    Checkbox(
-                      activeColor: ColorsManager.blue,
-                      value: sameAddress,
-                      onChanged: (check) {
-                        setState(() {
-                          sameAddress = check!;
-                          check
-                              ? context.read<PlaceOrderCubit>().sameAsShipping =
-                                  1
-                              : context.read<PlaceOrderCubit>().sameAsShipping =
-                                  0;
-                        });
-                      },
-                    ),
-                    SizedBox(
-                      width: 250.w,
-                      child: Text(
-                        S.of(context).same_address,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-                verticalSpace(10),
-                sameAddress
-                    ? const SizedBox.shrink()
-                    : const BillingAddressSection(),
+                const BillingAddressSection(),
                 verticalSpace(20),
                 const ShippingChargesSection(),
                 verticalSpace(20),
@@ -92,7 +62,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     if (state is PlaceOrderSuccess) {
                       context.pop();
                       customSnackBar(context, state.message, false);
-                      setState(() {});
+                      // context.read<GetCartCubit>().getCart();
                     } else if (state is PlaceOrderFailure) {
                       context.pop();
                       customSnackBar(context, state.errMessage, true);
@@ -121,7 +91,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       if (context.read<PlaceOrderCubit>().selectCharges) {
                         context.read<PlaceOrderCubit>().placeOrder();
                       } else {
-                        customSnackBar(context, 'select shipping charge', true);
+                        customSnackBar(context,
+                            S.of(context).select_shipping_charge, true);
                       }
                     }
                   },

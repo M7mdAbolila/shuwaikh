@@ -17,7 +17,7 @@ class OrderTotalAndDiscountSection extends StatefulWidget {
   OrderTotalAndDiscountSection({super.key, required this.cartTotal});
   double cartTotal;
   double? couponAmount = 0;
-  double? subTotal = 0;
+  double? subTotal;
 
   @override
   State<OrderTotalAndDiscountSection> createState() =>
@@ -54,7 +54,7 @@ class _OrderTotalAndDiscountSectionState
         ),
         OrderTotalWidget(
           title: S.of(context).cart_subtotal,
-          price: 'KD${widget.subTotal!.toStringAsFixed(2)}',
+          price: 'KD${widget.subTotal?.toStringAsFixed(2)}',
         ),
         OrderTotalWidget(
           title: S.of(context).tax,

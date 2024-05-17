@@ -90,7 +90,14 @@
     "pay_via" : "Pay Via",
     "cash_on_delivery" : "Cash On Delivery",
     "enter_valid_info" : "Enter Valid Info",
-    "same_address" : "Billing Address will be Same as Shipping Address"
+    "same_address" : "Billing Address will be Same as Shipping Address",
+    "my_orders" : "My Orders",
+    "order_number" : "Order Number",
+    "date" : "Date",
+    "select_shipping_charge" : "Select Shipping Charge",
+    "shipping_method" : "Shipping Method",
+    "payment_status" : "Payment Status",
+    "order_status": "Order Status"
 
     
 

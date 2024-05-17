@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_email":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني للاتصال"),
         "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "date": MessageLookupByLibrary.simpleMessage("تاريخ"),
         "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage(" هل لديك حساب ؟"),
@@ -95,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "الحد الأدنى للخصم للطلبات التي تزيد عن"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "my_cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
+        "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "new_pass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "no_coupons":
             MessageLookupByLibrary.simpleMessage("لم يتم العثور على كوبونات"),
@@ -104,9 +106,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "تأكيد كلمة المرور غير متطابق"),
         "old_pass": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
+        "order_number": MessageLookupByLibrary.simpleMessage("رقم الطلب"),
+        "order_status": MessageLookupByLibrary.simpleMessage("حالة الطلب"),
         "order_total": MessageLookupByLibrary.simpleMessage("الطلب الكلي"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "pay_via": MessageLookupByLibrary.simpleMessage("الدفع عن طريق"),
+        "payment_status": MessageLookupByLibrary.simpleMessage("حالة الدفع"),
         "phome_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "price": MessageLookupByLibrary.simpleMessage("السعر:"),
         "quantity": MessageLookupByLibrary.simpleMessage("كمية"),
@@ -119,11 +124,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "سيكون عنوان إرسال الفواتير هو نفس عنوان الشحن"),
         "select_add_ons":
             MessageLookupByLibrary.simpleMessage("حدد الإضافات (اختياري)"),
+        "select_shipping_charge":
+            MessageLookupByLibrary.simpleMessage("حدد رسوم الشحن"),
         "select_size": MessageLookupByLibrary.simpleMessage("أختر الحجم **"),
         "setting": MessageLookupByLibrary.simpleMessage("إعدادات"),
         "shipping_address": MessageLookupByLibrary.simpleMessage("عنوان الشحن"),
         "shipping_charges":
             MessageLookupByLibrary.simpleMessage("رسوم الشحن *"),
+        "shipping_method": MessageLookupByLibrary.simpleMessage("طريقة الشحن"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "size": MessageLookupByLibrary.simpleMessage("الحجم"),

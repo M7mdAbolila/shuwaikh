@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "contact_email": MessageLookupByLibrary.simpleMessage("Contact Email"),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact us"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "discount": MessageLookupByLibrary.simpleMessage("Discount"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
@@ -93,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "minimum discount for orders over"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
+        "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "new_pass": MessageLookupByLibrary.simpleMessage("New Password"),
         "no_coupons": MessageLookupByLibrary.simpleMessage("No Coupons Found"),
         "no_offers_found":
@@ -101,9 +103,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password confirmation does not match"),
         "old_pass": MessageLookupByLibrary.simpleMessage("Old Password"),
         "order": MessageLookupByLibrary.simpleMessage("ORDER"),
+        "order_number": MessageLookupByLibrary.simpleMessage("Order Number"),
+        "order_status": MessageLookupByLibrary.simpleMessage("Order Status"),
         "order_total": MessageLookupByLibrary.simpleMessage("Order Total"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay_via": MessageLookupByLibrary.simpleMessage("Pay Via"),
+        "payment_status":
+            MessageLookupByLibrary.simpleMessage("Payment Status"),
         "phome_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "price": MessageLookupByLibrary.simpleMessage("price: "),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
@@ -116,12 +122,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Billing Address will be Same as Shipping Address"),
         "select_add_ons":
             MessageLookupByLibrary.simpleMessage("Select Add On\'s (Optional)"),
+        "select_shipping_charge":
+            MessageLookupByLibrary.simpleMessage("Select Shipping Charge"),
         "select_size": MessageLookupByLibrary.simpleMessage("Select Size **"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "shipping_address":
             MessageLookupByLibrary.simpleMessage("Shipping Address"),
         "shipping_charges":
             MessageLookupByLibrary.simpleMessage("Shipping Charges *"),
+        "shipping_method":
+            MessageLookupByLibrary.simpleMessage("Shipping Method"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
         "size": MessageLookupByLibrary.simpleMessage("size"),

@@ -6,10 +6,12 @@ import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
-import 'package:shuwaikh/features/checkout/data/repos/order_repo.dart';
-import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
+import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
 import 'package:shuwaikh/features/checkout/ui/checkout_screen.dart';
+import 'package:shuwaikh/features/my_orders/data/repos/my_orders_repo.dart';
+import 'package:shuwaikh/features/my_orders/logic/cubit/my_orders_cubit.dart';
+import 'package:shuwaikh/features/my_orders/ui/my_orders_screen.dart';
 import 'package:shuwaikh/features/setting/setting_screen.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_profile_repo.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_billing_cubit/update_billing_cubit.dart';
@@ -52,6 +54,7 @@ import '../../features/sign_up/ui/sign_up_screen.dart';
 import '../../features/update info/data/repos/update_billing_repo.dart';
 import '../../features/update info/data/repos/update_shipping_repo.dart';
 import '../../features/vouncher/ui/voucher_screen.dart';
+import '../di/dependency_injection.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -134,8 +137,7 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (context) =>
-                    PlaceOrderCubit(OrderRepo(ApiService(Dio()))),
+                create: (context) => getIt<PlaceOrderCubit>(),
               ),
               BlocProvider(
                 create: (context) =>
@@ -154,6 +156,14 @@ class AppRouter {
       case Routes.setting:
         return MaterialPageRoute(
           builder: (_) => const SettingScreen(),
+        );
+      case Routes.myOrdersScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                MyOrdersCubit(MyOrdersRepo(ApiService(Dio())))..getMyOrders(),
+            child: const MyOrdersScreen(),
+          ),
         );
       case Routes.updateBillingDetails:
         return MaterialPageRoute(

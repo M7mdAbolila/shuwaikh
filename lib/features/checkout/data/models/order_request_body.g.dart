@@ -22,7 +22,7 @@ OrderRequestBody _$OrderRequestBodyFromJson(Map<String, dynamic> json) =>
       billingCity: json['billing_city'] as String?,
       billingAddress: json['billing_address'] as String?,
       shippingCharge: json['shipping_charge'] as int,
-      discount: (json['Discount'] as num?)?.toDouble(),
+      discount: (json['discount'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$OrderRequestBodyToJson(OrderRequestBody instance) =>
@@ -41,5 +41,5 @@ Map<String, dynamic> _$OrderRequestBodyToJson(OrderRequestBody instance) =>
       'billing_city': instance.billingCity,
       'billing_address': instance.billingAddress,
       'shipping_charge': instance.shippingCharge,
-      'Discount': instance.discount,
+      'discount': instance.discount,
     };

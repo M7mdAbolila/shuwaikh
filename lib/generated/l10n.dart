@@ -969,6 +969,76 @@ class S {
       args: [],
     );
   }
+
+  /// `My Orders`
+  String get my_orders {
+    return Intl.message(
+      'My Orders',
+      name: 'my_orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Number`
+  String get order_number {
+    return Intl.message(
+      'Order Number',
+      name: 'order_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Shipping Charge`
+  String get select_shipping_charge {
+    return Intl.message(
+      'Select Shipping Charge',
+      name: 'select_shipping_charge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipping Method`
+  String get shipping_method {
+    return Intl.message(
+      'Shipping Method',
+      name: 'shipping_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Status`
+  String get payment_status {
+    return Intl.message(
+      'Payment Status',
+      name: 'payment_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Status`
+  String get order_status {
+    return Intl.message(
+      'Order Status',
+      name: 'order_status',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

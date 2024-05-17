@@ -27,7 +27,7 @@ class _CartScreenBodyState extends State<CartScreenBody> {
   @override
   void initState() {
     super.initState();
-    context.read<GetCartCubit>().getCart();
+    // context.read<GetCartCubit>().getCart();
   }
 
   @override
@@ -86,10 +86,14 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                   verticalSpace(30),
                   CustomButton(
                     text: S.of(context).check_out,
-                    onTap: () => context.pushNamed(
-                      Routes.checkoutScreen,
-                      arguments: total,
-                    ),
+                    onTap: () => context
+                        .pushNamed(
+                          Routes.checkoutScreen,
+                          arguments: total,
+                        )
+                        .then((value) => setState(() {
+                              context.read<GetCartCubit>().getCart();
+                            })),
                   ),
                   verticalSpace(100),
                   const RemoveProductBlocListener(),

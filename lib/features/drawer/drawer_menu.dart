@@ -28,10 +28,11 @@ class DrawerMenu extends StatelessWidget {
             title: S.of(context).home,
             onTap: () => context.pushNamed(Routes.mainScreen),
           ),
-          // DrawerItem(
-          //   iconPath: 'assets/icons/transaction_history.svg',
-          //   title: S.of(context).trans_history,
-          // ),
+          DrawerItem(
+            iconPath: 'assets/icons/basket_icon.svg',
+            title: S.of(context).my_orders,
+            onTap: () => context.pushNamed(Routes.myOrdersScreen),
+          ),
           DrawerItem(
             iconPath: 'assets/icons/account.svg',
             title: S.of(context).account,
