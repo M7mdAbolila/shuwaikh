@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../core/helpers/constants.dart';
@@ -36,13 +37,22 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
           ),
           itemCount: widget.productDetails!.productImages!.length,
           itemBuilder: (BuildContext context, int index, int realIndex) {
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: CachedNetworkImage(
-                placeholder: (context, url) => const CustomLoadingWidget(),
-                imageUrl:
-                    '$productSliderPath${widget.productDetails!.productImages![index].image}',
+            return CachedNetworkImage(
+              imageUrl:
+                  '$productSliderPath${widget.productDetails!.productImages![index].image}',
+              imageBuilder: (context, imageProvider) => Container(
+                width: 200.w,
+                height: 200.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
+              placeholder: (context, url) => const CustomLoadingWidget(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             );
           },
         ),

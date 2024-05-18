@@ -32,6 +32,7 @@ class _FavouritesScreenBodyState extends State<FavouritesScreenBody> {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.favourites!.length,
+                        reverse: true,
                         itemBuilder: (context, index) {
                           return FavouriteItem(
                             favouriteProduct: state.favourites![index],

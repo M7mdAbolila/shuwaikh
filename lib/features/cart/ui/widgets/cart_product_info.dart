@@ -43,7 +43,9 @@ class _CartProductInfoState extends State<CartProductInfo> {
               style: TextStyles.font18Black700Weight,
             ),
             Padding(
-              padding: EdgeInsets.only(right: 20.w),
+              padding: isArabic()
+                  ? EdgeInsets.only(left: 20.w)
+                  : EdgeInsets.only(right: 20.w),
               child: Column(
                 children: [
                   InfoWidget(

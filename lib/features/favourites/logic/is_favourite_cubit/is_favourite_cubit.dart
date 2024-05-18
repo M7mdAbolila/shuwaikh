@@ -5,8 +5,8 @@ import 'package:shuwaikh/features/favourites/data/repos/is_favourite_repo.dart';
 
 part 'is_favourite_state.dart';
 
-class IsFavouriteCubit extends Cubit<IsFavouriteSuccess> {
-  IsFavouriteCubit(this._favouriteRepo) : super(IsFavouriteSuccess(false));
+class IsFavouriteCubit extends Cubit<IsFavouriteState> {
+  IsFavouriteCubit(this._favouriteRepo) : super(IsFavouriteState());
   final IsFavouriteRepo _favouriteRepo;
   void isFavouriteStates(int productIdp) async {
     final String? token = await UserInfoCachceHelper.getCachedToken();
@@ -17,10 +17,17 @@ class IsFavouriteCubit extends Cubit<IsFavouriteSuccess> {
       ),
     );
 
-    if (result.message == 'Product removed from favourites.') {
-      emit(IsFavouriteSuccess(false));
-    } else {
-      emit(IsFavouriteSuccess(true));
-    }
+    result.fold(
+      (failure) => emit(
+        IsFavouriteFailure(failure.errMessage),
+      ),
+      (result) {
+        if (result.message == 'Product removed from favourites.') {
+          emit(IsFavouriteSuccess(false));
+        } else {
+          emit(IsFavouriteSuccess(true));
+        }
+      },
+    );
   }
 }
