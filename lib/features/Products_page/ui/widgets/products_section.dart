@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
@@ -20,7 +19,6 @@ class ProuductsSection extends StatefulWidget {
 }
 
 class _ProuductsSectionState extends State<ProuductsSection> {
- 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChangeCategoryCubit, ChangeCategoryState>(
@@ -29,7 +27,7 @@ class _ProuductsSectionState extends State<ProuductsSection> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              changeCategoryState.name ?? getFail,
+              changeCategoryState.name ?? '',
               style: TextStyles.font20Black500Weight,
             ),
             verticalSpace(10),

@@ -9,6 +9,7 @@ import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../generated/l10n.dart';
 import '../../../home/ui/widgets/category_item.dart';
 import '../../logic/cubit/change_category_cubit.dart';
+import '/core/helpers/globals.dart' as globals;
 
 class ProductsCategoriesSection extends StatefulWidget {
   const ProductsCategoriesSection({super.key});
@@ -78,8 +79,10 @@ class _ProductsCategoriesListViewState
     }, listener: (context, state) {
       if (state is ProductsPageSuccess) {
         context.read<ChangeCategoryCubit>().changeCategory(
-              state.productsPageResponse.categories![0].id!,
-              state.productsPageResponse.categories![0].name!,
+              globals.currentCategoryId ??
+                  state.productsPageResponse.categories![0].id!,
+              globals.currentCategoryName ??
+                  state.productsPageResponse.categories![0].name!,
             );
       }
     });

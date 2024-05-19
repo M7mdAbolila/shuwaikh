@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
 import 'package:shuwaikh/features/home/data/models/get_coupons/get_coupons_response.dart';
 import 'package:shuwaikh/generated/l10n.dart';
@@ -18,9 +19,10 @@ class VoucherItem extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            Assets.voucher,
             width: 335.w,
-            height: 104.h,
+            height: 105.h,
+            Assets.voucher,
+            fit: BoxFit.fill,
           ),
           Positioned(
             top: 10.h,
@@ -35,7 +37,7 @@ class VoucherItem extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  coupon.name ?? '',
+                  coupon.name ?? getFail,
                   style: TextStyles.font13White500Weight,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -47,11 +49,11 @@ class VoucherItem extends StatelessWidget {
             left: 15.w,
             child: coupon.type == 'percentage'
                 ? Text(
-                    '%${coupon.value ?? ''}',
+                    '%${coupon.value ?? getFail}',
                     style: TextStyles.font24MainBlue500Weight,
                   )
                 : Text(
-                    'KD${coupon.value ?? ''}',
+                    'KD${coupon.value ?? getFail}',
                     style: TextStyles.font20MainBlue500Weight,
                   ),
           ),
