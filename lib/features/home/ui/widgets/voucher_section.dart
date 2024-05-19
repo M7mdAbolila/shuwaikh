@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/ui/widgets/vouncher_item.dart';
@@ -26,10 +25,11 @@ class _VoucherSectionState extends State<VoucherSection> {
       children: [
         Text(
           S.of(context).your_voucher,
-          style: TextStyles.font24MainBlue500Weight.copyWith(
-            decoration: TextDecoration.underline,
-            decorationColor: ColorsManager.mainBlue,
-          ),
+          style: TextStyles.font24MainBlue500Weight,
+          // style: TextStyles.font24MainBlue500Weight.copyWith(
+          //   decoration: TextDecoration.underline,
+          //   decorationColor: ColorsManager.mainBlue,
+          // ),
         ),
         verticalSpace(18),
         BlocBuilder<GetCouponsCubit, GetCouponsState>(

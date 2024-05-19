@@ -39,10 +39,11 @@ class _CategoriesListViewState extends State<OffersListView> {
       children: [
         Text(
           S.of(context).your_offers,
-          style: TextStyles.font24MainBlue500Weight.copyWith(
-            decoration: TextDecoration.underline,
-            decorationColor: ColorsManager.mainBlue,
-          ),
+          style: TextStyles.font24MainBlue500Weight,
+          // TextStyles.font24MainBlue500Weight.copyWith(
+          //   decoration: TextDecoration.underline,
+          //   decorationColor: ColorsManager.mainBlue,
+          // ),
         ),
         verticalSpace(15),
         BlocBuilder<GetOffersCubit, GetOffersState>(

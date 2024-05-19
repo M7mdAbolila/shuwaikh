@@ -33,33 +33,35 @@ class _CategoryItemState extends State<CategoryItem> {
       },
       child: Padding(
         padding: isArabic()
-            ? const EdgeInsets.only(left: 8, right: 2, top: 4, bottom: 4)
-            : const EdgeInsets.only(left: 2, right: 8, top: 4, bottom: 4),
+            ? EdgeInsets.only(left: 10.w, right: 2, top: 4, bottom: 4)
+            : EdgeInsets.only(left: 2, right: 10.w, top: 4, bottom: 4),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
+            border: Border.all(color: ColorsManager.lightBlue),
             borderRadius: BorderRadius.circular(10),
-            color: ColorsManager.lightBlue,
-            boxShadow: [
+            color: Colors.white,
+            boxShadow: const [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
-                spreadRadius: 0,
-                blurRadius: 8,
-              ),
+                  color: ColorsManager.lightBlue,
+                  spreadRadius: 0,
+                  blurRadius: 4,
+                  offset: Offset(4, 3)),
             ],
           ),
           child: Row(
             children: [
               CachedNetworkImage(
-                imageUrl: isArabic() ? '$catigoryPath${widget.category.image == '6633c017c2822.avif'  ?  '6633c0e14fc67.png' : widget.category.image }':
-                    '$catigoryPath${widget.category.image == '6633bfef42c63.avif' ?  '6633c0e14fc67.png' : widget.category.image }',
+                imageUrl: isArabic()
+                    ? '$catigoryPath${widget.category.image == '6633c017c2822.avif' ? '6633c0e14fc67.png' : widget.category.image}'
+                    : '$catigoryPath${widget.category.image == '6633bfef42c63.avif' ? '6633c0e14fc67.png' : widget.category.image}',
                 height: 60.h,
                 width: 60.w,
                 fit: BoxFit.fill,
               ),
               horizontalSpace(20),
               Text(
-                widget.category.name ?? '',
+                widget.category.name ?? getFail,
                 style: TextStyles.font20Black500Weight,
               ),
             ],

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../generated/l10n.dart';
@@ -27,10 +26,11 @@ class _ProductsCategoriesSectionState extends State<ProductsCategoriesSection> {
       children: [
         Text(
           S.of(context).all_categories,
-          style: TextStyles.font24MainBlue500Weight.copyWith(
-            decoration: TextDecoration.underline,
-            decorationColor: ColorsManager.mainBlue,
-          ),
+          style: TextStyles.font24MainBlue500Weight,
+          // style: TextStyles.font24MainBlue500Weight.copyWith(
+          //   decoration: TextDecoration.underline,
+          //   decorationColor: ColorsManager.mainBlue,
+          // ),
         ),
         verticalSpace(10),
         const ProductsCategoriesListView(),
