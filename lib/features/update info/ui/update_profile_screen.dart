@@ -9,10 +9,11 @@ import 'package:shuwaikh/generated/l10n.dart';
 
 import '../../../core/theming/styles.dart';
 import '../../cart/ui/widgets/custom_button.dart';
+import 'widgets/update_photo_widget.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
-  const UpdateProfileScreen({super.key});
-
+  const UpdateProfileScreen({super.key, this.photo});
+  final String? photo;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,18 +34,7 @@ class UpdateProfileScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 verticalSpace(50),
-                Center(
-                  child: Container(
-                    height: 150,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: ColorsManager.blue,
-                      ),
-                    ),
-                  ),
-                ),
+                UpdatePhotoWidget(photo: photo),
                 verticalSpace(40),
                 AppTextFormField(
                   hintText: S.of(context).address,
@@ -53,15 +43,20 @@ class UpdateProfileScreen extends StatelessWidget {
                 ),
                 verticalSpace(20),
                 AppTextFormField(
-                  hintText: S.of(context).password,
+                  hintText: S.of(context).new_pass,
                   validator: (v) {},
                   controller: context.read<UpdateProfileCubit>().newPassowrd,
                 ),
                 verticalSpace(20),
                 AppTextFormField(
-                  hintText: S.of(context).password,
-                  validator: (v) {},
+                  hintText: S.of(context).old_pass,
                   controller: context.read<UpdateProfileCubit>().oldPassowrd,
+                  validator: (value) {
+                    if (value !=
+                        context.read<UpdateProfileCubit>().oldPassowrd.text) {
+                      return S.of(context).not_match;
+                    }
+                  },
                 ),
                 verticalSpace(50),
                 CustomButton(

@@ -143,6 +143,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("المجموع"),
         "trans_history": MessageLookupByLibrary.simpleMessage("سجل المعاملات"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "update_profile":
+            MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم يجب أن يكون أكثر من 3 أحرف"),

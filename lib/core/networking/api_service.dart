@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart' hide Headers;
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
@@ -27,7 +29,6 @@ import 'package:shuwaikh/features/product_details/data/models/product_details_re
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_response.dart';
 import 'package:shuwaikh/features/update%20info/data/models/update_billing_details/update_billing_request_body.dart';
-import 'package:shuwaikh/features/update%20info/data/models/update_profile/update_profile_request_body.dart';
 import 'package:shuwaikh/features/update%20info/data/models/update_profile/update_profile_response.dart';
 
 import '../../features/account/data/models/profile_response.dart';
@@ -166,9 +167,13 @@ abstract class ApiService {
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
   })
+  @MultiPart()
   Future<UpdateProfileResponse> updateProfile(
     @Query("token") String? token,
-    @Body() UpdateProfileRequsetBody updateProfileRequsetBody,
+    @Part() File? photo,
+    @Part() String? address,
+    @Part(name: 'new_password') String? newPassword,
+    @Part(name: 'old_password') String? oldPassword,
   );
 
   @POST(ApiConstants.updateBilling)

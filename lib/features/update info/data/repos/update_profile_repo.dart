@@ -10,10 +10,15 @@ class UpdateProfileRepo {
   UpdateProfileRepo(this._apiService);
 
   Future<Either<Failure, String?>> updateProfile(
-      String? token, UpdateProfileRequsetBody updateProfileRequsetBody) async {
+      String? token, UpdateProfileRequestBody requestBody) async {
     try {
-      final response =
-          await _apiService.updateProfile(token, updateProfileRequsetBody);
+      final response = await _apiService.updateProfile(
+        token,
+        requestBody.photo,
+        requestBody.address,
+        requestBody.newPassword,
+        requestBody.oldPassword,
+      );
       return right(response.message);
     } catch (e) {
       if (e is DioException) {

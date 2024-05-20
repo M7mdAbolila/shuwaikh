@@ -182,11 +182,14 @@ class AppRouter {
           ),
         );
       case Routes.updateProfile:
+        final photo = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) =>
                 UpdateProfileCubit(UpdateProfileRepo(ApiService(Dio()))),
-            child: const UpdateProfileScreen(),
+            child: UpdateProfileScreen(
+              photo: photo,
+            ),
           ),
         );
       case Routes.offerScreen:

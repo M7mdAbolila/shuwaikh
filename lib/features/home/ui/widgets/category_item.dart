@@ -33,20 +33,20 @@ class _CategoryItemState extends State<CategoryItem> {
       },
       child: Padding(
         padding: isArabic()
-            ? EdgeInsets.only(left: 10.w, right: 2, top: 4, bottom: 4)
-            : EdgeInsets.only(left: 2, right: 10.w, top: 4, bottom: 4),
+            ? EdgeInsets.only(left: 10.w, right: 2.w, top: 4.h, bottom: 8.h)
+            : EdgeInsets.only(left: 2.w, right: 15.w, top: 4.h, bottom: 8.h),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
             border: Border.all(color: ColorsManager.lightBlue),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
             color: Colors.white,
             boxShadow: const [
               BoxShadow(
                   color: ColorsManager.lightBlue,
                   spreadRadius: 0,
                   blurRadius: 4,
-                  offset: Offset(4, 3)),
+                  offset: Offset(6, 4)),
             ],
           ),
           child: Row(

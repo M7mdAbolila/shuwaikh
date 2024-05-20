@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:shuwaikh/features/update%20info/data/models/update_profile/update_profile_request_body.dart';
@@ -13,6 +15,7 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
   TextEditingController address = TextEditingController();
   TextEditingController newPassowrd = TextEditingController();
   TextEditingController oldPassowrd = TextEditingController();
+  File? photo;
 
   Future<void> updateProfile() async {
     emit(UpdateProfileLoading());
@@ -20,8 +23,12 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
 
     var result = await _updateProfileRepo.updateProfile(
         token,
-        UpdateProfileRequsetBody(
-            address.text, newPassowrd.text, oldPassowrd.text));
+        UpdateProfileRequestBody(
+          address: address.text,
+          newPassword: newPassowrd.text,
+          oldPassword: oldPassowrd.text,
+          photo: photo,
+        ));
     result.fold(
       (failuer) => emit(
         UpdateProfileFailure(failuer.errMessage),

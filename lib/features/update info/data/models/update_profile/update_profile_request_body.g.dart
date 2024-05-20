@@ -6,18 +6,20 @@ part of 'update_profile_request_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UpdateProfileRequsetBody _$UpdateProfileRequsetBodyFromJson(
+UpdateProfileRequestBody _$UpdateProfileRequestBodyFromJson(
         Map<String, dynamic> json) =>
-    UpdateProfileRequsetBody(
-      json['address'] as String?,
-      json['new_password'] as String?,
-      json['old_password'] as String?,
+    UpdateProfileRequestBody(
+      address: json['address'] as String?,
+      newPassword: json['new_password'] as String?,
+      oldPassword: json['old_password'] as String?,
+      photo: const FileConverter().fromJson(json['photo'] as String?),
     );
 
-Map<String, dynamic> _$UpdateProfileRequsetBodyToJson(
-        UpdateProfileRequsetBody instance) =>
+Map<String, dynamic> _$UpdateProfileRequestBodyToJson(
+        UpdateProfileRequestBody instance) =>
     <String, dynamic>{
+      'photo': const FileConverter().toJson(instance.photo),
       'address': instance.address,
-      'new_password': instance.newPassowrd,
-      'old_password': instance.oldPassowrd,
+      'new_password': instance.newPassword,
+      'old_password': instance.oldPassword,
     };

@@ -98,5 +98,6 @@
     "shipping_method" : "طريقة الشحن",
     "payment_status" : "حالة الدفع",
     "order_status": "حالة الطلب",
-    "size_price":"سعر الحجم"
+    "size_price":"سعر الحجم",
+    "update_profile" : "تحديث الملف الشخصي"
 }
