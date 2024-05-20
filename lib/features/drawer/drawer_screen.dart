@@ -22,7 +22,7 @@ class CustomDrawer extends StatelessWidget {
         child: Column(
           children: [
             BlocProvider(
-              create: (context) => UsernameCubit(),
+              create: (context) => UsernameCubit()..getUsername(),
               child: const PhotoAndName(),
             ),
             verticalSpace(15),

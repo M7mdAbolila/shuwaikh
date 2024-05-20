@@ -17,11 +17,11 @@ class PhotoAndName extends StatefulWidget {
 }
 
 class _PhotoAndNameState extends State<PhotoAndName> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<UsernameCubit>().getUsername();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   context.read<UsernameCubit>();
+  // }
 
   @override
   Widget build(BuildContext context) {

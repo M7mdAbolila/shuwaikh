@@ -7,6 +7,7 @@ import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
+import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
 import 'package:shuwaikh/features/home/data/repos/get_coupons_repo.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/ui/widgets/voucher_section.dart';
@@ -59,10 +60,17 @@ class VoucherScreenBody extends StatelessWidget {
                         ColorsManager.darkBlue,
                       ]),
                     ),
-                    child: Center(
-                      child: Text(
-                        'Felix Dinh',
-                        style: TextStyles.font20White700Weight,
+                    child: BlocProvider(
+                      create: (context) => UsernameCubit()..getUsername(),
+                      child: Center(
+                        child: BlocBuilder<UsernameCubit, UsernameState>(
+                          builder: (context, state) {
+                            return Text(
+                              state.username,
+                              style: TextStyles.font20White700Weight,
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
