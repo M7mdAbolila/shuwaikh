@@ -31,7 +31,8 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     required this.validator,
     this.prefixIcon,
-    this.keyboardType, this.onChanged,
+    this.keyboardType,
+    this.onChanged,
   });
 
   @override
@@ -46,7 +47,7 @@ class AppTextFormField extends StatelessWidget {
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: ColorsManager.mainBlue,
+                color: ColorsManager.blue,
                 width: 1.3,
               ),
               borderRadius: BorderRadius.circular(50),

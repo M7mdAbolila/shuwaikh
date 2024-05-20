@@ -21,7 +21,7 @@ class FavouritesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: ColorsManager.mainBlue,
+        backgroundColor: ColorsManager.blue,
         centerTitle: true,
         title: Text(
           'Your Favourites',

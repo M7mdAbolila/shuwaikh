@@ -75,7 +75,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
               }),
               child: const CircleAvatar(
                 radius: 12,
-                backgroundColor: ColorsManager.mainBlue,
+                backgroundColor: ColorsManager.blue,
                 child: Icon(
                   Icons.add,
                   color: Colors.white,

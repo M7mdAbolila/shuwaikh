@@ -113,7 +113,7 @@ class HorizontalProductItem extends StatelessWidget {
               ),
               const CircleAvatar(
                 radius: 20,
-                backgroundColor: ColorsManager.mainBlue,
+                backgroundColor: ColorsManager.blue,
                 child: Icon(
                   Icons.add,
                   color: Colors.white,

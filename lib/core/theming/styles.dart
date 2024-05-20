@@ -105,7 +105,7 @@ class TextStyles {
   static TextStyle font30MainBlue500Weight = TextStyle(
     fontSize: 30.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.mainBlue,
+    color: ColorsManager.blue,
   );
   static TextStyle font26Blue700Weight = TextStyle(
     fontSize: 26.sp,
@@ -115,17 +115,17 @@ class TextStyles {
   static TextStyle font24MainBlue500Weight = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.mainBlue,
+    color: ColorsManager.blue,
   );
   static TextStyle font20MainBlue700Weight = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w700,
-    color: ColorsManager.mainBlue,
+    color: ColorsManager.blue,
   );
   static TextStyle font20MainBlue500Weight = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.mainBlue,
+    color: ColorsManager.blue,
   );
   static TextStyle font18Blue500Weight = TextStyle(
     fontSize: 18.sp,
@@ -135,7 +135,7 @@ class TextStyles {
   static TextStyle font18MainBlue500Weight = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.mainBlue,
+    color: ColorsManager.blue,
   );
   static TextStyle font16Blue400Weight = TextStyle(
     fontSize: 16.sp,
