@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -30,7 +31,7 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              widget.productDetails?.title ?? '',
+              widget.productDetails?.title ?? getFail,
               style: TextStyles.font24Black700Weight,
             ),
             FavouriteWidget(
@@ -43,11 +44,11 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
           TextSpan(
             children: [
               TextSpan(
-                text: '${S.of(context).price} ',
+                text: '${S.of(context).price}: ',
                 style: TextStyles.font16Black400Weight,
               ),
               TextSpan(
-                text: 'KD ${widget.productDetails?.currentPrice}',
+                text: 'KD${widget.productDetails?.currentPrice}',
                 style: TextStyles.font18Blue500Weight,
               ),
             ],
@@ -55,11 +56,12 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
         ),
         verticalSpace(10),
         ReadMoreText(
-          AppRegex.removeHtmlTags(widget.productDetails?.description ?? ''),
+          AppRegex.removeHtmlTags(
+              widget.productDetails?.description ?? getFail),
           trimLines: 3,
           trimMode: TrimMode.Line,
           trimCollapsedText: S.of(context).read_more,
-          trimExpandedText: S.of(context).read_more,
+          trimExpandedText: S.of(context).read_less,
           style: TextStyles.font13Black500Weight,
           lessStyle: TextStyles.font11Blue500Weight,
           moreStyle: TextStyles.font11Blue500Weight,

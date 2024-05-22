@@ -5,8 +5,10 @@ import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/Products_page/logic/cubit/change_category_cubit.dart';
 import 'package:shuwaikh/features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
+import 'package:shuwaikh/features/favourites/data/models/get_favourites/get_favourites_response.dart';
 
 import '../../../../core/theming/styles.dart';
+import '../../../favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import 'horizontal_product_item.dart';
 
 class ProuductsSection extends StatefulWidget {
@@ -19,6 +21,7 @@ class ProuductsSection extends StatefulWidget {
 }
 
 class _ProuductsSectionState extends State<ProuductsSection> {
+  List<FavouriteProduct> favourites = [];
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChangeCategoryCubit, ChangeCategoryState>(
@@ -26,6 +29,14 @@ class _ProuductsSectionState extends State<ProuductsSection> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            BlocListener<GetFavouriteCubit, GetFavouriteState>(
+              listener: (context, state) {
+                if (state is GetFavouriteSuccess) {
+                  favourites = state.favourites!;
+                }
+              },
+              child: const SizedBox.shrink(),
+            ),
             Text(
               changeCategoryState.name ?? '',
               style: TextStyles.font20Black500Weight,
@@ -39,14 +50,30 @@ class _ProuductsSectionState extends State<ProuductsSection> {
                     shrinkWrap: true,
                     itemCount: state.productsPageResponse.products!.length,
                     itemBuilder: (context, index) {
-                      return state.productsPageResponse.products![index]
-                                  .categoryId ==
-                              changeCategoryState.id
+                      bool hasProduct = favourites.any(
+                        (element) =>
+                            element.productId ==
+                            state.productsPageResponse.products![index].id,
+                      );
+
+                      return hasProduct &&
+                              state.productsPageResponse.products![index]
+                                      .categoryId ==
+                                  changeCategoryState.id
                           ? HorizontalProductItem(
                               product:
                                   state.productsPageResponse.products![index],
+                              isFavourite: true,
                             )
-                          : const SizedBox.shrink();
+                          : state.productsPageResponse.products![index]
+                                      .categoryId ==
+                                  changeCategoryState.id
+                              ? HorizontalProductItem(
+                                  product: state
+                                      .productsPageResponse.products![index],
+                                  isFavourite: false,
+                                )
+                              : const SizedBox.shrink();
                     },
                   );
                 } else if (state is ProductsPageFailure) {

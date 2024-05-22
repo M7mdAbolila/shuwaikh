@@ -7,10 +7,11 @@ import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
-import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
 import 'package:shuwaikh/features/home/data/repos/get_coupons_repo.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/ui/widgets/voucher_section.dart';
+
+import '../../../drawer/cubit/username_cubit.dart';
 
 class VoucherScreenBody extends StatelessWidget {
   const VoucherScreenBody({super.key});
@@ -26,7 +27,7 @@ class VoucherScreenBody extends StatelessWidget {
             Container(
               width: 335.w,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(16.r),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
@@ -60,17 +61,15 @@ class VoucherScreenBody extends StatelessWidget {
                         ColorsManager.darkBlue,
                       ]),
                     ),
-                    child: BlocProvider(
-                      create: (context) => UsernameCubit()..getUsername(),
-                      child: Center(
-                        child: BlocBuilder<UsernameCubit, UsernameState>(
-                          builder: (context, state) {
-                            return Text(
-                              state.username,
-                              style: TextStyles.font20White700Weight,
-                            );
-                          },
-                        ),
+                    child: Center(
+                      child: BlocBuilder<UsernameCubit, UsernameState>(
+                        builder: (context, state) {
+                          return Text(
+                            state.username,
+                            // state.username,
+                            style: TextStyles.font20White700Weight,
+                          );
+                        },
                       ),
                     ),
                   ),

@@ -9,6 +9,7 @@ import 'package:shuwaikh/features/account/ui/account_screen.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
 import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
 import 'package:shuwaikh/features/checkout/ui/checkout_screen.dart';
+import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
 import 'package:shuwaikh/features/my_orders/data/repos/my_orders_repo.dart';
 import 'package:shuwaikh/features/my_orders/logic/cubit/my_orders_cubit.dart';
 import 'package:shuwaikh/features/my_orders/ui/my_orders_screen.dart';
@@ -72,6 +73,9 @@ class AppRouter {
                 create: (context) =>
                     ProductsPageCubit(ProductsPageRepo(ApiService(Dio())))
                       ..emitProductsPageStates(Intl.getCurrentLocale()),
+              ),
+              BlocProvider(
+                create: (context) => UsernameCubit()..getUsername(),
               ),
               BlocProvider(
                 create: (context) => ChangeCategoryCubit()..getCategory(),

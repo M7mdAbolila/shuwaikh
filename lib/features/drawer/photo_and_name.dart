@@ -20,7 +20,7 @@ class _PhotoAndNameState extends State<PhotoAndName> {
   // @override
   // void initState() {
   //   super.initState();
-  //   context.read<UsernameCubit>();
+  //   context.read<UsernameCubit>().getUsername();
   // }
 
   @override

@@ -6,25 +6,32 @@ import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/features/Products_page/data/models/products_page_response.dart';
 
 import '../../../../core/helpers/is_arabic.dart';
-import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
+import 'item_favourite_widget.dart';
 
-class HorizontalProductItem extends StatelessWidget {
+class HorizontalProductItem extends StatefulWidget {
   const HorizontalProductItem({
     super.key,
     required this.product,
+    this.isFavourite = false,
   });
   final Product product;
+  final bool? isFavourite;
+  @override
+  State<HorizontalProductItem> createState() => _HorizontalProductItemState();
+}
+
+class _HorizontalProductItemState extends State<HorizontalProductItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () =>
-          context.pushNamed(Routes.productDetailsScreen, arguments: product.id),
+      onTap: () => context.pushNamed(Routes.productDetailsScreen,
+          arguments: widget.product.id),
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 15),
+        padding: EdgeInsets.only(bottom: 15.h),
         child: Container(
           width: 335.w,
           height: 110.h,
@@ -49,7 +56,8 @@ class HorizontalProductItem extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: CachedNetworkImageProvider(
-                        '$productPath${product.featureImage}'),
+                      '$productPath${widget.product.featureImage}',
+                    ),
                   ),
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
@@ -67,7 +75,7 @@ class HorizontalProductItem extends StatelessWidget {
                       SizedBox(
                         width: 155.w,
                         child: Text(
-                          product.title ?? '',
+                          widget.product.title ?? '',
                           style: TextStyles.font20Black500Weight,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
@@ -81,31 +89,15 @@ class HorizontalProductItem extends StatelessWidget {
                               style: TextStyles.font16Black400Weight,
                             ),
                             TextSpan(
-                              text: 'KD${product.currentPrice ?? ''}',
+                              text: 'KD${widget.product.currentPrice ?? ''}',
                               style: TextStyles.font18Blue500Weight,
                             ),
                           ],
                         ),
                       ),
-                      // verticalSpace(20),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                            size: 18,
-                          ),
-                          horizontalSpace(2),
-                          const Icon(
-                            Icons.star,
-                            color: Colors.yellow,
-                            size: 18,
-                          ),
-                          Text(
-                            '4.5',
-                            style: TextStyles.font11Black500Weight,
-                          )
-                        ],
+                      ItemFavouriteWidget(
+                        id: widget.product.id,
+                        isFavourite: widget.isFavourite!,
                       ),
                     ],
                   ),

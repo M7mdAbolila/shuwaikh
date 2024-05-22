@@ -3,51 +3,38 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/custom_snack_bar.dart';
 import '../../../../core/theming/colors.dart';
-import '../../../favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import '../../../favourites/logic/is_favourite_cubit/is_favourite_cubit.dart';
 
-class FavouriteWidget extends StatefulWidget {
-  const FavouriteWidget({
+// ignore: must_be_immutable
+class ItemFavouriteWidget extends StatefulWidget {
+  ItemFavouriteWidget({
     super.key,
     required this.id,
+    required this.isFavourite,
   });
   final int? id;
+  bool isFavourite;
 
   @override
-  State<FavouriteWidget> createState() => _FavouriteWidgetState();
+  State<ItemFavouriteWidget> createState() => _ItemFavouriteWidgetState();
 }
 
-class _FavouriteWidgetState extends State<FavouriteWidget> {
-  bool isFavourite = false;
+class _ItemFavouriteWidgetState extends State<ItemFavouriteWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BlocListener<GetFavouriteCubit, GetFavouriteState>(
-          listener: (context, state) {
-            if (state is GetFavouriteSuccess) {
-              bool hasProduct = state.favourites!
-                  .any((element) => element.productId == widget.id);
-              if (hasProduct) {
-                setState(() {
-                  isFavourite = true;
-                });
-              }
-            }
-          },
-          child: const SizedBox.shrink(),
-        ),
         InkWell(
           onTap: () {
             context.read<IsFavouriteCubit>().isFavouriteStates(widget.id!);
             setState(() {
-              isFavourite = !isFavourite;
+              widget.isFavourite = !widget.isFavourite;
             });
           },
           child: Icon(
-            isFavourite ? Icons.favorite : Icons.favorite_border,
+            widget.isFavourite ? Icons.favorite : Icons.favorite_border,
             color: ColorsManager.blue,
-            size: 35,
+            size: 25,
           ),
         ),
         BlocListener<IsFavouriteCubit, IsFavouriteState>(
