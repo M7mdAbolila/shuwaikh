@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/features/Products_page/logic/cubit/reload_favourites_cubit.dart';
 
 import '../../../../core/helpers/custom_snack_bar.dart';
 import '../../../../core/theming/colors.dart';
@@ -18,6 +19,12 @@ class FavouriteWidget extends StatefulWidget {
 }
 
 class _FavouriteWidgetState extends State<FavouriteWidget> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<GetFavouriteCubit>().getFavourites();
+  }
+
   bool isFavourite = false;
   @override
   Widget build(BuildContext context) {
@@ -38,11 +45,16 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
           child: const SizedBox.shrink(),
         ),
         InkWell(
-          onTap: () {
-            context.read<IsFavouriteCubit>().isFavouriteStates(widget.id!);
+          onTap: () async {
             setState(() {
               isFavourite = !isFavourite;
             });
+            await context
+                .read<IsFavouriteCubit>()
+                .isFavouriteStates(widget.id!);
+
+            await context.read<GetFavouriteCubit>().getFavourites();
+            context.read<ReloadFavouritesCubit>().reloadFavourite();
           },
           child: Icon(
             isFavourite ? Icons.favorite : Icons.favorite_border,

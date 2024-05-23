@@ -8,7 +8,7 @@ import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../generated/l10n.dart';
 import '../../../home/ui/widgets/category_item.dart';
-import '../../logic/cubit/change_category_cubit.dart';
+import '../../logic/change_category_cubit/change_category_cubit.dart';
 import '/core/helpers/globals.dart' as globals;
 
 class ProductsCategoriesSection extends StatefulWidget {

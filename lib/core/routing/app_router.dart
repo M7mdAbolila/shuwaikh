@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
@@ -38,15 +37,12 @@ import 'package:shuwaikh/features/update%20info/ui/update_billing.dart';
 import 'package:shuwaikh/features/update%20info/ui/update_shipping_screen.dart';
 import 'package:shuwaikh/features/vouncher/data/repos/check_coupon_repo.dart';
 import 'package:shuwaikh/features/vouncher/logic/cubit/check_coupon_cubit.dart';
-import '../../features/Products_page/data/repos/products_page_repo.dart';
-import '../../features/Products_page/logic/cubit/change_category_cubit.dart';
-import '../../features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
+import '../../features/Products_page/logic/change_category_cubit/change_category_cubit.dart';
+import '../../features/Products_page/ui/products_screen.dart';
 import '../../features/cart/data/repos/add_to_cart_repo.dart';
 import '../../features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 import '../../features/checkout/data/repos/shipping_charge_repo.dart';
-import '../../features/favourites/data/repos/get_favourite_repo.dart';
 import '../../features/favourites/data/repos/is_favourite_repo.dart';
-import '../../features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import '../../features/favourites/logic/is_favourite_cubit/is_favourite_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/login_screen.dart';
@@ -69,11 +65,6 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
-              BlocProvider(
-                create: (context) =>
-                    ProductsPageCubit(ProductsPageRepo(ApiService(Dio())))
-                      ..emitProductsPageStates(Intl.getCurrentLocale()),
-              ),
               BlocProvider(
                 create: (context) => UsernameCubit()..getUsername(),
               ),
@@ -104,6 +95,10 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case Routes.productsPage:
+        return MaterialPageRoute(
+          builder: (_) => const ProductsScreen(),
         );
       case Routes.favourites:
         return MaterialPageRoute(
@@ -223,11 +218,6 @@ class AppRouter {
               BlocProvider(
                 create: (context) =>
                     IsFavouriteCubit(IsFavouriteRepo(ApiService(Dio()))),
-              ),
-              BlocProvider(
-                create: (context) =>
-                    GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio())))
-                      ..getFavourites(),
               ),
             ],
             child: ProductDetailsScreen(id: id),

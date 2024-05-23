@@ -30,4 +30,7 @@ Future<void> setupGetIt() async {
   // place order
   getIt.registerLazySingleton<OrderRepo>(() => OrderRepo(getIt()));
   getIt.registerFactory<PlaceOrderCubit>(() => PlaceOrderCubit(getIt()));
+
+  // reload products
+  // getIt.registerFactory<ReloadFavouritesCubit>(() => ReloadFavouritesCubit());
 }

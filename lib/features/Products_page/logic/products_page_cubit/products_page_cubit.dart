@@ -11,6 +11,7 @@ class ProductsPageCubit extends Cubit<ProductsPageState> {
   ProductsPageCubit(this.productsPageRepo) : super(ProductsPageInitial());
   final ProductsPageRepo productsPageRepo;
   Future<void> emitProductsPageStates(String lang) async {
+    emit(ProductsPageLoading());
     final String? token = await UserInfoCachceHelper.getCachedToken();
     var result = await productsPageRepo.productsPage(
       token,

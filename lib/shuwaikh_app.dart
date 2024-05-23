@@ -1,11 +1,16 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/routing/app_router.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
+import 'package:shuwaikh/features/favourites/data/repos/get_favourite_repo.dart';
+import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import 'package:shuwaikh/features/localization/cubit/locale_cubit.dart';
+import 'features/Products_page/logic/cubit/reload_favourites_cubit.dart';
 import 'generated/l10n.dart';
 
 class ShuwaikhApp extends StatelessWidget {
@@ -15,8 +20,19 @@ class ShuwaikhApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LocaleCubit()..getSavedLanguage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ReloadFavouritesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LocaleCubit()..getSavedLanguage(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio()))),
+        ),
+      ],
       child: BlocBuilder<LocaleCubit, ChangeLocaleState>(
         builder: (context, state) {
           return ScreenUtilInit(
@@ -39,9 +55,9 @@ class ShuwaikhApp extends StatelessWidget {
               ),
               debugShowCheckedModeBanner: false,
               onGenerateRoute: appRouter.generateRoute,
-              initialRoute: 
-              // Routes.checkoutScreen,
-              isLogin ? Routes.mainScreen : Routes.onBoarding,
+              initialRoute:
+                  // Routes.checkoutScreen,
+                  isLogin ? Routes.mainScreen : Routes.onBoarding,
             ),
           );
         },

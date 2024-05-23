@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
-import 'package:shuwaikh/features/Products_page/logic/cubit/change_category_cubit.dart';
+import 'package:shuwaikh/features/Products_page/logic/change_category_cubit/change_category_cubit.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
 import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
 import '../../../../core/helpers/is_arabic.dart';

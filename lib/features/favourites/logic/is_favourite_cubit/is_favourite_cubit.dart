@@ -8,7 +8,7 @@ part 'is_favourite_state.dart';
 class IsFavouriteCubit extends Cubit<IsFavouriteState> {
   IsFavouriteCubit(this._favouriteRepo) : super(IsFavouriteState());
   final IsFavouriteRepo _favouriteRepo;
-  void isFavouriteStates(int productIdp) async {
+  Future<void> isFavouriteStates(int productIdp) async {
     final String? token = await UserInfoCachceHelper.getCachedToken();
     var result = await _favouriteRepo.isFavourite(
       token,
