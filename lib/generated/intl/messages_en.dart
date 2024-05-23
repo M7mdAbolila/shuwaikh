@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "contact_email": MessageLookupByLibrary.simpleMessage("Contact Email"),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact us"),
+        "copied": MessageLookupByLibrary.simpleMessage("Copied To Clipboard"),
+        "copy": MessageLookupByLibrary.simpleMessage("Copy"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "discount": MessageLookupByLibrary.simpleMessage("Discount"),
         "do_you_have_account":

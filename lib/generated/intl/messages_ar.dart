@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_email":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني للاتصال"),
         "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "copied": MessageLookupByLibrary.simpleMessage("نسخ إلى الحافظة"),
+        "copy": MessageLookupByLibrary.simpleMessage("نسخ"),
         "date": MessageLookupByLibrary.simpleMessage("تاريخ"),
         "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
         "do_you_have_account":

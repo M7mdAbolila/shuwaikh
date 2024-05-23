@@ -1,6 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
+import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
 import 'package:shuwaikh/features/home/data/models/get_coupons/get_coupons_response.dart';
 import 'package:shuwaikh/generated/l10n.dart';
@@ -15,7 +19,7 @@ class VoucherItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15.0),
+      padding: EdgeInsets.only(bottom: 15.h),
       child: Stack(
         children: [
           Image.asset(
@@ -77,17 +81,20 @@ class VoucherItem extends StatelessWidget {
           Positioned(
             top: 64.h,
             left: 240.w,
-            child: Container(
-              height: 30.h,
-              width: 85.w,
-              decoration: BoxDecoration(
-                color: ColorsManager.darkBlue,
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Center(
-                child: Text(
-                  'Apply now',
-                  style: TextStyles.font14LightBlue500weight,
+            child: InkWell(
+              onTap: () => showCouponDialog(context),
+              child: Container(
+                height: 30.h,
+                width: 85.w,
+                decoration: BoxDecoration(
+                  color: ColorsManager.darkBlue,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Center(
+                  child: Text(
+                    S.of(context).apply,
+                    style: TextStyles.font14LightBlue500weight,
+                  ),
                 ),
               ),
             ),
@@ -102,6 +109,51 @@ class VoucherItem extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void showCouponDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(coupon.name!),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(
+                  coupon.type == 'percentage'
+                      ? '%${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}'
+                      : 'KD${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}',
+                  style: TextStyles.font13Black500Weight,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: isArabic() ? TextAlign.right : TextAlign.left,
+                ),
+                Text(
+                  coupon.code!,
+                  style: TextStyles.font18Blue500Weight,
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
+                disabledForegroundColor: Colors.grey.withOpacity(0.38),
+              ),
+              onPressed: () async {
+                await FlutterClipboard.copy(coupon.code!);
+                customSnackBar(context, S.of(context).copied, false);
+                context.pop();
+              },
+              child: Text(S.of(context).copy),
+            ),
+          ],
+        );
+      },
     );
   }
 }

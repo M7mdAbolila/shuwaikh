@@ -1059,6 +1059,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Copy`
+  String get copy {
+    return Intl.message(
+      'Copy',
+      name: 'copy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Copied To Clipboard`
+  String get copied {
+    return Intl.message(
+      'Copied To Clipboard',
+      name: 'copied',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

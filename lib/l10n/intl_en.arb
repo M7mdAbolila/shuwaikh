@@ -99,7 +99,9 @@
     "payment_status" : "Payment Status",
     "order_status": "Order Status",
     "size_price" : "size price",
-    "update_profile" : "UPDATE PROFILE"
+    "update_profile" : "UPDATE PROFILE",
+    "copy" : "Copy",
+    "copied" : "Copied To Clipboard"
 
     
 

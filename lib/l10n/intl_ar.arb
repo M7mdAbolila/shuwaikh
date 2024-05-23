@@ -99,5 +99,7 @@
     "payment_status" : "حالة الدفع",
     "order_status": "حالة الطلب",
     "size_price":"سعر الحجم",
-    "update_profile" : "تحديث الملف الشخصي"
+    "update_profile" : "تحديث الملف الشخصي",
+    "copy" : "نسخ",
+    "copied" : "نسخ إلى الحافظة"
 }
