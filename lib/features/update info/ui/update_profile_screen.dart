@@ -43,12 +43,6 @@ class UpdateProfileScreen extends StatelessWidget {
                 ),
                 verticalSpace(20),
                 AppTextFormField(
-                  hintText: S.of(context).new_pass,
-                  validator: (v) {},
-                  controller: context.read<UpdateProfileCubit>().newPassowrd,
-                ),
-                verticalSpace(20),
-                AppTextFormField(
                   hintText: S.of(context).old_pass,
                   controller: context.read<UpdateProfileCubit>().oldPassowrd,
                   validator: (value) {
@@ -57,6 +51,12 @@ class UpdateProfileScreen extends StatelessWidget {
                       return S.of(context).not_match;
                     }
                   },
+                ),
+                verticalSpace(20),
+                AppTextFormField(
+                  hintText: S.of(context).new_pass,
+                  validator: (v) {},
+                  controller: context.read<UpdateProfileCubit>().newPassowrd,
                 ),
                 verticalSpace(50),
                 CustomButton(
