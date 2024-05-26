@@ -9,21 +9,21 @@ part of 'update_shipping_request_body.dart';
 UpdateShippingRequsetBody _$UpdateShippingRequsetBodyFromJson(
         Map<String, dynamic> json) =>
     UpdateShippingRequsetBody(
-      json['shipping_address'] as String?,
-      json['shipping_fname'] as String?,
-      json['shipping_lname'] as String?,
-      json['shipping_city'] as String?,
-      json['shipping_email'] as String?,
-      json['shipping_number'] as String?,
+      json['shpping_address'] as String?,
+      json['shpping_fname'] as String?,
+      json['shpping_lname'] as String?,
+      json['shpping_city'] as String?,
+      json['shpping_email'] as String?,
+      json['shpping_number'] as String?,
     );
 
 Map<String, dynamic> _$UpdateShippingRequsetBodyToJson(
         UpdateShippingRequsetBody instance) =>
     <String, dynamic>{
-      'shipping_address': instance.address,
-      'shipping_fname': instance.fname,
-      'shipping_lname': instance.lname,
-      'shipping_city': instance.city,
-      'shipping_email': instance.email,
-      'shipping_number': instance.number,
+      'shpping_address': instance.address,
+      'shpping_fname': instance.fname,
+      'shpping_lname': instance.lname,
+      'shpping_city': instance.city,
+      'shpping_email': instance.email,
+      'shpping_number': instance.number,
     };

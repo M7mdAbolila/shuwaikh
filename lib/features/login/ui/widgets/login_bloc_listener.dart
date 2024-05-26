@@ -26,13 +26,28 @@ class LoginBlocListener extends StatelessWidget {
             ),
           );
         } else if (state is LoginSuccess) {
+          final user = state.loginResponse.userData;
           context.pop();
           context.pushNamed(Routes.otp);
           final sharedPreferences = await SharedPreferences.getInstance();
           sharedPreferences.setBool('isLogin', true);
           UserInfoCachceHelper.cacheUserInfo(
             token: state.loginResponse.token,
-            username: state.loginResponse.userData!.username,
+            username: user!.username,
+            email: user.email,
+            number: user.number,
+            shAddress: user.shppingAddress,
+            shCity: user.shppingCity,
+            shEmail: user.shppingEmail,
+            shFname: user.shppingFname,
+            shLname: user.shppingLname,
+            shNumber: user.shppingNumber,
+            billAddress: user.address,
+            billCity: user.billingCity,
+            billEmail: user.billingEmail,
+            billFname: user.billingFname,
+            billLname: user.billingLname,
+            billNumber: user.billingNumber,
           );
         } else if (state is LoginFailure) {
           setupErrorState(context, state.errMessage);

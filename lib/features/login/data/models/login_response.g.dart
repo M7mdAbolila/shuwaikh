@@ -23,6 +23,7 @@ Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
+      billingEmail: json['billing_email'] as String?,
       lname: json['lname'] as String?,
       fname: json['fname'] as String?,
       address: json['address'] as String?,
@@ -58,6 +59,7 @@ Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'billing_fname': instance.billingFname,
       'billing_lname': instance.billingLname,
       'billing_username': instance.billingUsername,
+      'billing_email': instance.billingEmail,
       'billing_number': instance.billingNumber,
       'billing_city': instance.billingCity,
       'billing_address': instance.billingAddress,

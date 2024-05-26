@@ -4,17 +4,17 @@ part 'update_shipping_request_body.g.dart';
 
 @JsonSerializable()
 class UpdateShippingRequsetBody {
-  @JsonKey(name: 'shipping_address')
+  @JsonKey(name: 'shpping_address')
   final String? address;
-  @JsonKey(name: 'shipping_fname')
+  @JsonKey(name: 'shpping_fname')
   final String? fname;
-  @JsonKey(name: 'shipping_lname')
+  @JsonKey(name: 'shpping_lname')
   final String? lname;
-  @JsonKey(name: 'shipping_city')
+  @JsonKey(name: 'shpping_city')
   final String? city;
-  @JsonKey(name: 'shipping_email')
+  @JsonKey(name: 'shpping_email')
   final String? email;
-  @JsonKey(name: 'shipping_number')
+  @JsonKey(name: 'shpping_number')
   final String? number;
 
   UpdateShippingRequsetBody(

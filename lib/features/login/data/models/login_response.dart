@@ -31,6 +31,8 @@ class UserData {
   final String? billingLname;
   @JsonKey(name: 'billing_username')
   final String? billingUsername;
+  @JsonKey(name: 'billing_email')
+  final String? billingEmail;
   @JsonKey(name: 'billing_number')
   final String? billingNumber;
   @JsonKey(name: 'billing_city')
@@ -53,6 +55,7 @@ class UserData {
   final String? shppingAddress;
 
   UserData({
+    this.billingEmail,
     this.lname,
     this.fname,
     this.address,
