@@ -40,19 +40,19 @@ class UserData {
   @JsonKey(name: 'billing_address')
   final String? billingAddress;
   @JsonKey(name: 'shpping_fname')
-  final String? shppingFname;
+  final String? shippingFname;
   @JsonKey(name: 'shpping_lname')
-  final String? shppingLname;
+  final String? shippingLname;
   @JsonKey(name: 'shpping_username')
-  final String? shppingUsername;
+  final String? shippingUsername;
   @JsonKey(name: 'shpping_email')
-  final String? shppingEmail;
+  final String? shippingEmail;
   @JsonKey(name: 'shpping_number')
-  final String? shppingNumber;
+  final String? shippingNumber;
   @JsonKey(name: 'shpping_city')
-  final String? shppingCity;
+  final String? shippingCity;
   @JsonKey(name: 'shpping_address')
-  final String? shppingAddress;
+  final String? shippingAddress;
 
   UserData({
     this.billingEmail,
@@ -65,13 +65,13 @@ class UserData {
     this.billingNumber,
     this.billingCity,
     this.billingAddress,
-    this.shppingFname,
-    this.shppingLname,
-    this.shppingUsername,
-    this.shppingEmail,
-    this.shppingNumber,
-    this.shppingCity,
-    this.shppingAddress,
+    this.shippingFname,
+    this.shippingLname,
+    this.shippingUsername,
+    this.shippingEmail,
+    this.shippingNumber,
+    this.shippingCity,
+    this.shippingAddress,
     this.id,
     this.username,
     this.email,

@@ -29,19 +29,18 @@ class LoginBlocListener extends StatelessWidget {
           final user = state.loginResponse.userData;
           context.pop();
           context.pushNamed(Routes.otp);
-          final sharedPreferences = await SharedPreferences.getInstance();
-          sharedPreferences.setBool('isLogin', true);
-          UserInfoCachceHelper.cacheUserInfo(
+          await UserInfoCachceHelper.cacheUserInfo(
             token: state.loginResponse.token,
             username: user!.username,
             email: user.email,
             number: user.number,
-            shAddress: user.shppingAddress,
-            shCity: user.shppingCity,
-            shEmail: user.shppingEmail,
-            shFname: user.shppingFname,
-            shLname: user.shppingLname,
-            shNumber: user.shppingNumber,
+            photo: user.photo,
+            shAddress: user.shippingAddress,
+            shCity: user.shippingCity,
+            shEmail: user.shippingEmail,
+            shFname: user.shippingFname,
+            shLname: user.shippingLname,
+            shNumber: user.shippingNumber,
             billAddress: user.address,
             billCity: user.billingCity,
             billEmail: user.billingEmail,
@@ -49,6 +48,8 @@ class LoginBlocListener extends StatelessWidget {
             billLname: user.billingLname,
             billNumber: user.billingNumber,
           );
+          final sharedPreferences = await SharedPreferences.getInstance();
+          sharedPreferences.setBool('isLogin', true);
         } else if (state is LoginFailure) {
           setupErrorState(context, state.errMessage);
         }

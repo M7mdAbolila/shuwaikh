@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shuwaikh/features/login/data/models/login_response.dart';
 
 import 'constants.dart';
 
@@ -20,11 +21,13 @@ class UserInfoCachceHelper {
     String? billEmail,
     String? billNumber,
     String? billCity,
+    String? photo,
   }) async {
     final sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString("token", token ?? '');
     sharedPreferences.setString("username", username ?? '');
     sharedPreferences.setString("email", email ?? '');
+    sharedPreferences.setString("photo", photo ?? '');
     sharedPreferences.setString("number", number ?? '');
     sharedPreferences.setString("shFname", shFname ?? '');
     sharedPreferences.setString("shLname", shLname ?? '');
@@ -46,26 +49,25 @@ class UserInfoCachceHelper {
     return token;
   }
 
-  static Future<Map> getCachedUserInfo() async {
+  static Future<UserData> getCachedUserInfo() async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    final userInfo = {
-      token: sharedPreferences.getString(token),
+    final userInfo = UserData(
       username: sharedPreferences.getString(username),
       email: sharedPreferences.getString(email),
       number: sharedPreferences.getString(number),
-      shFname: sharedPreferences.getString(shFname),
-      shLname: sharedPreferences.getString(shLname),
-      shAddress: sharedPreferences.getString(shAddress),
-      shEmail: sharedPreferences.getString(shEmail),
-      shNumber: sharedPreferences.getString(shNumber),
-      shCity: sharedPreferences.getString(shCity),
-      billFname: sharedPreferences.getString(billFname),
-      billLname: sharedPreferences.getString(billLname),
-      billAddress: sharedPreferences.getString(billAddress),
-      billEmail: sharedPreferences.getString(billEmail),
-      billNumber: sharedPreferences.getString(billNumber),
-      billCity: sharedPreferences.getString(billCity),
-    };
+      shippingFname: sharedPreferences.getString(shFname),
+      shippingLname: sharedPreferences.getString(shLname),
+      shippingAddress: sharedPreferences.getString(shAddress),
+      shippingEmail: sharedPreferences.getString(shEmail),
+      shippingNumber: sharedPreferences.getString(shNumber),
+      shippingCity: sharedPreferences.getString(shCity),
+      billingFname: sharedPreferences.getString(billFname),
+      billingLname: sharedPreferences.getString(billLname),
+      billingAddress: sharedPreferences.getString(billAddress),
+      billingEmail: sharedPreferences.getString(billEmail),
+      billingNumber: sharedPreferences.getString(billNumber),
+      billingCity: sharedPreferences.getString(billCity),
+    );
     return userInfo;
   }
 
@@ -103,29 +105,30 @@ class UserInfoCachceHelper {
     sharedPreferences.setString("billCity", billCity ?? '');
   }
 
-  static Future<Map> getCachedUserShippingInfo() async {
+  static Future<UserData> getCachedUserShippingInfo() async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    final userShippingInfo = {
-      shFname: sharedPreferences.getString(shFname),
-      shLname: sharedPreferences.getString(shLname),
-      shAddress: sharedPreferences.getString(shAddress),
-      shEmail: sharedPreferences.getString(shEmail),
-      shNumber: sharedPreferences.getString(shNumber),
-      shCity: sharedPreferences.getString(shCity),
-    };
+    final userShippingInfo = UserData(
+      shippingFname: sharedPreferences.getString(shFname),
+      shippingLname: sharedPreferences.getString(shLname),
+      shippingAddress: sharedPreferences.getString(shAddress),
+      shippingEmail: sharedPreferences.getString(shEmail),
+      shippingNumber: sharedPreferences.getString(shNumber),
+      shippingCity: sharedPreferences.getString(shCity),
+    );
+
     return userShippingInfo;
   }
 
-  static Future<Map> getCachedUserBillingInfo() async {
+  static Future<UserData> getCachedUserBillingInfo() async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    final userBillingInfo = {
-      billFname: sharedPreferences.getString(billFname),
-      billLname: sharedPreferences.getString(billLname),
-      billAddress: sharedPreferences.getString(billAddress),
-      billEmail: sharedPreferences.getString(billEmail),
-      billNumber: sharedPreferences.getString(billNumber),
-      billCity: sharedPreferences.getString(billCity),
-    };
+    final userBillingInfo = UserData(
+      billingFname: sharedPreferences.getString(billFname),
+      billingLname: sharedPreferences.getString(billLname),
+      billingAddress: sharedPreferences.getString(billAddress),
+      billingEmail: sharedPreferences.getString(billEmail),
+      billingNumber: sharedPreferences.getString(billNumber),
+      billingCity: sharedPreferences.getString(billCity),
+    );
     return userBillingInfo;
   }
 }

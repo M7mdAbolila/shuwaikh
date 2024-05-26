@@ -7,8 +7,8 @@ part 'username_state.dart';
 class UsernameCubit extends Cubit<UsernameState> {
   UsernameCubit() : super(UsernameState(''));
   void getUsername() async {
-    final Map userInfo = await UserInfoCachceHelper.getCachedUserInfo();
-    final String username = userInfo['username'];
-    emit(UsernameState(username));
+    final userInfo = await UserInfoCachceHelper.getCachedUserInfo();
+    final String? username = userInfo.username;
+    emit(UsernameState(username!));
   }
 }
