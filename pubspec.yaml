@@ -45,10 +45,14 @@ dependencies:
   shared_preferences: ^2.2.3
   smooth_page_indicator: ^1.1.0
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png" 
 flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
