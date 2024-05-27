@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "billing_address":
             MessageLookupByLibrary.simpleMessage("Billing Address"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cart_subtotal": MessageLookupByLibrary.simpleMessage("Cart Subtotal"),
         "cart_total": MessageLookupByLibrary.simpleMessage("Cart Total"),
         "cash_on_delivery":

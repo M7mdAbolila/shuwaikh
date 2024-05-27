@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "billing_address":
             MessageLookupByLibrary.simpleMessage("عنوان وصول الفواتير"),
+        "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "cart_subtotal":
             MessageLookupByLibrary.simpleMessage("المجموع الفرعي لعربة التسوق"),
         "cart_total": MessageLookupByLibrary.simpleMessage("إجمالي سلة التسوق"),

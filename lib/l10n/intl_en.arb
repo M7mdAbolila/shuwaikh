@@ -101,7 +101,8 @@
     "size_price" : "size price",
     "update_profile" : "UPDATE PROFILE",
     "copy" : "Copy",
-    "copied" : "Copied To Clipboard"
+    "copied" : "Copied To Clipboard",
+    "cancel" : "Cancel"
 
     
 

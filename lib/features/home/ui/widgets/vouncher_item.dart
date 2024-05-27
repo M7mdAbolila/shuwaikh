@@ -50,7 +50,7 @@ class VoucherItem extends StatelessWidget {
           ),
           Positioned(
             top: 42.h,
-            left: 15.w,
+            left: 13.w,
             child: coupon.type == 'percentage'
                 ? Text(
                     '%${coupon.value ?? getFail}',
@@ -117,10 +117,25 @@ class VoucherItem extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          backgroundColor: Colors.white,
+          elevation: 0,
           title: Text(coupon.name!),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
+                Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    Image.asset(
+                      Assets.voucher,
+                      fit: BoxFit.fill,
+                    ),
+                    Text(
+                      coupon.code!,
+                      style: TextStyles.font26Blue700Weight,
+                    ),
+                  ],
+                ),
                 Text(
                   coupon.type == 'percentage'
                       ? '%${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}'
@@ -130,14 +145,22 @@ class VoucherItem extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   textAlign: isArabic() ? TextAlign.right : TextAlign.left,
                 ),
-                Text(
-                  coupon.code!,
-                  style: TextStyles.font18Blue500Weight,
-                ),
               ],
             ),
           ),
           actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.grey,
+                disabledForegroundColor: Colors.grey.withOpacity(0.38),
+              ),
+              onPressed: () async {
+                await FlutterClipboard.copy(coupon.code!);
+                customSnackBar(context, S.of(context).copied, false);
+                context.pop();
+              },
+              child: Text(S.of(context).cancel),
+            ),
             TextButton(
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
