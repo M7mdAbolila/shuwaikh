@@ -1,11 +1,13 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
@@ -14,11 +16,23 @@ import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 
-import '../../../core/routing/routes.dart';
+import '../../drawer/cubit/username_cubit.dart';
+import '../../update info/ui/update_profile_screen.dart';
 import 'widgets/info_item.dart';
 
-class AccountScreen extends StatelessWidget {
+class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
+
+  @override
+  State<AccountScreen> createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProfileCubit>().getProfileData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,28 +50,32 @@ class AccountScreen extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.w),
-            child: BlocBuilder<ProfileCubit, ProfileState>(
+            child: BlocConsumer<ProfileCubit, ProfileState>(
               builder: (context, state) {
                 if (state is ProfileSuccess) {
+                  log('message');
                   return Column(
                     children: [
                       verticalSpace(50),
                       state.userData!.photo == null
                           ? SvgPicture.asset(
                               Assets.userAvatar,
-                              height: 150,
+                              height: 150.h,
                             )
                           : CachedNetworkImage(
                               imageUrl:
                                   '$userPhotoPath${state.userData!.photo}',
                               placeholder: (context, url) =>
                                   const CustomLoadingWidget(),
-                              errorWidget: (context, url, error) =>
-                                  const Icon(Icons.error),
+                              errorWidget: (context, url, error) => const Icon(
+                                Icons.error,
+                                color: Colors.red,
+                                size: 50,
+                              ),
                               imageBuilder: (context, imageProvider) {
                                 return Container(
-                                  height: 150,
-                                  width: 150,
+                                  height: 150.h,
+                                  width: 150.w,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border: Border.all(
@@ -104,10 +122,12 @@ class AccountScreen extends StatelessWidget {
                       verticalSpace(50),
                       ProfileButton(
                         title: S.of(context).update_profile,
-                        onPressed: () => context.pushNamed(
-                          Routes.updateProfile,
-                          arguments: state.userData!.photo,
-                        ),
+                        onPressed: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => UpdateProfileScreen(
+                            photo: state.userData!.photo,
+                          ),
+                        )),
                       ),
                     ],
                   );
@@ -117,6 +137,19 @@ class AccountScreen extends StatelessWidget {
                   );
                 } else {
                   return const CustomLoadingWidget();
+                }
+              },
+              listener: (context, listener) async {
+                if (listener is ProfileSuccess) {
+                  log('messagelistenser');
+                  if (listener.userData!.photo != null) {
+                    log(listener.userData!.photo!);
+                    final sharedPreferences =
+                        await SharedPreferences.getInstance();
+                    await sharedPreferences.setString(
+                        'photo', listener.userData!.photo!);
+                  } else {}
+                  context.read<UsernameAndPhotoCubit>().getUsernameAndPhoto();
                 }
               },
             ),

@@ -2,13 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
-import 'package:shuwaikh/features/account/data/repos/profile_repo.dart';
-import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
 import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
 import 'package:shuwaikh/features/checkout/ui/checkout_screen.dart';
-import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
 import 'package:shuwaikh/features/my_orders/data/repos/my_orders_repo.dart';
 import 'package:shuwaikh/features/my_orders/logic/cubit/my_orders_cubit.dart';
 import 'package:shuwaikh/features/my_orders/ui/my_orders_screen.dart';
@@ -66,9 +63,6 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (context) => UsernameCubit()..getUsername(),
-              ),
-              BlocProvider(
                 create: (context) => ChangeCategoryCubit()..getCategory(),
               ),
               BlocProvider(
@@ -106,11 +100,7 @@ class AppRouter {
         );
       case Routes.account:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) =>
-                ProfileCubit(ProfileRepo(ApiService(Dio())))..getProfileData(),
-            child: const AccountScreen(),
-          ),
+          builder: (_) => const AccountScreen(),
         );
 
       case Routes.otp:

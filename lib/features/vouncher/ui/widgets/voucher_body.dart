@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
@@ -50,22 +51,23 @@ class VoucherScreenBody extends StatelessWidget {
                   Container(
                     width: 335.w,
                     height: 93.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(16),
-                        bottomRight: Radius.circular(16),
+                        bottomLeft: Radius.circular(16.r),
+                        bottomRight: Radius.circular(16.r),
                       ),
-                      gradient: LinearGradient(colors: [
+                      gradient: const LinearGradient(colors: [
                         ColorsManager.darkBlue,
                         ColorsManager.blue,
                         ColorsManager.darkBlue,
                       ]),
                     ),
                     child: Center(
-                      child: BlocBuilder<UsernameCubit, UsernameState>(
+                      child: BlocBuilder<UsernameAndPhotoCubit,
+                          UsernameAndPhotoState>(
                         builder: (context, state) {
                           return Text(
-                            state.username,
+                            state.username ?? getFail,
                             // state.username,
                             style: TextStyles.font20White700Weight,
                           );

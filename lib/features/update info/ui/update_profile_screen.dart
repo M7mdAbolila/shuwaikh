@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/widgets/app_text_field.dart';
@@ -28,7 +29,7 @@ class UpdateProfileScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,12 +46,7 @@ class UpdateProfileScreen extends StatelessWidget {
                 AppTextFormField(
                   hintText: S.of(context).old_pass,
                   controller: context.read<UpdateProfileCubit>().oldPassowrd,
-                  validator: (value) {
-                    if (value !=
-                        context.read<UpdateProfileCubit>().oldPassowrd.text) {
-                      return S.of(context).not_match;
-                    }
-                  },
+                  validator: (v) {},
                 ),
                 verticalSpace(20),
                 AppTextFormField(

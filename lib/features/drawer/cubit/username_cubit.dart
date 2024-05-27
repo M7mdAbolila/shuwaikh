@@ -1,14 +1,19 @@
 import 'package:bloc/bloc.dart';
-
-import '../../../core/helpers/user_info_cachce.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'username_state.dart';
 
-class UsernameCubit extends Cubit<UsernameState> {
-  UsernameCubit() : super(UsernameState(''));
-  void getUsername() async {
-    final userInfo = await UserInfoCachceHelper.getCachedUserInfo();
-    final String? username = userInfo.username;
-    emit(UsernameState(username!));
+class UsernameAndPhotoCubit extends Cubit<UsernameAndPhotoState> {
+  UsernameAndPhotoCubit() : super(UsernameAndPhotoState());
+  void getUsernameAndPhoto() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    final String? username = sharedPreferences.getString('username');
+    final String? photo = sharedPreferences.getString('photo');
+    emit(
+      UsernameAndPhotoState(
+        username: username,
+        photo: photo,
+      ),
+    );
   }
 }

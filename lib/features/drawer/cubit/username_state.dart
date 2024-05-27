@@ -1,7 +1,7 @@
 part of 'username_cubit.dart';
 
-class UsernameState {
-  final String username;
-
-  UsernameState(this.username);
+class UsernameAndPhotoState {
+  final String? username;
+  final String? photo;
+  UsernameAndPhotoState({this.username, this.photo});
 }

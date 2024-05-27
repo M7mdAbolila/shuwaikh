@@ -35,12 +35,14 @@ class _UpdatePhotoWidgetState extends State<UpdatePhotoWidget> {
                       imageUrl: '$userPhotoPath${widget.photo}',
                       placeholder: (context, url) =>
                           const CustomLoadingWidget(),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
+                      errorWidget: (context, url, error) => const Icon(
+                        Icons.error,
+                        size: 20,
+                      ),
                       imageBuilder: (context, imageProvider) {
                         return Container(
-                          height: 150,
-                          width: 150,
+                          height: 150.h,
+                          width: 150.w,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
@@ -56,8 +58,8 @@ class _UpdatePhotoWidgetState extends State<UpdatePhotoWidget> {
                       },
                     )
                   : Container(
-                      height: 150,
-                      width: 150,
+                      height: 150.h,
+                      width: 150.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
@@ -67,12 +69,12 @@ class _UpdatePhotoWidgetState extends State<UpdatePhotoWidget> {
                       ),
                     )
               : Container(
-                  height: 150,
-                  width: 150,
+                  height: 150.h,
+                  width: 150.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      width: 2,
+                      width: 2.w,
                       color: ColorsManager.blue,
                     ),
                     image: DecorationImage(
@@ -111,19 +113,3 @@ class _UpdatePhotoWidgetState extends State<UpdatePhotoWidget> {
     });
   }
 }
-
- // Container(
-              //     height: 150,
-              //     width: 150,
-              //     decoration: BoxDecoration(
-              //       shape: BoxShape.circle,
-              //       border: Border.all(
-              //         width: 2,
-              //         color: ColorsManager.blue,
-              //       ),
-              //       image: DecorationImage(
-              //         fit: BoxFit.fill,
-              //         image: FileImage(_selectedImage!),
-              //       ),
-              //     ),
-              //   )

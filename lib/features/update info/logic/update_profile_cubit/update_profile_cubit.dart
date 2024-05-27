@@ -20,15 +20,15 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
   Future<void> updateProfile() async {
     emit(UpdateProfileLoading());
     final String? token = await UserInfoCachceHelper.getCachedToken();
-
     var result = await _updateProfileRepo.updateProfile(
-        token,
-        UpdateProfileRequestBody(
-          address: address.text,
-          newPassword: newPassowrd.text,
-          oldPassword: oldPassowrd.text,
-          photo: photo,
-        ));
+      token,
+      UpdateProfileRequestBody(
+        address: address.text,
+        newPassword: newPassowrd.text,
+        oldPassword: oldPassowrd.text,
+        photo: photo,
+      ),
+    );
     result.fold(
       (failuer) => emit(
         UpdateProfileFailure(failuer.errMessage),

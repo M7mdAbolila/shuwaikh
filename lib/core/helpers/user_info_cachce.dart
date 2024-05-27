@@ -55,6 +55,7 @@ class UserInfoCachceHelper {
       username: sharedPreferences.getString(username),
       email: sharedPreferences.getString(email),
       number: sharedPreferences.getString(number),
+      photo: sharedPreferences.getString('photo'),
       shippingFname: sharedPreferences.getString(shFname),
       shippingLname: sharedPreferences.getString(shLname),
       shippingAddress: sharedPreferences.getString(shAddress),

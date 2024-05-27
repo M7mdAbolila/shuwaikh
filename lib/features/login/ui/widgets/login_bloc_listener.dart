@@ -28,7 +28,6 @@ class LoginBlocListener extends StatelessWidget {
         } else if (state is LoginSuccess) {
           final user = state.loginResponse.userData;
           context.pop();
-          context.pushNamed(Routes.otp);
           await UserInfoCachceHelper.cacheUserInfo(
             token: state.loginResponse.token,
             username: user!.username,
@@ -50,6 +49,7 @@ class LoginBlocListener extends StatelessWidget {
           );
           final sharedPreferences = await SharedPreferences.getInstance();
           sharedPreferences.setBool('isLogin', true);
+          context.pushNamed(Routes.otp);
         } else if (state is LoginFailure) {
           setupErrorState(context, state.errMessage);
         }
