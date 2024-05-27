@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -72,7 +73,8 @@ class _CartProductInfoState extends State<CartProductInfo> {
   Size jsonToVariation() {
     String? jsonString = widget.cartItem!.variations;
     final jsonData = jsonDecode(jsonString!);
-    final variation = Size.fromJson(jsonData);
+    log('cart : ${jsonData['size'].toString()}');
+    final variation = Size.fromJson(jsonData['size']);
     return variation;
   }
 }

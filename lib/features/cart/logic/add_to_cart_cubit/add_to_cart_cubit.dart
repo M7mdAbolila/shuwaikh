@@ -33,7 +33,8 @@ class AddToCartCubit extends Cubit<AddToCartState> {
   void addAddonsPrice(double addon) {
     addonsPrice += addon;
   }
-   void removeAddonsPrice(double addon) {
+
+  void removeAddonsPrice(double addon) {
     addonsPrice -= addon;
   }
 
@@ -52,7 +53,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
         variationsPrice: variationsPrice ?? productPrice,
         addonsPrice: addonsPrice,
         total: total,
-        variations: variations ?? defaultVariations,
+        variations: '{"size":${variations ?? defaultVariations}}',
         addons: addons,
       ),
     );

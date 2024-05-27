@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,12 +23,14 @@ class SelectSizeWidget extends StatefulWidget {
 
 class _SelectSizeWidgetState extends State<SelectSizeWidget> {
   String defaultSizeFromJson() {
-    String jsonString = jsonEncode(widget.variation.sizes[0].toJson());
+    String jsonString = jsonEncode(widget.variation.sizes[0]);
+    log('default : $jsonString');
     return jsonString;
   }
 
-  String sizeFromJson(Map<String, dynamic> size) {
+  String sizeFromJson(Size size) {
     String jsonString = jsonEncode(size);
+    log('select size : $jsonString');
     return jsonString;
   }
 
@@ -73,8 +76,7 @@ class _SelectSizeWidgetState extends State<SelectSizeWidget> {
                       setState(() {
                         widget.selectedSize = value as String;
                         context.read<AddToCartCubit>().variations =
-                            sizeFromJson(
-                                widget.variation.sizes[index].toJson());
+                            sizeFromJson(widget.variation.sizes[index]);
                         context.read<AddToCartCubit>().variationsPrice =
                             widget.variation.sizes[index].price as double?;
 

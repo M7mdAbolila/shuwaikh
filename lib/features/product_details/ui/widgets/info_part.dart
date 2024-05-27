@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/features/cart/logic/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/models/addons_model.dart';
 import 'package:shuwaikh/features/product_details/ui/widgets/addons.dart';
@@ -41,11 +43,11 @@ class _InfoPartState extends State<InfoPart> {
   Widget build(BuildContext context) {
     Variation? variation;
     if (widget.productDetails!.variations != null) {
-      variation = jsonToVariation();
+      variation = jsonStringToVariation();
     }
     Addons? addons;
     if (widget.productDetails!.addons != null) {
-      addons = jsonToAddons();
+      addons = jsonStringToAddons();
     }
 
     return SliverFillRemaining(
@@ -53,11 +55,11 @@ class _InfoPartState extends State<InfoPart> {
         physics: const NeverScrollableScrollPhysics(),
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(30.r),
             color: Colors.white,
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: SingleChildScrollView(
               physics: const NeverScrollableScrollPhysics(),
               child: Column(
@@ -93,14 +95,15 @@ class _InfoPartState extends State<InfoPart> {
     );
   }
 
-  Variation jsonToVariation() {
+  Variation jsonStringToVariation() {
     String jsonString = widget.productDetails!.variations ?? '';
     final jsonData = jsonDecode(jsonString);
     final variation = Variation.fromJson(jsonData);
+    log('StringToVar${jsonData.toString()}');
     return variation;
   }
 
-  Addons jsonToAddons() {
+  Addons jsonStringToAddons() {
     String? jsonString = widget.productDetails!.addons;
     final jsonData = jsonDecode(jsonString!);
     final addons = Addons.fromJson(jsonData);
