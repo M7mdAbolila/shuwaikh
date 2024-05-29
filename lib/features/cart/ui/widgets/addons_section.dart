@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
-import 'package:shuwaikh/features/cart/ui/widgets/cart_product_info.dart';
+import 'package:shuwaikh/features/cart/ui/widgets/info_widget.dart';
 
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';

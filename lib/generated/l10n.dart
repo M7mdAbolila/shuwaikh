@@ -1089,6 +1089,16 @@ class S {
       args: [],
     );
   }
+
+  /// `The cart is empty `
+  String get cart_empty {
+    return Intl.message(
+      'The cart is empty ',
+      name: 'cart_empty',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
