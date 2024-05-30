@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,13 +23,11 @@ class SelectSizeWidget extends StatefulWidget {
 class _SelectSizeWidgetState extends State<SelectSizeWidget> {
   String defaultSizeFromJson() {
     String jsonString = jsonEncode(widget.variation.sizes[0]);
-    log('default : $jsonString');
     return jsonString;
   }
 
   String sizeFromJson(Size size) {
     String jsonString = jsonEncode(size);
-    log('select size : $jsonString');
     return jsonString;
   }
 

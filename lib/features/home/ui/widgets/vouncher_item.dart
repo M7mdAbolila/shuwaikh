@@ -6,6 +6,7 @@ import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
+import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/features/home/data/models/get_coupons/get_coupons_response.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 
@@ -136,14 +137,18 @@ class VoucherItem extends StatelessWidget {
                     ),
                   ],
                 ),
+                verticalSpace(5),
                 Text(
                   coupon.type == 'percentage'
                       ? '%${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}'
                       : 'KD${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}',
                   style: TextStyles.font13Black500Weight,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                   textAlign: isArabic() ? TextAlign.right : TextAlign.left,
+                ),
+                verticalSpace(5),
+                Text(
+                  S.of(context).copy_and_paste,
+                  style: TextStyles.font18Blue500Weight,
                 ),
               ],
             ),
@@ -154,9 +159,7 @@ class VoucherItem extends StatelessWidget {
                 foregroundColor: Colors.grey,
                 disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
-              onPressed: () async {
-                await FlutterClipboard.copy(coupon.code!);
-                customSnackBar(context, S.of(context).copied, false);
+              onPressed: () {
                 context.pop();
               },
               child: Text(S.of(context).cancel),
@@ -164,7 +167,7 @@ class VoucherItem extends StatelessWidget {
             TextButton(
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.blue,
+                backgroundColor: ColorsManager.blue,
                 disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
               onPressed: () async {

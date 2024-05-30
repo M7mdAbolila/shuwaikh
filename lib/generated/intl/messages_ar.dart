@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "billing_address":
             MessageLookupByLibrary.simpleMessage("عنوان وصول الفواتير"),
+        "can_edit_from_setting": MessageLookupByLibrary.simpleMessage(
+            "يمكن تعديل التفاصيل في أي وقت من خلال \"الإعدادات\" -> \"تعديل تفاصيل الشحن\" أو \"تعديل تفاصيل الفواتير\""),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "cart_empty": MessageLookupByLibrary.simpleMessage("السلة فارغة"),
         "cart_subtotal":
@@ -52,6 +54,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "copied": MessageLookupByLibrary.simpleMessage("نسخ إلى الحافظة"),
         "copy": MessageLookupByLibrary.simpleMessage("نسخ"),
+        "copy_and_paste": MessageLookupByLibrary.simpleMessage(
+            "انسخ القسيمة وألصقها عند الدفع"),
+        "coupon": MessageLookupByLibrary.simpleMessage("كوبون"),
         "date": MessageLookupByLibrary.simpleMessage("تاريخ"),
         "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
         "do_you_have_account":
@@ -102,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
         "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "new_pass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
+        "no": MessageLookupByLibrary.simpleMessage("لا"),
         "no_coupons":
             MessageLookupByLibrary.simpleMessage("لم يتم العثور على كوبونات"),
         "no_offers_found":
@@ -126,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resend": MessageLookupByLibrary.simpleMessage("أعد الإرسال"),
         "same_address": MessageLookupByLibrary.simpleMessage(
             "سيكون عنوان إرسال الفواتير هو نفس عنوان الشحن"),
+        "save_details": MessageLookupByLibrary.simpleMessage("حفظ التفاصيل"),
         "select_add_ons":
             MessageLookupByLibrary.simpleMessage("حدد الإضافات (اختياري)"),
         "select_shipping_charge":
@@ -149,14 +156,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "update_profile":
             MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
+        "use_saved_data":
+            MessageLookupByLibrary.simpleMessage("استخدم التفاصيل المحفوظة"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم يجب أن يكون أكثر من 3 أحرف"),
         "variation": MessageLookupByLibrary.simpleMessage("الاختلاف"),
         "verify": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "want_save_for_future": MessageLookupByLibrary.simpleMessage(
+            "هل تريد حفظ هذه التفاصيل لاستخدامها في المستقبل؟"),
+        "want_use_saved_details": MessageLookupByLibrary.simpleMessage(
+            "هل تريد استخدام تفاصيل الشحن والفواتير المحفوظة؟"),
         "welcome_back":
             MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك، لقد افتقدتك."),
         "welcome_to": MessageLookupByLibrary.simpleMessage("مرحبا في"),
+        "yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "your_favorite": MessageLookupByLibrary.simpleMessage("المفضلة لديك"),
         "your_offers": MessageLookupByLibrary.simpleMessage("العروض الخاصة بك"),
         "your_voucher":

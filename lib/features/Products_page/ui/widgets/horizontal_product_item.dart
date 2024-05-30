@@ -34,16 +34,16 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
         padding: EdgeInsets.only(bottom: 15.h),
         child: Container(
           width: 335.w,
-          height: 110.h,
+          height: 115.h,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
             color: Colors.white,
             boxShadow: const [
               BoxShadow(
                 color: ColorsManager.lightBlue,
                 offset: Offset(5, 5),
                 blurRadius: 14,
-                spreadRadius: -4,
+                spreadRadius: 2,
               ),
             ],
           ),

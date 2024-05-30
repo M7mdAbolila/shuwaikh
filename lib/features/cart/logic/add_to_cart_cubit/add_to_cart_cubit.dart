@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
 import 'package:shuwaikh/features/cart/data/models/add_to_cart/add_to_cart_request_body.dart';
 import 'package:shuwaikh/features/cart/data/repos/add_to_cart_repo.dart';
@@ -57,13 +58,22 @@ class AddToCartCubit extends Cubit<AddToCartState> {
         addons: addons,
       ),
     );
+    final locale = Intl.getCurrentLocale();
     result.fold(
       (failure) => emit(
         AddToCartFailure(failure.errMessage),
       ),
-      (response) => emit(
-        AddToCartSuccess(response.message),
-      ),
+      (response) {
+        if (locale == 'en') {
+          emit(
+            AddToCartSuccess(response.message),
+          );
+        } else {
+          emit(
+            AddToCartSuccess('تمت إضافة العنصر إلى سلة التسوق بنجاح'),
+          );
+        }
+      },
     );
   }
 }

@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "billing_address":
             MessageLookupByLibrary.simpleMessage("Billing Address"),
+        "can_edit_from_setting": MessageLookupByLibrary.simpleMessage(
+            "Can edit details any time form \"Setting\" -> \"Edit Shipping Details\" or \"Edit Billing Details\""),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cart_empty":
             MessageLookupByLibrary.simpleMessage("The cart is empty "),
@@ -53,6 +55,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact us"),
         "copied": MessageLookupByLibrary.simpleMessage("Copied To Clipboard"),
         "copy": MessageLookupByLibrary.simpleMessage("Copy"),
+        "copy_and_paste": MessageLookupByLibrary.simpleMessage(
+            "Copy coupon and paste it when checkout"),
+        "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "discount": MessageLookupByLibrary.simpleMessage("Discount"),
         "do_you_have_account":
@@ -101,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "new_pass": MessageLookupByLibrary.simpleMessage("New Password"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "no_coupons": MessageLookupByLibrary.simpleMessage("No Coupons Found"),
         "no_offers_found":
             MessageLookupByLibrary.simpleMessage("No Offers Found"),
@@ -125,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),
         "same_address": MessageLookupByLibrary.simpleMessage(
             "Billing Address will be Same as Shipping Address"),
+        "save_details": MessageLookupByLibrary.simpleMessage("Save Details"),
         "select_add_ons":
             MessageLookupByLibrary.simpleMessage("Select Add On\'s (Optional)"),
         "select_shipping_charge":
@@ -151,14 +158,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "update": MessageLookupByLibrary.simpleMessage("UPDATE"),
         "update_profile":
             MessageLookupByLibrary.simpleMessage("UPDATE PROFILE"),
+        "use_saved_data":
+            MessageLookupByLibrary.simpleMessage("Use Saved Details"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "username_must_over_3": MessageLookupByLibrary.simpleMessage(
             "User name must over 3 characters"),
         "variation": MessageLookupByLibrary.simpleMessage("Variation"),
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "want_save_for_future": MessageLookupByLibrary.simpleMessage(
+            "Do you want to save these details for future use?"),
+        "want_use_saved_details": MessageLookupByLibrary.simpleMessage(
+            "Do you want to use your saved shipping and billing details?"),
         "welcome_back": MessageLookupByLibrary.simpleMessage(
             "welcome back, you have been mised."),
         "welcome_to": MessageLookupByLibrary.simpleMessage("Welcome to"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "your_favorite": MessageLookupByLibrary.simpleMessage("Your favourite"),
         "your_offers": MessageLookupByLibrary.simpleMessage("Your Offers"),
         "your_voucher": MessageLookupByLibrary.simpleMessage("Your Vouchers")

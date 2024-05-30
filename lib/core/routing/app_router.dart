@@ -120,7 +120,7 @@ class AppRouter {
           builder: (_) => const VoucherScreen(),
         );
       case Routes.checkoutScreen:
-        final cartTotal = settings.arguments as double?;
+        final total = settings.arguments as double;
 
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
@@ -138,7 +138,7 @@ class AppRouter {
               ),
             ],
             child: CheckoutScreen(
-              cartTotal: cartTotal,
+              total: total,
             ),
           ),
         );

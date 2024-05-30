@@ -1,24 +1,28 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
-import 'package:shuwaikh/features/cart/ui/widgets/custom_button.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
-import 'package:shuwaikh/features/checkout/ui/widgets/billing_address_section.dart';
 import 'package:shuwaikh/features/checkout/ui/widgets/order_total_section.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/styles.dart';
+import 'widgets/checkout_button.dart';
 import 'widgets/pay_via_widget.dart';
-import 'widgets/shipping_address_section.dart';
+import 'widgets/shipping_and_billing_section.dart';
 import 'widgets/shipping_charges_section.dart';
 
 class CheckoutScreen extends StatefulWidget {
-  const CheckoutScreen({super.key, required this.cartTotal});
-  final double? cartTotal;
+  const CheckoutScreen({
+    super.key,
+    required this.total,
+  });
+  final double total;
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
@@ -45,15 +49,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             child: Column(
               children: [
                 verticalSpace(25),
-                const ShippingAddressSection(),
-                verticalSpace(10),
-                const BillingAddressSection(),
-                verticalSpace(20),
+                const ShippingAndBillingDetailsSection(),
                 const ShippingChargesSection(),
                 verticalSpace(20),
-                OrderTotalAndDiscountSection(
-                  cartTotal: widget.cartTotal!,
-                ),
+                OrderTotalAndDiscountSection(cartTotal: widget.total),
                 verticalSpace(20),
                 const PayViaWidget(),
                 verticalSpace(20),
@@ -79,24 +78,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   },
                   child: const SizedBox.shrink(),
                 ),
-                CustomButton(
-                  text: S.of(context).order,
-                  color: ColorsManager.blue,
-                  onTap: () {
-                    if (context
-                        .read<PlaceOrderCubit>()
-                        .formKey
-                        .currentState!
-                        .validate()) {
-                      if (context.read<PlaceOrderCubit>().selectCharges) {
-                        context.read<PlaceOrderCubit>().placeOrder();
-                      } else {
-                        customSnackBar(context,
-                            S.of(context).select_shipping_charge, true);
-                      }
-                    }
-                  },
-                ),
+                const CheckoutButton(),
                 verticalSpace(100),
               ],
             ),

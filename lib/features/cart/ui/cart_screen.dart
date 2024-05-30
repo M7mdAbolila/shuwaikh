@@ -30,7 +30,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ],
-      child: const CartScreenBody(),
+      child: CartScreenBody(),
     );
   }
 }

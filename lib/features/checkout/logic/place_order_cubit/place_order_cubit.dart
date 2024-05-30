@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
 import 'package:shuwaikh/features/checkout/data/models/order_request_body.dart';
 import 'package:shuwaikh/features/checkout/data/repos/order_repo.dart';
@@ -11,13 +12,14 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
   PlaceOrderCubit(this._orderRepo) : super(PlaceOrderState());
   final formKey = GlobalKey<FormState>();
   bool selectCharges = false;
+  bool useSavedDetails = false;
   TextEditingController shippingFname = TextEditingController();
   TextEditingController shippingLname = TextEditingController();
   TextEditingController shippingEmail = TextEditingController();
   TextEditingController shippingNumber = TextEditingController();
   TextEditingController shippingCity = TextEditingController();
   TextEditingController shippingAddress = TextEditingController();
-  int? sameAsShipping ;
+  int? sameAsShipping;
   TextEditingController billingAddress = TextEditingController();
   TextEditingController billingCity = TextEditingController();
   TextEditingController billingEmail = TextEditingController();
@@ -51,14 +53,20 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
         discount: discount,
       ),
     );
-
+    final locale = Intl.getCurrentLocale();
     result.fold(
-      (failure) => emit(
-        PlaceOrderFailure(failure.errMessage),
-      ),
-      (message) => emit(
-        PlaceOrderSuccess(message),
-      ),
-    );
+        (failure) => emit(
+              PlaceOrderFailure(failure.errMessage),
+            ), (message) {
+      if (locale == 'en') {
+        emit(
+          PlaceOrderSuccess(message),
+        );
+      } else {
+        emit(
+          PlaceOrderSuccess('تم الطلب بنجاح'),
+        );
+      }
+    });
   }
 }

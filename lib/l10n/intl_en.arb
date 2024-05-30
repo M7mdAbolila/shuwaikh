@@ -103,9 +103,14 @@
     "copy" : "Copy",
     "copied" : "Copied To Clipboard",
     "cancel" : "Cancel",
-    "cart_empty" : "The cart is empty "
-
-    
-
-
+    "cart_empty" : "The cart is empty ",
+    "use_saved_data": "Use Saved Details",
+    "want_use_saved_details" : "Do you want to use your saved shipping and billing details?",
+    "save_details" : "Save Details",
+    "want_save_for_future":"Do you want to save these details for future use?",
+    "can_edit_from_setting" : "Can edit details any time form \"Setting\" -> \"Edit Shipping Details\" or \"Edit Billing Details\"",
+    "yes" :"Yes",
+    "no" : "No",
+    "coupon" : "Coupon",
+    "copy_and_paste":"Copy coupon and paste it when checkout"  
 }

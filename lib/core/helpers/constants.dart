@@ -22,3 +22,4 @@ const billAddress = 'billAddress';
 const billEmail = 'billEmail';
 const billNumber = 'billNumber';
 const billCity = 'billCity';
+const isFirstTime = 'isFirstTime';

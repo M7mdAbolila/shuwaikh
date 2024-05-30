@@ -16,9 +16,6 @@ import '../../../../generated/l10n.dart';
 class OrderTotalAndDiscountSection extends StatefulWidget {
   OrderTotalAndDiscountSection({super.key, required this.cartTotal});
   double cartTotal;
-  double? couponAmount = 0;
-  double? subTotal;
-
   @override
   State<OrderTotalAndDiscountSection> createState() =>
       _OrderTotalAndDiscountSectionState();
@@ -26,16 +23,17 @@ class OrderTotalAndDiscountSection extends StatefulWidget {
 
 class _OrderTotalAndDiscountSectionState
     extends State<OrderTotalAndDiscountSection> {
+  double? subTotal;
+  double? couponAmount = 0;
+  int? coupon;
   @override
-  void initState() {
-    super.initState();
-    widget.couponAmount = 0;
-    widget.subTotal = widget.cartTotal;
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    subTotal = widget.cartTotal;
   }
 
   @override
   Widget build(BuildContext context) {
-    int? coupon;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -46,15 +44,15 @@ class _OrderTotalAndDiscountSectionState
         verticalSpace(20),
         OrderTotalWidget(
           title: S.of(context).cart_total,
-          price: 'KD${widget.cartTotal}',
+          price: 'KD${widget.cartTotal.toStringAsFixed(2)}',
         ),
         OrderTotalWidget(
           title: S.of(context).discount,
-          price: '-KD${widget.couponAmount!.toStringAsFixed(2)}',
+          price: '-KD${couponAmount!.toStringAsFixed(2)}',
         ),
         OrderTotalWidget(
           title: S.of(context).cart_subtotal,
-          price: 'KD${widget.subTotal?.toStringAsFixed(2)}',
+          price: 'KD${subTotal?.toStringAsFixed(2)}',
         ),
         OrderTotalWidget(
           title: S.of(context).tax,
@@ -70,7 +68,7 @@ class _OrderTotalAndDiscountSectionState
           children: [
             Expanded(
               child: AppTextFormField(
-                hintText: 'coupon',
+                hintText: S.of(context).coupon,
                 validator: (v) {},
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
@@ -102,8 +100,8 @@ class _OrderTotalAndDiscountSectionState
             if (state is CheckCouponSuccess) {
               context.pop();
               setState(() {
-                widget.couponAmount = state.couponAmount!;
-                widget.subTotal = widget.cartTotal - state.couponAmount!;
+                couponAmount = state.couponAmount!;
+                subTotal = widget.cartTotal - state.couponAmount!;
                 context.read<PlaceOrderCubit>().discount = state.couponAmount;
               });
             } else if (state is CheckCouponFailure) {

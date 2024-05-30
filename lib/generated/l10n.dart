@@ -1099,6 +1099,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Use Saved Details`
+  String get use_saved_data {
+    return Intl.message(
+      'Use Saved Details',
+      name: 'use_saved_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to use your saved shipping and billing details?`
+  String get want_use_saved_details {
+    return Intl.message(
+      'Do you want to use your saved shipping and billing details?',
+      name: 'want_use_saved_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Details`
+  String get save_details {
+    return Intl.message(
+      'Save Details',
+      name: 'save_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to save these details for future use?`
+  String get want_save_for_future {
+    return Intl.message(
+      'Do you want to save these details for future use?',
+      name: 'want_save_for_future',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can edit details any time form "Setting" -> "Edit Shipping Details" or "Edit Billing Details"`
+  String get can_edit_from_setting {
+    return Intl.message(
+      'Can edit details any time form "Setting" -> "Edit Shipping Details" or "Edit Billing Details"',
+      name: 'can_edit_from_setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coupon`
+  String get coupon {
+    return Intl.message(
+      'Coupon',
+      name: 'coupon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Copy coupon and paste it when checkout`
+  String get copy_and_paste {
+    return Intl.message(
+      'Copy coupon and paste it when checkout',
+      name: 'copy_and_paste',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

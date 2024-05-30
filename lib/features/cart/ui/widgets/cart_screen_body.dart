@@ -22,7 +22,6 @@ import 'remove_bloc_lisneter.dart';
 
 class CartScreenBody extends StatefulWidget {
   const CartScreenBody({super.key});
-
   @override
   State<CartScreenBody> createState() => _CartScreenBodyState();
 }
@@ -30,6 +29,7 @@ class CartScreenBody extends StatefulWidget {
 class _CartScreenBodyState extends State<CartScreenBody> {
   @override
   Widget build(BuildContext context) {
+    double? total = 0;
     return AppScrollScaffold(
       appBarTitle: S.of(context).my_cart,
       appBarIcon: Icon(isArabic() ? Icons.arrow_forward : Icons.arrow_back,
@@ -40,7 +40,6 @@ class _CartScreenBodyState extends State<CartScreenBody> {
         child: BlocBuilder<GetCartCubit, GetCartState>(
           builder: (context, state) {
             if (state is GetCartSuccess) {
-              double? total = 0;
               for (var i = 0; i < state.cart!.length; i++) {
                 total = (total! + double.parse(state.cart![i].total!));
               }
@@ -67,19 +66,21 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                   verticalSpace(30),
                   CustomButton(
                       text: S.of(context).check_out,
-                      onTap: () {
+                      onTap: () async {
                         if (state.cart!.isEmpty) {
                           customSnackBar(
                               context, S.of(context).cart_empty, true);
                         } else {
                           context
                               .pushNamed(
-                                Routes.checkoutScreen,
-                                arguments: total,
-                              )
-                              .then((value) => setState(() {
-                                    context.read<GetCartCubit>().getCart();
-                                  }));
+                            Routes.checkoutScreen,
+                            arguments: total,
+                          )
+                              .then((value) {
+                            setState(() {
+                              context.read<GetCartCubit>().getCart();
+                            });
+                          });
                         }
                       }),
                   verticalSpace(100),
@@ -97,3 +98,18 @@ class _CartScreenBodyState extends State<CartScreenBody> {
     );
   }
 }
+
+
+
+                                      //  context
+                                      //     .pushNamed(
+                                      //   Routes.checkoutScreen,
+                                      //   arguments: widget.total,
+                                      // )
+                                      //     .then((value) {
+                                      //   setState(() {
+                                      //     context
+                                      //         .read<GetCartCubit>()
+                                      //         .getCart();
+                                      //   });
+                                      // });

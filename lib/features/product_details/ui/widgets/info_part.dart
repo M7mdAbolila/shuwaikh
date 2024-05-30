@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -99,7 +98,6 @@ class _InfoPartState extends State<InfoPart> {
     String jsonString = widget.productDetails!.variations ?? '';
     final jsonData = jsonDecode(jsonString);
     final variation = Variation.fromJson(jsonData);
-    log('StringToVar${jsonData.toString()}');
     return variation;
   }
 
