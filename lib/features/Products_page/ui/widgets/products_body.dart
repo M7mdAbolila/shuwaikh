@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +46,6 @@ class _ProductsScreenBodyState extends State<ProductsScreenBody> {
             BlocListener<LocaleCubit, ChangeLocaleState>(
               listener: (context, state) {
                 setState(() {
-                  log('message = = = ');
                   context
                       .read<ProductsPageCubit>()
                       .emitProductsPageStates(state.locale.languageCode);
@@ -60,7 +58,6 @@ class _ProductsScreenBodyState extends State<ProductsScreenBody> {
             BlocListener<ReloadFavouritesCubit, ReloadFavouritesState>(
               listener: (context, state) {
                 setState(() {
-                  log('message');
                   context
                       .read<ProductsPageCubit>()
                       .emitProductsPageStates(Intl.getCurrentLocale());

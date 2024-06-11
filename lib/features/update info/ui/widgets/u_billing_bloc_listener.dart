@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/core/helpers/setup_dialogs.dart';
 import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
-import '../../../../core/theming/colors.dart';
 import '../../logic/update_billing_cubit/update_billing_cubit.dart';
 
 class UpdateBillingBlocListener extends StatelessWidget {
@@ -28,14 +28,7 @@ class UpdateBillingBlocListener extends StatelessWidget {
           context.pop();
           customSnackBar(context, state.errMessage, true);
         } else if (state is UpdateBillingLoading) {
-          showDialog(
-            context: context,
-            builder: (context) => const Center(
-              child: CircularProgressIndicator(
-                color: ColorsManager.blue,
-              ),
-            ),
-          );
+          loadingDialog(context);
         }
       },
       child: const SizedBox.shrink(),

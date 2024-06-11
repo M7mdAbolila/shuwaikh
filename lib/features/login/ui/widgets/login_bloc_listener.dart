@@ -4,9 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
 
+import '../../../../core/helpers/setup_dialogs.dart';
 import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
 import '../../logic/cubit/login_cubit.dart';
 
 class LoginBlocListener extends StatelessWidget {
@@ -17,14 +16,7 @@ class LoginBlocListener extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) async {
         if (state is LoginLoading) {
-          showDialog(
-            context: context,
-            builder: (context) => const Center(
-              child: CircularProgressIndicator(
-                color: ColorsManager.blue,
-              ),
-            ),
-          );
+          loadingDialog(context);
         } else if (state is LoginSuccess) {
           final user = state.loginResponse.userData;
           context.pop();
@@ -51,39 +43,12 @@ class LoginBlocListener extends StatelessWidget {
           sharedPreferences.setBool('isLogin', true);
           context.pushNamed(Routes.otp);
         } else if (state is LoginFailure) {
-          setupErrorState(context, state.errMessage);
+          errorDialog(context, state.errMessage);
         }
       },
       child: const SizedBox.shrink(),
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
-    context.pop();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          error,
-          style: TextStyles.font16Blue400Weight,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.pop();
-            },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14Black400Weight,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  
 }
