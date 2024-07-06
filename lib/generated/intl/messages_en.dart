@@ -72,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_shipping":
             MessageLookupByLibrary.simpleMessage("EDIT SHIPPING DETAILS"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "empty_field": MessageLookupByLibrary.simpleMessage(
+            "there is an empty information field"),
         "enter_otp": MessageLookupByLibrary.simpleMessage(
             "Please enter 4 digits code form the SMS sent to your phone"),
         "enter_valid_email":

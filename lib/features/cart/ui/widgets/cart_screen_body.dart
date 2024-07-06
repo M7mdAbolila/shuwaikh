@@ -1,6 +1,10 @@
+
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
@@ -10,6 +14,7 @@ import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/cart/logic/get_cart_cubit/get_cart_cubit.dart';
+import 'package:shuwaikh/features/checkout/data/models/checkout_arguments.dart';
 import '../../../../core/widgets/app_scroll_scaffold.dart';
 import '../../../../generated/l10n.dart';
 import '../../../nav_bar/cubit/change_page_cubit.dart';
@@ -71,16 +76,33 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                           customSnackBar(
                               context, S.of(context).cart_empty, true);
                         } else {
-                          context
-                              .pushNamed(
-                            Routes.checkoutScreen,
-                            arguments: total,
-                          )
-                              .then((value) {
-                            setState(() {
-                              context.read<GetCartCubit>().getCart();
+                          final sharedPreferences =
+                              await SharedPreferences.getInstance();
+                          if (sharedPreferences.getString(shFname) == '') {
+                            context
+                                .pushNamed(
+                              Routes.checkoutScreen,
+                              arguments: CheckoutArguments(
+                                  total: total!, firstTime: true),
+                            )
+                                .then((value) {
+                              setState(() {
+                                context.read<GetCartCubit>().getCart();
+                              });
                             });
-                          });
+                          } else {
+                            context
+                                .pushNamed(
+                              Routes.checkoutScreen,
+                              arguments: CheckoutArguments(
+                                  total: total!, firstTime: false),
+                            )
+                                .then((value) {
+                              setState(() {
+                                context.read<GetCartCubit>().getCart();
+                              });
+                            });
+                          }
                         }
                       }),
                   verticalSpace(100),

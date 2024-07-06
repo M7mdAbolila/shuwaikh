@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/core/helpers/setup_dialogs.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
+import 'package:shuwaikh/features/checkout/data/models/checkout_arguments.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
 import 'package:shuwaikh/features/checkout/ui/widgets/order_total_section.dart';
 import 'package:shuwaikh/generated/l10n.dart';
@@ -20,9 +22,9 @@ import 'widgets/shipping_charges_section.dart';
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({
     super.key,
-    required this.total,
+    required this.arguments,
   });
-  final double total;
+  final CheckoutArguments arguments;
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
@@ -49,10 +51,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             child: Column(
               children: [
                 verticalSpace(25),
-                const ShippingAndBillingDetailsSection(),
+                ShippingAndBillingDetailsSection(
+                  firstTime: widget.arguments.firstTime,
+                ),
                 const ShippingChargesSection(),
                 verticalSpace(20),
-                OrderTotalAndDiscountSection(cartTotal: widget.total),
+                OrderTotalAndDiscountSection(cartTotal: widget.arguments.total),
                 verticalSpace(20),
                 const PayViaWidget(),
                 verticalSpace(20),
@@ -66,14 +70,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       context.pop();
                       customSnackBar(context, state.errMessage, true);
                     } else if (state is PlaceOrderLoading) {
-                      showDialog(
-                        context: context,
-                        builder: (context) => const Center(
-                          child: CircularProgressIndicator(
-                            color: ColorsManager.blue,
-                          ),
-                        ),
-                      );
+                      loadingDialog(context);
                     }
                   },
                   child: const SizedBox.shrink(),

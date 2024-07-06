@@ -1189,6 +1189,16 @@ class S {
       args: [],
     );
   }
+
+  /// `there is an empty information field`
+  String get empty_field {
+    return Intl.message(
+      'there is an empty information field',
+      name: 'empty_field',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

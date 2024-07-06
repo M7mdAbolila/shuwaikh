@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/features/account/ui/account_screen.dart';
+import 'package:shuwaikh/features/checkout/data/models/checkout_arguments.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
 import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
 import 'package:shuwaikh/features/checkout/ui/checkout_screen.dart';
@@ -120,7 +121,7 @@ class AppRouter {
           builder: (_) => const VoucherScreen(),
         );
       case Routes.checkoutScreen:
-        final total = settings.arguments as double;
+        final arguments = settings.arguments as CheckoutArguments;
 
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
@@ -138,7 +139,7 @@ class AppRouter {
               ),
             ],
             child: CheckoutScreen(
-              total: total,
+              arguments: arguments,
             ),
           ),
         );

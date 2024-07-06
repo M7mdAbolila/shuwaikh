@@ -112,5 +112,6 @@
     "yes" :"Yes",
     "no" : "No",
     "coupon" : "Coupon",
-    "copy_and_paste":"Copy coupon and paste it when checkout"  
+    "copy_and_paste":"Copy coupon and paste it when checkout",
+    "empty_field" : "there is an empty information field"
 }

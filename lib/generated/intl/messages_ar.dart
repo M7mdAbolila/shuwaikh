@@ -72,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_shipping":
             MessageLookupByLibrary.simpleMessage("تحرير تفاصيل الشحن"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "empty_field":
+            MessageLookupByLibrary.simpleMessage("يوجد حقل معلومات فارغ"),
         "enter_otp": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال رمز 4 خانات من الرسالة القصيرة التي تم إرسالها إلى هاتفك"),
         "enter_valid_email": MessageLookupByLibrary.simpleMessage(

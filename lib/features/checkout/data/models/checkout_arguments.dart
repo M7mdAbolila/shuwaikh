@@ -1,6 +1,6 @@
 class CheckoutArguments {
   final double total;
-  final bool useSavedDetails;
+  final bool firstTime;
 
-  CheckoutArguments({required this.total, required this.useSavedDetails});
+  CheckoutArguments({required this.total, required this.firstTime});
 }
