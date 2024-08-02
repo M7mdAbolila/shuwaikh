@@ -1,14 +1,13 @@
-
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/is_arabic.dart';
+import 'package:shuwaikh/core/helpers/shared_pref_helper.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
@@ -76,9 +75,9 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                           customSnackBar(
                               context, S.of(context).cart_empty, true);
                         } else {
-                          final sharedPreferences =
-                              await SharedPreferences.getInstance();
-                          if (sharedPreferences.getString(shFname) == '') {
+                          final shFName = SharedPrefHelper.getString(
+                              SharedPrefKeys.shFname);
+                          if (shFName == '') {
                             context
                                 .pushNamed(
                               Routes.checkoutScreen,

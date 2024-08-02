@@ -64,7 +64,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             )
                           : CachedNetworkImage(
                               imageUrl:
-                                  '$userPhotoPath${state.userData!.photo}',
+                                  '${ImagesPaths.userPhotoPath}${state.userData!.photo}',
                               placeholder: (context, url) =>
                                   const CustomLoadingWidget(),
                               errorWidget: (context, url, error) => const Icon(
@@ -172,7 +172,7 @@ class ProfileButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(ColorsManager.blue),
+        backgroundColor: WidgetStatePropertyAll(ColorsManager.blue),
       ),
       onPressed: onPressed,
       child: Center(

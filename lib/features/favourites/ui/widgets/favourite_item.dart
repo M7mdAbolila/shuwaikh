@@ -58,7 +58,7 @@ class _FavouriteItemState extends State<FavouriteItem> {
                     image: DecorationImage(
                       fit: BoxFit.fill,
                       image: CachedNetworkImageProvider(
-                        '$productPath${widget.favouriteProduct.image}',
+                        '${ImagesPaths.productPath}${widget.favouriteProduct.image}',
                       ),
                     ),
                     borderRadius: BorderRadius.circular(10),

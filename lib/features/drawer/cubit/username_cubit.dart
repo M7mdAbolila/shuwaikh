@@ -1,14 +1,16 @@
 import 'package:bloc/bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
+import 'package:shuwaikh/core/helpers/shared_pref_helper.dart';
 
 part 'username_state.dart';
 
 class UsernameAndPhotoCubit extends Cubit<UsernameAndPhotoState> {
   UsernameAndPhotoCubit() : super(UsernameAndPhotoState());
   void getUsernameAndPhoto() async {
-    final sharedPreferences = await SharedPreferences.getInstance();
-    final String? username = sharedPreferences.getString('username');
-    final String? photo = sharedPreferences.getString('photo');
+    final String? username =
+        SharedPrefHelper.getSecuredString(SharedPrefKeys.username);
+    final String? photo =
+        SharedPrefHelper.getSecuredString(SharedPrefKeys.photo);
     emit(
       UsernameAndPhotoState(
         username: username,

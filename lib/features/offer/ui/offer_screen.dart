@@ -45,7 +45,7 @@ class _OfferScreenState extends State<OfferScreen> {
                 children: [
                   CachedNetworkImage(
                       imageUrl:
-                          '$offerPath${state.offerDetailsResponse.data!.image}'),
+                          '${ImagesPaths.offerPath}${state.offerDetailsResponse.data!.image}'),
                   verticalSpace(30),
                   Text(
                     state.offerDetailsResponse.data!.title ?? '',

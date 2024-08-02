@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/routing/app_router.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
@@ -19,9 +20,8 @@ import 'features/update info/logic/update_profile_cubit/update_profile_cubit.dar
 import 'generated/l10n.dart';
 
 class ShuwaikhApp extends StatelessWidget {
-  const ShuwaikhApp({super.key, required this.appRouter, this.isLogin = false});
+  const ShuwaikhApp({super.key, required this.appRouter});
   final AppRouter appRouter;
-  final bool isLogin;
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +71,7 @@ class ShuwaikhApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               onGenerateRoute: appRouter.generateRoute,
               initialRoute:
-                  // Routes.checkoutScreen,
-                  isLogin ? Routes.mainScreen : Routes.onBoarding,
+                  isLoggedInUser ? Routes.mainScreen : Routes.onBoarding,
             ),
           );
         },

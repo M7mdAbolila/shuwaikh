@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shuwaikh/core/helpers/shared_pref_helper.dart';
 import 'package:shuwaikh/features/login/data/models/login_response.dart';
 
 import '../../features/checkout/logic/place_order_cubit/place_order_cubit.dart';
@@ -49,30 +50,30 @@ class UserInfoCachceHelper {
   }
 
   static Future<String?> getCachedToken() async {
-    final sharedPreferences = await SharedPreferences.getInstance();
-    final token = sharedPreferences.getString('token');
-    return token;
+    final userToken =
+        SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+    return userToken;
   }
 
   static Future<UserData> getCachedUserInfo() async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final userInfo = UserData(
-      username: sharedPreferences.getString(username),
-      email: sharedPreferences.getString(email),
-      number: sharedPreferences.getString(number),
-      photo: sharedPreferences.getString('photo'),
-      shippingFname: sharedPreferences.getString(shFname),
-      shippingLname: sharedPreferences.getString(shLname),
-      shippingAddress: sharedPreferences.getString(shAddress),
-      shippingEmail: sharedPreferences.getString(shEmail),
-      shippingNumber: sharedPreferences.getString(shNumber),
-      shippingCity: sharedPreferences.getString(shCity),
-      billingFname: sharedPreferences.getString(billFname),
-      billingLname: sharedPreferences.getString(billLname),
-      billingAddress: sharedPreferences.getString(billAddress),
-      billingEmail: sharedPreferences.getString(billEmail),
-      billingNumber: sharedPreferences.getString(billNumber),
-      billingCity: sharedPreferences.getString(billCity),
+      username: sharedPreferences.getString(SharedPrefKeys.username),
+      email: sharedPreferences.getString(SharedPrefKeys.email),
+      number: sharedPreferences.getString(SharedPrefKeys.number),
+      photo: sharedPreferences.getString(SharedPrefKeys.photo),
+      shippingFname: sharedPreferences.getString(SharedPrefKeys.shFname),
+      shippingLname: sharedPreferences.getString(SharedPrefKeys.shLname),
+      shippingAddress: sharedPreferences.getString(SharedPrefKeys.shAddress),
+      shippingEmail: sharedPreferences.getString(SharedPrefKeys.shEmail),
+      shippingNumber: sharedPreferences.getString(SharedPrefKeys.shNumber),
+      shippingCity: sharedPreferences.getString(SharedPrefKeys.shCity),
+      billingFname: sharedPreferences.getString(SharedPrefKeys.billFname),
+      billingLname: sharedPreferences.getString(SharedPrefKeys.billLname),
+      billingAddress: sharedPreferences.getString(SharedPrefKeys.billAddress),
+      billingEmail: sharedPreferences.getString(SharedPrefKeys.billEmail),
+      billingNumber: sharedPreferences.getString(SharedPrefKeys.billNumber),
+      billingCity: sharedPreferences.getString(SharedPrefKeys.billCity),
     );
     return userInfo;
   }
@@ -114,12 +115,12 @@ class UserInfoCachceHelper {
   static Future<UserData> getCachedUserShippingInfo() async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final userShippingInfo = UserData(
-      shippingFname: sharedPreferences.getString(shFname),
-      shippingLname: sharedPreferences.getString(shLname),
-      shippingAddress: sharedPreferences.getString(shAddress),
-      shippingEmail: sharedPreferences.getString(shEmail),
-      shippingNumber: sharedPreferences.getString(shNumber),
-      shippingCity: sharedPreferences.getString(shCity),
+      shippingFname: sharedPreferences.getString(SharedPrefKeys.shFname),
+      shippingLname: sharedPreferences.getString(SharedPrefKeys.shLname),
+      shippingAddress: sharedPreferences.getString(SharedPrefKeys.shAddress),
+      shippingEmail: sharedPreferences.getString(SharedPrefKeys.shEmail),
+      shippingNumber: sharedPreferences.getString(SharedPrefKeys.shNumber),
+      shippingCity: sharedPreferences.getString(SharedPrefKeys.shCity),
     );
 
     return userShippingInfo;
@@ -128,12 +129,12 @@ class UserInfoCachceHelper {
   static Future<UserData> getCachedUserBillingInfo() async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final userBillingInfo = UserData(
-      billingFname: sharedPreferences.getString(billFname),
-      billingLname: sharedPreferences.getString(billLname),
-      billingAddress: sharedPreferences.getString(billAddress),
-      billingEmail: sharedPreferences.getString(billEmail),
-      billingNumber: sharedPreferences.getString(billNumber),
-      billingCity: sharedPreferences.getString(billCity),
+      billingFname: sharedPreferences.getString(SharedPrefKeys.billFname),
+      billingLname: sharedPreferences.getString(SharedPrefKeys.billLname),
+      billingAddress: sharedPreferences.getString(SharedPrefKeys.billAddress),
+      billingEmail: sharedPreferences.getString(SharedPrefKeys.billEmail),
+      billingNumber: sharedPreferences.getString(SharedPrefKeys.billNumber),
+      billingCity: sharedPreferences.getString(SharedPrefKeys.billCity),
     );
     return userBillingInfo;
   }

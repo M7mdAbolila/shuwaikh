@@ -32,7 +32,7 @@ class _UpdatePhotoWidgetState extends State<UpdatePhotoWidget> {
           _selectedImage == null
               ? widget.photo != null
                   ? CachedNetworkImage(
-                      imageUrl: '$userPhotoPath${widget.photo}',
+                      imageUrl: '${ImagesPaths.userPhotoPath}${widget.photo}',
                       placeholder: (context, url) =>
                           const CustomLoadingWidget(),
                       errorWidget: (context, url, error) => const Icon(

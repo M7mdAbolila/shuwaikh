@@ -53,8 +53,8 @@ class _CategoryItemState extends State<CategoryItem> {
             children: [
               CachedNetworkImage(
                 imageUrl: isArabic()
-                    ? '$catigoryPath${widget.category.image == '6633c017c2822.avif' ? '6633c0e14fc67.png' : widget.category.image}'
-                    : '$catigoryPath${widget.category.image == '6633bfef42c63.avif' ? '6633c0e14fc67.png' : widget.category.image}',
+                    ? '${ImagesPaths.catigoryPath}${widget.category.image == '6633c017c2822.avif' ? '6633c0e14fc67.png' : widget.category.image}'
+                    : '${ImagesPaths.catigoryPath}${widget.category.image == '6633bfef42c63.avif' ? '6633c0e14fc67.png' : widget.category.image}',
                 height: 60.h,
                 width: 60.w,
                 fit: BoxFit.fill,

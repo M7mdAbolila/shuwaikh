@@ -56,7 +56,7 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: CachedNetworkImageProvider(
-                      '$productPath${widget.product.featureImage}',
+                      '${ImagesPaths.productPath}${widget.product.featureImage}',
                     ),
                   ),
                   borderRadius: BorderRadius.circular(10),

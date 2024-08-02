@@ -81,7 +81,7 @@ class _CategoriesListViewState extends State<OffersListView> {
                                   ),
                                   child: CachedNetworkImage(
                                     imageUrl:
-                                        '$offerPath${state.offers![index].image}',
+                                        '${ImagesPaths.offerPath}${state.offers![index].image}',
                                   ),
                                 );
                               },

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
+import 'package:shuwaikh/core/helpers/shared_pref_helper.dart';
 import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
 
 import '../../../../core/helpers/setup_dialogs.dart';
@@ -39,8 +40,8 @@ class LoginBlocListener extends StatelessWidget {
             billLname: user.billingLname,
             billNumber: user.billingNumber,
           );
-          final sharedPreferences = await SharedPreferences.getInstance();
-          sharedPreferences.setBool('isLogin', true);
+          SharedPrefHelper.setSecuredString(
+              SharedPrefKeys.userToken, state.loginResponse.token!);
           context.pushNamed(Routes.otp);
         } else if (state is LoginFailure) {
           errorDialog(context, state.errMessage);
@@ -49,6 +50,4 @@ class LoginBlocListener extends StatelessWidget {
       child: const SizedBox.shrink(),
     );
   }
-
-  
 }

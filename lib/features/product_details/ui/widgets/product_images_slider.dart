@@ -39,7 +39,7 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
           itemBuilder: (BuildContext context, int index, int realIndex) {
             return CachedNetworkImage(
               imageUrl:
-                  '$productSliderPath${widget.productDetails!.productImages![index].image}',
+                  '${ImagesPaths.productSliderPath}${widget.productDetails!.productImages![index].image}',
               imageBuilder: (context, imageProvider) => Container(
                 width: 200.w,
                 height: 200.h,

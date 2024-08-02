@@ -49,7 +49,7 @@ class CartBroductItem extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: CachedNetworkImageProvider(
-                      '$productPath${cartItem!.image}',
+                      '${ImagesPaths.productPath}${cartItem!.image}',
                     ),
                   ),
                   borderRadius: BorderRadius.circular(10),
