@@ -36,11 +36,8 @@ class _VoucherSectionState extends State<VoucherSection> {
           builder: (context, state) {
             if (state is GetCouponsSuccess) {
               return state.coupons!.isEmpty
-                  ? Center(
-                      child: Text(
-                        S.of(context).no_coupons,
-                        style: TextStyles.font30Red700Weight,
-                      ),
+                  ? CustomErrorWidget(
+                      errMessage: S.of(context).no_coupons,
                     )
                   : ListView.builder(
                       padding: EdgeInsets.zero,

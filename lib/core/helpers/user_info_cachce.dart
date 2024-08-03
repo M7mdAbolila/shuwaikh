@@ -50,8 +50,8 @@ class UserInfoCachceHelper {
   }
 
   static Future<String?> getCachedToken() async {
-    final userToken =
-        SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+    final String? userToken =
+        await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
     return userToken;
   }
 

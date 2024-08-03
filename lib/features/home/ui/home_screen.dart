@@ -1,11 +1,8 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:shuwaikh/core/networking/api_service.dart';
-import 'package:shuwaikh/features/home/data/repos/get_categories_repo.dart';
-import 'package:shuwaikh/features/home/data/repos/get_coupons_repo.dart';
-import 'package:shuwaikh/features/home/data/repos/get_offers_repo.dart';
+import 'package:shuwaikh/core/di/dependency_injection.dart';
+
 import 'package:shuwaikh/features/home/logic/get_categories_cubit/get_categories_cubit.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
@@ -29,17 +26,15 @@ class _HomeScreenState extends State<HomeScreen>
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              GetCategoriesCubit(GetCategoriesRepo(ApiService(Dio())))
-                ..getCategories(Intl.getCurrentLocale()),
-        ),
-        BlocProvider(
-          create: (context) => GetOffersCubit(GetOffersRepo(ApiService(Dio())))
-            ..getOffers(Intl.getCurrentLocale()),
+          create: (context) => getIt<GetCategoriesCubit>()
+            ..getCategories(Intl.getCurrentLocale()),
         ),
         BlocProvider(
           create: (context) =>
-              GetCouponsCubit(GetCouponsRepo(ApiService(Dio())))..getCoupons(),
+              getIt<GetOffersCubit>()..getOffers(Intl.getCurrentLocale()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<GetCouponsCubit>()..getCoupons(),
         ),
       ],
       child: const HomeScreenBody(),

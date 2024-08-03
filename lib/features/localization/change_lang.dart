@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shuwaikh/features/account/ui/account_screen.dart';
 import '../../core/helpers/spacing.dart';
 import '../../core/theming/styles.dart';
 import '../../generated/l10n.dart';
+import '../account/ui/widgets/profile_button.dart';
 import 'cubit/locale_cubit.dart';
 
 class ChangeLang extends StatefulWidget {

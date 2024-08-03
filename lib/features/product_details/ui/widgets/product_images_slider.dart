@@ -44,7 +44,7 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
                 width: 200.w,
                 height: 200.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                   image: DecorationImage(
                     image: imageProvider,
                     fit: BoxFit.fill,

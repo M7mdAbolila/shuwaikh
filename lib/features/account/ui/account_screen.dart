@@ -1,13 +1,11 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
+import 'package:shuwaikh/core/helpers/shared_pref_helper.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
@@ -19,6 +17,7 @@ import 'package:shuwaikh/generated/l10n.dart';
 import '../../drawer/cubit/username_cubit.dart';
 import '../../update info/ui/update_profile_screen.dart';
 import 'widgets/info_item.dart';
+import 'widgets/profile_button.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -53,7 +52,6 @@ class _AccountScreenState extends State<AccountScreen> {
             child: BlocConsumer<ProfileCubit, ProfileState>(
               builder: (context, state) {
                 if (state is ProfileSuccess) {
-                  log('message');
                   return Column(
                     children: [
                       verticalSpace(50),
@@ -141,44 +139,15 @@ class _AccountScreenState extends State<AccountScreen> {
               },
               listener: (context, listener) async {
                 if (listener is ProfileSuccess) {
-                  log('messagelistenser');
                   if (listener.userData!.photo != null) {
-                    log(listener.userData!.photo!);
-                    final sharedPreferences =
-                        await SharedPreferences.getInstance();
-                    await sharedPreferences.setString(
-                        'photo', listener.userData!.photo!);
-                  } else {}
+                    SharedPrefHelper.setData(
+                        SharedPrefKeys.photo, listener.userData!.photo!);
+                  }
                   context.read<UsernameAndPhotoCubit>().getUsernameAndPhoto();
                 }
               },
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class ProfileButton extends StatelessWidget {
-  const ProfileButton({
-    super.key,
-    required this.title,
-    this.onPressed,
-  });
-  final String title;
-  final VoidCallback? onPressed;
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: const ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(ColorsManager.blue),
-      ),
-      onPressed: onPressed,
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyles.font20White700Weight,
         ),
       ),
     );

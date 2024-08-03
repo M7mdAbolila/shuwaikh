@@ -46,7 +46,7 @@ class _PhotoAndNameState extends State<PhotoAndName> {
                       height: 70.h,
                     )
                   : CachedNetworkImage(
-                      imageUrl: '${ImagesPaths.userPhotoPath}{state.photo}',
+                      imageUrl: '${ImagesPaths.userPhotoPath}${state.photo}',
                       placeholder: (context, url) =>
                           const CustomLoadingWidget(),
                       errorWidget: (context, url, error) => const Icon(

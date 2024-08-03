@@ -52,11 +52,8 @@ class _CategoriesListViewState extends State<OffersListView> {
               return Column(
                 children: [
                   state.offers!.isEmpty
-                      ? Center(
-                          child: Text(
-                            S.of(context).no_offers_found,
-                            style: TextStyles.font30Red700Weight,
-                          ),
+                      ? CustomErrorWidget(
+                          errMessage: S.of(context).no_offers_found,
                         )
                       : Column(
                           children: [

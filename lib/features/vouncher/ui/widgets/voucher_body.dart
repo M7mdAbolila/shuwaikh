@@ -1,14 +1,12 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/di/dependency_injection.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
-import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
-import 'package:shuwaikh/features/home/data/repos/get_coupons_repo.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/ui/widgets/voucher_section.dart';
 
@@ -68,7 +66,6 @@ class VoucherScreenBody extends StatelessWidget {
                         builder: (context, state) {
                           return Text(
                             state.username ?? getFail,
-                            // state.username,
                             style: TextStyles.font20White700Weight,
                           );
                         },
@@ -80,9 +77,7 @@ class VoucherScreenBody extends StatelessWidget {
             ),
             verticalSpace(35),
             BlocProvider(
-              create: (context) =>
-                  GetCouponsCubit(GetCouponsRepo(ApiService(Dio())))
-                    ..getCoupons(),
+              create: (context) => getIt<GetCouponsCubit>()..getCoupons(),
               child: const VoucherSection(),
             ),
           ],

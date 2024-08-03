@@ -1,21 +1,17 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shuwaikh/core/di/dependency_injection.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
-import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/routing/app_router.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
-import 'package:shuwaikh/features/favourites/data/repos/get_favourite_repo.dart';
 import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import 'package:shuwaikh/features/localization/cubit/locale_cubit.dart';
 import 'features/Products_page/logic/cubit/reload_favourites_cubit.dart';
-import 'features/account/data/repos/profile_repo.dart';
 import 'features/account/logic/cubit/profile_cubit.dart';
-import 'features/update info/data/repos/update_profile_repo.dart';
 import 'features/update info/logic/update_profile_cubit/update_profile_cubit.dart';
 import 'generated/l10n.dart';
 
@@ -37,15 +33,13 @@ class ShuwaikhApp extends StatelessWidget {
           create: (context) => LocaleCubit()..getSavedLanguage(),
         ),
         BlocProvider(
-          create: (context) =>
-              GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio()))),
+          create: (context) => getIt<GetFavouriteCubit>(),
         ),
         BlocProvider(
-          create: (context) => ProfileCubit(ProfileRepo(ApiService(Dio()))),
+          create: (context) => getIt<ProfileCubit>(),
         ),
         BlocProvider(
-          create: (context) =>
-              UpdateProfileCubit(UpdateProfileRepo(ApiService(Dio()))),
+          create: (context) => getIt<UpdateProfileCubit>(),
         ),
       ],
       child: BlocBuilder<LocaleCubit, ChangeLocaleState>(

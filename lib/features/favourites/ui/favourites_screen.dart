@@ -1,15 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shuwaikh/core/networking/api_service.dart';
+import 'package:shuwaikh/core/di/dependency_injection.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
-import 'package:shuwaikh/features/favourites/data/repos/get_favourite_repo.dart';
 import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
-import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
 import 'package:shuwaikh/features/product_details/logic/product_details_cubit/product_details_cubit.dart';
 
-import '../data/repos/is_favourite_repo.dart';
 import '../logic/is_favourite_cubit/is_favourite_cubit.dart';
 import 'widgets/favourites_screen_body.dart';
 
@@ -31,17 +27,13 @@ class FavouritesScreen extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) =>
-                GetFavouriteCubit(GetFavouriteRepo(ApiService(Dio())))
-                  ..getFavourites(),
+            create: (context) => getIt<GetFavouriteCubit>()..getFavourites(),
           ),
           BlocProvider(
-            create: (context) =>
-                ProductDetailsCubit(ProductDetailsRepo(ApiService(Dio()))),
+            create: (context) => getIt<ProductDetailsCubit>(),
           ),
           BlocProvider(
-            create: (context) =>
-                IsFavouriteCubit(IsFavouriteRepo(ApiService(Dio()))),
+            create: (context) => getIt<IsFavouriteCubit>(),
           ),
         ],
         child: const FavouritesScreenBody(),

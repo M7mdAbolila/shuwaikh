@@ -66,10 +66,11 @@ flutter:
   fonts:
     - family: Quicksand
       fonts:
-        - asset: assets/fonts/Quicksand-Bold.ttf
-        - asset: assets/fonts/Quicksand-SemiBold.ttf
-        - asset: assets/fonts/Quicksand-Medium.ttf
-        - asset: assets/fonts/Quicksand-Regular.ttf
-        - asset: assets/fonts/Quicksand-Light.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Bold.ttf
+        - asset: assets/fonts/quicksand/Quicksand-SemiBold.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Medium.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Regular.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Light.ttf
+    
 flutter_intl:
   enabled: true

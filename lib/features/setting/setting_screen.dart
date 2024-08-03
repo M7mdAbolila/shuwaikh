@@ -8,7 +8,8 @@ import '../../core/routing/routes.dart';
 import '../../core/theming/colors.dart';
 import '../../core/theming/styles.dart';
 import '../../generated/l10n.dart';
-import '../account/ui/account_screen.dart';
+import '../account/ui/widgets/profile_button.dart';
+
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
