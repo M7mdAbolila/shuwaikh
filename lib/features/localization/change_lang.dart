@@ -24,7 +24,7 @@ class _ChangeLangState extends State<ChangeLang> {
             children: [
               Text(
                 S.of(context).change_lang,
-                style: TextStyles.font16Black700Weight,
+                style: AppTextStyles.font16Black700Weight,
               ),
               const Icon(Icons.translate),
             ],

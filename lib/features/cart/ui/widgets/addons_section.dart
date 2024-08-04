@@ -31,7 +31,7 @@ class _AddonsSectionState extends State<AddonsSection> {
               const Divider(),
               Text(
                 S.of(context).addons,
-                style: TextStyles.font16Black500Weight,
+                style: AppTextStyles.font16Black500Weight,
               ),
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
@@ -50,12 +50,12 @@ class _AddonsSectionState extends State<AddonsSection> {
                     isArabic()
                         ? '${S.of(context).total} ${S.of(context).addons}: '
                         : '${S.of(context).addons} ${S.of(context).total}: ',
-                    style: TextStyles.font16Black400Weight,
+                    style: AppTextStyles.font16Black400Weight,
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     'KD${widget.cartItem?.addonsPrice}',
-                    style: TextStyles.font18Blue500Weight,
+                    style: AppTextStyles.font18Blue500Weight,
                   ),
                 ],
               ),

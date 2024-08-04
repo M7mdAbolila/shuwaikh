@@ -32,7 +32,7 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
           return Stack(
             children: [
               Container(
-                color: ColorsManager.blue,
+                color: AppColors.blue,
                 child: SafeArea(
                   child: CustomScrollView(
                     physics: const BouncingScrollPhysics(),
@@ -53,7 +53,7 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
             ],
           );
         } else if (state is ProductDetailsFailure) {
-          return CustomErrorWidget(
+          return CustomErrMessageWidget(
             errMessage: state.errMessage,
           );
         } else {

@@ -27,7 +27,7 @@ class _BillingAddressSectionState extends State<BillingAddressSection> {
         Row(
           children: [
             Checkbox(
-              activeColor: ColorsManager.blue,
+              activeColor: AppColors.blue,
               value: sameAddress,
               onChanged: (check) {
                 setState(() {
@@ -56,7 +56,7 @@ class _BillingAddressSectionState extends State<BillingAddressSection> {
                 children: [
                   Text(
                     S.of(context).billing_address,
-                    style: TextStyles.font26Blue700Weight,
+                    style: AppTextStyles.font26Blue700Weight,
                   ),
                   verticalSpace(15),
                   AppTextFormField(

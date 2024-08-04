@@ -28,6 +28,7 @@ import 'package:shuwaikh/features/my_orders/logic/cubit/my_orders_cubit.dart';
 import 'package:shuwaikh/features/offer/data/repos/offer_details_repo.dart';
 import 'package:shuwaikh/features/offer/logic/cubit/offer_details_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
+import 'package:shuwaikh/features/product_details/logic/product_details_cubit/product_details_cubit.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_billing_repo.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_profile_repo.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_shipping_repo.dart';
@@ -93,8 +94,8 @@ Future<void> setupGetIt() async {
   // product details
   getIt.registerLazySingleton<ProductDetailsRepo>(
       () => ProductDetailsRepo(getIt()));
-  getIt.registerLazySingleton<ProductsPageCubit>(
-      () => ProductsPageCubit(getIt()));
+  getIt.registerLazySingleton<ProductDetailsCubit>(
+      () => ProductDetailsCubit(getIt()));
 
   // get cart
   getIt.registerLazySingleton<GetCartRepo>(() => GetCartRepo(getIt()));

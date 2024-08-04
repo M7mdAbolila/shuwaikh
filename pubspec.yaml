@@ -44,6 +44,7 @@ dependencies:
   retrofit: ^4.0.3
   retrofit_generator: ^8.0.4
   shared_preferences: ^2.2.3
+  shimmer: ^3.0.0
   smooth_page_indicator: ^1.1.0
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
@@ -71,6 +72,6 @@ flutter:
         - asset: assets/fonts/quicksand/Quicksand-Medium.ttf
         - asset: assets/fonts/quicksand/Quicksand-Regular.ttf
         - asset: assets/fonts/quicksand/Quicksand-Light.ttf
-    
+
 flutter_intl:
   enabled: true

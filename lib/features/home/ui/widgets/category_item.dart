@@ -38,12 +38,12 @@ class _CategoryItemState extends State<CategoryItem> {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
-            border: Border.all(color: ColorsManager.lightBlue),
+            border: Border.all(color: AppColors.lightBlue),
             borderRadius: BorderRadius.circular(10.r),
             color: Colors.white,
             boxShadow: const [
               BoxShadow(
-                  color: ColorsManager.lightBlue,
+                  color: AppColors.lightBlue,
                   spreadRadius: 0,
                   blurRadius: 4,
                   offset: Offset(6, 4)),
@@ -62,7 +62,7 @@ class _CategoryItemState extends State<CategoryItem> {
               horizontalSpace(20),
               Text(
                 widget.category.name ?? getFail,
-                style: TextStyles.font20Black500Weight,
+                style: AppTextStyles.font20Black500Weight,
               ),
             ],
           ),

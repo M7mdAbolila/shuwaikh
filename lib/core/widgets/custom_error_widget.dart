@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../theming/styles.dart';
 
-class CustomErrorWidget extends StatelessWidget {
-  const CustomErrorWidget({
+class CustomErrMessageWidget extends StatelessWidget {
+  const CustomErrMessageWidget({
     super.key,
     required this.errMessage,
   });
@@ -17,7 +17,7 @@ class CustomErrorWidget extends StatelessWidget {
         child: Center(
           child: Text(
             errMessage,
-            style: TextStyles.font20Red600Weight,
+            style: AppTextStyles.font20Red600Weight,
             textAlign: TextAlign.center,
           ),
         ),

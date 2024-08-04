@@ -109,7 +109,8 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                 ],
               );
             } else if (state is GetCartFailure) {
-              return CustomErrorWidget(errMessage: state.errMessage ?? getFail);
+              return CustomErrMessageWidget(
+                  errMessage: state.errMessage ?? getFail);
             } else {
               return const CustomLoadingWidget();
             }

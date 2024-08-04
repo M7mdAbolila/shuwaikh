@@ -25,7 +25,7 @@ class _VoucherSectionState extends State<VoucherSection> {
       children: [
         Text(
           S.of(context).your_voucher,
-          style: TextStyles.font24MainBlue500Weight,
+          style: AppTextStyles.font24MainBlue500Weight,
           // style: TextStyles.font24MainBlue500Weight.copyWith(
           //   decoration: TextDecoration.underline,
           //   decorationColor: ColorsManager.mainBlue,
@@ -36,7 +36,7 @@ class _VoucherSectionState extends State<VoucherSection> {
           builder: (context, state) {
             if (state is GetCouponsSuccess) {
               return state.coupons!.isEmpty
-                  ? CustomErrorWidget(
+                  ? CustomErrMessageWidget(
                       errMessage: S.of(context).no_coupons,
                     )
                   : ListView.builder(
@@ -51,7 +51,7 @@ class _VoucherSectionState extends State<VoucherSection> {
                       },
                     );
             } else if (state is GetCouponsFailure) {
-              return CustomErrorWidget(
+              return CustomErrMessageWidget(
                 errMessage: state.errMessage,
               );
             } else {

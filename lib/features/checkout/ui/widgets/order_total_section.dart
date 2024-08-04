@@ -39,7 +39,7 @@ class _OrderTotalAndDiscountSectionState
       children: [
         Text(
           S.of(context).order_total,
-          style: TextStyles.font26Blue700Weight,
+          style: AppTextStyles.font26Blue700Weight,
         ),
         verticalSpace(20),
         OrderTotalWidget(
@@ -61,7 +61,7 @@ class _OrderTotalAndDiscountSectionState
         verticalSpace(20),
         Text(
           S.of(context).discount,
-          style: TextStyles.font26Blue700Weight,
+          style: AppTextStyles.font26Blue700Weight,
         ),
         verticalSpace(10),
         Row(
@@ -80,7 +80,7 @@ class _OrderTotalAndDiscountSectionState
             horizontalSpace(8),
             ElevatedButton(
               style: const ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(ColorsManager.blue),
+                backgroundColor: WidgetStatePropertyAll(AppColors.blue),
               ),
               onPressed: () {
                 context.read<CheckCouponCubit>().checkCoupon(
@@ -112,7 +112,7 @@ class _OrderTotalAndDiscountSectionState
                 context: context,
                 builder: (context) => const Center(
                   child: CircularProgressIndicator(
-                    color: ColorsManager.blue,
+                    color: AppColors.blue,
                   ),
                 ),
               );
@@ -142,11 +142,11 @@ class OrderTotalWidget extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyles.font16Black500Weight,
+              style: AppTextStyles.font16Black500Weight,
             ),
             Text(
               price,
-              style: TextStyles.font16Black500Weight,
+              style: AppTextStyles.font16Black500Weight,
             ),
           ],
         ),

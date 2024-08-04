@@ -40,7 +40,7 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
             color: Colors.white,
             boxShadow: const [
               BoxShadow(
-                color: ColorsManager.lightBlue,
+                color: AppColors.lightBlue,
                 offset: Offset(5, 5),
                 blurRadius: 14,
                 spreadRadius: 2,
@@ -76,7 +76,7 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
                         width: 155.w,
                         child: Text(
                           widget.product.title ?? '',
-                          style: TextStyles.font20Black500Weight,
+                          style: AppTextStyles.font20Black500Weight,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),
@@ -86,11 +86,11 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
                           children: [
                             TextSpan(
                               text: '${S.of(context).price} ',
-                              style: TextStyles.font16Black400Weight,
+                              style: AppTextStyles.font16Black400Weight,
                             ),
                             TextSpan(
                               text: 'KD${widget.product.currentPrice ?? ''}',
-                              style: TextStyles.font18Blue500Weight,
+                              style: AppTextStyles.font18Blue500Weight,
                             ),
                           ],
                         ),
@@ -105,7 +105,7 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
               ),
               const CircleAvatar(
                 radius: 20,
-                backgroundColor: ColorsManager.blue,
+                backgroundColor: AppColors.blue,
                 child: Icon(
                   Icons.add,
                   color: Colors.white,

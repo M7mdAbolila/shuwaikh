@@ -36,7 +36,7 @@ class _ProductCategoryItemState extends State<ProductCategoryItem> {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: ColorsManager.lightBlue,
+            color: AppColors.lightBlue,
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.3),
@@ -57,7 +57,7 @@ class _ProductCategoryItemState extends State<ProductCategoryItem> {
               horizontalSpace(20),
               Text(
                 widget.category.name ?? '',
-                style: TextStyles.font20Black500Weight,
+                style: AppTextStyles.font20Black500Weight,
               ),
             ],
           ),

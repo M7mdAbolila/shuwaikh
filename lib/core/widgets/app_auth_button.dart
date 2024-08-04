@@ -14,16 +14,16 @@ class AppAuthButton extends StatelessWidget {
       children: [
         Text(
           text,
-          style: TextStyles.font30Black400Weight,
+          style: AppTextStyles.font30Black400Weight,
         ),
         GestureDetector(
-          onTap:onTap,
+          onTap: onTap,
           child: Container(
             width: 50,
             height: 50,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: ColorsManager.blue,
+              color: AppColors.blue,
             ),
             child: const Icon(
               Icons.arrow_forward_ios,

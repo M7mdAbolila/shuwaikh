@@ -36,14 +36,15 @@ class _ShippingChargesSectionState extends State<ShippingChargesSection> {
       children: [
         Text(
           S.of(context).shipping_charges,
-          style: TextStyles.font16Black700Weight,
+          style: AppTextStyles.font16Black700Weight,
         ),
         BlocBuilder<ShippingChargeCubit, ShippingChargeState>(
           builder: (context, state) {
             if (state is ShippingChargeSuccess) {
               return ShippingChargeListview(shipping: state.shipping);
             } else if (state is ShippingChargeFailure) {
-              return CustomErrorWidget(errMessage: state.errMessge ?? getFail);
+              return CustomErrMessageWidget(
+                  errMessage: state.errMessge ?? getFail);
             } else {
               return const CustomLoadingWidget();
             }
@@ -86,7 +87,7 @@ class _ShippingChargeListviewState extends State<ShippingChargeListview> {
                 subtitle: Text(widget.shipping![index].text!),
                 value: title,
                 groupValue: widget.selectedShipping,
-                activeColor: ColorsManager.blue,
+                activeColor: AppColors.blue,
                 onChanged: (value) {
                   setState(() {
                     widget.selectedShipping = value;

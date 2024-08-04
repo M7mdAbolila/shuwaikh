@@ -15,11 +15,11 @@ class DontReciveCode extends StatelessWidget {
         children: [
           Text(
             '${S.of(context).dont_recive} ',
-            style: TextStyles.font14Black400Weight,
+            style: AppTextStyles.font14Black400Weight,
           ),
           Text(
             S.of(context).resend,
-            style: TextStyles.font14Blue400Weight,
+            style: AppTextStyles.font14Blue400Weight,
           )
         ],
       ),

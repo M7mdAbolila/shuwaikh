@@ -24,13 +24,13 @@ class CustomButton extends StatelessWidget {
         width: 335.w,
         height: 50.h,
         decoration: BoxDecoration(
-          color: color ?? ColorsManager.blue,
+          color: color ?? AppColors.blue,
           borderRadius: BorderRadius.circular(6),
         ),
         child: Center(
           child: Text(
             text,
-            style: textStyle ?? TextStyles.font20White700Weight,
+            style: textStyle ?? AppTextStyles.font20White700Weight,
           ),
         ),
       ),

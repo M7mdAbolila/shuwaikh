@@ -40,7 +40,7 @@ class _FavouriteItemState extends State<FavouriteItem> {
             color: Colors.white,
             boxShadow: const [
               BoxShadow(
-                color: ColorsManager.lightBlue,
+                color: AppColors.lightBlue,
                 offset: Offset(5, 5),
                 blurRadius: 14,
                 spreadRadius: -4,
@@ -78,7 +78,7 @@ class _FavouriteItemState extends State<FavouriteItem> {
                           width: 170.w,
                           child: Text(
                             '${widget.favouriteProduct.title}',
-                            style: TextStyles.font24Black500Weight,
+                            style: AppTextStyles.font24Black500Weight,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                           ),
@@ -88,11 +88,11 @@ class _FavouriteItemState extends State<FavouriteItem> {
                             children: [
                               TextSpan(
                                 text: '${S.of(context).price} ',
-                                style: TextStyles.font16Black400Weight,
+                                style: AppTextStyles.font16Black400Weight,
                               ),
                               TextSpan(
                                 text: 'KD${widget.favouriteProduct.price}',
-                                style: TextStyles.font18Blue500Weight,
+                                style: AppTextStyles.font18Blue500Weight,
                               ),
                             ],
                           ),
@@ -108,7 +108,7 @@ class _FavouriteItemState extends State<FavouriteItem> {
                       .isFavouriteStates(widget.favouriteProduct.productId!),
                   child: const Icon(
                     Icons.favorite,
-                    color: ColorsManager.blue,
+                    color: AppColors.blue,
                     size: 35,
                   ),
                 ),

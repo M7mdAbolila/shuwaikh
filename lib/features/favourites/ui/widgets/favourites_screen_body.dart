@@ -25,7 +25,7 @@ class _FavouritesScreenBodyState extends State<FavouritesScreenBody> {
             child: ListView(
               children: [
                 state.favourites!.isEmpty
-                    ? const CustomErrorWidget(
+                    ? const CustomErrMessageWidget(
                         errMessage: 'No Product Found In Your Wishlist',
                       )
                     : ListView.builder(
@@ -44,7 +44,7 @@ class _FavouritesScreenBodyState extends State<FavouritesScreenBody> {
             ),
           );
         } else if (state is GetFavouriteFailure) {
-          return CustomErrorWidget(
+          return CustomErrMessageWidget(
             errMessage: state.errMessage,
           );
         } else {

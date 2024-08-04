@@ -58,7 +58,7 @@ class ShuwaikhApp extends StatelessWidget {
               supportedLocales: S.delegate.supportedLocales,
               title: 'Shuwaikh',
               theme: ThemeData(
-                primaryColor: ColorsManager.blue,
+                primaryColor: AppColors.blue,
                 fontFamily: 'Quicksand',
                 scaffoldBackgroundColor: Colors.white,
               ),

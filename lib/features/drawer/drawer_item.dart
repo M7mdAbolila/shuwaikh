@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,7 +28,7 @@ class DrawerItem extends StatelessWidget {
             horizontalSpace(15),
             Text(
               title,
-              style: TextStyles.font20Black500Weight,
+              style: AppTextStyles.font20Black500Weight,
             ),
           ],
         ),

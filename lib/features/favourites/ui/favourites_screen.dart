@@ -17,11 +17,11 @@ class FavouritesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: ColorsManager.blue,
+        backgroundColor: AppColors.blue,
         centerTitle: true,
         title: Text(
           'Your Favourites',
-          style: TextStyles.font30White400Weight,
+          style: AppTextStyles.font30White400Weight,
         ),
       ),
       body: MultiBlocProvider(

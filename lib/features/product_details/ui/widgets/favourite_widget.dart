@@ -58,7 +58,7 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
           },
           child: Icon(
             isFavourite ? Icons.favorite : Icons.favorite_border,
-            color: ColorsManager.blue,
+            color: AppColors.blue,
             size: 35,
           ),
         ),

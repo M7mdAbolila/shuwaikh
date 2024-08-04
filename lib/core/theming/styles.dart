@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 
-class TextStyles {
+class AppTextStyles {
   // ========= White Fonts ============
   static TextStyle font36White700Weight = TextStyle(
     fontSize: 36.sp,
@@ -89,78 +89,78 @@ class TextStyles {
   static TextStyle font22Grey700Weight = TextStyle(
     fontSize: 22.sp,
     fontWeight: FontWeight.w700,
-    color: ColorsManager.grey,
+    color: AppColors.grey,
   );
   static TextStyle font16Gray400Weight = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
-    color: ColorsManager.grey,
+    color: AppColors.grey,
   );
   static TextStyle font10Gray500Weight = TextStyle(
     fontSize: 10.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.grey,
+    color: AppColors.grey,
   );
   //  ======= Blue Fonts =========
   static TextStyle font30MainBlue500Weight = TextStyle(
     fontSize: 30.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font26Blue700Weight = TextStyle(
     fontSize: 26.sp,
     fontWeight: FontWeight.w700,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font24MainBlue500Weight = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font20MainBlue700Weight = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w700,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font20MainBlue500Weight = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font18Blue500Weight = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font18MainBlue500Weight = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font16Blue400Weight = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font14Blue400Weight = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font14LightBlue500weight = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.lightBlue,
+    color: AppColors.lightBlue,
   );
   static TextStyle font11Blue500Weight = TextStyle(
     fontSize: 11.sp,
     fontWeight: FontWeight.w500,
-    color: ColorsManager.blue,
+    color: AppColors.blue,
   );
   static TextStyle font10DrakBlue400Weight = TextStyle(
     fontSize: 10.sp,
     fontWeight: FontWeight.w400,
-    color: ColorsManager.darkBlue,
+    color: AppColors.darkBlue,
   );
 
   // =========== red fonts =======================

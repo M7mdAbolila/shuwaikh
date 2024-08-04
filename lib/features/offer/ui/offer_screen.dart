@@ -31,7 +31,7 @@ class _OfferScreenState extends State<OfferScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: ColorsManager.blue),
+        iconTheme: const IconThemeData(color: AppColors.blue),
         elevation: 0,
         backgroundColor: Colors.white,
       ),
@@ -49,18 +49,18 @@ class _OfferScreenState extends State<OfferScreen> {
                   verticalSpace(30),
                   Text(
                     state.offerDetailsResponse.data!.title ?? '',
-                    style: TextStyles.font24Black700Weight,
+                    style: AppTextStyles.font24Black700Weight,
                   ),
                   Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
                           text: '${S.of(context).price} ',
-                          style: TextStyles.font20Black500Weight,
+                          style: AppTextStyles.font20Black500Weight,
                         ),
                         TextSpan(
                           text: 'KD${state.offerDetailsResponse.data!.price}',
-                          style: TextStyles.font26Blue700Weight,
+                          style: AppTextStyles.font26Blue700Weight,
                         ),
                       ],
                     ),
@@ -69,7 +69,7 @@ class _OfferScreenState extends State<OfferScreen> {
                   Text(
                     AppRegex.removeHtmlTags(
                         state.offerDetailsResponse.data!.description ?? ''),
-                    style: TextStyles.font13Black500Weight,
+                    style: AppTextStyles.font13Black500Weight,
                     maxLines: 13,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -79,11 +79,11 @@ class _OfferScreenState extends State<OfferScreen> {
                       children: [
                         TextSpan(
                           text: '${S.of(context).expired}: ',
-                          style: TextStyles.font14Black400Weight,
+                          style: AppTextStyles.font14Black400Weight,
                         ),
                         TextSpan(
                           text: state.offerDetailsResponse.data!.endData ?? '',
-                          style: TextStyles.font16Blue400Weight,
+                          style: AppTextStyles.font16Blue400Weight,
                         ),
                       ],
                     ),
@@ -92,7 +92,7 @@ class _OfferScreenState extends State<OfferScreen> {
               ),
             );
           } else if (state is OfferDetailsFailure) {
-            return CustomErrorWidget(errMessage: state.errMessage);
+            return CustomErrMessageWidget(errMessage: state.errMessage);
           } else {
             return const CustomLoadingWidget();
           }

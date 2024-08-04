@@ -22,9 +22,9 @@ class UpdateShippingScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           S.of(context).edit_shipping,
-          style: TextStyles.font20White700Weight,
+          style: AppTextStyles.font20White700Weight,
         ),
-        backgroundColor: ColorsManager.blue,
+        backgroundColor: AppColors.blue,
       ),
       body: SafeArea(
         child: Padding(
@@ -66,7 +66,7 @@ class UpdateShippingScreen extends StatelessWidget {
                 verticalSpace(50),
                 CustomButton(
                   text: S.of(context).update,
-                  color: ColorsManager.blue,
+                  color: AppColors.blue,
                   onTap: () =>
                       context.read<UpdateShippingCubit>().updateShipping(),
                 ),

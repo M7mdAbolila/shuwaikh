@@ -15,7 +15,7 @@ class PayViaWidget extends StatelessWidget {
       children: [
         Text(
           S.of(context).pay_via,
-          style: TextStyles.font16Black700Weight,
+          style: AppTextStyles.font16Black700Weight,
         ),
         RadioListTile(
           activeColor: Colors.grey,

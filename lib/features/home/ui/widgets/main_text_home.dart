@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -24,11 +23,11 @@ class MainTextHome extends StatelessWidget {
             children: [
               TextSpan(
                 text: '$mainText1 \n',
-                style: TextStyles.font26White500Weight,
+                style: AppTextStyles.font26White500Weight,
               ),
               TextSpan(
                 text: mainText2,
-                style: TextStyles.font36White700Weight,
+                style: AppTextStyles.font36White700Weight,
               ),
             ],
           ),

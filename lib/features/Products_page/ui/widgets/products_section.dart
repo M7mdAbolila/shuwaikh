@@ -39,7 +39,7 @@ class _ProuductsSectionState extends State<ProuductsSection> {
             ),
             Text(
               changeCategoryState.name ?? '',
-              style: TextStyles.font20Black500Weight,
+              style: AppTextStyles.font20Black500Weight,
             ),
             verticalSpace(10),
             BlocBuilder<ProductsPageCubit, ProductsPageState>(
@@ -77,7 +77,7 @@ class _ProuductsSectionState extends State<ProuductsSection> {
                     },
                   );
                 } else if (state is ProductsPageFailure) {
-                  return CustomErrorWidget(errMessage: state.errMessage);
+                  return CustomErrMessageWidget(errMessage: state.errMessage);
                 } else {
                   return const CustomLoadingWidget();
                 }

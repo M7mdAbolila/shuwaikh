@@ -17,11 +17,11 @@ class MyOrdersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorsManager.blue,
+        backgroundColor: AppColors.blue,
         iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
           S.of(context).my_orders,
-          style: TextStyles.font20White700Weight,
+          style: AppTextStyles.font20White700Weight,
         ),
         centerTitle: true,
       ),
@@ -42,7 +42,7 @@ class MyOrdersScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: const [
                         BoxShadow(
-                          color: ColorsManager.lightBlue,
+                          color: AppColors.lightBlue,
                           spreadRadius: 0,
                           blurRadius: 8,
                         ),
@@ -74,11 +74,11 @@ class MyOrdersScreen extends StatelessWidget {
                               children: [
                                 TextSpan(
                                   text: '${S.of(context).order_total}:  ',
-                                  style: TextStyles.font16Black700Weight,
+                                  style: AppTextStyles.font16Black700Weight,
                                 ),
                                 TextSpan(
                                   text: 'KD${state.orders![index].total!}',
-                                  style: TextStyles.font18Blue500Weight,
+                                  style: AppTextStyles.font18Blue500Weight,
                                 ),
                               ],
                             ),
@@ -90,7 +90,8 @@ class MyOrdersScreen extends StatelessWidget {
                 },
               );
             } else if (state is MyOrdersFailure) {
-              return CustomErrorWidget(errMessage: state.errMessage ?? getFail);
+              return CustomErrMessageWidget(
+                  errMessage: state.errMessage ?? getFail);
             } else {
               return const CustomLoadingWidget();
             }
@@ -112,11 +113,11 @@ class OrderInfo extends StatelessWidget {
         children: [
           TextSpan(
             text: '$title:  ',
-            style: TextStyles.font16Black700Weight,
+            style: AppTextStyles.font16Black700Weight,
           ),
           TextSpan(
             text: subtitle,
-            style: TextStyles.font14Blue400Weight,
+            style: AppTextStyles.font14Blue400Weight,
           ),
         ],
       ),

@@ -37,12 +37,12 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorsManager.blue,
+        backgroundColor: AppColors.blue,
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
         title: Text(
           S.of(context).account,
-          style: TextStyles.font20White700Weight,
+          style: AppTextStyles.font20White700Weight,
         ),
       ),
       body: SafeArea(
@@ -78,7 +78,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                     shape: BoxShape.circle,
                                     border: Border.all(
                                       width: 2.w,
-                                      color: ColorsManager.blue,
+                                      color: AppColors.blue,
                                     ),
                                     image: DecorationImage(
                                       image: imageProvider,
@@ -91,7 +91,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       verticalSpace(20),
                       Text(
                         state.userData!.username ?? getFail,
-                        style: TextStyles.font24Black700Weight,
+                        style: AppTextStyles.font24Black700Weight,
                       ),
                       verticalSpace(20),
                       const Divider(),
@@ -130,7 +130,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ],
                   );
                 } else if (state is ProfileFailure) {
-                  return CustomErrorWidget(
+                  return CustomErrMessageWidget(
                     errMessage: state.errmessage ?? getFail,
                   );
                 } else {

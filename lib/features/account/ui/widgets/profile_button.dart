@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/colors.dart';
@@ -16,13 +15,13 @@ class ProfileButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(ColorsManager.blue),
+        backgroundColor: WidgetStatePropertyAll(AppColors.blue),
       ),
       onPressed: onPressed,
       child: Center(
         child: Text(
           title,
-          style: TextStyles.font20White700Weight,
+          style: AppTextStyles.font20White700Weight,
         ),
       ),
     );

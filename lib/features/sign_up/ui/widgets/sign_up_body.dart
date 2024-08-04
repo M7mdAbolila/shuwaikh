@@ -28,13 +28,13 @@ class SignupScreenBody extends StatelessWidget {
             verticalSpace(35),
             Text(
               S.of(context).Great_to_see_you,
-              style: TextStyles.font26Blue700Weight,
+              style: AppTextStyles.font26Blue700Weight,
             ),
             SizedBox(
               width: 220.w,
               child: Text(
                 S.of(context).lets_setup_account,
-                style: TextStyles.font16Black400Weight,
+                style: AppTextStyles.font16Black400Weight,
                 textAlign: TextAlign.center,
               ),
             ),

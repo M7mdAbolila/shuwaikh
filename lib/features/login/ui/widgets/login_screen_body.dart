@@ -31,11 +31,11 @@ class LoginScreenBody extends StatelessWidget {
             verticalSpace(35),
             Text(
               S.of(context).lets_sign_in,
-              style: TextStyles.font26Blue700Weight,
+              style: AppTextStyles.font26Blue700Weight,
             ),
             Text(
               S.of(context).welcome_back,
-              style: TextStyles.font16Black400Weight,
+              style: AppTextStyles.font16Black400Weight,
             ),
             verticalSpace(50),
             const UsernameAndPassword(),

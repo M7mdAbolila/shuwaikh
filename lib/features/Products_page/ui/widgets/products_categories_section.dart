@@ -27,7 +27,7 @@ class _ProductsCategoriesSectionState extends State<ProductsCategoriesSection> {
       children: [
         Text(
           S.of(context).all_categories,
-          style: TextStyles.font24MainBlue500Weight,
+          style: AppTextStyles.font24MainBlue500Weight,
           // style: TextStyles.font24MainBlue500Weight.copyWith(
           //   decoration: TextDecoration.underline,
           //   decorationColor: ColorsManager.mainBlue,
@@ -70,7 +70,7 @@ class _ProductsCategoriesListViewState
           ),
         );
       } else if (state is ProductsPageFailure) {
-        return CustomErrorWidget(
+        return CustomErrMessageWidget(
           errMessage: state.errMessage,
         );
       } else {

@@ -19,7 +19,7 @@ class ShippingAddressSection extends StatelessWidget {
       children: [
         Text(
           S.of(context).shipping_address,
-          style: TextStyles.font26Blue700Weight,
+          style: AppTextStyles.font26Blue700Weight,
         ),
         verticalSpace(15),
         AppTextFormField(
@@ -74,8 +74,7 @@ class ShippingAddressSection extends StatelessWidget {
             controller: context.read<PlaceOrderCubit>().shippingNumber,
             keyboardType: TextInputType.phone,
             validator: (value) {
-              if (value == null ||
-                  value.isEmpty ) {
+              if (value == null || value.isEmpty) {
                 return S.of(context).enter_valid_phone;
               }
             }),

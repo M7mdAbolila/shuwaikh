@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               child: CurvedNavigationBar(
                 height: 60.h,
-                color: ColorsManager.darkBlue,
+                color: AppColors.darkBlue,
                 backgroundColor: Colors.transparent,
                 index: currentPage,
                 onTap: (index) => setState(() {

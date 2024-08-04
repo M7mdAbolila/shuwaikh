@@ -37,13 +37,13 @@ class VoucherItem extends StatelessWidget {
               width: 81.w,
               padding: EdgeInsets.symmetric(horizontal: 2.w),
               decoration: BoxDecoration(
-                color: ColorsManager.blue,
+                color: AppColors.blue,
                 borderRadius: BorderRadius.circular(3),
               ),
               child: Center(
                 child: Text(
                   coupon.name ?? getFail,
-                  style: TextStyles.font13White500Weight,
+                  style: AppTextStyles.font13White500Weight,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -55,11 +55,11 @@ class VoucherItem extends StatelessWidget {
             child: coupon.type == 'percentage'
                 ? Text(
                     '%${coupon.value ?? getFail}',
-                    style: TextStyles.font24MainBlue500Weight,
+                    style: AppTextStyles.font24MainBlue500Weight,
                   )
                 : Text(
                     'KD${coupon.value ?? getFail}',
-                    style: TextStyles.font20MainBlue500Weight,
+                    style: AppTextStyles.font20MainBlue500Weight,
                   ),
           ),
           Positioned(
@@ -72,7 +72,7 @@ class VoucherItem extends StatelessWidget {
                 coupon.type == 'percentage'
                     ? '%${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}'
                     : 'KD${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}',
-                style: TextStyles.font13Black500Weight,
+                style: AppTextStyles.font13Black500Weight,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: isArabic() ? TextAlign.right : TextAlign.left,
@@ -88,13 +88,13 @@ class VoucherItem extends StatelessWidget {
                 height: 30.h,
                 width: 85.w,
                 decoration: BoxDecoration(
-                  color: ColorsManager.darkBlue,
+                  color: AppColors.darkBlue,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Center(
                   child: Text(
                     S.of(context).apply,
-                    style: TextStyles.font14LightBlue500weight,
+                    style: AppTextStyles.font14LightBlue500weight,
                   ),
                 ),
               ),
@@ -105,7 +105,7 @@ class VoucherItem extends StatelessWidget {
             left: 116.w,
             child: Text(
               '${S.of(context).expired}: ${coupon.endDate}',
-              style: TextStyles.font10DrakBlue400Weight,
+              style: AppTextStyles.font10DrakBlue400Weight,
             ),
           ),
         ],
@@ -133,7 +133,7 @@ class VoucherItem extends StatelessWidget {
                     ),
                     Text(
                       coupon.code!,
-                      style: TextStyles.font26Blue700Weight,
+                      style: AppTextStyles.font26Blue700Weight,
                     ),
                   ],
                 ),
@@ -142,13 +142,13 @@ class VoucherItem extends StatelessWidget {
                   coupon.type == 'percentage'
                       ? '%${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}'
                       : 'KD${coupon.value} ${S.of(context).minimum_discount} KD${coupon.minimumSpend}',
-                  style: TextStyles.font13Black500Weight,
+                  style: AppTextStyles.font13Black500Weight,
                   textAlign: isArabic() ? TextAlign.right : TextAlign.left,
                 ),
                 verticalSpace(5),
                 Text(
                   S.of(context).copy_and_paste,
-                  style: TextStyles.font18Blue500Weight,
+                  style: AppTextStyles.font18Blue500Weight,
                 ),
               ],
             ),
@@ -167,7 +167,7 @@ class VoucherItem extends StatelessWidget {
             TextButton(
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: ColorsManager.blue,
+                backgroundColor: AppColors.blue,
                 disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
               onPressed: () async {

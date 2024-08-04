@@ -10,7 +10,6 @@ import '../../core/theming/styles.dart';
 import '../../generated/l10n.dart';
 import '../account/ui/widgets/profile_button.dart';
 
-
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
 
@@ -22,9 +21,9 @@ class SettingScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           S.of(context).setting,
-          style: TextStyles.font20White700Weight,
+          style: AppTextStyles.font20White700Weight,
         ),
-        backgroundColor: ColorsManager.blue,
+        backgroundColor: AppColors.blue,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w),

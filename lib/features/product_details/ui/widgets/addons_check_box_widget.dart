@@ -37,7 +37,7 @@ class _AddonsCheckBoxWidgetState extends State<AddonsCheckBoxWidget> {
               padding: EdgeInsets.only(left: 12.w),
               child: Checkbox(
                   value: isChecked,
-                  activeColor: ColorsManager.blue,
+                  activeColor: AppColors.blue,
                   onChanged: (check) {
                     setState(() {
                       isChecked = check;
@@ -68,7 +68,7 @@ class _AddonsCheckBoxWidgetState extends State<AddonsCheckBoxWidget> {
             ),
             Text(
               widget.addon!.name,
-              style: TextStyles.font16Gray400Weight,
+              style: AppTextStyles.font16Gray400Weight,
             ),
           ],
         ),

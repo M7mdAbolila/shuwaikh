@@ -37,7 +37,7 @@ class _ShippingAndBillingDetailsSectionState
             : Row(
                 children: [
                   Checkbox(
-                    activeColor: ColorsManager.blue,
+                    activeColor: AppColors.blue,
                     value: useSavedDetails,
                     onChanged: (check) {
                       setState(() {

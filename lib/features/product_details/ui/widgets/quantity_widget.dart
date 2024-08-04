@@ -35,7 +35,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
       children: [
         Text(
           S.of(context).quantity,
-          style: TextStyles.font20Black500Weight,
+          style: AppTextStyles.font20Black500Weight,
         ),
         Row(
           children: [
@@ -52,7 +52,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
               },
               child: const CircleAvatar(
                 radius: 12,
-                backgroundColor: ColorsManager.lightBlue,
+                backgroundColor: AppColors.lightBlue,
                 child: Icon(
                   Icons.remove,
                   color: Colors.white,
@@ -63,7 +63,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
             horizontalSpace(15),
             Text(
               quantity.toString(),
-              style: TextStyles.font20Black500Weight,
+              style: AppTextStyles.font20Black500Weight,
             ),
             horizontalSpace(15),
             GestureDetector(
@@ -75,7 +75,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
               }),
               child: const CircleAvatar(
                 radius: 12,
-                backgroundColor: ColorsManager.blue,
+                backgroundColor: AppColors.blue,
                 child: Icon(
                   Icons.add,
                   color: Colors.white,

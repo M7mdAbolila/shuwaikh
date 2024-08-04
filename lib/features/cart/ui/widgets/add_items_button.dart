@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,10 +16,9 @@ class AddMoreItemsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomButton(
       text: S.of(context).add_more_items,
-      color: ColorsManager.lightBlue,
-      textStyle: TextStyles.font20MainBlue700Weight,
+      color: AppColors.lightBlue,
+      textStyle: AppTextStyles.font20MainBlue700Weight,
       onTap: () => context.read<ChangePageCubit>().changePage(2),
     );
   }
 }
-

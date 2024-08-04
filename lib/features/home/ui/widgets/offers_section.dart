@@ -2,17 +2,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
+import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
-import '../../../../core/widgets/custom_loading_widget.dart';
 
 class OffersSection extends StatelessWidget {
   const OffersSection({super.key});
@@ -39,11 +40,7 @@ class _CategoriesListViewState extends State<OffersListView> {
       children: [
         Text(
           S.of(context).your_offers,
-          style: TextStyles.font24MainBlue500Weight,
-          // TextStyles.font24MainBlue500Weight.copyWith(
-          //   decoration: TextDecoration.underline,
-          //   decorationColor: ColorsManager.mainBlue,
-          // ),
+          style: AppTextStyles.font24MainBlue500Weight,
         ),
         verticalSpace(15),
         BlocBuilder<GetOffersCubit, GetOffersState>(
@@ -52,7 +49,7 @@ class _CategoriesListViewState extends State<OffersListView> {
               return Column(
                 children: [
                   state.offers!.isEmpty
-                      ? CustomErrorWidget(
+                      ? CustomErrMessageWidget(
                           errMessage: S.of(context).no_offers_found,
                         )
                       : Column(
@@ -79,6 +76,8 @@ class _CategoriesListViewState extends State<OffersListView> {
                                   child: CachedNetworkImage(
                                     imageUrl:
                                         '${ImagesPaths.offerPath}${state.offers![index].image}',
+                                    height: 195.h,
+                                    width: 335.w,
                                   ),
                                 );
                               },
@@ -88,8 +87,8 @@ class _CategoriesListViewState extends State<OffersListView> {
                               activeIndex: activeIndex,
                               count: state.offers!.length,
                               effect: const SwapEffect(
-                                dotColor: ColorsManager.lightBlue,
-                                activeDotColor: ColorsManager.darkBlue,
+                                dotColor: AppColors.lightBlue,
+                                activeDotColor: AppColors.darkBlue,
                               ),
                             ),
                           ],
@@ -97,7 +96,7 @@ class _CategoriesListViewState extends State<OffersListView> {
                 ],
               );
             } else if (state is GetOffersFailure) {
-              return CustomErrorWidget(
+              return CustomErrMessageWidget(
                 errMessage: state.errMessage,
               );
             } else {

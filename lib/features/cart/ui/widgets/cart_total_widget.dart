@@ -18,11 +18,11 @@ class CartTotalWidget extends StatelessWidget {
       children: [
         Text(
           '${S.of(context).total}:',
-          style: TextStyles.font22Grey700Weight,
+          style: AppTextStyles.font22Grey700Weight,
         ),
         Text(
           'KD ${total!.toStringAsFixed(2)}',
-          style: TextStyles.font24Black700Weight,
+          style: AppTextStyles.font24Black700Weight,
         ),
       ],
     );

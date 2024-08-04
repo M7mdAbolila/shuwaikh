@@ -30,7 +30,7 @@ class CartBroductItem extends StatelessWidget {
         color: Colors.white,
         boxShadow: const [
           BoxShadow(
-            color: ColorsManager.lightBlue,
+            color: AppColors.lightBlue,
             offset: Offset(5, 5),
             blurRadius: 14,
             spreadRadius: -4,
@@ -83,12 +83,12 @@ class CartBroductItem extends StatelessWidget {
                   children: [
                     Text(
                       '${S.of(context).total}: ',
-                      style: TextStyles.font16Black700Weight,
+                      style: AppTextStyles.font16Black700Weight,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       'KD${cartItem!.total!}',
-                      style: TextStyles.font18Blue500Weight,
+                      style: AppTextStyles.font18Blue500Weight,
                     ),
                   ],
                 ),

@@ -32,7 +32,7 @@ class _OnBoradingScreenState extends State<OnBoradingScreen> {
               verticalSpace(40),
               Text(
                 'Select Your Language',
-                style: TextStyles.font20Black500Weight,
+                style: AppTextStyles.font20Black500Weight,
               ),
               verticalSpace(20),
               OnboradingButton(
@@ -72,14 +72,14 @@ class OnboradingButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         minimumSize: Size(331.w, 50.h),
-        backgroundColor: ColorsManager.blue,
+        backgroundColor: AppColors.blue,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
       ),
       child: Text(
         text,
-        style: TextStyles.font26White500Weight,
+        style: AppTextStyles.font26White500Weight,
       ),
     );
   }

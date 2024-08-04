@@ -40,7 +40,7 @@ class SocialLoginButton extends StatelessWidget {
             ),
             Text(
               '${S.of(context).login_with} $text',
-              style: TextStyles.font16Black400Weight,
+              style: AppTextStyles.font16Black400Weight,
             ),
             const Icon(Icons.arrow_forward)
           ],

@@ -50,7 +50,7 @@ class _SelectSizeWidgetState extends State<SelectSizeWidget> {
       children: [
         Text(
           S.of(context).select_size,
-          style: TextStyles.font24Black500Weight,
+          style: AppTextStyles.font24Black500Weight,
         ),
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
@@ -68,7 +68,7 @@ class _SelectSizeWidgetState extends State<SelectSizeWidget> {
                     title: Text(sizeName),
                     value: sizeName,
                     groupValue: widget.selectedSize,
-                    activeColor: ColorsManager.blue,
+                    activeColor: AppColors.blue,
                     onChanged: (value) {
                       setState(() {
                         widget.selectedSize = value as String;

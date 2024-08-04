@@ -32,7 +32,7 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
           children: [
             Text(
               widget.productDetails?.title ?? getFail,
-              style: TextStyles.font24Black700Weight,
+              style: AppTextStyles.font24Black700Weight,
             ),
             FavouriteWidget(
               id: widget.productDetails!.id,
@@ -45,11 +45,11 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
             children: [
               TextSpan(
                 text: '${S.of(context).price}: ',
-                style: TextStyles.font16Black400Weight,
+                style: AppTextStyles.font16Black400Weight,
               ),
               TextSpan(
                 text: 'KD${widget.productDetails?.currentPrice}',
-                style: TextStyles.font18Blue500Weight,
+                style: AppTextStyles.font18Blue500Weight,
               ),
             ],
           ),
@@ -62,9 +62,9 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
           trimMode: TrimMode.Line,
           trimCollapsedText: S.of(context).read_more,
           trimExpandedText: S.of(context).read_less,
-          style: TextStyles.font13Black500Weight,
-          lessStyle: TextStyles.font11Blue500Weight,
-          moreStyle: TextStyles.font11Blue500Weight,
+          style: AppTextStyles.font13Black500Weight,
+          lessStyle: AppTextStyles.font11Blue500Weight,
+          moreStyle: AppTextStyles.font11Blue500Weight,
         ),
       ],
     );

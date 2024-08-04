@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/styles.dart';
@@ -14,12 +13,12 @@ class InfoWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyles.font14Black400Weight,
+          style: AppTextStyles.font14Black400Weight,
           overflow: TextOverflow.ellipsis,
         ),
         Text(
           subtitle,
-          style: TextStyles.font14Blue400Weight,
+          style: AppTextStyles.font14Blue400Weight,
         ),
       ],
     );

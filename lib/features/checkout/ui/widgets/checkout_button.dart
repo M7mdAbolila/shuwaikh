@@ -34,7 +34,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
                   verticalSpace(10),
                   Text(
                     S.of(context).can_edit_from_setting,
-                    style: const TextStyle(color: ColorsManager.blue),
+                    style: const TextStyle(color: AppColors.blue),
                   ),
                   verticalSpace(15),
                   Row(
@@ -43,7 +43,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
                       TextButton(
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.black,
-                          backgroundColor: ColorsManager.lightBlue,
+                          backgroundColor: AppColors.lightBlue,
                           disabledForegroundColor:
                               Colors.grey.withOpacity(0.38),
                         ),
@@ -56,7 +56,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
                       TextButton(
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.white,
-                          backgroundColor: ColorsManager.blue,
+                          backgroundColor: AppColors.blue,
                           disabledForegroundColor:
                               Colors.grey.withOpacity(0.38),
                         ),
@@ -73,7 +73,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
             : const SizedBox.shrink(),
         CustomButton(
           text: S.of(context).order,
-          color: ColorsManager.blue,
+          color: AppColors.blue,
           onTap: () async {
             if (context
                 .read<PlaceOrderCubit>()

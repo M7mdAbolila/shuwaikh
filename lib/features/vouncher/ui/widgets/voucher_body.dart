@@ -55,9 +55,9 @@ class VoucherScreenBody extends StatelessWidget {
                         bottomRight: Radius.circular(16.r),
                       ),
                       gradient: const LinearGradient(colors: [
-                        ColorsManager.darkBlue,
-                        ColorsManager.blue,
-                        ColorsManager.darkBlue,
+                        AppColors.darkBlue,
+                        AppColors.blue,
+                        AppColors.darkBlue,
                       ]),
                     ),
                     child: Center(
@@ -66,7 +66,7 @@ class VoucherScreenBody extends StatelessWidget {
                         builder: (context, state) {
                           return Text(
                             state.username ?? getFail,
-                            style: TextStyles.font20White700Weight,
+                            style: AppTextStyles.font20White700Weight,
                           );
                         },
                       ),

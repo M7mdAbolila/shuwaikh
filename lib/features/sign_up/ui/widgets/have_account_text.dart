@@ -19,11 +19,11 @@ class HaveAnAccountText extends StatelessWidget {
         children: [
           Text(
             S.of(context).do_you_have_account,
-            style: TextStyles.font14Black400Weight,
+            style: AppTextStyles.font14Black400Weight,
           ),
           Text(
             '  ${S.of(context).sign_in}',
-            style: TextStyles.font14Blue400Weight,
+            style: AppTextStyles.font14Blue400Weight,
           )
         ],
       ),
