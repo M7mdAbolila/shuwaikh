@@ -11,6 +11,7 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 import 'item_favourite_widget.dart';
+import 'product_image_shimmer_loading.dart';
 
 class HorizontalProductItem extends StatefulWidget {
   const HorizontalProductItem({
@@ -28,8 +29,10 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.pushNamed(Routes.productDetailsScreen,
-          arguments: widget.product.id),
+      onTap: () => context.pushNamed(
+        Routes.productDetailsScreen,
+        arguments: widget.product.id,
+      ),
       child: Padding(
         padding: EdgeInsets.only(bottom: 15.h),
         child: Container(
@@ -49,19 +52,24 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
           ),
           child: Row(
             children: [
-              Container(
-                width: 110.w,
-                height: 110.h,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: CachedNetworkImageProvider(
-                      '${ImagesPaths.productPath}${widget.product.featureImage}',
+              CachedNetworkImage(
+                imageUrl:
+                    '${ImagesPaths.productPath}${widget.product.featureImage}',
+                imageBuilder: (context, imageProvider) {
+                  return Container(
+                    width: 110.w,
+                    height: 110.h,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.fill,
+                      ),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                ),
+                  );
+                },
+                placeholder: (context, url) =>
+                    const ProductImageShimmerLoading(),
               ),
               Padding(
                 padding: isArabic()
@@ -103,10 +111,10 @@ class _HorizontalProductItemState extends State<HorizontalProductItem> {
                   ),
                 ),
               ),
-              const CircleAvatar(
-                radius: 20,
+              CircleAvatar(
+                radius: 20.r,
                 backgroundColor: AppColors.blue,
-                child: Icon(
+                child: const Icon(
                   Icons.add,
                   color: Colors.white,
                   size: 30,

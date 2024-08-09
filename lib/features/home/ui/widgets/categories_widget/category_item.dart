@@ -8,8 +8,8 @@ import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/features/Products_page/logic/change_category_cubit/change_category_cubit.dart';
 import 'package:shuwaikh/features/home/data/models/get_categories/get_categories_response.dart';
 import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
-import '../../../../core/helpers/is_arabic.dart';
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/helpers/is_arabic.dart';
+import '../../../../../core/theming/styles.dart';
 
 class CategoryItem extends StatefulWidget {
   const CategoryItem({super.key, required this.category});

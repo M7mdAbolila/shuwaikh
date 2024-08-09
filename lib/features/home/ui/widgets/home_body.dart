@@ -5,12 +5,12 @@ import 'package:shuwaikh/core/widgets/app_scroll_scaffold.dart';
 import 'package:shuwaikh/features/home/logic/get_categories_cubit/get_categories_cubit.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
-import 'package:shuwaikh/features/home/ui/widgets/offers_section.dart';
+import 'package:shuwaikh/features/home/ui/widgets/offer_widgets/offers_section.dart';
 import 'package:shuwaikh/features/localization/cubit/locale_cubit.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 import '../../../../core/helpers/spacing.dart';
-import 'category_section.dart';
-import 'voucher_section.dart';
+import 'categories_widget/category_section.dart';
+import 'voucher_widgets/voucher_section.dart';
 
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({super.key});

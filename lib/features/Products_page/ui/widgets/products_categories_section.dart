@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
+import 'package:shuwaikh/features/home/ui/widgets/categories_widget/categories_shimmer_loading.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../generated/l10n.dart';
-import '../../../home/ui/widgets/category_item.dart';
+import '../../../home/ui/widgets/categories_widget/category_item.dart';
 import '../../logic/change_category_cubit/change_category_cubit.dart';
 import '/core/helpers/globals.dart' as globals;
 
@@ -28,10 +28,6 @@ class _ProductsCategoriesSectionState extends State<ProductsCategoriesSection> {
         Text(
           S.of(context).all_categories,
           style: AppTextStyles.font24MainBlue500Weight,
-          // style: TextStyles.font24MainBlue500Weight.copyWith(
-          //   decoration: TextDecoration.underline,
-          //   decorationColor: ColorsManager.mainBlue,
-          // ),
         ),
         verticalSpace(10),
         const ProductsCategoriesListView(),
@@ -74,7 +70,7 @@ class _ProductsCategoriesListViewState
           errMessage: state.errMessage,
         );
       } else {
-        return const CustomLoadingWidget();
+        return const CategoriesShimmerLoading();
       }
     }, listener: (context, state) {
       if (state is ProductsPageSuccess) {

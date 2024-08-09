@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
-import 'package:shuwaikh/features/home/ui/widgets/vouncher_item.dart';
+import 'package:shuwaikh/features/home/ui/widgets/voucher_widgets/vouncher_item.dart';
 import 'package:shuwaikh/generated/l10n.dart';
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../../../core/widgets/custom_error_widget.dart';
+import 'no_coupon_found.dart';
+import 'no_coupons_found.dart';
 
-class VoucherSection extends StatefulWidget {
+class VoucherSection extends StatelessWidget {
   const VoucherSection({
     super.key,
   });
 
-  @override
-  State<VoucherSection> createState() => _VoucherSectionState();
-}
-
-class _VoucherSectionState extends State<VoucherSection> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,19 +22,13 @@ class _VoucherSectionState extends State<VoucherSection> {
         Text(
           S.of(context).your_voucher,
           style: AppTextStyles.font24MainBlue500Weight,
-          // style: TextStyles.font24MainBlue500Weight.copyWith(
-          //   decoration: TextDecoration.underline,
-          //   decorationColor: ColorsManager.mainBlue,
-          // ),
         ),
         verticalSpace(18),
         BlocBuilder<GetCouponsCubit, GetCouponsState>(
           builder: (context, state) {
             if (state is GetCouponsSuccess) {
               return state.coupons!.isEmpty
-                  ? CustomErrMessageWidget(
-                      errMessage: S.of(context).no_coupons,
-                    )
+                  ? const NoCouponsFound()
                   : ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -55,7 +45,7 @@ class _VoucherSectionState extends State<VoucherSection> {
                 errMessage: state.errMessage,
               );
             } else {
-              return const CustomLoadingWidget();
+              return const VoucherShimmerLoading();
             }
           },
         ),

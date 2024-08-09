@@ -26,7 +26,7 @@ class CartBroductItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10.h),
       width: 335.w,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         color: Colors.white,
         boxShadow: const [
           BoxShadow(
@@ -52,7 +52,7 @@ class CartBroductItem extends StatelessWidget {
                       '${ImagesPaths.productPath}${cartItem!.image}',
                     ),
                   ),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   color: Colors.white,
                 ),
               ),
@@ -73,7 +73,7 @@ class CartBroductItem extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
+            padding: EdgeInsets.symmetric(horizontal: 15.w), 
             child: Column(
               children: [
                 AddonsSection(cartItem: cartItem),

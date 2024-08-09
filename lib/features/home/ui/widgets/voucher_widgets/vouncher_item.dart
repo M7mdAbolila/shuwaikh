@@ -10,9 +10,9 @@ import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/features/home/data/models/get_coupons/get_coupons_response.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 
-import '../../../../core/helpers/assets_path.dart';
-import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/helpers/assets_path.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../../../core/theming/styles.dart';
 
 class VoucherItem extends StatelessWidget {
   const VoucherItem({super.key, required this.coupon});

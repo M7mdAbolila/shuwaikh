@@ -108,8 +108,8 @@ Future<void> setupGetIt() async {
   // remove from cart
   getIt.registerLazySingleton<RemoveFromCartRepo>(
       () => RemoveFromCartRepo(getIt()));
-  getIt.registerLazySingleton<RemoveFromCartCubit>(
-      () => RemoveFromCartCubit(getIt()));
+  getIt
+      .registerFactory<RemoveFromCartCubit>(() => RemoveFromCartCubit(getIt()));
 
   // Shipping Charge
   getIt.registerLazySingleton<ShippingChargeRepo>(

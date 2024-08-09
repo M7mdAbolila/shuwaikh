@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/custom_error_widget.dart';
-import '../../../../generated/l10n.dart';
-import '../../logic/get_categories_cubit/get_categories_cubit.dart';
+import 'package:shuwaikh/features/home/ui/widgets/categories_widget/categories_shimmer_loading.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../generated/l10n.dart';
+import '../../../logic/get_categories_cubit/get_categories_cubit.dart';
 import 'category_item.dart';
 
 class CategoriesSection extends StatelessWidget {
@@ -20,10 +20,6 @@ class CategoriesSection extends StatelessWidget {
         Text(
           S.of(context).all_categories,
           style: AppTextStyles.font24MainBlue500Weight,
-          // .copyWith(
-          //   decoration: TextDecoration.underline,
-          //   decorationColor: ColorsManager.mainBlue,
-          // ),
         ),
         verticalSpace(10),
         const CategoriesListView(),
@@ -64,7 +60,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
             errMessage: state.errMessage,
           );
         } else {
-          return const CustomLoadingWidget();
+          return const CategoriesShimmerLoading();
         }
       },
     );

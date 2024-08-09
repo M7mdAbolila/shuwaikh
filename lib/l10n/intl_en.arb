@@ -42,6 +42,7 @@
     "my_cart" : "My Cart",
     "items" : "items",
     "add_more_items" : "ADD MORE ITEMS",
+    "add_items_to_cart" : "ADD ITEMS TO CART",
     "total" : "Total",
     "check_out" : "Checkout",
     "order" : "ORDER",

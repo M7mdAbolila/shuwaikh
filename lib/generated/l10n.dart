@@ -480,6 +480,16 @@ class S {
     );
   }
 
+  /// `ADD ITEMS TO CART`
+  String get add_items_to_cart {
+    return Intl.message(
+      'ADD ITEMS TO CART',
+      name: 'add_items_to_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Total`
   String get total {
     return Intl.message(

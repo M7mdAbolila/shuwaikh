@@ -11,7 +11,6 @@ import 'package:shuwaikh/core/helpers/shared_pref_helper.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
-import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/cart/logic/get_cart_cubit/get_cart_cubit.dart';
 import 'package:shuwaikh/features/checkout/data/models/checkout_arguments.dart';
 import '../../../../core/widgets/app_scroll_scaffold.dart';
@@ -20,8 +19,10 @@ import '../../../nav_bar/cubit/change_page_cubit.dart';
 import 'add_items_button.dart';
 import 'cart_Items_widget.dart';
 import 'cart_product_item.dart';
+import 'cart_shimmer_loading.dart';
 import 'cart_total_widget.dart';
 import 'custom_button.dart';
+import 'empty_cart_widget.dart';
 import 'remove_bloc_lisneter.dart';
 
 class CartScreenBody extends StatefulWidget {
@@ -44,75 +45,79 @@ class _CartScreenBodyState extends State<CartScreenBody> {
         child: BlocBuilder<GetCartCubit, GetCartState>(
           builder: (context, state) {
             if (state is GetCartSuccess) {
-              for (var i = 0; i < state.cart!.length; i++) {
-                total = (total! + double.parse(state.cart![i].total!));
-              }
-              return Column(
-                children: [
-                  verticalSpace(30),
-                  CountItemWidget(count: state.cart!.length),
-                  verticalSpace(20),
-                  ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    reverse: true,
-                    shrinkWrap: true,
-                    itemCount: state.cart!.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CartBroductItem(
-                        cartItem: state.cart![index],
-                      );
-                    },
-                  ),
-                  verticalSpace(25),
-                  const AddMoreItemsButton(),
-                  verticalSpace(30),
-                  CartTotalWidget(total: total),
-                  verticalSpace(30),
-                  CustomButton(
-                      text: S.of(context).check_out,
-                      onTap: () async {
-                        if (state.cart!.isEmpty) {
-                          customSnackBar(
-                              context, S.of(context).cart_empty, true);
-                        } else {
-                          final shFName = SharedPrefHelper.getString(
-                              SharedPrefKeys.shFname);
-                          if (shFName == '') {
-                            context
-                                .pushNamed(
-                              Routes.checkoutScreen,
-                              arguments: CheckoutArguments(
-                                  total: total!, firstTime: true),
-                            )
-                                .then((value) {
-                              setState(() {
-                                context.read<GetCartCubit>().getCart();
-                              });
-                            });
+              if (state.cart!.isNotEmpty) {
+                for (var i = 0; i < state.cart!.length; i++) {
+                  total = (total! + double.parse(state.cart![i].total!));
+                }
+                return Column(
+                  children: [
+                    verticalSpace(30),
+                    CountItemWidget(count: state.cart!.length),
+                    verticalSpace(20),
+                    ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      reverse: true,
+                      shrinkWrap: true,
+                      itemCount: state.cart!.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return CartBroductItem(
+                          cartItem: state.cart![index],
+                        );
+                      },
+                    ),
+                    verticalSpace(25),
+                    const AddMoreItemsButton(),
+                    verticalSpace(30),
+                    CartTotalWidget(total: total),
+                    verticalSpace(30),
+                    CustomButton(
+                        text: S.of(context).check_out,
+                        onTap: () async {
+                          if (state.cart!.isEmpty) {
+                            customSnackBar(
+                                context, S.of(context).cart_empty, true);
                           } else {
-                            context
-                                .pushNamed(
-                              Routes.checkoutScreen,
-                              arguments: CheckoutArguments(
-                                  total: total!, firstTime: false),
-                            )
-                                .then((value) {
-                              setState(() {
-                                context.read<GetCartCubit>().getCart();
+                            final shFName = SharedPrefHelper.getString(
+                                SharedPrefKeys.shFname);
+                            if (shFName == '') {
+                              context
+                                  .pushNamed(
+                                Routes.checkoutScreen,
+                                arguments: CheckoutArguments(
+                                    total: total!, firstTime: true),
+                              )
+                                  .then((value) {
+                                setState(() {
+                                  context.read<GetCartCubit>().getCart();
+                                });
                               });
-                            });
+                            } else {
+                              context
+                                  .pushNamed(
+                                Routes.checkoutScreen,
+                                arguments: CheckoutArguments(
+                                    total: total!, firstTime: false),
+                              )
+                                  .then((value) {
+                                setState(() {
+                                  context.read<GetCartCubit>().getCart();
+                                });
+                              });
+                            }
                           }
-                        }
-                      }),
-                  verticalSpace(100),
-                  const RemoveProductBlocListener(),
-                ],
-              );
+                        }),
+                    verticalSpace(100),
+                    const RemoveProductBlocListener(),
+                  ],
+                );
+              } else {
+                return const EmptyCartWidget();
+              }
             } else if (state is GetCartFailure) {
               return CustomErrMessageWidget(
                   errMessage: state.errMessage ?? getFail);
             } else {
-              return const CustomLoadingWidget();
+              return const CartShimmerLoading();
             }
           },
         ),
@@ -120,18 +125,3 @@ class _CartScreenBodyState extends State<CartScreenBody> {
     );
   }
 }
-
-
-
-                                      //  context
-                                      //     .pushNamed(
-                                      //   Routes.checkoutScreen,
-                                      //   arguments: widget.total,
-                                      // )
-                                      //     .then((value) {
-                                      //   setState(() {
-                                      //     context
-                                      //         .read<GetCartCubit>()
-                                      //         .getCart();
-                                      //   });
-                                      // });

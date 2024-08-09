@@ -7,13 +7,14 @@ import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
-import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../../../core/widgets/custom_error_widget.dart';
+import 'no_offer_found.dart';
+import 'offer_shimmer_loading.dart';
 
 class OffersSection extends StatelessWidget {
   const OffersSection({super.key});
@@ -49,9 +50,7 @@ class _CategoriesListViewState extends State<OffersListView> {
               return Column(
                 children: [
                   state.offers!.isEmpty
-                      ? CustomErrMessageWidget(
-                          errMessage: S.of(context).no_offers_found,
-                        )
+                      ? const NoOffersFound()
                       : Column(
                           children: [
                             CarouselSlider.builder(
@@ -100,7 +99,7 @@ class _CategoriesListViewState extends State<OffersListView> {
                 errMessage: state.errMessage,
               );
             } else {
-              return const CustomLoadingWidget();
+              return const OfferShimmerLoading();
             }
           },
         ),

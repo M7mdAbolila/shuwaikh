@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
-import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/Products_page/logic/change_category_cubit/change_category_cubit.dart';
 import 'package:shuwaikh/features/Products_page/logic/products_page_cubit/products_page_cubit.dart';
 import 'package:shuwaikh/features/favourites/data/models/get_favourites/get_favourites_response.dart';
@@ -10,6 +9,7 @@ import 'package:shuwaikh/features/favourites/data/models/get_favourites/get_favo
 import '../../../../core/theming/styles.dart';
 import '../../../favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import 'horizontal_product_item.dart';
+import 'products_shimmer_loading.dart';
 
 class ProuductsSection extends StatefulWidget {
   const ProuductsSection({
@@ -79,7 +79,7 @@ class _ProuductsSectionState extends State<ProuductsSection> {
                 } else if (state is ProductsPageFailure) {
                   return CustomErrMessageWidget(errMessage: state.errMessage);
                 } else {
-                  return const CustomLoadingWidget();
+                  return const ProductsShimmerLoading();
                 }
               },
             ),

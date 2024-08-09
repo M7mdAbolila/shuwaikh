@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Great_to_see_you":
             MessageLookupByLibrary.simpleMessage("Great to see you here!"),
         "account": MessageLookupByLibrary.simpleMessage("My Account"),
+        "add_items_to_cart":
+            MessageLookupByLibrary.simpleMessage("ADD ITEMS TO CART"),
         "add_more_items":
             MessageLookupByLibrary.simpleMessage("ADD MORE ITEMS"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("ADD TO CART"),
