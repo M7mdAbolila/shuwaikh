@@ -11,7 +11,7 @@ class CategoriesShimmerLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 65.h,
+      height: 85.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 5,
@@ -24,7 +24,7 @@ class CategoriesShimmerLoading extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.only(right: 15.w),
                   height: 80.h,
-                  width: 150.w,
+                  width: 165.w,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
                     color: Colors.white,
@@ -37,8 +37,8 @@ class CategoriesShimmerLoading extends StatelessWidget {
                     baseColor: AppColors.shimmerGrey,
                     highlightColor: Colors.white,
                     child: Container(
-                      height: 60.h,
-                      width: 60.w,
+                      height: 80.h,
+                      width: 80.w,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.r),
                         color: Colors.white,

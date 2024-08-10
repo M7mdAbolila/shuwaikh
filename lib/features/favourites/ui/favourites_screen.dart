@@ -5,6 +5,7 @@ import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import 'package:shuwaikh/features/product_details/logic/product_details_cubit/product_details_cubit.dart';
+import 'package:shuwaikh/generated/l10n.dart';
 
 import '../logic/is_favourite_cubit/is_favourite_cubit.dart';
 import 'widgets/favourites_screen_body.dart';
@@ -20,7 +21,7 @@ class FavouritesScreen extends StatelessWidget {
         backgroundColor: AppColors.blue,
         centerTitle: true,
         title: Text(
-          'Your Favourites',
+          S.of(context).your_favorite,
           style: AppTextStyles.font30White400Weight,
         ),
       ),

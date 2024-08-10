@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -8,7 +7,8 @@ import 'product_images_slider.dart';
 
 class AppBarAndSliderPart extends StatelessWidget {
   const AppBarAndSliderPart({
-    super.key, required this.productDetails,
+    super.key,
+    required this.productDetails,
   });
   final ProductDetails? productDetails;
   @override
@@ -20,7 +20,8 @@ class AppBarAndSliderPart extends StatelessWidget {
           const ProductDetailsAppBar(),
           verticalSpace(10),
           ProductImagesSlider(
-              productDetails: productDetails),
+            productDetails: productDetails,
+          ),
           verticalSpace(25),
         ],
       ),

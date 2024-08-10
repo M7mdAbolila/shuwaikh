@@ -94,8 +94,8 @@ Future<void> setupGetIt() async {
   // product details
   getIt.registerLazySingleton<ProductDetailsRepo>(
       () => ProductDetailsRepo(getIt()));
-  getIt.registerLazySingleton<ProductDetailsCubit>(
-      () => ProductDetailsCubit(getIt()));
+  getIt
+      .registerFactory<ProductDetailsCubit>(() => ProductDetailsCubit(getIt()));
 
   // get cart
   getIt.registerLazySingleton<GetCartRepo>(() => GetCartRepo(getIt()));
@@ -124,7 +124,7 @@ Future<void> setupGetIt() async {
 
   // my orders
   getIt.registerLazySingleton<MyOrdersRepo>(() => MyOrdersRepo(getIt()));
-  getIt.registerLazySingleton<MyOrdersCubit>(() => MyOrdersCubit(getIt()));
+  getIt.registerFactory<MyOrdersCubit>(() => MyOrdersCubit(getIt()));
 
   // update billing details
   getIt.registerLazySingleton<UpdateBillingRepo>(

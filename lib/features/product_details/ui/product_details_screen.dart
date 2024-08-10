@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/features/product_details/logic/cubit/calc_total_cubit.dart';
 
 import 'widgets/product_details_body.dart';
@@ -10,6 +11,7 @@ class ProductDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.blue,
       body: BlocProvider(
         create: (context) => CalcTotalCubit(),
         child: ProductDetailsScreenBody(

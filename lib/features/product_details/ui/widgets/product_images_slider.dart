@@ -22,50 +22,99 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CarouselSlider.builder(
-          carouselController: CarouselController(),
-          options: CarouselOptions(
-            autoPlay: true,
-            enlargeCenterPage: true,
-            onPageChanged: (index, reason) {
-              setState(() {
-                activeIndex = index;
-              });
-            },
-          ),
-          itemCount: widget.productDetails!.productImages!.length,
-          itemBuilder: (BuildContext context, int index, int realIndex) {
-            return CachedNetworkImage(
-              imageUrl:
-                  '${ImagesPaths.productSliderPath}${widget.productDetails!.productImages![index].image}',
-              imageBuilder: (context, imageProvider) => Container(
-                width: 200.w,
-                height: 200.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.r),
-                  image: DecorationImage(
-                    image: imageProvider,
-                    fit: BoxFit.fill,
+    if (widget.productDetails!.productImages!.isNotEmpty) {
+      return Column(
+        children: [
+          CarouselSlider.builder(
+            carouselController: CarouselController(),
+            options: CarouselOptions(
+              height: 200.h,
+              autoPlay: true,
+              enlargeCenterPage: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  activeIndex = index;
+                });
+              },
+            ),
+            itemCount: widget.productDetails!.productImages!.length,
+            itemBuilder: (BuildContext context, int index, int realIndex) {
+              return CachedNetworkImage(
+                imageUrl:
+                    '${ImagesPaths.productSliderPath}${widget.productDetails!.productImages![index].image}',
+                imageBuilder: (context, imageProvider) => Container(
+                  width: 200.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.r),
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-              ),
-              placeholder: (context, url) => const CustomLoadingWidget(),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            );
-          },
-        ),
-        verticalSpace(10),
-        AnimatedSmoothIndicator(
-          activeIndex: activeIndex,
-          count: widget.productDetails!.productImages!.length,
-          effect: const SwapEffect(
-            dotColor: AppColors.lightBlue,
-            activeDotColor: AppColors.darkBlue,
+                placeholder: (context, url) => const CustomLoadingWidget(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              );
+            },
           ),
-        ),
-      ],
-    );
+          verticalSpace(10),
+          AnimatedSmoothIndicator(
+            activeIndex: activeIndex,
+            count: widget.productDetails!.productImages!.length,
+            effect: const SwapEffect(
+              dotColor: AppColors.lightBlue,
+              activeDotColor: AppColors.darkBlue,
+            ),
+          ),
+        ],
+      );
+    } else {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CarouselSlider.builder(
+            carouselController: CarouselController(),
+            options: CarouselOptions(
+              height: 200.h,
+              autoPlay: true,
+              enlargeCenterPage: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  activeIndex = index;
+                });
+              },
+            ),
+            itemCount: 1,
+            itemBuilder: (BuildContext context, int index, int realIndex) {
+              return CachedNetworkImage(
+                imageUrl:
+                    '${ImagesPaths.productPath}${widget.productDetails!.featureImage}',
+                imageBuilder: (context, imageProvider) => Container(
+                  width: 200.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.r),
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                placeholder: (context, url) => const CustomLoadingWidget(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              );
+            },
+          ),
+          verticalSpace(15),
+          AnimatedSmoothIndicator(
+            activeIndex: activeIndex,
+            count: 1,
+            effect: const SwapEffect(
+              dotColor: AppColors.lightBlue,
+              activeDotColor: AppColors.darkBlue,
+            ),
+          ),
+        ],
+      );
+    }
   }
 }
