@@ -52,15 +52,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "coffee": MessageLookupByLibrary.simpleMessage("COFFEE"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "confirm_pass":
-            MessageLookupByLibrary.simpleMessage("Confirm password"),
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "congratulate_signup": MessageLookupByLibrary.simpleMessage(
+            "Congratulations, you have signed up successfully!"),
         "contact_email": MessageLookupByLibrary.simpleMessage("Contact Email"),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact us"),
+        "continue_word": MessageLookupByLibrary.simpleMessage("Continue"),
         "copied": MessageLookupByLibrary.simpleMessage("Copied To Clipboard"),
         "copy": MessageLookupByLibrary.simpleMessage("Copy"),
         "copy_and_paste": MessageLookupByLibrary.simpleMessage(
             "Copy coupon and paste it when checkout"),
         "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "delet_acc_success":
+            MessageLookupByLibrary.simpleMessage("Delete Account Successfully"),
+        "delete_acc": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "discount": MessageLookupByLibrary.simpleMessage("Discount"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
@@ -149,11 +155,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "shipping_method":
             MessageLookupByLibrary.simpleMessage("Shipping Method"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
-        "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "signup_scess":
+            MessageLookupByLibrary.simpleMessage("Sign Up Successfully"),
         "size": MessageLookupByLibrary.simpleMessage("size"),
         "size_price": MessageLookupByLibrary.simpleMessage("size price"),
         "small": MessageLookupByLibrary.simpleMessage("Small"),
         "sugar": MessageLookupByLibrary.simpleMessage("Sugar"),
+        "sure_delete_acc": MessageLookupByLibrary.simpleMessage(
+            "Are You Sure Delete Your Account?"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
@@ -174,7 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "want_use_saved_details": MessageLookupByLibrary.simpleMessage(
             "Do you want to use your saved shipping and billing details?"),
         "welcome_back": MessageLookupByLibrary.simpleMessage(
-            "welcome back, you have been mised."),
+            "Welcome back, you have been mised."),
         "welcome_to": MessageLookupByLibrary.simpleMessage("Welcome to"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "your_favorite": MessageLookupByLibrary.simpleMessage("Your favourite"),

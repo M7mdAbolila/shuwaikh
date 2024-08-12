@@ -7,7 +7,8 @@ import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_
 import 'package:shuwaikh/features/checkout/ui/checkout_screen.dart';
 import 'package:shuwaikh/features/my_orders/logic/cubit/my_orders_cubit.dart';
 import 'package:shuwaikh/features/my_orders/ui/my_orders_screen.dart';
-import 'package:shuwaikh/features/setting/setting_screen.dart';
+import 'package:shuwaikh/features/setting/logic/cubit/delete_account_cubit.dart';
+import 'package:shuwaikh/features/setting/ui/setting_screen.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_billing_cubit/update_billing_cubit.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_profile_cubit/update_profile_cubit.dart';
 import 'package:shuwaikh/features/update%20info/logic/update_shipping_cubit/update_shipping_cubit.dart';
@@ -129,7 +130,10 @@ class AppRouter {
         );
       case Routes.setting:
         return MaterialPageRoute(
-          builder: (_) => const SettingScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DeleteAccountCubit>(),
+            child: const SettingScreen(),
+          ),
         );
       case Routes.myOrdersScreen:
         return MaterialPageRoute(

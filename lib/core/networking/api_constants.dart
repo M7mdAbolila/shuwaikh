@@ -23,4 +23,5 @@ class ApiConstants {
   static const String productDetails = "ProductDetails/";
   static const String favourites = "products/favourites";
   static const String getFavourites = "getFavourites";
+  static const String unactiveAccount = 'unactive-account';
 }

@@ -16,8 +16,11 @@ class BlocListenerLogout extends StatelessWidget {
       listener: (context, state) async {
         if (state is LogoutSuccess) {
           SharedPrefHelper.removeSecuredData(SharedPrefKeys.userToken);
-          context.pushNamedAndRemoveUntil(Routes.onBoarding,
-              predicate: (Route<dynamic> route) => false);
+          SharedPrefHelper.clearAllData();
+          context.pushNamedAndRemoveUntil(
+            Routes.onBoarding,
+            predicate: (Route<dynamic> route) => false,
+          );
         } else if (state is LogoutFailure) {
           errorDialog(
             context,

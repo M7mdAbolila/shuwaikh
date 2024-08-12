@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
@@ -24,6 +26,7 @@ void main() async {
 checkIfLoggedInUser() async {
   String? userToken =
       await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  log(userToken ?? '= = = = = null = = ==');
   if (userToken.isNullOrEmpty()) {
     isLoggedInUser = false;
   } else {

@@ -77,9 +77,9 @@ class _SignupFormState extends State<SignupForm> {
               ),
             ),
             validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPasswordValid(value)) {
+              if (value == null || value.isEmpty
+                  // ||!AppRegex.isPasswordValid(value)
+                  ) {
                 return S.of(context).enter_valid_pass;
               }
             },

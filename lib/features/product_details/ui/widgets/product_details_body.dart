@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/helpers/spacing.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
 import 'package:shuwaikh/core/widgets/custom_error_widget.dart';
 import 'package:shuwaikh/features/product_details/logic/product_details_cubit/product_details_cubit.dart';
@@ -44,6 +45,9 @@ class _ProductDetailsScreenBodyState extends State<ProductDetailsScreenBody> {
                       // ======= info part ==========
                       InfoPart(
                         productDetails: state.productDetails,
+                      ),
+                      SliverToBoxAdapter(
+                        child: verticalSpace(200),
                       ),
                     ],
                   ),

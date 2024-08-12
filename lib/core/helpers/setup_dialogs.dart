@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 
+import '../../generated/l10n.dart';
 import '../routing/routes.dart';
 import '../theming/colors.dart';
 import '../theming/styles.dart';
@@ -50,11 +51,11 @@ void signupSuccessDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('Signup Successful'),
-        content: const SingleChildScrollView(
+        title: Text(S.of(context).signup_scess),
+        content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              Text('Congratulations, you have signed up successfully!'),
+              Text(S.of(context).congratulate_signup),
             ],
           ),
         ),
@@ -68,7 +69,40 @@ void signupSuccessDialog(BuildContext context) {
             onPressed: () {
               context.pushNamed(Routes.loginScreen);
             },
-            child: const Text('Continue'),
+            child: Text(S.of(context).continue_word),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+void deleteAccountDialog(BuildContext context, VoidCallback onPressed) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(S.of(context).sure_delete_acc),
+        actions: <Widget>[
+          TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              backgroundColor: AppColors.grey,
+              disabledForegroundColor: Colors.grey.withOpacity(0.38),
+            ),
+            onPressed: () {
+              context.pop();
+            },
+            child: Text(S.of(context).cancel),
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              backgroundColor: AppColors.blue,
+              disabledForegroundColor: Colors.grey.withOpacity(0.38),
+            ),
+            onPressed: onPressed,
+            child: Text(S.of(context).yes),
           ),
         ],
       );

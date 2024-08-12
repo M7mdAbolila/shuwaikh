@@ -51,15 +51,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_otp": MessageLookupByLibrary.simpleMessage("تأكيد OTP"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("أعد إدخال كلمة المرور"),
+        "congratulate_signup": MessageLookupByLibrary.simpleMessage(
+            "تهانينا، لقد قمت بالتسجيل بنجاح!"),
         "contact_email":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني للاتصال"),
         "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "continue_word": MessageLookupByLibrary.simpleMessage("متابعة"),
         "copied": MessageLookupByLibrary.simpleMessage("نسخ إلى الحافظة"),
         "copy": MessageLookupByLibrary.simpleMessage("نسخ"),
         "copy_and_paste": MessageLookupByLibrary.simpleMessage(
             "انسخ القسيمة وألصقها عند الدفع"),
         "coupon": MessageLookupByLibrary.simpleMessage("كوبون"),
         "date": MessageLookupByLibrary.simpleMessage("تاريخ"),
+        "delet_acc_success":
+            MessageLookupByLibrary.simpleMessage("تم حذف الحساب بنجاح"),
+        "delete_acc": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
         "do_you_have_account":
             MessageLookupByLibrary.simpleMessage(" هل لديك حساب ؟"),
@@ -149,10 +155,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "shipping_method": MessageLookupByLibrary.simpleMessage("طريقة الشحن"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "signup_scess":
+            MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح."),
         "size": MessageLookupByLibrary.simpleMessage("الحجم"),
         "size_price": MessageLookupByLibrary.simpleMessage("سعر الحجم"),
         "small": MessageLookupByLibrary.simpleMessage("صغير"),
         "sugar": MessageLookupByLibrary.simpleMessage("سكر"),
+        "sure_delete_acc":
+            MessageLookupByLibrary.simpleMessage("هل أنت متأكد من حذف حسابك؟"),
         "tax": MessageLookupByLibrary.simpleMessage("ضريبة"),
         "topping": MessageLookupByLibrary.simpleMessage("Topping"),
         "total": MessageLookupByLibrary.simpleMessage("المجموع"),

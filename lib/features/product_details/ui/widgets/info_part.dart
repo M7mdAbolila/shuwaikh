@@ -50,43 +50,40 @@ class _InfoPartState extends State<InfoPart> {
     }
 
     return SliverFillRemaining(
-      child: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30.r),
-            color: Colors.white,
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: SingleChildScrollView(
-              physics: const NeverScrollableScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  verticalSpace(35),
-                  ProductInfoAndIsFavourite(
-                    productDetails: widget.productDetails,
-                  ),
-                  verticalSpace(15),
-                  widget.productDetails!.variations == null ||
-                          variation!.sizes.isEmpty
-                      ? const SizedBox.shrink()
-                      : SelectSizeWidget(
-                          variation: variation,
-                        ),
-                  widget.productDetails!.addons == null ||
-                          addons!.addons.isEmpty
-                      ? const SizedBox.shrink()
-                      : SelectAddons(
-                          addons: addons,
-                        ),
-                  verticalSpace(10),
-                  const QuantityWidget(),
-                  const AddToCartBlocListener(),
-                  verticalSpace(300),
-                ],
-              ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.r),
+          color: Colors.white,
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                verticalSpace(35),
+                ProductInfoAndIsFavourite(
+                  productDetails: widget.productDetails,
+                ),
+                verticalSpace(15),
+                widget.productDetails!.variations == null ||
+                        variation!.sizes.isEmpty
+                    ? const SizedBox.shrink()
+                    : SelectSizeWidget(
+                        variation: variation,
+                      ),
+                widget.productDetails!.addons == null || addons!.addons.isEmpty
+                    ? const SizedBox.shrink()
+                    : SelectAddons(
+                        addons: addons,
+                      ),
+                verticalSpace(10),
+                const QuantityWidget(),
+                const AddToCartBlocListener(),
+                verticalSpace(100),
+              ],
             ),
           ),
         ),

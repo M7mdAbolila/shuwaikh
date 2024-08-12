@@ -7,7 +7,7 @@ import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/styles.dart';
 import '../../../../../core/widgets/custom_error_widget.dart';
 import 'no_coupon_found.dart';
-import 'no_coupons_found.dart';
+import 'voucher_shimmer_loading.dart';
 
 class VoucherSection extends StatelessWidget {
   const VoucherSection({

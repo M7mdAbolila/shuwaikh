@@ -29,6 +29,8 @@ import 'package:shuwaikh/features/offer/data/repos/offer_details_repo.dart';
 import 'package:shuwaikh/features/offer/logic/cubit/offer_details_cubit.dart';
 import 'package:shuwaikh/features/product_details/data/repos/product_details_repo.dart';
 import 'package:shuwaikh/features/product_details/logic/product_details_cubit/product_details_cubit.dart';
+import 'package:shuwaikh/features/setting/data/repos/delete_account_repo.dart';
+import 'package:shuwaikh/features/setting/logic/cubit/delete_account_cubit.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_billing_repo.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_profile_repo.dart';
 import 'package:shuwaikh/features/update%20info/data/repos/update_shipping_repo.dart';
@@ -88,8 +90,7 @@ Future<void> setupGetIt() async {
   // get favouraties
   getIt
       .registerLazySingleton<GetFavouriteRepo>(() => GetFavouriteRepo(getIt()));
-  getIt.registerLazySingleton<GetFavouriteCubit>(
-      () => GetFavouriteCubit(getIt()));
+  getIt.registerFactory<GetFavouriteCubit>(() => GetFavouriteCubit(getIt()));
 
   // product details
   getIt.registerLazySingleton<ProductDetailsRepo>(
@@ -151,10 +152,15 @@ Future<void> setupGetIt() async {
   // offer details
   getIt
       .registerLazySingleton<OfferDetailsRepo>(() => OfferDetailsRepo(getIt()));
-  getIt.registerLazySingleton<OfferDetailsCubit>(
-      () => OfferDetailsCubit(getIt()));
+  getIt.registerFactory<OfferDetailsCubit>(() => OfferDetailsCubit(getIt()));
 
   // add to cart
   getIt.registerLazySingleton<AddToCartRepo>(() => AddToCartRepo(getIt()));
-  getIt.registerLazySingleton<AddToCartCubit>(() => AddToCartCubit(getIt()));
+  getIt.registerFactory<AddToCartCubit>(() => AddToCartCubit(getIt()));
+
+  // delete account
+  getIt.registerLazySingleton<DeleteAccountRepo>(
+      () => DeleteAccountRepo(getIt()));
+  getIt.registerLazySingleton<DeleteAccountCubit>(
+      () => DeleteAccountCubit(getIt()));
 }

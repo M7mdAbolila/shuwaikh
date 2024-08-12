@@ -14,6 +14,9 @@
     "phome_number" : "رقم الهاتف",
     "confirm_pass" : "أعد إدخال كلمة المرور",
     "sign_up" : "اشتراك",
+    "signup_scess" : "تم التسجيل بنجاح.",
+    "congratulate_signup" : "تهانينا، لقد قمت بالتسجيل بنجاح!",
+    "continue_word" : "متابعة",
     "do_you_have_account" : " هل لديك حساب ؟",
     "enter_valid_email" : "يرجى إدخال البريد الإلكتروني الصحيح",
     "enter_valid_pass" : "يرجى إدخال كلمة مرور صالحة",
@@ -114,5 +117,8 @@
     "no" : "لا",
     "coupon" : "كوبون",
     "copy_and_paste":"انسخ القسيمة وألصقها عند الدفع",
-    "empty_field" : "يوجد حقل معلومات فارغ"
+    "empty_field" : "يوجد حقل معلومات فارغ",
+    "delete_acc" : "حذف الحساب",
+    "delet_acc_success" : "تم حذف الحساب بنجاح",
+    "sure_delete_acc" : "هل أنت متأكد من حذف حسابك؟"
 }

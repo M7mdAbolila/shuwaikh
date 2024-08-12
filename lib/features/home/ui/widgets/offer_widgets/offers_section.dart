@@ -1,39 +1,23 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shuwaikh/core/helpers/constants.dart';
-import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
-import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
 import 'package:shuwaikh/generated/l10n.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 import '../../../../../core/widgets/custom_error_widget.dart';
 import 'no_offer_found.dart';
 import 'offer_shimmer_loading.dart';
+import 'offers_carouel_slider.dart';
 
-class OffersSection extends StatelessWidget {
+class OffersSection extends StatefulWidget {
   const OffersSection({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return const OffersListView();
-  }
+  State<OffersSection> createState() => _OffersSectionState();
 }
 
-class OffersListView extends StatefulWidget {
-  const OffersListView({
-    super.key,
-  });
-  @override
-  State<OffersListView> createState() => _CategoriesListViewState();
-}
-
-class _CategoriesListViewState extends State<OffersListView> {
-  int activeIndex = 0;
+class _OffersSectionState extends State<OffersSection> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,46 +35,8 @@ class _CategoriesListViewState extends State<OffersListView> {
                 children: [
                   state.offers!.isEmpty
                       ? const NoOffersFound()
-                      : Column(
-                          children: [
-                            CarouselSlider.builder(
-                              carouselController: CarouselController(),
-                              options: CarouselOptions(
-                                autoPlay: true,
-                                enlargeCenterPage: true,
-                                onPageChanged: (index, reason) {
-                                  setState(() {
-                                    activeIndex = index;
-                                  });
-                                },
-                              ),
-                              itemCount: state.offers!.length,
-                              itemBuilder: (BuildContext context, int index,
-                                  int realIndex) {
-                                return InkWell(
-                                  onTap: () => context.pushNamed(
-                                    Routes.offerScreen,
-                                    arguments: state.offers![index].id,
-                                  ),
-                                  child: CachedNetworkImage(
-                                    imageUrl:
-                                        '${ImagesPaths.offerPath}${state.offers![index].image}',
-                                    height: 195.h,
-                                    width: 335.w,
-                                  ),
-                                );
-                              },
-                            ),
-                            verticalSpace(8),
-                            AnimatedSmoothIndicator(
-                              activeIndex: activeIndex,
-                              count: state.offers!.length,
-                              effect: const SwapEffect(
-                                dotColor: AppColors.lightBlue,
-                                activeDotColor: AppColors.darkBlue,
-                              ),
-                            ),
-                          ],
+                      : OffersCarouelSlider(
+                          offers: state.offers!,
                         ),
                 ],
               );

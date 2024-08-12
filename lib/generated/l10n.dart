@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `welcome back, you have been mised.`
+  /// `Welcome back, you have been mised.`
   String get welcome_back {
     return Intl.message(
-      'welcome back, you have been mised.',
+      'Welcome back, you have been mised.',
       name: 'welcome_back',
       desc: '',
       args: [],
@@ -180,21 +180,51 @@ class S {
     );
   }
 
-  /// `Confirm password`
+  /// `Confirm Password`
   String get confirm_pass {
     return Intl.message(
-      'Confirm password',
+      'Confirm Password',
       name: 'confirm_pass',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sign up`
+  /// `Sign Up`
   String get sign_up {
     return Intl.message(
-      'Sign up',
+      'Sign Up',
       name: 'sign_up',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up Successfully`
+  String get signup_scess {
+    return Intl.message(
+      'Sign Up Successfully',
+      name: 'signup_scess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Congratulations, you have signed up successfully!`
+  String get congratulate_signup {
+    return Intl.message(
+      'Congratulations, you have signed up successfully!',
+      name: 'congratulate_signup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continue_word {
+    return Intl.message(
+      'Continue',
+      name: 'continue_word',
       desc: '',
       args: [],
     );
@@ -1205,6 +1235,36 @@ class S {
     return Intl.message(
       'there is an empty information field',
       name: 'empty_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get delete_acc {
+    return Intl.message(
+      'Delete Account',
+      name: 'delete_acc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account Successfully`
+  String get delet_acc_success {
+    return Intl.message(
+      'Delete Account Successfully',
+      name: 'delet_acc_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are You Sure Delete Your Account?`
+  String get sure_delete_acc {
+    return Intl.message(
+      'Are You Sure Delete Your Account?',
+      name: 'sure_delete_acc',
       desc: '',
       args: [],
     );

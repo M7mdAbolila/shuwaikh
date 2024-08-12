@@ -26,6 +26,7 @@ import 'package:shuwaikh/features/logout/data/models/logout_response.dart';
 import 'package:shuwaikh/features/my_orders/data/models/my_orders_response.dart';
 import 'package:shuwaikh/features/offer/data/models/offer_details_respone.dart';
 import 'package:shuwaikh/features/product_details/data/models/product_details_response.dart';
+import 'package:shuwaikh/features/setting/data/models/delete_account_reponse.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:shuwaikh/features/sign_up/data/models/sign_up_response.dart';
 import 'package:shuwaikh/features/update%20info/data/models/update_billing_details/update_billing_request_body.dart';
@@ -221,12 +222,19 @@ abstract class ApiService {
     @Body() CheckCouponRequsetBody checkCouponRequestBody,
   );
 
-  
   @GET(ApiConstants.myOrders)
   @Headers(<String, dynamic>{
     'Accept': 'application/json',
   })
   Future<MyOrdersResponse> getMyOrder(
+    @Query("token") String? token,
+  );
+
+  @GET(ApiConstants.unactiveAccount)
+  @Headers(<String, dynamic>{
+    'Accept': 'application/json',
+  })
+  Future<DeleteAccountReponse> unactiveAccount(
     @Query("token") String? token,
   );
 }
