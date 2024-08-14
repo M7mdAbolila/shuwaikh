@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart' hide Headers;
+import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:shuwaikh/core/networking/api_constants.dart';
@@ -53,121 +53,79 @@ abstract class ApiService {
   Future<SignupResponse> signup(@Body() SignupRequestBody signupRequestBody);
 
   @POST(ApiConstants.getCategories)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<GetCatogoriesResponse> getCategories(
     @Query("token") String? token,
     @Body() GetCategoriesRequsetBody getCategoriesRequsetBody,
   );
 
   @POST(ApiConstants.getOffers)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<GetOffersResponse> getOffers(
     @Query("token") String? token,
     @Body() GetOffersRequsetBody getOffersRequsetBody,
   );
 
   @POST(ApiConstants.productsPage)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<ProductsPageResponse> productsPage(
     @Query("token") String? token,
     @Body() ProductsPageRequestBody productsPageRequestBody,
   );
 
   @GET(ApiConstants.getCoupons)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<GetCouponsResponse> getCoupons(
     @Query("token") String? token,
   );
 
   @GET('${ApiConstants.productDetails}/{id}')
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<ProductDetailsResponse> getProductDetails(
     @Path('id') String id,
     @Query("token") String? token,
   );
 
   @POST(ApiConstants.favourites)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<IsFavouritResponse> isFavourites(
     @Query("token") String? token,
     @Body() IsFavouriteRequestBody isFavouriteRequestBody,
   );
 
   @GET(ApiConstants.getFavourites)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<GetFavouritesResponse> getFavourites(
     @Query("token") String? token,
   );
 
   @POST(ApiConstants.logout)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<LogoutResponse> logout(
     @Query("token") String? token,
   );
 
   @GET('${ApiConstants.offerDetails}/{id}')
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<OfferDetailsResponse> getOfferDetails(
     @Path('id') String id,
     @Query("token") String? token,
   );
 
   @POST(ApiConstants.addToCart)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<AddToCartResponse> addToCart(
     @Query("token") String? token,
     @Body() AddToCartRequestBody addToCartRequestBody,
   );
 
   @GET(ApiConstants.getCart)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<GetCartResponse> getCart(
     @Query("token") String? token,
   );
 
   @POST(ApiConstants.removeFromCart)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<RemoveFromCartResponse> removeFromCart(
     @Query("token") String? token,
     @Body() RemoveFromCartRequestBody removeFromCartRequestBody,
   );
 
   @GET(ApiConstants.profile)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<ProfileResponse> getProfileData(
     @Query("token") String? token,
   );
 
   @POST(ApiConstants.updateProfile)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   @MultiPart()
   Future<UpdateProfileResponse> updateProfile(
     @Query("token") String? token,
@@ -178,62 +136,41 @@ abstract class ApiService {
   );
 
   @POST(ApiConstants.updateBilling)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<UpdateProfileResponse> updateBilling(
     @Query("token") String? token,
     @Body() UpdateBillingRequsetBody updateBillingRequsetBody,
   );
 
   @POST(ApiConstants.updateShipping)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<UpdateShippingResponse> updateShipping(
     @Query("token") String? token,
     @Body() UpdateShippingRequsetBody updateShippingRequsetBody,
   );
 
   @POST(ApiConstants.placeOrder)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<OrderResponse> placeOrder(
     @Query("token") String? token,
     @Body() OrderRequestBody orderRequestBody,
   );
 
   @POST(ApiConstants.shippingCharge)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<ShippingChargeResponse> shippingCharge(
     @Query("token") String? token,
     @Body() ShippingChargeRequsetBody shippingChargeRequsetBody,
   );
 
   @POST(ApiConstants.checkCoupon)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<CheckCouponResponse> checkCoupon(
     @Query("token") String? token,
     @Body() CheckCouponRequsetBody checkCouponRequestBody,
   );
 
   @GET(ApiConstants.myOrders)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<MyOrdersResponse> getMyOrder(
     @Query("token") String? token,
   );
 
   @GET(ApiConstants.unactiveAccount)
-  @Headers(<String, dynamic>{
-    'Accept': 'application/json',
-  })
   Future<DeleteAccountReponse> unactiveAccount(
     @Query("token") String? token,
   );

@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -47,52 +46,47 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     int currentPage;
-    return PopScope(
-      onPopInvoked: (didPop) {
-        SystemNavigator.pop();
-      },
-      child: BlocConsumer<ChangePageCubit, ChangePageState>(
-        builder: (context, state) {
-          currentPage = state.currentPage;
-          return Scaffold(
-            drawer: const CustomDrawer(),
-            bottomNavigationBar: Theme(
-              data: Theme.of(context).copyWith(
-                iconTheme: const IconThemeData(color: Colors.white),
-              ),
-              child: CurvedNavigationBar(
-                height: 60.h,
-                color: AppColors.darkBlue,
-                backgroundColor: Colors.transparent,
-                index: currentPage,
-                onTap: (index) => setState(() {
-                  currentPage = index;
-                  context.read<ChangePageCubit>().changePage(index);
+    return BlocConsumer<ChangePageCubit, ChangePageState>(
+      builder: (context, state) {
+        currentPage = state.currentPage;
+        return Scaffold(
+          drawer: const CustomDrawer(),
+          bottomNavigationBar: Theme(
+            data: Theme.of(context).copyWith(
+              iconTheme: const IconThemeData(color: Colors.white),
+            ),
+            child: CurvedNavigationBar(
+              height: 60.h,
+              color: AppColors.darkBlue,
+              backgroundColor: Colors.transparent,
+              index: currentPage,
+              onTap: (index) => setState(() {
+                currentPage = index;
+                context.read<ChangePageCubit>().changePage(index);
 
-                  // pageController.jumpToPage(index);
-                }),
-                items: [
-                  SvgPicture.asset(Assets.homeIocn),
-                  SvgPicture.asset(Assets.ticketIcon),
-                  SvgPicture.asset(Assets.coffeeIcon),
-                  SvgPicture.asset(Assets.basketIcon),
-                ],
-              ),
+                // pageController.jumpToPage(index);
+              }),
+              items: [
+                SvgPicture.asset(Assets.homeIocn),
+                SvgPicture.asset(Assets.ticketIcon),
+                SvgPicture.asset(Assets.coffeeIcon),
+                SvgPicture.asset(Assets.basketIcon),
+              ],
             ),
-            body: PageView(
-              controller: pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: _screens,
-            ),
-          );
-        },
-        listener: (context, state) {
-          setState(() {
-            pageController.jumpToPage(state.currentPage);
-            // context.read<ChangePageCubit>().changePage(state.currentPage);
-          });
-        },
-      ),
+          ),
+          body: PageView(
+            controller: pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: _screens,
+          ),
+        );
+      },
+      listener: (context, state) {
+        setState(() {
+          pageController.jumpToPage(state.currentPage);
+          // context.read<ChangePageCubit>().changePage(state.currentPage);
+        });
+      },
     );
   }
 }

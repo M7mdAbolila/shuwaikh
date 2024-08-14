@@ -15,11 +15,18 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
+
       addDioInterceptor();
       return dio!;
     } else {
       return dio!;
     }
+  }
+
+  static void addDioHeaders() async {
+    dio?.options.headers = {
+      'Accept': 'application/json',
+    };
   }
 
   static void addDioInterceptor() {

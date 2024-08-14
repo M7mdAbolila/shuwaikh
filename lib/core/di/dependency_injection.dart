@@ -162,7 +162,7 @@ Future<void> setupGetIt() async {
 
   // logout
   getIt.registerLazySingleton<LogoutRepo>(() => LogoutRepo(getIt()));
-  getIt.registerLazySingleton<LogoutCubit>(() => LogoutCubit(getIt()));
+  getIt.registerFactory<LogoutCubit>(() => LogoutCubit(getIt()));
 
   // delete account
   getIt.registerLazySingleton<DeleteAccountRepo>(
