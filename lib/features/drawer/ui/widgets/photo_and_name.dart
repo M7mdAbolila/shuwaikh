@@ -4,14 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/core/helpers/constants.dart';
+import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/helpers/spacing.dart';
-import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
+import 'package:shuwaikh/features/drawer/logic/username_cubit.dart';
 
-import '../../core/helpers/assets_path.dart';
-import '../../core/helpers/is_arabic.dart';
-import '../../core/theming/colors.dart';
-import '../../core/theming/styles.dart';
-import '../../core/widgets/custom_loading_widget.dart';
+import '../../../../core/helpers/assets_path.dart';
+import '../../../../core/helpers/is_arabic.dart';
+import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 
 class PhotoAndName extends StatefulWidget {
   const PhotoAndName({
@@ -40,15 +40,17 @@ class _PhotoAndNameState extends State<PhotoAndName> {
             mainAxisSize: MainAxisSize.min,
             children: [
               horizontalSpace(20),
-              state.photo == null
+              state.photo.isNullOrEmpty()
                   ? SvgPicture.asset(
                       Assets.userAvatar,
                       height: 70.h,
                     )
                   : CachedNetworkImage(
                       imageUrl: '${ImagesPaths.userPhotoPath}${state.photo}',
-                      placeholder: (context, url) =>
-                          const CustomLoadingWidget(),
+                      placeholder: (context, url) => SvgPicture.asset(
+                        Assets.userAvatar,
+                        height: 70.h,
+                      ),
                       errorWidget: (context, url, error) => const Icon(
                         Icons.error,
                         color: Colors.red,

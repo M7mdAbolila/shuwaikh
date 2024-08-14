@@ -12,7 +12,6 @@ class UsernameAndPhotoCubit extends Cubit<UsernameAndPhotoState> {
         await SharedPrefHelper.getString(SharedPrefKeys.username);
     final String? photo =
         await SharedPrefHelper.getString(SharedPrefKeys.photo);
-
     emit(
       UsernameAndPhotoState(
         username: username,

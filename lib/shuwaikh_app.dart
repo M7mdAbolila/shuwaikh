@@ -7,7 +7,7 @@ import 'package:shuwaikh/core/helpers/constants.dart';
 import 'package:shuwaikh/core/routing/app_router.dart';
 import 'package:shuwaikh/core/routing/routes.dart';
 import 'package:shuwaikh/core/theming/colors.dart';
-import 'package:shuwaikh/features/drawer/cubit/username_cubit.dart';
+import 'package:shuwaikh/features/drawer/logic/username_cubit.dart';
 import 'package:shuwaikh/features/favourites/logic/get_favourite_cubit/get_favourite_cubit.dart';
 import 'package:shuwaikh/features/localization/cubit/locale_cubit.dart';
 import 'features/Products_page/logic/cubit/reload_favourites_cubit.dart';

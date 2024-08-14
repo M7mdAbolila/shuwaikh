@@ -14,7 +14,7 @@ import 'package:shuwaikh/core/widgets/custom_loading_widget.dart';
 import 'package:shuwaikh/features/account/logic/cubit/profile_cubit.dart';
 import 'package:shuwaikh/generated/l10n.dart';
 
-import '../../drawer/cubit/username_cubit.dart';
+import '../../drawer/logic/username_cubit.dart';
 import '../../update info/ui/update_profile_screen.dart';
 import 'widgets/info_item.dart';
 import 'widgets/profile_button.dart';
