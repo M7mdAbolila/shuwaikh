@@ -36,6 +36,7 @@ import '../../features/account/data/models/profile_response.dart';
 import '../../features/cart/data/models/get_cart/get_cart_response.dart';
 import '../../features/cart/data/models/remove_from_cart/remove_from_cart_response.dart';
 import '../../features/favourites/data/models/is_favourite/is_favourite_response.dart';
+import '../../features/login/data/models/login_with_socail_request_body.dart';
 import '../../features/update info/data/models/update_shipping_details/update_shipping_request_body.dart';
 import '../../features/update info/data/models/update_shipping_details/update_shipping_response.dart';
 import '../../features/vouncher/data/models/check_coupon_request_body.dart';
@@ -48,6 +49,11 @@ abstract class ApiService {
 
   @POST(ApiConstants.login)
   Future<LoginResponse> login(@Body() LoginRequestBody loginRequestBody);
+
+  @POST(ApiConstants.loginWithSocail)
+  Future<LoginResponse> loginWithSocail(
+    @Body() LoginWithSocailRequestBody loginWithSocailRequestBody,
+  );
 
   @POST(ApiConstants.register)
   Future<SignupResponse> signup(@Body() SignupRequestBody signupRequestBody);

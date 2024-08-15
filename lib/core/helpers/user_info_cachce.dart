@@ -11,7 +11,6 @@ import 'constants.dart';
 
 class UserInfoCachceHelper {
   static Future<void> cacheUserInfo({
-    String? token,
     String? username,
     String? email,
     String? number,
@@ -30,7 +29,6 @@ class UserInfoCachceHelper {
     String? photo,
   }) async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.setString("token", token ?? '');
     sharedPreferences.setString("username", username ?? '');
     sharedPreferences.setString("email", email ?? '');
     sharedPreferences.setString("photo", photo ?? '');

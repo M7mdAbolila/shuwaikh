@@ -49,6 +49,35 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<LoginResponse> loginWithSocail(
+      LoginWithSocailRequestBody loginWithSocailRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(loginWithSocailRequestBody.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<LoginResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'auth/LoginWithSocial',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = LoginResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<SignupResponse> signup(SignupRequestBody signupRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -84,8 +113,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(getCategoriesRequsetBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -117,8 +145,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(getOffersRequsetBody.toJson());
     final _result = await _dio
@@ -150,8 +177,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(productsPageRequestBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -180,8 +206,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<GetCouponsResponse>(Options(
@@ -212,8 +237,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ProductDetailsResponse>(Options(
@@ -244,8 +268,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(isFavouriteRequestBody.toJson());
     final _result = await _dio
@@ -274,8 +297,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<GetFavouritesResponse>(Options(
@@ -303,8 +325,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<LogoutResponse>(Options(
@@ -335,8 +356,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<OfferDetailsResponse>(Options(
@@ -367,8 +387,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(addToCartRequestBody.toJson());
     final _result = await _dio
@@ -397,8 +416,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<GetCartResponse>(Options(
@@ -429,8 +447,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(removeFromCartRequestBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -459,8 +476,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<ProfileResponse>(Options(
@@ -494,8 +510,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = FormData();
     if (photo != null) {
       _data.files.add(MapEntry(
@@ -554,8 +569,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(updateBillingRequsetBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -587,8 +601,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(updateShippingRequsetBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -620,8 +633,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(orderRequestBody.toJson());
     final _result = await _dio
@@ -653,8 +665,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(shippingChargeRequsetBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -686,8 +697,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(checkCouponRequestBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -716,8 +726,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MyOrdersResponse>(Options(
@@ -745,8 +754,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'token': token};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Accept': 'application/json'};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<DeleteAccountReponse>(Options(

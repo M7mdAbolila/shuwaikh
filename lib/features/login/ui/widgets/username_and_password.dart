@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shuwaikh/core/helpers/assets_path.dart';
-import 'package:shuwaikh/features/login/logic/cubit/login_cubit.dart';
+import 'package:shuwaikh/features/login/logic/login_cubit/login_cubit.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_text_field.dart';

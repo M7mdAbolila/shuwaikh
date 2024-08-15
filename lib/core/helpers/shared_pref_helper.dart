@@ -77,7 +77,7 @@ class SharedPrefHelper {
   /// Saves a [value] with a [key] in the FlutterSecureStorage.
   static setSecuredString(String key, String value) async {
     const flutterSecureStorage = FlutterSecureStorage();
-    log("FlutterSecureStorage : setSecuredString with key : $key and value : $value");
+    log("FlutterSecureStorage : setSecuredString with key :   and value : ");
     await flutterSecureStorage.write(key: key, value: value);
   }
 

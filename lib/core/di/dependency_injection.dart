@@ -23,6 +23,8 @@ import 'package:shuwaikh/features/home/data/repos/get_offers_repo.dart';
 import 'package:shuwaikh/features/home/logic/get_categories_cubit/get_categories_cubit.dart';
 import 'package:shuwaikh/features/home/logic/get_coupons_cubit/get_coupons_cubit.dart';
 import 'package:shuwaikh/features/home/logic/get_offers_cubit/get_offers_cubit.dart';
+import 'package:shuwaikh/features/login/data/repos/login_with_socail_repo.dart';
+import 'package:shuwaikh/features/login/logic/login_with_social_cubit/login_with_socail_cubit.dart';
 import 'package:shuwaikh/features/logout/data/repos/logout_repo.dart';
 import 'package:shuwaikh/features/logout/logic/cubit/logout_cubit.dart';
 import 'package:shuwaikh/features/my_orders/data/repos/my_orders_repo.dart';
@@ -44,7 +46,7 @@ import 'package:shuwaikh/features/vouncher/logic/cubit/check_coupon_cubit.dart';
 
 import '../../features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
 import '../../features/login/data/repos/login_repo.dart';
-import '../../features/login/logic/cubit/login_cubit.dart';
+import '../../features/login/logic/login_cubit/login_cubit.dart';
 import '../../features/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/sign_up/logic/cubit/signup_cubit.dart';
 import '../networking/api_service.dart';
@@ -60,6 +62,12 @@ Future<void> setupGetIt() async {
   // login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
+
+  // login with socail
+  getIt.registerLazySingleton<LoginWithSocailRepo>(
+      () => LoginWithSocailRepo(getIt()));
+  getIt.registerFactory<LoginWithSocailCubit>(
+      () => LoginWithSocailCubit(getIt()));
 
   // signup
   getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));

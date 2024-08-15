@@ -1,24 +1,25 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shuwaikh/core/helpers/constants.dart';
+import 'package:shuwaikh/core/helpers/custom_snack_bar.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
-import 'package:shuwaikh/core/helpers/shared_pref_helper.dart';
-import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
+import 'package:shuwaikh/core/helpers/setup_dialogs.dart';
+import 'package:shuwaikh/features/login/logic/login_with_social_cubit/login_with_socail_cubit.dart';
 
-import '../../../../core/helpers/setup_dialogs.dart';
+import '../../../../core/helpers/constants.dart';
+import '../../../../core/helpers/shared_pref_helper.dart';
+import '../../../../core/helpers/user_info_cachce.dart';
 import '../../../../core/routing/routes.dart';
-import '../../logic/login_cubit/login_cubit.dart';
 
-class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({super.key});
+class LoginWithSocailBlocListener extends StatelessWidget {
+  const LoginWithSocailBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<LoginWithSocailCubit, LoginWithSocailState>(
       listener: (context, state) async {
-        if (state is LoginLoading) {
+        if (state is LoginWithSocailLoading) {
           loadingDialog(context);
-        } else if (state is LoginSuccess) {
+        } else if (state is LoginWithSocailSuccess) {
           final user = state.loginResponse.userData;
           context.pop();
           await UserInfoCachceHelper.cacheUserInfo(
@@ -43,10 +44,10 @@ class LoginBlocListener extends StatelessWidget {
             SharedPrefKeys.userToken,
             state.loginResponse.token!,
           );
-
           context.pushNamed(Routes.otp);
-        } else if (state is LoginFailure) {
-          errorDialog(context, state.errMessage);
+        } else if (state is LoginWithSocailFailure) {
+          context.pop();
+          customSnackBar(context, state.errMessage, true);
         }
       },
       child: const SizedBox.shrink(),

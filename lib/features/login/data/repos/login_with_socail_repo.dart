@@ -2,17 +2,19 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:shuwaikh/core/networking/api_service.dart';
 import 'package:shuwaikh/core/networking/failure.dart';
-import 'package:shuwaikh/features/login/data/models/login_request_body.dart';
 import 'package:shuwaikh/features/login/data/models/login_response.dart';
+import 'package:shuwaikh/features/login/data/models/login_with_socail_request_body.dart';
 
-class LoginRepo {
+class LoginWithSocailRepo {
   final ApiService _apiService;
 
-  LoginRepo(this._apiService);
-  Future<Either<Failure, LoginResponse>> login(
-      LoginRequestBody loginRequestBody) async {
+  LoginWithSocailRepo(this._apiService);
+  Future<Either<Failure, LoginResponse>> loginWithSocail(
+    LoginWithSocailRequestBody loginWithSocailRequestBody,
+  ) async {
     try {
-      final response = await _apiService.login(loginRequestBody);
+      var response =
+          await _apiService.loginWithSocail(loginWithSocailRequestBody);
       return right(response);
     } catch (e) {
       if (e is DioException) {

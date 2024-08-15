@@ -24,4 +24,5 @@ class ApiConstants {
   static const String favourites = "products/favourites";
   static const String getFavourites = "getFavourites";
   static const String unactiveAccount = 'unactive-account';
+  static const String loginWithSocail = 'auth/LoginWithSocial';
 }

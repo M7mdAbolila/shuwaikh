@@ -5,6 +5,7 @@ import 'package:shuwaikh/features/checkout/data/models/checkout_arguments.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
 import 'package:shuwaikh/features/checkout/logic/shipping_charge_cubit/shipping_charge_cubit.dart';
 import 'package:shuwaikh/features/checkout/ui/checkout_screen.dart';
+import 'package:shuwaikh/features/login/logic/login_with_social_cubit/login_with_socail_cubit.dart';
 import 'package:shuwaikh/features/my_orders/logic/cubit/my_orders_cubit.dart';
 import 'package:shuwaikh/features/my_orders/ui/my_orders_screen.dart';
 import 'package:shuwaikh/features/setting/logic/cubit/delete_account_cubit.dart';
@@ -15,7 +16,7 @@ import 'package:shuwaikh/features/update%20info/logic/update_shipping_cubit/upda
 import 'package:shuwaikh/features/update%20info/ui/update_profile_screen.dart';
 import 'package:shuwaikh/features/cart/ui/cart_screen.dart';
 import 'package:shuwaikh/features/favourites/ui/favourites_screen.dart';
-import 'package:shuwaikh/features/login/logic/cubit/login_cubit.dart';
+import 'package:shuwaikh/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:shuwaikh/features/nav_bar/cubit/change_page_cubit.dart';
 import 'package:shuwaikh/features/nav_bar/nav_bar_main_screen.dart';
 import 'package:shuwaikh/features/offer/logic/cubit/offer_details_cubit.dart';
@@ -62,8 +63,15 @@ class AppRouter {
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<LoginCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<LoginCubit>(),
+              ),
+               BlocProvider(
+                create: (context) => getIt<LoginWithSocailCubit>(),
+              ),
+            ],
             child: const LoginScreen(),
           ),
         );
