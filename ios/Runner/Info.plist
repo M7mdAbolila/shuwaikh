@@ -18,6 +18,19 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>GIDClientID</key>
+	<string>861139923334-37n61pbld5261ugubnh1eqj6tb98bofs.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+			<dict>
+					<key>CFBundleTypeRole</key>
+					<string>Editor</string>
+					<key>CFBundleURLSchemes</key>
+					<array>
+			                <string>com.googleusercontent.apps.861139923334-37n61pbld5261ugubnh1eqj6tb98bofs</string>
+		        	</array>
+			</dict>
+	</array>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>

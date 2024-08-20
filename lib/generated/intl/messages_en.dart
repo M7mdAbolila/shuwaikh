@@ -184,7 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "want_use_saved_details": MessageLookupByLibrary.simpleMessage(
             "Do you want to use your saved shipping and billing details?"),
         "welcome_back": MessageLookupByLibrary.simpleMessage(
-            "Welcome back, you have been mised."),
+            "Welcome back, you have been missed."),
         "welcome_to": MessageLookupByLibrary.simpleMessage("Welcome to"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "your_favorite": MessageLookupByLibrary.simpleMessage("Your favourite"),

@@ -46,7 +46,9 @@ class _PhotoAndNameState extends State<PhotoAndName> {
                       height: 70.h,
                     )
                   : CachedNetworkImage(
-                      imageUrl: '${ImagesPaths.userPhotoPath}${state.photo}',
+                      imageUrl: state.photo!.contains('https://')
+                          ? state.photo!
+                          : '${ImagesPaths.userPhotoPath}${state.photo}',
                       placeholder: (context, url) => SvgPicture.asset(
                         Assets.userAvatar,
                         height: 70.h,
@@ -54,7 +56,7 @@ class _PhotoAndNameState extends State<PhotoAndName> {
                       errorWidget: (context, url, error) => const Icon(
                         Icons.error,
                         color: Colors.red,
-                        size: 50,
+                        size: 70,
                       ),
                       imageBuilder: (context, imageProvider) {
                         return Container(
@@ -78,7 +80,7 @@ class _PhotoAndNameState extends State<PhotoAndName> {
               SizedBox(
                 width: 130.w,
                 child: Text(
-                  state.username ?? getFail,
+                  state.username.isNullOrEmpty() ? unknown : state.username!,
                   style: AppTextStyles.font26White500Weight,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

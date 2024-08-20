@@ -90,7 +90,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             ),
                       verticalSpace(20),
                       Text(
-                        state.userData!.username ?? getFail,
+                        state.userData!.username ?? unknown,
                         style: AppTextStyles.font24Black700Weight,
                       ),
                       verticalSpace(20),
@@ -131,7 +131,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   );
                 } else if (state is ProfileFailure) {
                   return CustomErrMessageWidget(
-                    errMessage: state.errmessage ?? getFail,
+                    errMessage: state.errmessage ?? unknown,
                   );
                 } else {
                   return const CustomLoadingWidget();

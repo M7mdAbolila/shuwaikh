@@ -21,10 +21,11 @@ class LoginWithSocailBlocListener extends StatelessWidget {
           loadingDialog(context);
         } else if (state is LoginWithSocailSuccess) {
           final user = state.loginResponse.userData;
-          context.pop();
           await UserInfoCachceHelper.cacheUserInfo(
             username: user!.username,
             email: user.email,
+            fname: user.fname,
+            lname: user.lname,
             number: user.number,
             photo: user.photo,
             shAddress: user.shippingAddress,
@@ -44,6 +45,7 @@ class LoginWithSocailBlocListener extends StatelessWidget {
             SharedPrefKeys.userToken,
             state.loginResponse.token!,
           );
+          context.pop();
           context.pushNamed(Routes.otp);
         } else if (state is LoginWithSocailFailure) {
           context.pop();

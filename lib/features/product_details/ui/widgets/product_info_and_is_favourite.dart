@@ -31,7 +31,7 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              widget.productDetails?.title ?? getFail,
+              widget.productDetails?.title ?? unknown,
               style: AppTextStyles.font24Black700Weight,
             ),
             FavouriteWidget(
@@ -57,7 +57,7 @@ class _ProductInfoAndIsFavouriteState extends State<ProductInfoAndIsFavourite> {
         verticalSpace(10),
         ReadMoreText(
           AppRegex.removeHtmlTags(
-              widget.productDetails?.description ?? getFail),
+              widget.productDetails?.description ?? unknown),
           trimLines: 3,
           trimMode: TrimMode.Line,
           trimCollapsedText: S.of(context).read_more,

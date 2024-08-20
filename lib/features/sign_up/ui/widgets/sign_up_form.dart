@@ -54,9 +54,9 @@ class _SignupFormState extends State<SignupForm> {
             keyboardType: TextInputType.number,
             controller: context.read<SignupCubit>().phoneController,
             validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPhoneNumberValid(value)) {
+              if (value == null || value.isEmpty
+                  // || !AppRegex.isPhoneNumberValid(value)
+                  ) {
                 return S.of(context).enter_valid_phone;
               }
             },

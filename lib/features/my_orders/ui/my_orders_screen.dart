@@ -91,7 +91,7 @@ class MyOrdersScreen extends StatelessWidget {
               );
             } else if (state is MyOrdersFailure) {
               return CustomErrMessageWidget(
-                  errMessage: state.errMessage ?? getFail);
+                  errMessage: state.errMessage ?? unknown);
             } else {
               return const CustomLoadingWidget();
             }

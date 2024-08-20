@@ -65,7 +65,7 @@ class VoucherScreenBody extends StatelessWidget {
                           UsernameAndPhotoState>(
                         builder: (context, state) {
                           return Text(
-                            state.username ?? getFail,
+                            state.username ?? unknown,
                             style: AppTextStyles.font20White700Weight,
                           );
                         },

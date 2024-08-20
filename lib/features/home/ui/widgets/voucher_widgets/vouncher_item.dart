@@ -42,7 +42,7 @@ class VoucherItem extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  coupon.name ?? getFail,
+                  coupon.name ?? unknown,
                   style: AppTextStyles.font13White500Weight,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -54,11 +54,11 @@ class VoucherItem extends StatelessWidget {
             left: 13.w,
             child: coupon.type == 'percentage'
                 ? Text(
-                    '%${coupon.value ?? getFail}',
+                    '%${coupon.value ?? unknown}',
                     style: AppTextStyles.font24MainBlue500Weight,
                   )
                 : Text(
-                    'KD${coupon.value ?? getFail}',
+                    'KD${coupon.value ?? unknown}',
                     style: AppTextStyles.font20MainBlue500Weight,
                   ),
           ),

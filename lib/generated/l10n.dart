@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Welcome back, you have been mised.`
+  /// `Welcome back, you have been missed.`
   String get welcome_back {
     return Intl.message(
-      'Welcome back, you have been mised.',
+      'Welcome back, you have been missed.',
       name: 'welcome_back',
       desc: '',
       args: [],

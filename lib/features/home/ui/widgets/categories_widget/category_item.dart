@@ -61,7 +61,7 @@ class _CategoryItemState extends State<CategoryItem> {
               ),
               horizontalSpace(20),
               Text(
-                widget.category.name ?? getFail,
+                widget.category.name ?? unknown,
                 style: AppTextStyles.font20Black500Weight,
               ),
             ],

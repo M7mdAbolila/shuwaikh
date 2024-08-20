@@ -20,10 +20,11 @@ class LoginBlocListener extends StatelessWidget {
           loadingDialog(context);
         } else if (state is LoginSuccess) {
           final user = state.loginResponse.userData;
-          context.pop();
           await UserInfoCachceHelper.cacheUserInfo(
             username: user!.username,
             email: user.email,
+            fname: user.fname,
+            lname: user.lname,
             number: user.number,
             photo: user.photo,
             shAddress: user.shippingAddress,
@@ -43,7 +44,7 @@ class LoginBlocListener extends StatelessWidget {
             SharedPrefKeys.userToken,
             state.loginResponse.token!,
           );
-
+          context.pop();
           context.pushNamed(Routes.otp);
         } else if (state is LoginFailure) {
           errorDialog(context, state.errMessage);

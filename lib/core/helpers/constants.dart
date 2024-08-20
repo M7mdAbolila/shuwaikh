@@ -1,5 +1,5 @@
 bool isLoggedInUser = false;
-const getFail = 'get data failure';
+const unknown = 'Unknown';
 
 class ImagesPaths {
   static const String catigoryPath =
@@ -15,6 +15,8 @@ class ImagesPaths {
 }
 
 class SharedPrefKeys {
+  static const String fname = 'fname';
+  static const String lname = 'lname';
   static const String userToken = 'userToken';
   static const String username = 'username';
   static const String photo = 'photo';

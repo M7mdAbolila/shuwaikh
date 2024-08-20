@@ -13,6 +13,8 @@ class UserInfoCachceHelper {
   static Future<void> cacheUserInfo({
     String? username,
     String? email,
+    String? fname,
+    String? lname,
     String? number,
     String? shFname,
     String? shLname,
@@ -32,6 +34,8 @@ class UserInfoCachceHelper {
     sharedPreferences.setString("username", username ?? '');
     sharedPreferences.setString("email", email ?? '');
     sharedPreferences.setString("photo", photo ?? '');
+    sharedPreferences.setString("fname", fname ?? '');
+    sharedPreferences.setString("lname", lname ?? '');
     sharedPreferences.setString("number", number ?? '');
     sharedPreferences.setString("shFname", shFname ?? '');
     sharedPreferences.setString("shLname", shLname ?? '');
@@ -58,6 +62,8 @@ class UserInfoCachceHelper {
     final userInfo = UserData(
       username: sharedPreferences.getString(SharedPrefKeys.username),
       email: sharedPreferences.getString(SharedPrefKeys.email),
+      fname: sharedPreferences.getString(SharedPrefKeys.fname),
+      lname: sharedPreferences.getString(SharedPrefKeys.lname),
       number: sharedPreferences.getString(SharedPrefKeys.number),
       photo: sharedPreferences.getString(SharedPrefKeys.photo),
       shippingFname: sharedPreferences.getString(SharedPrefKeys.shFname),

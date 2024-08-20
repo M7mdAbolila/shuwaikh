@@ -44,7 +44,7 @@ class _ShippingChargesSectionState extends State<ShippingChargesSection> {
               return ShippingChargeListview(shipping: state.shipping);
             } else if (state is ShippingChargeFailure) {
               return CustomErrMessageWidget(
-                  errMessage: state.errMessge ?? getFail);
+                  errMessage: state.errMessge ?? unknown);
             } else {
               return const CustomLoadingWidget();
             }

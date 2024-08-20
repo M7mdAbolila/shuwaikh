@@ -39,7 +39,7 @@ class _CartProductInfoState extends State<CartProductInfo> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.cartItem!.title ?? getFail,
+              widget.cartItem!.title ?? unknown,
               style: AppTextStyles.font18Black700Weight,
             ),
             Padding(

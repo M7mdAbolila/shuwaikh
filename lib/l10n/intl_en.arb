@@ -1,7 +1,7 @@
 {
     "login" : "Login",
     "lets_sign_in" : "Let’s sign you in",
-    "welcome_back": "Welcome back, you have been mised.",
+    "welcome_back": "Welcome back, you have been missed.",
     "email" : "Email",
     "password" : "Password",
     "sign_in": "Sign in",

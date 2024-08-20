@@ -115,7 +115,7 @@ class _CartScreenBodyState extends State<CartScreenBody> {
               }
             } else if (state is GetCartFailure) {
               return CustomErrMessageWidget(
-                  errMessage: state.errMessage ?? getFail);
+                  errMessage: state.errMessage ?? unknown);
             } else {
               return const CartShimmerLoading();
             }

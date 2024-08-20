@@ -41,7 +41,7 @@ class LoginScreenBody extends StatelessWidget {
             ),
             verticalSpace(50),
             const UsernameAndPassword(),
-            verticalSpace(85),
+            verticalSpace(55),
             AppAuthButton(
               text: S.of(context).sign_in,
               onTap: () {
@@ -54,9 +54,9 @@ class LoginScreenBody extends StatelessWidget {
                 }
               },
             ),
-            verticalSpace(31),
+            verticalSpace(25),
             const DontHaveAccont(),
-            verticalSpace(40),
+            verticalSpace(30),
             defaultTargetPlatform == TargetPlatform.iOS
                 ? const SocialLoginButton(
                     text: 'Apple',
@@ -68,13 +68,20 @@ class LoginScreenBody extends StatelessWidget {
               text: 'Google',
               imagePath: Assets.google,
               onTap: () {
-                context.read<LoginWithSocailCubit>().loginWithSocail();
+                context
+                    .read<LoginWithSocailCubit>()
+                    .loginWithSocail(provider: 'google');
               },
             ),
             verticalSpace(22),
-            const SocialLoginButton(
+            SocialLoginButton(
               text: 'FaceBook',
               imagePath: Assets.fackbook,
+              onTap: () {
+                context
+                    .read<LoginWithSocailCubit>()
+                    .loginWithSocail(provider: 'facebook');
+              },
             ),
             const LoginBlocListener(),
             const LoginWithSocailBlocListener(),
