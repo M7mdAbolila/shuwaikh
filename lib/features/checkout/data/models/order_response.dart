@@ -4,9 +4,10 @@ part 'order_response.g.dart';
 
 @JsonSerializable()
 class OrderResponse {
-  final String? message;
+  String? message;
+  String? url;
+  OrderResponse({this.message, this.url});
 
-  OrderResponse(this.message);
   factory OrderResponse.fromJson(Map<String, dynamic> json) =>
       _$OrderResponseFromJson(json);
 }

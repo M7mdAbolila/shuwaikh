@@ -5,13 +5,13 @@ class PlaceOrderState {}
 class PlaceOrderLoading extends PlaceOrderState {}
 
 class PlaceOrderSuccess extends PlaceOrderState {
-  final String? message;
+  final OrderResponse orderResponse;
 
-  PlaceOrderSuccess(this.message);
+  PlaceOrderSuccess(this.orderResponse);
 }
 
 class PlaceOrderFailure extends PlaceOrderState {
-   final String? errMessage;
+  final String? errMessage;
 
   PlaceOrderFailure(this.errMessage);
 }

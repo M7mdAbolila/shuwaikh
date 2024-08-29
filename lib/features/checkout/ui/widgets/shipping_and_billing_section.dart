@@ -20,7 +20,15 @@ class ShippingAndBillingDetailsSection extends StatefulWidget {
 
 class _ShippingAndBillingDetailsSectionState
     extends State<ShippingAndBillingDetailsSection> {
-  bool useSavedDetails = false;
+  bool useSavedDetails = true;
+  @override
+  void initState() {
+    super.initState();
+    if (!widget.firstTime) {
+      context.read<PlaceOrderCubit>().useSavedDetails = true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,16 +69,16 @@ class _ShippingAndBillingDetailsSectionState
                 ],
               ),
         verticalSpace(10),
-        useSavedDetails == false
-            ? Column(
+        useSavedDetails == true
+            ? const SizedBox.shrink()
+            : Column(
                 children: [
                   const ShippingAddressSection(),
                   verticalSpace(10),
                   const BillingAddressSection(),
                   verticalSpace(20),
                 ],
-              )
-            : const SizedBox.shrink(),
+              ),
       ],
     );
   }

@@ -8,25 +8,27 @@ part of 'order_request_body.dart';
 
 OrderRequestBody _$OrderRequestBodyFromJson(Map<String, dynamic> json) =>
     OrderRequestBody(
+      gateway: json['gateway'] as String,
       shippingFname: json['shipping_fname'] as String,
       shippingLname: json['shipping_lname'] as String,
       shippingEmail: json['shipping_email'] as String,
       shippingNumber: json['shipping_number'] as String,
       shippingCity: json['shipping_city'] as String,
       shippingAddress: json['shipping_address'] as String,
-      sameAsShipping: json['same_as_shipping'] as int?,
+      sameAsShipping: (json['same_as_shipping'] as num?)?.toInt(),
       billingLname: json['billing_lname'] as String?,
       billingFname: json['billing_fname'] as String?,
       billingEmail: json['billing_email'] as String?,
       billingNumber: json['billing_number'] as String?,
       billingCity: json['billing_city'] as String?,
       billingAddress: json['billing_address'] as String?,
-      shippingCharge: json['shipping_charge'] as int,
+      shippingCharge: (json['shipping_charge'] as num).toInt(),
       discount: (json['discount'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$OrderRequestBodyToJson(OrderRequestBody instance) =>
     <String, dynamic>{
+      'gateway': instance.gateway,
       'shipping_fname': instance.shippingFname,
       'shipping_lname': instance.shippingLname,
       'shipping_email': instance.shippingEmail,

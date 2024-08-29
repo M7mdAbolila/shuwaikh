@@ -11,10 +11,12 @@ import 'package:shuwaikh/features/checkout/data/models/checkout_arguments.dart';
 import 'package:shuwaikh/features/checkout/logic/place_order_cubit/place_order_cubit.dart';
 import 'package:shuwaikh/features/checkout/ui/widgets/order_total_section.dart';
 import 'package:shuwaikh/generated/l10n.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/styles.dart';
-import 'widgets/checkout_button.dart';
+import 'payment_webview.dart';
+import 'widgets/place_oreder_button.dart';
 import 'widgets/pay_via_widget.dart';
 import 'widgets/shipping_and_billing_section.dart';
 import 'widgets/shipping_charges_section.dart';
@@ -63,9 +65,24 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 BlocListener<PlaceOrderCubit, PlaceOrderState>(
                   listener: (context, state) {
                     if (state is PlaceOrderSuccess) {
-                      context.pop();
-                      customSnackBar(context, state.message, false);
-                      // context.read<GetCartCubit>().getCart();
+                      if (state.orderResponse.url.isNullOrEmpty()) {
+                        context.pop();
+                        context.pop();
+                        customSnackBar(
+                            context, state.orderResponse.message, false);
+                      } else {
+                        var webviewController = WebViewController()
+                          ..setJavaScriptMode(JavaScriptMode.unrestricted)
+                          ..loadRequest(Uri.parse(state.orderResponse.url!));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PaymentWebView(
+                              webViewController: webviewController,
+                            ),
+                          ),
+                        );
+                      }
                     } else if (state is PlaceOrderFailure) {
                       context.pop();
                       customSnackBar(context, state.errMessage, true);
@@ -75,7 +92,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   },
                   child: const SizedBox.shrink(),
                 ),
-                const CheckoutButton(),
+                const PlaceOrderButton(),
                 verticalSpace(100),
               ],
             ),

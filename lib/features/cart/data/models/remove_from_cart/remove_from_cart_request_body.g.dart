@@ -9,7 +9,7 @@ part of 'remove_from_cart_request_body.dart';
 RemoveFromCartRequestBody _$RemoveFromCartRequestBodyFromJson(
         Map<String, dynamic> json) =>
     RemoveFromCartRequestBody(
-      productId: json['product_id'] as int?,
+      productId: (json['product_id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$RemoveFromCartRequestBodyToJson(

@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -144,75 +146,67 @@ class UserInfoCachceHelper {
   }
 }
 
-saveShippingAndBillingDetails(BuildContext context) async {
-  if (context.read<PlaceOrderCubit>().sameAsShipping == 1) {
+Future<void> saveShippingAndBillingDetails(BuildContext context) async {
+  var userDetails = context.read<PlaceOrderCubit>();
+  if (userDetails.sameAsShipping == 1) {
+    log('SaveDetails ${userDetails.shippingAddress.text} = = = = ');
     await UserInfoCachceHelper.cacheUserShippingInfo(
-      shAddress: context.read<PlaceOrderCubit>().shippingAddress.text,
-      shCity: context.read<PlaceOrderCubit>().shippingCity.text,
-      shEmail: context.read<PlaceOrderCubit>().shippingEmail.text,
-      shFname: context.read<PlaceOrderCubit>().shippingFname.text,
-      shLname: context.read<PlaceOrderCubit>().shippingLname.text,
-      shNumber: context.read<PlaceOrderCubit>().shippingNumber.text,
+      shAddress: userDetails.shippingAddress.text,
+      shCity: userDetails.shippingCity.text,
+      shEmail: userDetails.shippingEmail.text,
+      shFname: userDetails.shippingFname.text,
+      shLname: userDetails.shippingLname.text,
+      shNumber: userDetails.shippingNumber.text,
     );
     await UserInfoCachceHelper.cacheUserBillingInfo(
-      billAddress: context.read<PlaceOrderCubit>().shippingAddress.text,
-      billCity: context.read<PlaceOrderCubit>().shippingCity.text,
-      billEmail: context.read<PlaceOrderCubit>().shippingEmail.text,
-      billFname: context.read<PlaceOrderCubit>().shippingFname.text,
-      billLname: context.read<PlaceOrderCubit>().shippingLname.text,
-      billNumber: context.read<PlaceOrderCubit>().shippingNumber.text,
+      billAddress: userDetails.shippingAddress.text,
+      billCity: userDetails.shippingCity.text,
+      billEmail: userDetails.shippingEmail.text,
+      billFname: userDetails.shippingFname.text,
+      billLname: userDetails.shippingLname.text,
+      billNumber: userDetails.shippingNumber.text,
     );
-    context.read<PlaceOrderCubit>().placeOrder();
+    userDetails.placeOrder();
   } else {
     await UserInfoCachceHelper.cacheUserShippingInfo(
-      shAddress: context.read<PlaceOrderCubit>().shippingAddress.text,
-      shCity: context.read<PlaceOrderCubit>().shippingCity.text,
-      shEmail: context.read<PlaceOrderCubit>().shippingEmail.text,
-      shFname: context.read<PlaceOrderCubit>().shippingFname.text,
-      shLname: context.read<PlaceOrderCubit>().shippingLname.text,
-      shNumber: context.read<PlaceOrderCubit>().shippingNumber.text,
+      shAddress: userDetails.shippingAddress.text,
+      shCity: userDetails.shippingCity.text,
+      shEmail: userDetails.shippingEmail.text,
+      shFname: userDetails.shippingFname.text,
+      shLname: userDetails.shippingLname.text,
+      shNumber: userDetails.shippingNumber.text,
     );
     await UserInfoCachceHelper.cacheUserBillingInfo(
-      billAddress: context.read<PlaceOrderCubit>().billingAddress.text,
-      billCity: context.read<PlaceOrderCubit>().billingCity.text,
-      billEmail: context.read<PlaceOrderCubit>().billingEmail.text,
-      billFname: context.read<PlaceOrderCubit>().billingFname.text,
-      billLname: context.read<PlaceOrderCubit>().billingLname.text,
-      billNumber: context.read<PlaceOrderCubit>().billingNumber.text,
+      billAddress: userDetails.billingAddress.text,
+      billCity: userDetails.billingCity.text,
+      billEmail: userDetails.billingEmail.text,
+      billFname: userDetails.billingFname.text,
+      billLname: userDetails.billingLname.text,
+      billNumber: userDetails.billingNumber.text,
     );
-    context.read<PlaceOrderCubit>().placeOrder();
+    userDetails.placeOrder();
   }
 }
 
-getSavedDataToPalaceOrderCubit(BuildContext context) async {
+Future<void> getSavedDataToPalaceOrderCubit(BuildContext context) async {
+  var userDetails = context.read<PlaceOrderCubit>();
   final UserData userShippingData =
       await UserInfoCachceHelper.getCachedUserShippingInfo();
   final UserData userBillingData =
       await UserInfoCachceHelper.getCachedUserBillingInfo();
   // = = = = = billing details = = = =
-  context.read<PlaceOrderCubit>().billingAddress.text =
-      userBillingData.billingAddress!;
-  context.read<PlaceOrderCubit>().billingCity.text =
-      userBillingData.billingCity!;
-  context.read<PlaceOrderCubit>().billingEmail.text =
-      userBillingData.billingEmail!;
-  context.read<PlaceOrderCubit>().billingFname.text =
-      userBillingData.billingFname!;
-  context.read<PlaceOrderCubit>().billingLname.text =
-      userBillingData.billingLname!;
-  context.read<PlaceOrderCubit>().billingNumber.text =
-      userBillingData.billingNumber!;
+  userDetails.billingAddress.text = userBillingData.billingAddress!;
+  userDetails.billingCity.text = userBillingData.billingCity!;
+  userDetails.billingEmail.text = userBillingData.billingEmail!;
+  userDetails.billingFname.text = userBillingData.billingFname!;
+  userDetails.billingLname.text = userBillingData.billingLname!;
+  userDetails.billingNumber.text = userBillingData.billingNumber!;
+  log('getSaveDetails  ${userDetails.billingAddress.text} = = =  =');
   // = = = =  shipping details = = = = = =
-  context.read<PlaceOrderCubit>().shippingAddress.text =
-      userShippingData.shippingAddress!;
-  context.read<PlaceOrderCubit>().shippingCity.text =
-      userShippingData.shippingCity!;
-  context.read<PlaceOrderCubit>().shippingEmail.text =
-      userShippingData.shippingEmail!;
-  context.read<PlaceOrderCubit>().shippingFname.text =
-      userShippingData.shippingFname!;
-  context.read<PlaceOrderCubit>().shippingLname.text =
-      userShippingData.shippingLname!;
-  context.read<PlaceOrderCubit>().shippingNumber.text =
-      userShippingData.shippingNumber!;
+  userDetails.shippingAddress.text = userShippingData.shippingAddress!;
+  userDetails.shippingCity.text = userShippingData.shippingCity!;
+  userDetails.shippingEmail.text = userShippingData.shippingEmail!;
+  userDetails.shippingFname.text = userShippingData.shippingFname!;
+  userDetails.shippingLname.text = userShippingData.shippingLname!;
+  userDetails.shippingNumber.text = userShippingData.shippingNumber!;
 }

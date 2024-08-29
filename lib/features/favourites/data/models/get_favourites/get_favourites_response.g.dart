@@ -24,9 +24,9 @@ Map<String, dynamic> _$GetFavouritesResponseToJson(
 
 FavouriteProduct _$FavouriteProductFromJson(Map<String, dynamic> json) =>
     FavouriteProduct(
-      id: json['id'] as int?,
-      productId: json['product_id'] as int?,
-      userId: json['user_id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      productId: (json['product_id'] as num?)?.toInt(),
+      userId: (json['user_id'] as num?)?.toInt(),
     )
       ..image = json['feature_image'] as String?
       ..title = json['title'] as String?

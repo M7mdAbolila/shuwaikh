@@ -125,8 +125,8 @@ Future<void> setupGetIt() async {
   // Shipping Charge
   getIt.registerLazySingleton<ShippingChargeRepo>(
       () => ShippingChargeRepo(getIt()));
-  getIt.registerLazySingleton<ShippingChargeCubit>(
-      () => ShippingChargeCubit(getIt()));
+  getIt
+      .registerFactory<ShippingChargeCubit>(() => ShippingChargeCubit(getIt()));
 
   // check coupon
   getIt.registerLazySingleton<CheckCouponRepo>(() => CheckCouponRepo(getIt()));

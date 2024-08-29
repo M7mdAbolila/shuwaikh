@@ -27,10 +27,10 @@ Map<String, dynamic> _$ProductsPageResponseToJson(
     };
 
 Product _$ProductFromJson(Map<String, dynamic> json) => Product(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       slug: json['slug'] as String?,
-      categoryId: json['category_id'] as int?,
+      categoryId: (json['category_id'] as num?)?.toInt(),
       featureImage: json['feature_image'] as String?,
       currentPrice: json['current_price'] as String?,
       previousPrice: json['previous_price'] as String?,

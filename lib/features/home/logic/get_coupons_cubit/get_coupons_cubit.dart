@@ -16,7 +16,9 @@ class GetCouponsCubit extends Cubit<GetCouponsState> {
     var result = await _getCouponsRepo.getCoupons(token);
 
     result.fold(
-      (failure) => emit(GetCouponsFailure(failure.errMessage),),
+      (failure) => emit(
+        GetCouponsFailure(failure.errMessage),
+      ),
       (coupons) => emit(
         GetCouponsSuccess(coupons),
       ),

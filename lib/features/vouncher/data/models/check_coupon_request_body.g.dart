@@ -10,7 +10,7 @@ CheckCouponRequsetBody _$CheckCouponRequsetBodyFromJson(
         Map<String, dynamic> json) =>
     CheckCouponRequsetBody(
       (json['cart_total'] as num?)?.toDouble(),
-      json['coupon'] as int?,
+      (json['coupon'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$CheckCouponRequsetBodyToJson(

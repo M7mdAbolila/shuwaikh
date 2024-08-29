@@ -8,10 +8,12 @@ part of 'order_response.dart';
 
 OrderResponse _$OrderResponseFromJson(Map<String, dynamic> json) =>
     OrderResponse(
-      json['message'] as String?,
+      message: json['message'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$OrderResponseToJson(OrderResponse instance) =>
     <String, dynamic>{
       'message': instance.message,
+      'url': instance.url,
     };

@@ -9,9 +9,9 @@ part of 'add_to_cart_request_body.dart';
 AddToCartRequestBody _$AddToCartRequestBodyFromJson(
         Map<String, dynamic> json) =>
     AddToCartRequestBody(
-      productId: json['product_id'] as int?,
+      productId: (json['product_id'] as num?)?.toInt(),
       title: json['title'] as String?,
-      qty: json['qty'] as int?,
+      qty: (json['qty'] as num?)?.toInt(),
       productPrice: (json['product_price'] as num?)?.toDouble(),
       variations: json['variations'] as String?,
       variationsPrice: (json['variations_price'] as num?)?.toDouble(),

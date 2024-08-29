@@ -23,7 +23,7 @@ Map<String, dynamic> _$MyOrdersResponseToJson(MyOrdersResponse instance) =>
 Order _$OrderFromJson(Map<String, dynamic> json) => Order(
       method: json['method'] as String?,
       shippingMethod: json['shipping_method'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       orderNumber: json['order_number'] as String?,
       orderStatus: json['order_status'] as String?,
       paymentStatus: json['payment_status'] as String?,

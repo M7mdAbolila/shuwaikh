@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shuwaikh/core/theming/styles.dart';
 
 import '../../../../core/helpers/custom_snack_bar.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -11,16 +12,16 @@ import '../../../../generated/l10n.dart';
 import '../../../cart/ui/widgets/custom_button.dart';
 import '../../logic/place_order_cubit/place_order_cubit.dart';
 
-class CheckoutButton extends StatefulWidget {
-  const CheckoutButton({
+class PlaceOrderButton extends StatefulWidget {
+  const PlaceOrderButton({
     super.key,
   });
 
   @override
-  State<CheckoutButton> createState() => _CheckoutButtonState();
+  State<PlaceOrderButton> createState() => _PlaceOrderButtonState();
 }
 
-class _CheckoutButtonState extends State<CheckoutButton> {
+class _PlaceOrderButtonState extends State<PlaceOrderButton> {
   bool saveDetails = false;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,10 @@ class _CheckoutButtonState extends State<CheckoutButton> {
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(S.of(context).want_save_for_future),
+                  Text(
+                    S.of(context).want_save_for_future,
+                    style: AppTextStyles.font16Black500Weight,
+                  ),
                   verticalSpace(10),
                   Text(
                     S.of(context).can_edit_from_setting,
@@ -60,8 +64,8 @@ class _CheckoutButtonState extends State<CheckoutButton> {
                           disabledForegroundColor:
                               Colors.grey.withOpacity(0.38),
                         ),
-                        onPressed: () {
-                          saveShippingAndBillingDetails(context);
+                        onPressed: () async {
+                          await saveShippingAndBillingDetails(context);
                         },
                         child: Text(S.of(context).yes),
                       ),

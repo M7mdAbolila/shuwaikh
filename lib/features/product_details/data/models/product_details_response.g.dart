@@ -34,7 +34,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
 
 ProductDetails _$ProductDetailsFromJson(Map<String, dynamic> json) =>
     ProductDetails(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       slug: json['slug'] as String?,
       previousPrice: json['previous_price'] as String?,
@@ -67,8 +67,8 @@ Map<String, dynamic> _$ProductDetailsToJson(ProductDetails instance) =>
     };
 
 ProductImage _$ProductImageFromJson(Map<String, dynamic> json) => ProductImage(
-      id: json['id'] as int?,
-      productId: json['product_id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      productId: (json['product_id'] as num?)?.toInt(),
       image: json['image'] as String?,
     );
 

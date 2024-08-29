@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:shuwaikh/core/helpers/user_info_cachce.dart';
 import 'package:shuwaikh/features/checkout/data/models/order_request_body.dart';
+import 'package:shuwaikh/features/checkout/data/models/order_response.dart';
 import 'package:shuwaikh/features/checkout/data/repos/order_repo.dart';
 
 part 'place_order_state.dart';
@@ -28,6 +28,7 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
   TextEditingController billingNumber = TextEditingController();
   double? discount;
   int? shippingCharge;
+  String? gateway;
 
   Future<void> placeOrder() async {
     emit(PlaceOrderLoading());
@@ -51,22 +52,16 @@ class PlaceOrderCubit extends Cubit<PlaceOrderState> {
         billingLname: billingLname.text,
         billingNumber: billingNumber.text,
         discount: discount,
+        gateway: gateway!,
       ),
     );
-    final locale = Intl.getCurrentLocale();
     result.fold(
         (failure) => emit(
               PlaceOrderFailure(failure.errMessage),
-            ), (message) {
-      if (locale == 'en') {
-        emit(
-          PlaceOrderSuccess(message),
-        );
-      } else {
-        emit(
-          PlaceOrderSuccess('تم الطلب بنجاح'),
-        );
-      }
+            ), (response) {
+      emit(
+        PlaceOrderSuccess(response),
+      );
     });
   }
 }

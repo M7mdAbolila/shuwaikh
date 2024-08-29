@@ -23,7 +23,7 @@ Map<String, dynamic> _$GetCatogoriesResponseToJson(
     };
 
 Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       slug: json['slug'] as String?,
       name: json['name'] as String?,
       image: json['image'] as String?,

@@ -23,12 +23,12 @@ Map<String, dynamic> _$OfferDetailsResponseToJson(
     };
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       description: json['description'] as String?,
       endData: json['end_date'] as String?,
       image: json['image'] as String?,
       title: json['title'] as String?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{

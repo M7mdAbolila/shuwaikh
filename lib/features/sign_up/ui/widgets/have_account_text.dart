@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shuwaikh/core/helpers/extensions.dart';
 import 'package:shuwaikh/core/theming/styles.dart';
 
-import '../../../../core/routing/routes.dart';
 import '../../../../generated/l10n.dart';
 
 class HaveAnAccountText extends StatelessWidget {
@@ -12,7 +11,7 @@ class HaveAnAccountText extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.pushNamed(Routes.loginScreen);
+        context.pop();
       },
       child: Row(
         mainAxisSize: MainAxisSize.min,

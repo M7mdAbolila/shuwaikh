@@ -21,9 +21,9 @@ Map<String, dynamic> _$GetOffersResponseToJson(GetOffersResponse instance) =>
     };
 
 Offer _$OfferFromJson(Map<String, dynamic> json) => Offer(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toInt(),
       image: json['image'] as String?,
     );
 

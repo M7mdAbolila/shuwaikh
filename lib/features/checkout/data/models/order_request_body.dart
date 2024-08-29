@@ -4,6 +4,7 @@ part 'order_request_body.g.dart';
 
 @JsonSerializable()
 class OrderRequestBody {
+  final String gateway;
   @JsonKey(name: 'shipping_fname')
   String shippingFname;
   @JsonKey(name: 'shipping_lname')
@@ -34,6 +35,7 @@ class OrderRequestBody {
   int shippingCharge;
   double? discount;
   OrderRequestBody({
+    required this.gateway,
     required this.shippingFname,
     required this.shippingLname,
     required this.shippingEmail,

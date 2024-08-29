@@ -40,7 +40,7 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       shippingNumber: json['shpping_number'] as String?,
       shippingCity: json['shpping_city'] as String?,
       shippingAddress: json['shpping_address'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       username: json['username'] as String?,
       email: json['email'] as String?,
       number: json['number'] as String?,

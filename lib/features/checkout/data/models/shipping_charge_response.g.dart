@@ -23,7 +23,7 @@ Map<String, dynamic> _$ShippingChargeResponseToJson(
     };
 
 Shipping _$ShippingFromJson(Map<String, dynamic> json) => Shipping(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       text: json['text'] as String?,
       charge: json['charge'] as String?,

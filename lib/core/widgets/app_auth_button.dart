@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../theming/colors.dart';
 import '../theming/styles.dart';
@@ -19,8 +20,8 @@ class AppAuthButton extends StatelessWidget {
         GestureDetector(
           onTap: onTap,
           child: Container(
-            width: 50,
-            height: 50,
+            width: 50.w,
+            height: 50.h,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: AppColors.blue,

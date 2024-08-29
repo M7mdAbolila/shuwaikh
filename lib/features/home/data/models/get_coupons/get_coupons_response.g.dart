@@ -21,7 +21,7 @@ Map<String, dynamic> _$GetCouponsResponseToJson(GetCouponsResponse instance) =>
     };
 
 Coupon _$CouponFromJson(Map<String, dynamic> json) => Coupon(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       code: json['code'] as String?,
       type: json['type'] as String?,

@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,8 +39,10 @@ class _CartScreenBodyState extends State<CartScreenBody> {
     double? total = 0;
     return AppScrollScaffold(
       appBarTitle: S.of(context).my_cart,
-      appBarIcon: Icon(isArabic() ? Icons.arrow_forward : Icons.arrow_back,
-          color: Colors.white),
+      appBarIcon: Icon(
+        isArabic() ? Icons.arrow_forward : Icons.arrow_back,
+        color: Colors.white,
+      ),
       appBarOnPressed: () => context.read<ChangePageCubit>().changePage(2),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -77,9 +81,11 @@ class _CartScreenBodyState extends State<CartScreenBody> {
                             customSnackBar(
                                 context, S.of(context).cart_empty, true);
                           } else {
-                            final shFName = SharedPrefHelper.getString(
-                                SharedPrefKeys.shFname);
-                            if (shFName == '') {
+                            final String? shFName =
+                                await SharedPrefHelper.getString(
+                                    SharedPrefKeys.shFname);
+                            log('= = = = shFName $shFName  = = = = =');
+                            if (shFName.isNullOrEmpty()) {
                               context
                                   .pushNamed(
                                 Routes.checkoutScreen,
