@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">shuwaikh</string>
+    <string name="facebook_app_id">863156711938198</string>
+    <string name="fb_login_protocol_scheme">fb79a4873c70a24c8e2e2239ba1d392b51</string>
+    <string name="facebook_client_token">93f925adfc184118f3f5bb1b945deb09</string> 
+</resources>
