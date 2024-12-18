@@ -55,7 +55,7 @@ class _SignupFormState extends State<SignupForm> {
             controller: context.read<SignupCubit>().phoneController,
             validator: (value) {
               if (value == null || value.isEmpty
-                  // || !AppRegex.isPhoneNumberValid(value)
+                  // || !AppRegex.isPhoneNumberValid(value) 8 +965
                   ) {
                 return S.of(context).enter_valid_phone;
               }

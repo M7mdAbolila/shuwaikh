@@ -13,7 +13,7 @@ import flutter_secure_storage_macos
 import google_sign_in_ios
 import path_provider_foundation
 import shared_preferences_foundation
-import sqflite
+import sqflite_darwin
 import webview_flutter_wkwebview
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
