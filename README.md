@@ -32,6 +32,7 @@ The app provides a seamless shopping experience with a rich set of features for 
 - Apply vouchers/coupons.
 - Checkout process with shipping and billing address management.
 - Place orders and view order history.
+
 ![image](https://github.com/user-attachments/assets/12c1ab8a-98bf-4c12-b1d1-2c23cabdc2f6)
 
 ### Account Management
